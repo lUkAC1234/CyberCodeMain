@@ -1,0 +1,8 @@
+$sans: sans-serif;
+$grotext-sans: 'Space Grotesk',
+sans-serif;
+$nunito: 'Nunito', sans-serif;
+:root {
+    --grotext-sans: #{$grotext-sans};
+    --sans: #{$sans};
+}

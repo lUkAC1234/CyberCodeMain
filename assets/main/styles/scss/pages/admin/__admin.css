@@ -1,0 +1,135 @@
+#header {
+  background: #4D5053;
+  color: #fff;
+}
+
+.module caption {
+  background: #4D5053;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.module {
+  background: #fff;
+}
+
+#branding {
+  background: #292F36;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+@media screen and (max-width: 1024px) {
+  #branding {
+    padding: 10px 0 0;
+  }
+}
+
+#branding h1 a{
+  color: #fff !important;
+  padding: 10px;
+}
+
+.dashboard .module table th, #nav-sidebar .module th {
+  background: #F4F0EC;
+  border-radius: 8px;
+  color: #fff;
+  border-bottom: 10px solid #fff;
+  border-right: 10px solid #fff;
+}
+#content-related {
+  background: none;
+}
+
+#content-related .module {
+  background: #F4F0EC;
+  border-radius: 8px;
+}
+
+div.breadcrumbs {
+  margin-top: 5px;
+  background: #4D5053;
+}
+
+#nav-filter {
+  height: 50px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  width: 96%;
+  margin: 20px 2% 0;
+  color: #CDA274;
+}
+
+#nav-filter::placeholder {
+  color: #CDA274;
+}
+
+.field-id, .field-name, .field-color, .field-image, .field-title, .field-created_at, .field-updated_at, .field-question, .field-answer, .field-username, .field-size,
+.field-description, .field-short_description, .field-categories, .field-price, .field-real_price, .field-discount, .field-tags, .field-colors, .field-sizes,
+.field-rating, .field-count {
+  background: #F4F0EC;
+}
+
+.button, input[type=submit], input[type=button], .submit-row input {
+  background: #CDA274;
+  transition: 0.3s all;
+}
+
+.button, input[type=submit]:hover, input[type=button]:hover, .submit-row input:hover {
+  background: #292F36;
+}
+
+input[type=submit].default, .submit-row input.default {
+  background: #4D5053;
+}
+
+input[type=submit].default:hover, .submit-row input.default:hover {
+  background: #292F36;
+}
+
+.content {
+  background: #fff;
+}
+
+tr:nth-child(odd), tr:nth-child(even) {
+  background: #fff;
+}
+
+td, th {
+  border-bottom: 1px solid #F4F0EC;
+}
+
+#nav-sidebar {
+  background-color: #fff;
+}
+
+#changelist .paginator, #changelist .actions {
+  margin: 5px 0;
+  border: 1px solid #F4F0EC !important;
+  color: #4D5053;
+  background: #fff !important;
+}
+
+label.required {
+  color: #292F36 !important;
+}
+
+.form-row {
+  overflow: hidden;
+  padding: 10px;
+  font-size: 0.8125rem;
+  border-bottom: 1px solid #CDA274 !important;
+}
+
+input[type=text], input[type=password], input[type=email], input[type=url], input[type=number], input[type=tel], textarea, select, .vTextField {
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 5px 6px;
+  margin-top: 0;
+  color: black;
+  background-color: #fff;
+}
+.aligned label, .aligned label + p, .aligned label + div.help, .aligned label + div.readonly {
+  color: #4D5053;
+}

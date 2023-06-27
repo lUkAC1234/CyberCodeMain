@@ -1,0 +1,20 @@
+$text-purple: #8828FF;
+$text-aqua: #AAEBFF;
+$text-gray: #666666;
+$text-filter-gray: #8F8F8F;
+$text-dark-blue: #20184E;
+$text-white: #FFFFFF;
+$text-black: #000;
+$text-light-purple: #C08DFF;
+$text-light-gray: #ADABB7;
+:root {
+    --text-purple: #{$text-purple};
+    --text-aqua: #{$text-aqua};
+    --text-gray: #{$text-gray};
+    --text-filter-gray: #{$text-filter-gray};
+    --text-dark-blue: #{$text-dark-blue};
+    --text-white: #{$text-white};
+    --text-black: #{$text-black};
+    --text-light-purple: #{$text-light-purple};
+    --text-light-gray: #{$text-light-gray};
+}

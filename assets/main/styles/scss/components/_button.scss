@@ -1,0 +1,55 @@
+// PURPLE BUTTON WITH BACKGROUND 1rem 2rem
+.onerem-tworem-purple-button {
+    padding: 1rem 2rem;
+    color: var(--text-white);
+    text-align: center;
+    font-size: 1.125rem;
+    font-family: var(--grotext-sans);
+    font-weight: 500;
+    background: var(--background-purple);
+    border-radius: 40px;
+    border: none;
+    transition: all 0.5s;
+
+    &:hover {
+        background: none;
+        border: 1.3px solid var(--background-purple);
+        color: var(--text-purple);
+    }
+}
+
+// PURPLE BUTTON WITHOUT BACKGROUND 1rem 2rem
+.onerem-tworem-purple-button-without-background {
+    padding: 1rem 2rem;
+    color: var(--text-white);
+    text-align: center;
+    font-size: 1.125rem;
+    font-family: var(--grotext-sans);
+    font-weight: 500;
+    border-radius: 40px;
+    border: none;
+    background: none;
+    transition: all 0.5s;
+
+    &:hover {
+        color: var(--text-purple);
+    }
+}
+
+// GRAY BUTTON WITH PURPLE TEXT
+.gray-button-purple-1rem-2rem {
+    color: var(--text-purple);
+    text-align: center;
+    font-size: 1.125rem;
+    font-family: var(--grotext-sans);
+    font-weight: 500;
+    padding: 1rem 2rem;
+    border-radius: 40px;
+    border: none;
+    background: var(--gray-button);
+    transition: 0.5s;
+    &:hover {
+        background: var(--background-purple);
+        color: var(--gray-button);
+    }
+}

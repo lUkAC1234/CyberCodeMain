@@ -1,0 +1,24 @@
+$background-purple: #8828FF;
+$background-gray: #C1BCFF;
+$background-aqua: #AAEBFF;
+$background-filter-gray: #8F8F8F;
+$background-dark-blue: #20184E;
+$background-white: #FFFFFF;
+$background-black: #FFFFFF;
+$footer-background: #260055;
+$scroolbar-dark: #242942;
+$gray-button: #F8F2FF;
+$box-shadow-dark-blue: #140B48;
+:root {
+    --background-purple: #{$background-purple};
+    --background-gray: #{$background-gray};
+    --background-aqua: #{$background-aqua};
+    --background-filter-gray: #{$background-filter-gray};
+    --background-dark-blue: #{$background-dark-blue};
+    --background-white: #{$background-white};
+    --background-black: #{$background-black};
+    --footer-background: #{$footer-background};
+    --scroolbar-dark: #{$scroolbar-dark};
+    --gray-button: #{$gray-button};
+    --box-shadow-dark-blue: #{$box-shadow-dark-blue};
+}

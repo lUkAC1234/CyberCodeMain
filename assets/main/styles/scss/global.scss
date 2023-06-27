@@ -1,0 +1,248 @@
+@import "./pages/_importpages";
+@import "./layout/_import";
+@import "./z-index-properties/_import_z_index";
+@import "./colors/_importcolorbackgound";
+@import "./fonts/_importfonts";
+@import "./helpers/_helpers";
+@import "./components/_components";
+@import "./positions/_positions";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    user-select: none;
+    outline: none;
+}
+
+html {
+    padding: 0;
+    margin: 0;
+
+    body {
+        scroll-behavior: smooth;
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--text-white);
+    }
+}
+
+// HEADER-CONTENT-FOOTER POSITIONS 
+
+body {
+    margin: 0;
+    display: grid;
+    grid-template-areas: 
+        "header"
+        "content"
+        "footer";
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+.header {
+    grid-area: header;
+}
+
+.main {
+    grid-area: content;
+}
+
+.footer {
+    grid-area: footer;
+}
+
+// HEADER-CONTENT-FOOTER POSITIONS END
+
+// ROOT 
+
+:root {
+    --hue: 223;
+    --bg: hsl(var(--hue), 90%, 90%);
+    --fg: hsl(var(--hue), 90%, 10%);
+    --trans-dur: 0.3s;
+    font-size: calc(16px + (20 - 16) * (100vw - 320px) / (1280 - 320));
+}
+
+// ROOT END
+
+// ScroolBar
+
+::-webkit-scrollbar {
+    width: 1em;
+    overflow-x: none;
+    background: var(--scroolbar-dark);
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 0.3em;
+    background: var(--scroolbar-dark);
+    margin-block: 0.25em;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--text-purple);
+    background: -webkit-linear-gradient(to right, var(--text-light-purple), var(--text-purple));
+    background: linear-gradient(to right, var(--text-light-purple), var(--text-purple));
+    border-radius: 0.3em;
+}
+
+// ScroolBar END
+
+// Preloader
+#preloder {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    background: var(--text-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.smiley {
+    width: 8em;
+    height: 8em;
+}
+
+.smiley__eye1,
+.smiley__eye2,
+.smiley__mouth1,
+.smiley__mouth2 {
+    animation: eye1 3s ease-in-out infinite;
+}
+
+.smiley__eye1,
+.smiley__eye2 {
+    transform-origin: 64px 64px;
+}
+
+.smiley__eye2 {
+    animation-name: eye2;
+}
+
+.smiley__mouth1 {
+    animation-name: mouth1;
+}
+
+.smiley__mouth2 {
+    animation-name: mouth2;
+    visibility: hidden;
+}
+
+
+/* Dark theme */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: hsl(var(--hue), 90%, 10%);
+        --fg: hsl(var(--hue), 90%, 90%);
+    }
+}
+
+
+/* Animations */
+
+@keyframes eye1 {
+    from {
+        transform: rotate(-260deg) translate(0, -56px);
+    }
+
+    50%,
+    60% {
+        animation-timing-function: cubic-bezier(0.17, 0, 0.58, 1);
+        transform: rotate(-40deg) translate(0, -56px) scale(1);
+    }
+
+    to {
+        transform: rotate(225deg) translate(0, -56px) scale(0.35);
+    }
+}
+
+@keyframes eye2 {
+    from {
+        transform: rotate(-260deg) translate(0, -56px);
+    }
+
+    50% {
+        transform: rotate(40deg) translate(0, -56px) rotate(-40deg) scale(1);
+    }
+
+    52.5% {
+        transform: rotate(40deg) translate(0, -56px) rotate(-40deg) scale(1, 0);
+    }
+
+    55%,
+    70% {
+        animation-timing-function: cubic-bezier(0, 0, 0.28, 1);
+        transform: rotate(40deg) translate(0, -56px) rotate(-40deg) scale(1);
+    }
+
+    to {
+        transform: rotate(150deg) translate(0, -56px) scale(0.4);
+    }
+}
+
+@keyframes eyeBlink {
+
+    from,
+    25%,
+    75%,
+    to {
+        transform: scaleY(1);
+    }
+
+    50% {
+        transform: scaleY(0);
+    }
+}
+
+@keyframes mouth1 {
+    from {
+        animation-timing-function: ease-in;
+        stroke-dasharray: 0 351.86;
+        stroke-dashoffset: 0;
+    }
+
+    25% {
+        animation-timing-function: ease-out;
+        stroke-dasharray: 175.93 351.86;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        animation-timing-function: steps(1, start);
+        stroke-dasharray: 175.93 351.86;
+        stroke-dashoffset: -175.93;
+        visibility: visible;
+    }
+
+    75%,
+    to {
+        visibility: hidden;
+    }
+}
+
+@keyframes mouth2 {
+    from {
+        animation-timing-function: steps(1, end);
+        visibility: hidden;
+    }
+
+    50% {
+        animation-timing-function: ease-in-out;
+        visibility: visible;
+        stroke-dashoffset: 0;
+    }
+
+    to {
+        stroke-dashoffset: -351.86;
+    }
+}

@@ -1,0 +1,454 @@
+// GRADIENT CONTENT START
+
+.gradient-container {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+    background-image: url(../../images/layout/wave.svg);
+    background: linear-gradient(168deg, rgba(170, 235, 255, 1) 0%, rgba(255, 217, 221, 1) 0%, rgba(222, 181, 255, 1) 16%, rgba(193, 188, 255, 1) 33%, rgba(193, 115, 255, 1) 96%);
+    background-position: center bottom;
+    padding: 10.5rem 0;
+
+    &::after {
+        content: "";
+        position: absolute;
+        background: url(../../images/layout/wave.svg);
+        width: 100%;
+        height: 200px;
+        background-position: bottom center;
+        bottom: -10px;
+        background-size: cover;
+    }
+}
+
+.gradient-text-container {
+    padding-left: 5rem;
+
+    .gradient-title {
+        color: var(--text-white);
+        font-size: 3.5rem;
+        font-family: var(--grotext-sans);
+        font-weight: 700;
+        line-height: 120%;
+        text-transform: capitalize;
+
+        &::first-line {
+            color: var(--text-purple);
+        }
+    }
+
+    .gradient-text {
+        color: var(--text-white);
+        font-size: 1.05rem;
+        font-family: var(--grotext-sans);
+        line-height: 2rem;
+        margin-left: 0.3rem;
+    }
+
+}
+
+.gradient-image-container {
+    width: 40%;
+    margin-right: 1rem;
+
+    img {
+        width: 100%;
+        max-width: 37.5rem;
+        object-fit: cover;
+    }
+}
+
+.gradient-buttons-container {
+    display: flex;
+    gap: 0.625rem;
+
+    a {
+        .gradient-button {
+            @extend .onerem-tworem-purple-button;
+        }
+
+        .gradient-button-without-background {
+            @extend .onerem-tworem-purple-button-without-background;
+        }
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .gradient-text-container {
+        .gradient-title {
+            font-size: 2.5rem;
+        }
+    }
+
+    .gradient-image-container {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .gradient-text-container {
+        .gradient-title {
+            font-size: 2rem;
+        }
+
+        .gradient-text {
+            font-size: 0.9rem;
+            line-height: 1.5rem;
+        }
+    }
+
+    .gradient-image-container {
+        width: 60%;
+    }
+
+    .gradient-buttons-container {
+        a {
+
+            .gradient-button,
+            .gradient-button-without-background {
+                padding: 0.5rem 1rem !important;
+                font-size: 1rem !important;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .gradient-container {
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .gradient-text-container {
+        .gradient-title {
+            font-size: 3rem;
+        }
+
+        .gradient-text {
+            font-size: 1rem;
+            line-height: 2rem;
+        }
+    }
+
+    .gradient-image-container {
+        width: 80%;
+        margin: 3rem 0;
+    }
+
+    .gradient-buttons-container {
+        a {
+
+            .gradient-button,
+            .gradient-button-without-background {
+                padding: 1rem 2rem !important;
+                font-size: 1.125rem !important;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .gradient-text-container {
+        padding-left: 1rem;
+
+        .gradient-title {
+            font-size: 2.1rem;
+        }
+
+        .gradient-text {
+            font-size: 0.9rem;
+            line-height: 1.5rem;
+        }
+    }
+
+    .gradient-buttons-container {
+        a {
+
+            .gradient-button,
+            .gradient-button-without-background {
+                padding: 0.5rem 1rem !important;
+                font-size: 1rem !important;
+            }
+        }
+    }
+}
+
+// GRADIENT CONTENT END
+
+// TASKS START
+
+.tasks {
+    @extend .flex-row-center-around;
+    margin: 8rem 0;
+    gap: 1rem;
+}
+
+.task-image-column {
+    img {
+        width: 100%;
+        max-width: 37.5rem;
+        object-fit: cover;
+    }
+}
+
+.task-content-column {
+    .task-title {
+        color: var(--text-dark-blu);
+        font-size: 3rem;
+        font-family: var(--grotext-sans);
+        font-weight: 700;
+        line-height: 120%;
+        text-transform: capitalize;
+    }
+
+    .task-text {
+        color: var(--text-gray);
+        font-size: 1.125rem;
+        font-family: var(--grotext-sans);
+        line-height: 160%;
+        margin-left: 0.3rem;
+    }
+
+    .task-button-a {
+        margin-left: 0.3rem;
+
+        .task-button {
+            @extend .gray-button-purple-1rem-2rem;
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .task-content-column {
+        margin-right: 0.5rem;
+
+        .task-title {
+            font-size: 2rem;
+        }
+
+        .task-text {
+            font-size: 1rem;
+        }
+
+        .task-button-a {
+            .task-button {
+                padding: 0.5rem 1rem !important;
+                font-size: 1rem !important;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .tasks {
+        flex-flow: column-reverse;
+    }
+
+    .task-content-column {
+        margin: 0 0.5rem;
+    }
+}
+
+// TASKS END
+
+// CHAT START
+
+.chat {
+    @extend .flex-row-center-around;
+    margin-top: 12rem;
+}
+
+.static-info {
+    .static-info-title {
+        color: var(--text-dark-blue);
+        font-size: 3rem;
+        font-family: var(--grotext-sans);
+        font-weight: 700;
+        line-height: 120%;
+        text-transform: capitalize;
+    }
+
+    .static-info-text {
+        color: var(--text-gray);
+        font-size: 1.125rem;
+        font-family: var(--grotext-sans);
+        line-height: 160%;
+        margin-top: 1rem;
+    }
+}
+
+.chats {
+    @extend .flex-column-justify-between;
+    gap: 2.31rem;
+}
+
+.message-container {
+    position: relative;
+    border-radius: 16px;
+    background: var(--background-white);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.chat-column:nth-child(odd) {
+    .message-container {
+        &::after {
+            content: "";
+            position: absolute;
+            left: -22px;
+            bottom: 0.5px;
+            border-top: 18px solid transparent;
+            border-right: 35px solid var(--background-white);
+            border-bottom: 18px solid transparent;
+            filter: drop-shadow(0 0.5px 0px rgba(0, 0, 0, 0.2));
+        }
+    }
+}
+
+.chat-column:nth-child(even) {
+    .profile {
+        order: 2;
+    }
+
+    .message-container {
+        &::after {
+            content: "";
+            position: absolute;
+            right: -22px;
+            bottom: 0.5px;
+            border-top: 18px solid transparent;
+            border-left: 35px solid var(--background-white);
+            border-bottom: 18px solid transparent;
+            filter: drop-shadow(0px 0.5px 0 rgba(0, 0, 0, 0.2));
+        }
+    }
+}
+
+.chat-column {
+    @extend .flex-row-justify-align-end;
+    column-gap: 2.25rem;
+
+    .profile {
+        img {
+            width: 2.5rem;
+            height: 2.5rem;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 1px solid var(--background-purple);
+        }
+    }
+
+    .message-container {
+        .chat-message-text {
+            color: var(--text-light-gray);
+            font-size: 0.9rem;
+            font-family: var(--nunito);
+            font-weight: 400;
+            line-height: 140%;
+            padding: 1rem 1rem 0.5rem;
+            max-width: 20.5rem;
+        }
+
+        .message-creating-details {
+            @extend .flex-row-center-between;
+            padding: 0 1.5rem;
+
+            .message-user {
+                color: var(--text-dark-blue);
+                font-size: 0.9rem;
+                font-family: var(--nunito);
+                font-family: 700;
+                line-height: 140%;
+            }
+
+            .message-date {
+                color: var(--text-light-gray);
+                font-size: 0.75rem;
+                font-family: var(--nunito);
+                line-height: 140%;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1140px) {
+    .chats {
+        gap: 1rem;
+    }
+
+    .static-info {
+        margin-left: 0.5rem;
+
+        .static-info-title {
+            font-size: 2rem;
+        }
+
+        .static-info-text {
+            font-size: 1rem;
+        }
+    }
+
+    .chat-column:nth-child(odd) {
+        .message-container {
+            &::after {
+                left: -13px;
+                border-top: 15px solid transparent;
+                border-right: 25px solid var(--background-white);
+                border-bottom: 15px solid transparent;
+                filter: none;
+            }
+        }
+    }
+
+    .chat-column:nth-child(even) {
+        .message-container {
+            &::after {
+                right: -13px;
+                border-top: 15px solid transparent;
+                border-left: 25px solid var(--background-white);
+                border-bottom: 15px solid transparent;
+                filter: none;
+            }
+        }
+    }
+
+    .chat-column {
+        transform: scale(0.8);
+
+        .message-container {
+            .chat-message-text {
+                font-size: 0.7rem;
+                padding: 0.8rem 0.8rem 0.5rem;
+            }
+
+            .message-creating-details {
+                .message-user {
+                    font-size: 0.7rem;
+                }
+
+                .message-date {
+                    font-size: 0.65rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .chat {
+        flex-flow: column;
+        gap: 2rem;
+    }
+
+    .chats {
+        gap: 1rem;
+    }
+
+    .chat-column {
+        transform: scale(1);
+        margin: 0 0.5rem;
+    }
+}
+
+// CHAT END

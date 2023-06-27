@@ -1,0 +1,113 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block content %}
+<main class="main">
+    <!-- START GRADIENT CONTENT -->
+    <section class="gradient-container">
+        <section class="gradient-text-container">
+            <h1 class="gradient-title">
+                One place to organise, <br>
+                communicate and <br>
+                store work
+            </h1>
+            <p class="gradient-text">
+                For businesses who need clarity, productive <br>
+                communication, prioritisation and accountability.
+            </p>
+            <div class="gradient-buttons-container">
+                <a href="">
+                    <button class="gradient-button">Get started</button>
+                </a>
+                <a href="">
+                    <button class="gradient-button-without-background">Try free trial</button>
+                </a>
+            </div>
+        </section>
+        <section class="gradient-image-container">
+            <img src="{% static 'main/images/main-page/people.svg' %}" alt="">
+        </section>
+    </section>
+    <!-- END GRADIENT CONTENT -->
+
+    <!-- START TASKS CONTENT -->
+    <section class="tasks">
+        <div class="task-image-column">
+            <img src="{% static 'main/images/main-page/tasks.gif' %}" alt="">
+        </div>
+        <div class="task-content-column">
+            <h1 class="task-title">Connect With Apps <br> You Use for Work</h1>
+            <p class="task-text">
+                Code Craft integrates with the products you use, bringing all <br>
+                your tasks, files and communications in one place so <br>
+                you always know what to do next.
+            </p>
+            <a href="" class="task-button-a">
+                <button class="task-button">Browse integrations</button>
+            </a>
+        </div>
+    </section>
+    <!-- END TASKS CONTENT -->
+
+    <!-- START CHAT -->
+    <section class="chat">
+        <div class="static-info">
+            <h1 class="static-info-title">
+                Easy and familiar <br>
+                Real-time-chat <br>
+                Features
+            </h1>
+            <p class="static-info-text">
+                Add unlimited people. Easy and familiar to use. Productive <br>
+                and focused chat related to a task and/or a document. <br>
+                Searchable content by keyword.
+            </p>
+        </div>
+        <div class="chats">
+            <div class="chat-column">
+                <div class="profile">
+                    <img src="{% static 'main/images/main-page/avatar.svg' %}" alt="">
+                </div>
+                <div class="message-container">
+                    <p class="chat-message-text">
+                        hi, i have finished all the design, kindly check on figma:)
+                    </p>
+                    <div class="message-creating-details">
+                        <h1 class="message-user">Sasa Anastasya</h1>
+                        <span class="message-date">12 minutes ago</span>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-column">
+                <div class="profile">
+                    <img src="{% static 'main/images/main-page/people.svg' %}" alt="">
+                </div>
+                <div class="message-container">
+                    <p class="chat-message-text">
+                        What you have is good, but maybe we can improve one of the designs above
+                    </p>
+                    <div class="message-creating-details">
+                        <h1 class="message-user">Justin Nur</h1>
+                        <span class="message-date">9 minutes ago</span>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-column">
+                <div class="profile">
+                    <img src="{% static 'main/images/main-page/tasks.svg' %}" alt="">
+                </div>
+                <div class="message-container">
+                    <p class="chat-message-text">
+                        Great job Azkia! maybe we can add a some gradient for section #2
+                    </p>
+                    <div class="message-creating-details">
+                        <h1 class="message-user">Ahsan Mulia</h1>
+                        <span class="message-date">1 minutes ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END CHAT -->
+</main>
+{% endblock %}
