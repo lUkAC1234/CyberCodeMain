@@ -9,6 +9,7 @@ $footer-background: #260055;
 $scroolbar-dark: #242942;
 $gray-button: #F8F2FF;
 $box-shadow-dark-blue: #140B48;
+$package-background: #F9F9FB;
 :root {
     --background-purple: #{$background-purple};
     --background-gray: #{$background-gray};
@@ -21,4 +22,5 @@ $box-shadow-dark-blue: #140B48;
     --scroolbar-dark: #{$scroolbar-dark};
     --gray-button: #{$gray-button};
     --box-shadow-dark-blue: #{$box-shadow-dark-blue};
+    --package-background: #{$package-background};
 }

@@ -194,19 +194,12 @@
 
 .task-content-column {
     .task-title {
-        color: var(--text-dark-blu);
-        font-size: 3rem;
-        font-family: var(--grotext-sans);
-        font-weight: 700;
-        line-height: 120%;
-        text-transform: capitalize;
+        @extend .dark-blue-text-center-grotext-family-3rem;
+        @extend .text-align-start;
     }
 
     .task-text {
-        color: var(--text-gray);
-        font-size: 1.125rem;
-        font-family: var(--grotext-sans);
-        line-height: 160%;
+        @extend .chat-text-gray-1-125;
         margin-left: 0.3rem;
     }
 
@@ -224,11 +217,11 @@
         margin-right: 0.5rem;
 
         .task-title {
-            font-size: 2rem;
+            font-size: 2rem !important;
         }
 
         .task-text {
-            font-size: 1rem;
+            font-size: 1rem !important;
         }
 
         .task-button-a {
@@ -261,19 +254,12 @@
 
 .static-info {
     .static-info-title {
-        color: var(--text-dark-blue);
-        font-size: 3rem;
-        font-family: var(--grotext-sans);
-        font-weight: 700;
-        line-height: 120%;
-        text-transform: capitalize;
+        @extend .dark-blue-text-center-grotext-family-3rem;
+        @extend .text-align-start;
     }
 
     .static-info-text {
-        color: var(--text-gray);
-        font-size: 1.125rem;
-        font-family: var(--grotext-sans);
-        line-height: 160%;
+        @extend .info-text-gray-1-125rem;
         margin-top: 1rem;
     }
 }
@@ -295,12 +281,12 @@
         &::after {
             content: "";
             position: absolute;
-            left: -22px;
-            bottom: 0.5px;
+            left: -24px;
+            bottom: 1px;
             border-top: 18px solid transparent;
             border-right: 35px solid var(--background-white);
             border-bottom: 18px solid transparent;
-            filter: drop-shadow(0 0.5px 0px rgba(0, 0, 0, 0.2));
+            filter: drop-shadow(0 0.5px 0px rgba(0, 0, 0, 0.1));
         }
     }
 }
@@ -314,12 +300,12 @@
         &::after {
             content: "";
             position: absolute;
-            right: -22px;
-            bottom: 0.5px;
+            right: -24px;
+            bottom: 1px;
             border-top: 18px solid transparent;
             border-left: 35px solid var(--background-white);
             border-bottom: 18px solid transparent;
-            filter: drop-shadow(0px 0.5px 0 rgba(0, 0, 0, 0.2));
+            filter: drop-shadow(0 0.5px 0px rgba(0, 0, 0, 0.1));
         }
     }
 }
@@ -340,11 +326,7 @@
 
     .message-container {
         .chat-message-text {
-            color: var(--text-light-gray);
-            font-size: 0.9rem;
-            font-family: var(--nunito);
-            font-weight: 400;
-            line-height: 140%;
+            @extend .chat-text-gray;
             padding: 1rem 1rem 0.5rem;
             max-width: 20.5rem;
         }
@@ -354,11 +336,8 @@
             padding: 0 1.5rem;
 
             .message-user {
-                color: var(--text-dark-blue);
-                font-size: 0.9rem;
-                font-family: var(--nunito);
-                font-family: 700;
-                line-height: 140%;
+                @extend .chat-creator-text;
+                font-size: 0.9rem !important;
             }
 
             .message-date {
@@ -381,11 +360,11 @@
         margin-left: 0.5rem;
 
         .static-info-title {
-            font-size: 2rem;
+            font-size: 2rem !important;
         }
 
         .static-info-text {
-            font-size: 1rem;
+            font-size: 1rem !important;
         }
     }
 
@@ -418,17 +397,17 @@
 
         .message-container {
             .chat-message-text {
-                font-size: 0.7rem;
+                font-size: 0.7rem !important;
                 padding: 0.8rem 0.8rem 0.5rem;
             }
 
             .message-creating-details {
                 .message-user {
-                    font-size: 0.7rem;
+                    font-size: 0.7rem !important;
                 }
 
                 .message-date {
-                    font-size: 0.65rem;
+                    font-size: 0.65rem !important;
                 }
             }
         }
@@ -452,3 +431,25 @@
 }
 
 // CHAT END
+
+// PACKAGE START
+
+.package {
+    margin-top: 12.5rem;
+    background: var(--package-background);
+    padding-top: 9.6rem;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+
+    .package-title {
+        @extend .dark-blue-text-center-grotext-family-3rem;
+    }
+
+    .package-info {
+        @extend .chat-text-gray-1-125;
+        @extend .text-align-center;
+        margin-top: 1.125rem;
+    }
+}
+
+// PACKAGE END

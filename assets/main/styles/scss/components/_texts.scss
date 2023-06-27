@@ -1,0 +1,80 @@
+.dark-blue-text-center-grotext-family-4rem {
+    color: var(--text-dark-blue);
+    text-align: center;
+    font-size: 4rem;
+    font-family: var(--grotext-sans);
+    font-weight: 700;
+    line-height: 120%;
+    text-transform: capitalize;
+}
+
+.dark-blue-text-center-grotext-family-3rem {
+    @extend .dark-blue-text-center-grotext-family-4rem;
+    font-size: 3rem !important;
+}
+
+.dark-blue-text-center-grotext-family-2rem {
+    @extend .dark-blue-text-center-grotext-family-4rem;
+    font-size: 2rem !important;
+}
+
+.dark-blue-text-center-grotext-family-1-5rem {
+    @extend .dark-blue-text-center-grotext-family-4rem;
+    font-size: 1.5rem !important;
+}
+
+.dark-blue-text-center-grotext-family-1rem {
+    @extend .dark-blue-text-center-grotext-family-4rem;
+    font-size: 1rem !important;
+}
+
+.info-text-gray-1-125rem {
+    color: #666;
+    font-size: 1.125rem;
+    font-family: var(--grotext-sans);
+    line-height: 160%;
+}
+
+.info-text-gray-1rem {
+    @extend .info-text-gray-1-125rem;
+    font-size: 1rem !important;
+}
+
+.chat-text-gray {
+    color: var(--text-light-gray);
+    font-size: 1rem;
+    font-family: var(--nunito);
+    font-weight: 400;
+    line-height: 140%;
+}
+
+.chat-text-gray-1-125 {
+    @extend .chat-text-gray;
+    font-size: 1.125rem !important;
+    line-height: 160% !important;
+}
+
+.chat-creator-text {
+    color: var(--text-dark-blue);
+    font-size: 1.125rem;
+    font-family: var(--nunito);
+    font-weight: 700;
+    line-height: 140%;
+}
+
+.chat-date-text {
+    @extend .chat-text-gray;
+    font-size: 0.75rem !important;
+}
+
+.text-align-start {
+    text-align: start;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.text-align-end {
+    text-align: end;
+}
