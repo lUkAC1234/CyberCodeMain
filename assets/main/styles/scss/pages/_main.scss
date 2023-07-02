@@ -435,11 +435,23 @@
 // PACKAGE START
 
 .package {
+    position: relative;
     margin-top: 12.5rem;
     background: var(--package-background);
     padding-top: 9.6rem;
-    border-top-left-radius: 50%;
-    border-top-right-radius: 50%;
+    border-top-left-radius: 7rem;
+    border-top-right-radius: 7rem;
+
+    &::after {
+        content: "";
+        position: absolute;
+        background: url(../../images/layout/wave.svg);
+        width: 100%;
+        height: 200px;
+        background-position: bottom center;
+        bottom: -10px;
+        background-size: cover;
+    }
 
     .package-title {
         @extend .dark-blue-text-center-grotext-family-3rem;
@@ -451,5 +463,134 @@
         margin-top: 1.125rem;
     }
 }
+
+.package-choices-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 5rem;
+    padding-bottom: 10rem;
+}
+
+.choices-column {
+    width: 24rem;
+
+    .price-column {
+        position: relative;
+        background: linear-gradient(168deg, rgba(136, 40, 255, 1) 0%, rgba(136, 40, 255, 1) 36%, rgba(171, 124, 208, 1) 80%);
+        padding: 2rem 2.5rem 3rem;
+        border-radius: 1.25rem 1.25rem 0rem 0rem;
+
+        .choice-type {
+            @extend .white-1rem-grotext;
+        }
+
+        .price {
+            @extend .dark-blue-text-center-grotext-family-2rem;
+            color: var(--text-white) !important;
+        }
+
+        .date {
+            @extend .info-text-gray-1rem;
+            color: var(--text-white) !important;
+        }
+
+        .recommended {
+            position: absolute;
+            top: 0;
+            right: 1.5rem;
+            background: var(--recommended);
+            padding: 1rem 1.4rem 0.3rem;
+            border-radius: 0 0 1rem 1rem;
+
+            h1 {
+                @extend .dark-blue-text-center-grotext-family-1rem;
+            }
+        }
+    }
+
+    .abilities {
+        background: var(--background-white);
+        border-radius: 0rem 0rem 1.25rem 1.25rem;
+        padding: 2.5rem 5rem 2.5rem 2.5rem;
+
+        .abilities-ul {
+            @extend .flex-column-justify-align-start;
+            gap: 0.6rem;
+
+            .abilities-li {
+                & {
+                    position: relative;
+                    @extend .flex-row-align-center;
+                    @extend .info-text-gray-1-125rem;
+                }
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    background: url(../../images/main-page/arrow.svg);
+                    width: 20px;
+                    height: 20px;
+                    left: -1.25rem;
+                }
+            }
+        }
+
+        .abilities-btn {
+            @extend .gray-button-purple-1rem-2rem;
+            transform: scale(0.9);
+            margin-top: 1rem;
+        }
+    }
+}
+
+.choices-column:nth-child(even) {
+    background: linear-gradient(168deg, rgba(136, 40, 255, 1) 0%, rgba(136, 40, 255, 1) 36%, rgba(171, 124, 208, 1) 80%);
+    border-radius: 1.25rem;
+
+    .price-column,
+    .abilities {
+        background: none;
+
+        .abilities-ul {
+            .abilities-li {
+                & {
+                    @extend .flex-row-align-center;
+                    @extend .info-text-gray-1-125rem;
+                    color: var(--text-white) !important;
+                }
+
+                &::before {
+                    background: url(../../images/main-page/arrow-white.svg);
+                }
+            }
+        }
+
+        .abilities-btn {
+            @extend .gray-button-purple-1rem-2rem;
+            transform: scale(0.9);
+            margin-top: 1rem;
+        }
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .package {
+        border-top-left-radius: 5rem;
+        border-top-right-radius: 5rem;
+
+        .package-title {
+            font-size: 2rem !important;
+        }
+
+        .package-info {
+            font-size: 1rem !important;
+            width: 60%;
+            margin-inline: 20%;
+        }
+    }
+}
+
 
 // PACKAGE END

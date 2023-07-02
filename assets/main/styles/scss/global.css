@@ -292,16 +292,119 @@
   }
 }
 .package {
+  position: relative;
   margin-top: 12.5rem;
   background: var(--package-background);
   padding-top: 9.6rem;
-  border-top-left-radius: 50%;
-  border-top-right-radius: 50%;
+  border-top-left-radius: 7rem;
+  border-top-right-radius: 7rem;
+}
+.package::after {
+  content: "";
+  position: absolute;
+  background: url(../../images/layout/wave.svg);
+  width: 100%;
+  height: 200px;
+  background-position: bottom center;
+  bottom: -10px;
+  background-size: cover;
 }
 .package .package-info {
   margin-top: 1.125rem;
 }
 
+.package-choices-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 5rem;
+  padding-bottom: 10rem;
+}
+
+.choices-column {
+  width: 24rem;
+}
+.choices-column .price-column {
+  position: relative;
+  background: linear-gradient(168deg, rgb(136, 40, 255) 0%, rgb(136, 40, 255) 36%, rgb(171, 124, 208) 80%);
+  padding: 2rem 2.5rem 3rem;
+  border-radius: 1.25rem 1.25rem 0rem 0rem;
+}
+.choices-column .price-column .price {
+  color: var(--text-white) !important;
+}
+.choices-column .price-column .date {
+  color: var(--text-white) !important;
+}
+.choices-column .price-column .recommended {
+  position: absolute;
+  top: 0;
+  right: 1.5rem;
+  background: var(--recommended);
+  padding: 1rem 1.4rem 0.3rem;
+  border-radius: 0 0 1rem 1rem;
+}
+.choices-column .abilities {
+  background: var(--background-white);
+  border-radius: 0rem 0rem 1.25rem 1.25rem;
+  padding: 2.5rem 5rem 2.5rem 2.5rem;
+}
+.choices-column .abilities .abilities-ul {
+  gap: 0.6rem;
+}
+.choices-column .abilities .abilities-ul .abilities-li {
+  position: relative;
+}
+.choices-column .abilities .abilities-ul .abilities-li::before {
+  content: "";
+  position: absolute;
+  background: url(../../images/main-page/arrow.svg);
+  width: 20px;
+  height: 20px;
+  left: -1.25rem;
+}
+.choices-column .abilities .abilities-btn {
+  transform: scale(0.9);
+  margin-top: 1rem;
+}
+
+.choices-column:nth-child(even) {
+  background: linear-gradient(168deg, rgb(136, 40, 255) 0%, rgb(136, 40, 255) 36%, rgb(171, 124, 208) 80%);
+  border-radius: 1.25rem;
+}
+.choices-column:nth-child(even) .price-column,
+.choices-column:nth-child(even) .abilities {
+  background: none;
+}
+.choices-column:nth-child(even) .price-column .abilities-ul .abilities-li,
+.choices-column:nth-child(even) .abilities .abilities-ul .abilities-li {
+  color: var(--text-white) !important;
+}
+.choices-column:nth-child(even) .price-column .abilities-ul .abilities-li::before,
+.choices-column:nth-child(even) .abilities .abilities-ul .abilities-li::before {
+  background: url(../../images/main-page/arrow-white.svg);
+}
+.choices-column:nth-child(even) .price-column .abilities-btn,
+.choices-column:nth-child(even) .abilities .abilities-btn {
+  transform: scale(0.9);
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 660px) {
+  .package {
+    border-top-left-radius: 5rem;
+    border-top-right-radius: 5rem;
+  }
+  .package .package-title {
+    font-size: 2rem !important;
+  }
+  .package .package-info {
+    font-size: 1rem !important;
+    width: 60%;
+    margin-inline: 20%;
+  }
+}
 .header {
   width: 100%;
   position: fixed;
@@ -732,6 +835,7 @@
   --gray-button: #F8F2FF;
   --box-shadow-dark-blue: #140B48;
   --package-background: #F9F9FB;
+  --recommended: #FFDA58;
 }
 
 :root {
@@ -781,7 +885,8 @@
   color: var(--text-purple);
 }
 
-.gray-button-purple-1rem-2rem, .task-content-column .task-button-a .task-button {
+.gray-button-purple-1rem-2rem, .task-content-column .task-button-a .task-button, .choices-column .abilities .abilities-btn, .choices-column:nth-child(even) .price-column .abilities-btn,
+.choices-column:nth-child(even) .abilities .abilities-btn {
   color: var(--text-purple);
   text-align: center;
   font-size: 1.125rem;
@@ -793,12 +898,13 @@
   background: var(--gray-button);
   transition: 0.5s;
 }
-.gray-button-purple-1rem-2rem:hover, .task-content-column .task-button-a .task-button:hover {
+.gray-button-purple-1rem-2rem:hover, .task-content-column .task-button-a .task-button:hover, .choices-column .abilities .abilities-btn:hover, .choices-column:nth-child(even) .price-column .abilities-btn:hover,
+.choices-column:nth-child(even) .abilities .abilities-btn:hover {
   background: var(--background-purple);
   color: var(--gray-button);
 }
 
-.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .dark-blue-text-center-grotext-family-1-5rem, .dark-blue-text-center-grotext-family-2rem, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title {
+.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .dark-blue-text-center-grotext-family-1-5rem, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title {
   color: var(--text-dark-blue);
   text-align: center;
   font-size: 4rem;
@@ -809,30 +915,31 @@
 }
 
 .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title {
-  font-size: 3rem !important;
+  font-size: 3rem;
 }
 
-.dark-blue-text-center-grotext-family-2rem {
-  font-size: 2rem !important;
+.dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price {
+  font-size: 2rem;
 }
 
 .dark-blue-text-center-grotext-family-1-5rem {
-  font-size: 1.5rem !important;
+  font-size: 1.5rem;
 }
 
-.dark-blue-text-center-grotext-family-1rem {
-  font-size: 1rem !important;
+.dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1 {
+  font-size: 1rem;
 }
 
-.info-text-gray-1-125rem, .info-text-gray-1rem, .static-info .static-info-text {
+.info-text-gray-1-125rem, .info-text-gray-1rem, .choices-column .price-column .date, .static-info .static-info-text, .choices-column .abilities .abilities-ul .abilities-li, .choices-column:nth-child(even) .price-column .abilities-ul .abilities-li,
+.choices-column:nth-child(even) .abilities .abilities-ul .abilities-li {
   color: #666;
   font-size: 1.125rem;
   font-family: var(--grotext-sans);
   line-height: 160%;
 }
 
-.info-text-gray-1rem {
-  font-size: 1rem !important;
+.info-text-gray-1rem, .choices-column .price-column .date {
+  font-size: 1rem;
 }
 
 .chat-text-gray, .chat-date-text, .chat-text-gray-1-125, .task-content-column .task-text, .package .package-info, .chat-column .message-container .chat-message-text {
@@ -844,8 +951,8 @@
 }
 
 .chat-text-gray-1-125, .task-content-column .task-text, .package .package-info {
-  font-size: 1.125rem !important;
-  line-height: 160% !important;
+  font-size: 1.125rem;
+  line-height: 160%;
 }
 
 .chat-creator-text, .chat-column .message-container .message-creating-details .message-user {
@@ -857,7 +964,7 @@
 }
 
 .chat-date-text {
-  font-size: 0.75rem !important;
+  font-size: 0.75rem;
 }
 
 .text-align-start, .task-content-column .task-title, .static-info .static-info-title {
@@ -872,7 +979,16 @@
   text-align: end;
 }
 
-.flex-row-justify-align-start, .flex-column-justify-align-start {
+.white-1rem-grotext, .choices-column .price-column .choice-type {
+  color: #FFF;
+  font-size: 1rem;
+  font-family: Space Grotesk;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 160%;
+}
+
+.flex-row-justify-align-start, .flex-column-justify-align-start, .choices-column .abilities .abilities-ul {
   display: flex;
   justify-content: flex-start;
   align-items: start;
@@ -928,7 +1044,8 @@
   align-items: start;
 }
 
-.flex-row-align-center, .flex-column-align-center {
+.flex-row-align-center, .flex-column-align-center, .choices-column .abilities .abilities-ul .abilities-li, .choices-column:nth-child(even) .price-column .abilities-ul .abilities-li,
+.choices-column:nth-child(even) .abilities .abilities-ul .abilities-li {
   display: flex;
   align-items: center;
 }
@@ -938,7 +1055,7 @@
   align-items: end;
 }
 
-.flex-column-justify-align-start {
+.flex-column-justify-align-start, .choices-column .abilities .abilities-ul {
   flex-flow: column;
 }
 

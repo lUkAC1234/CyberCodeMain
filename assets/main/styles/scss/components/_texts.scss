@@ -10,22 +10,22 @@
 
 .dark-blue-text-center-grotext-family-3rem {
     @extend .dark-blue-text-center-grotext-family-4rem;
-    font-size: 3rem !important;
+    font-size: 3rem;
 }
 
 .dark-blue-text-center-grotext-family-2rem {
     @extend .dark-blue-text-center-grotext-family-4rem;
-    font-size: 2rem !important;
+    font-size: 2rem;
 }
 
 .dark-blue-text-center-grotext-family-1-5rem {
     @extend .dark-blue-text-center-grotext-family-4rem;
-    font-size: 1.5rem !important;
+    font-size: 1.5rem;
 }
 
 .dark-blue-text-center-grotext-family-1rem {
     @extend .dark-blue-text-center-grotext-family-4rem;
-    font-size: 1rem !important;
+    font-size: 1rem;
 }
 
 .info-text-gray-1-125rem {
@@ -37,7 +37,7 @@
 
 .info-text-gray-1rem {
     @extend .info-text-gray-1-125rem;
-    font-size: 1rem !important;
+    font-size: 1rem;
 }
 
 .chat-text-gray {
@@ -50,8 +50,8 @@
 
 .chat-text-gray-1-125 {
     @extend .chat-text-gray;
-    font-size: 1.125rem !important;
-    line-height: 160% !important;
+    font-size: 1.125rem;
+    line-height: 160%;
 }
 
 .chat-creator-text {
@@ -64,7 +64,7 @@
 
 .chat-date-text {
     @extend .chat-text-gray;
-    font-size: 0.75rem !important;
+    font-size: 0.75rem;
 }
 
 .text-align-start {
@@ -77,4 +77,13 @@
 
 .text-align-end {
     text-align: end;
+}
+
+.white-1rem-grotext {
+    color: #FFF;
+    font-size: 1rem;
+    font-family: Space Grotesk;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 160%;
 }
