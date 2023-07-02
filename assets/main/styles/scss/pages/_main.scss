@@ -590,6 +590,25 @@
             margin-inline: 20%;
         }
     }
+
+    .choices-column {
+        width: 22rem;
+    }
+
+    @media screen and (max-width: 400px) {
+        .choices-column {
+            width: 96%;
+            margin: 0 2%;
+
+            .abilities-ul {
+                .abilities-li {
+                    & {
+                        font-size: 0.9rem !important;
+                    }
+                }
+            }
+        }
+    }
 }
 
 
