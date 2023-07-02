@@ -85,7 +85,7 @@ target/
 __pycache__/
 local_settings.py
 
-.env
+myenv
 db.sqlite3
 
 media/
@@ -94,5 +94,5 @@ static/
 
 SECRET_KEY
 
-.env
+myenv
 db.sqlite3
