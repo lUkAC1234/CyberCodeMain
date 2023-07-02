@@ -439,8 +439,17 @@
     margin-top: 12.5rem;
     background: var(--package-background);
     padding-top: 9.6rem;
-    border-top-left-radius: 7rem;
-    border-top-right-radius: 7rem;
+
+    &::before {
+        content: "";
+        position: absolute;
+        background: url(../../images/layout/wave-top.svg);
+        width: 100%;
+        height: 200px;
+        background-position: top center;
+        top: 0px;
+        background-size: cover;
+    }
 
     &::after {
         content: "";
@@ -461,6 +470,14 @@
         @extend .chat-text-gray-1-125;
         @extend .text-align-center;
         margin-top: 1.125rem;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .package {
+        &::before {
+            height: 100px;
+        }
     }
 }
 
