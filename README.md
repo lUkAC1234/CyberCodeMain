@@ -1,3 +1,1 @@
-# WebOrderMain
-
-This is the Web Order main webpage
+THIS IS THE MAIN WEBSITE WHEN USERS WILL ORDER OUR PACKAGES 
