@@ -8,12 +8,11 @@
     font-weight: 500;
     background: var(--background-purple);
     border-radius: 40px;
-    border: none;
+    border: 1px solid var(--background-purple);
     transition: all 0.5s;
 
     &:hover {
         background: none;
-        border: 1.3px solid var(--background-purple);
         color: var(--text-purple);
     }
 }
@@ -51,5 +50,40 @@
     &:hover {
         background: var(--background-purple);
         color: var(--gray-button);
+    }
+}
+
+
+// BTN ON SCROOL TO TOP
+
+
+.btn-top-active {
+    display: flex !important;
+}
+
+.btn-top-container {
+    z-index: var(--z-index-10);
+    position: fixed;
+    display: none;
+    justify-content: end;
+    align-items: end;
+    bottom: 1rem;
+    padding: 1rem;
+    width: 100%;
+
+    a {
+        margin-right: 2rem;
+
+        i {
+            font-size: 2.5rem;
+            color: var(--text-purple);
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .btn-top-container {
+        right: -20px;
+        padding: 0;
     }
 }

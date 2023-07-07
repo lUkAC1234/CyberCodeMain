@@ -4,7 +4,7 @@
 {% block content %}
 <main class="main">
     <!-- START GRADIENT CONTENT -->
-    <section class="gradient-container">
+    <section class="gradient-container" id="gradient-container">
         <section class="gradient-text-container">
             <h1 class="gradient-title">
                 One place to organise, <br>
@@ -16,12 +16,16 @@
                 communication, prioritisation and accountability.
             </p>
             <div class="gradient-buttons-container">
-                <a href="">
-                    <button class="gradient-button">Get started</button>
-                </a>
-                <a href="">
-                    <button class="gradient-button-without-background">Try free trial</button>
-                </a>
+                <div class="gradient-btn-column">
+                    <a href="">
+                        <button class="gradient-button">Get started</button>
+                    </a>
+                </div>
+                <div class="gradient-btn-column" id="gradient-btn-column-second">
+                    <a href="">
+                        <button class="gradient-button-without-background">Try free trial</button>
+                    </a>
+                </div>
             </div>
         </section>
         <section class="gradient-image-container">
@@ -169,5 +173,17 @@
         </div>
     </section>
     <!-- END PACKAGE -->
+
+    <!-- START CAROUSEL SECTION -->
+
+
+
+    <!-- END CAROUSEL SECTION -->
 </main>
+{% endblock %}
+
+{% block js_block %}
+<script>
+
+</script>
 {% endblock %}

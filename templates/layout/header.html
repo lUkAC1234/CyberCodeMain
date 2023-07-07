@@ -1,5 +1,5 @@
 {% load static %}
-<header class="header">
+<header class="header" id="header">
     <nav class="navbar">
         <section class="logo-section">
             <a href="{% url 'main:index' %}" class="logo">
@@ -12,7 +12,7 @@
             <ul class="pages-section-container">
                 <li class="active"><a href="{% url 'main:index' %}">Home</a></li>
                 <li><a href="{% url 'main:about' %}">About</a></li>
-                <li><a href="">Contact</a></li>
+                <li><a href="{% url 'main:contact' %}">Contact</a></li>
                 <li><a href="">Pricing</a></li>
                 <li><a href="">Blog</a></li>
                 <li class="sign-li"><a href="">Login</a></li>

@@ -1,0 +1,55 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block content %}
+<main class="contact">
+    <!-- Start Image Part -->
+    <section class="contact-main-image-container">
+        <div class="contact-main-image-column">
+            <img src="{% static 'main/images/contactus/discord-left.svg' %}" alt="">
+        </div>
+        <div class="contact-main-text-column">
+            <h1>Get in 
+                <div class="touch-div">
+                    <h1 class="touch">touch</h1>
+                </div>
+            </h1>
+        </div>
+        <div class="contact-main-image-column">
+            <img src="{% static 'main/images/contactus/discord-right.svg' %}" alt="">
+        </div>
+    </section>
+    <!-- End Image Part -->
+    <section class="contact-us-hero-info">
+        <div class="contact-us-hero-column">
+            <div class="contact-us-hero-text-container">
+                <h1 class="contact-us-hero-column-title">Contact us</h1>
+                <p class="contact-us-hero-column-info">Questions? Comments? Want to schedule a demo? We’d love to chat!</p>
+                <div class="contact-us-hero-text-container-image-container">
+                    <img src="{% static 'main/images/contactus/contactus.svg' %}" alt="">
+                </div>
+            </div>
+            <div class="contact-us-hero-get-in-touch-main-container">
+                <div class="contact-us-hero-get-in-touch-container">
+                    <div class="contact-us-hero-logo-image-container">
+                        <i class="fa-solid fa-envelope" style="color: var(--background-purple);"></i>
+                    </div>
+                    <div class="contact-us-hero-info-container">
+                        <h1 class="contact-us-hero-info-title">Email us</h1>
+                        <a href="mailto:codecraftsupport@gmail.com" class="contact-us-hero-info-detail">CodeCraftSupport</a>
+                    </div>
+                </div>
+                <div class="contact-us-hero-get-in-touch-container">
+                    <div class="contact-us-hero-logo-image-container">
+                        <i class="fa-sharp fa-solid fa-phone" style="color: var(--background-purple);"></i>
+                    </div>
+                    <div class="contact-us-hero-info-container">
+                        <h1 class="contact-us-hero-info-title">Phone number</h1>
+                        <a href="tel:+998331701706" class="contact-us-hero-info-detail">+998 33 170 17 06</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

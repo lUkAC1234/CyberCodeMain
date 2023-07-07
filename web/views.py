@@ -6,3 +6,6 @@ class index(TemplateView):
 
 class about(TemplateView):
     template_name = "pages/about.html"
+
+class contact(TemplateView):
+    template_name = "pages/contact.html"

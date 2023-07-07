@@ -42,7 +42,7 @@
         font-size: 1.05rem;
         font-family: var(--grotext-sans);
         line-height: 2rem;
-        margin-left: 0.3rem;
+        margin: 0.5rem 0 0 0.3rem;
     }
 
 }
@@ -60,15 +60,16 @@
 
 .gradient-buttons-container {
     display: flex;
-    gap: 0.625rem;
-
-    a {
-        .gradient-button {
-            @extend .onerem-tworem-purple-button;
-        }
-
-        .gradient-button-without-background {
-            @extend .onerem-tworem-purple-button-without-background;
+    margin-top: 1rem;
+    .gradient-btn-column {
+        a {
+            .gradient-button {
+                @extend .onerem-tworem-purple-button;
+            }
+    
+            .gradient-button-without-background {
+                @extend .onerem-tworem-purple-button-without-background;
+            }
         }
     }
 }
@@ -102,12 +103,14 @@
     }
 
     .gradient-buttons-container {
-        a {
+        .gradient-btn-column {
+            a {
 
-            .gradient-button,
-            .gradient-button-without-background {
-                padding: 0.5rem 1rem !important;
-                font-size: 1rem !important;
+                .gradient-button,
+                .gradient-button-without-background {
+                    padding: 0.5rem 1rem !important;
+                    font-size: 1rem !important;
+                }
             }
         }
     }
@@ -137,12 +140,14 @@
     }
 
     .gradient-buttons-container {
-        a {
+        .gradient-btn-column {
+            a {
 
-            .gradient-button,
-            .gradient-button-without-background {
-                padding: 1rem 2rem !important;
-                font-size: 1.125rem !important;
+                .gradient-button,
+                .gradient-button-without-background {
+                    padding: 1rem 2rem !important;
+                    font-size: 1.125rem !important;
+                }
             }
         }
     }
@@ -163,12 +168,14 @@
     }
 
     .gradient-buttons-container {
-        a {
+        .gradient-btn-column {
+            a {
 
-            .gradient-button,
-            .gradient-button-without-background {
-                padding: 0.5rem 1rem !important;
-                font-size: 1rem !important;
+                .gradient-button,
+                .gradient-button-without-background {
+                    padding: 0.5rem 1rem !important;
+                    font-size: 1rem !important;
+                }
             }
         }
     }
@@ -208,6 +215,7 @@
 
         .task-button {
             @extend .gray-button-purple-1rem-2rem;
+            margin-top: 2rem;
         }
     }
 }
@@ -226,7 +234,7 @@
 
         .task-button-a {
             .task-button {
-                padding: 0.5rem 1rem !important;
+                padding: 0.7rem 1.2rem !important;
                 font-size: 1rem !important;
             }
         }
@@ -428,6 +436,12 @@
         transform: scale(1);
         margin: 0 0.5rem;
     }
+
+    .static-info {    
+        .static-info-text {
+            font-size: 0.8rem !important;
+        }
+    }
 }
 
 // CHAT END
@@ -518,7 +532,7 @@
             top: 0;
             right: 1.5rem;
             background: var(--recommended);
-            padding: 1rem 1.4rem 0.3rem;
+            padding: 0.7rem 1.4rem;
             border-radius: 0 0 1rem 1rem;
 
             h1 {
@@ -631,3 +645,8 @@
 
 
 // PACKAGE END
+
+
+// CAROUSEL START
+
+// CAROUSEL END

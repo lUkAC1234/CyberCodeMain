@@ -1,4 +1,5 @@
 $background-purple: #8828FF;
+$background-light-purple: #C08DFF;
 $background-gray: #C1BCFF;
 $background-aqua: #AAEBFF;
 $background-filter-gray: #8F8F8F;
@@ -13,6 +14,7 @@ $package-background: #F9F9FB;
 $recommended: #FFDA58;
 :root {
     --background-purple: #{$background-purple};
+    --background-light-purple: #{$background-light-purple};
     --background-gray: #{$background-gray};
     --background-aqua: #{$background-aqua};
     --background-filter-gray: #{$background-filter-gray};

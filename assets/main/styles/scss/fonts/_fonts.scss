@@ -2,8 +2,10 @@ $sans: sans-serif;
 $grotext-sans: 'Space Grotesk',
 sans-serif;
 $nunito: 'Nunito', sans-serif;
+$poppins: 'Poppins', sans-serif;
 :root {
     --grotext-sans: #{$grotext-sans};
     --sans: #{$sans};
     --nunito: #{$nunito};
+    --poppins: #{$poppins};
 }
