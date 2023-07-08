@@ -1,8 +1,8 @@
 // GRADIENT CONTENT START
 
 .gradient-container {
+    @extend .flex-row-justify-align-center;
     position: relative;
-    display: flex;
     gap: 1rem;
     background-image: url(../../images/layout/wave.svg);
     background: linear-gradient(168deg, rgba(170, 235, 255, 1) 0%, rgba(255, 217, 221, 1) 0%, rgba(222, 181, 255, 1) 16%, rgba(193, 188, 255, 1) 33%, rgba(193, 115, 255, 1) 96%);
@@ -117,6 +117,9 @@
 }
 
 @media screen and (max-width: 760px) {
+    .gradient-text-container {
+        padding-left: 3rem;
+    }
     .gradient-container {
         flex-flow: column;
         justify-content: center;
@@ -135,7 +138,7 @@
     }
 
     .gradient-image-container {
-        width: 80%;
+        width: 90%;
         margin: 3rem 0;
     }
 
@@ -294,6 +297,7 @@
             border-top: 18px solid transparent;
             border-right: 35px solid var(--background-white);
             border-bottom: 18px solid transparent;
+            border-radius: 50%;
             filter: drop-shadow(0 0.5px 0px rgba(0, 0, 0, 0.1));
         }
     }

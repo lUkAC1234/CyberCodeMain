@@ -65,7 +65,7 @@
         button {
             padding: 0.475rem 1.25rem;
             border-radius: 40px;
-            border: none;
+            border: 1.3px solid var(--background-purple);
             color: var(--text-white);
             background: var(--background-purple);
             font-size: 0.875rem;
@@ -78,7 +78,8 @@
     .get-started {
         button {
             &:hover {
-                color: var(--text-white);
+                background: none;
+                color: var(--text-purple);
                 transition: all 0.5s;
             }
         }
@@ -89,6 +90,11 @@
             color: var(--text-light-purple);
             border: none;
             background: none;
+
+            &:hover {
+                color: var(--text-purple);
+                transition: all 0.5s;
+            }
         }
     }
 }
@@ -183,6 +189,7 @@
 
     .header {
         background: var(--background-white);
+        border-radius: 0 0 16px 16px;
     }
 
     .navbar {
@@ -223,6 +230,7 @@
         width: 300px;
         position: fixed;
         top: 80px;
+        border-radius: 0 0 16px 16px;
         min-height: 100vh;
         padding: 10px 0;
         background-color: var(--background-white);
@@ -280,7 +288,7 @@
     }
     .pages-section {
         width: 101%;
-        top: 75px;
+        top: 65px;
         height: auto;
         min-height: 0;
     }

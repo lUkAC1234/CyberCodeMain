@@ -20,14 +20,13 @@
         </div>
     </section>
     <!-- End Image Part -->
+
+    <!-- Start Hero Section -->
     <section class="contact-us-hero-info">
         <div class="contact-us-hero-column">
             <div class="contact-us-hero-text-container">
                 <h1 class="contact-us-hero-column-title">Contact us</h1>
                 <p class="contact-us-hero-column-info">Questions? Comments? Want to schedule a demo? We’d love to chat!</p>
-                <div class="contact-us-hero-text-container-image-container">
-                    <img src="{% static 'main/images/contactus/contactus.svg' %}" alt="">
-                </div>
             </div>
             <div class="contact-us-hero-get-in-touch-main-container">
                 <div class="contact-us-hero-get-in-touch-container">
@@ -51,5 +50,48 @@
             </div>
         </div>
     </section>
+    <!-- End Hero Section -->
+
+    <!-- Start Contact form Section -->
+
+    <section class="contact-form">
+        <div class="contact-form__wrapper">
+            <div class="contact-form-column">
+                <form class="contact-form-column-form" action="">
+                    <div class="contact-form-column-input-container">
+                        <input type="text" class="contact-form-column-input" placeholder=" ">
+                        <label class="placeholder">Full Name</label>
+                    </div>
+                    <div class="contact-form-column-input-container">
+                        <input type="email" class="contact-form-column-input" placeholder=" ">
+                        <label class="placeholder">Email address</label>
+                    </div>
+
+                    <div class="contact-form-column-input-container">
+                        <input type="text" class="contact-form-column-input" placeholder=" ">
+                        <label class="placeholder">Phone number</label>
+                    </div>
+
+                    <div class="contact-form-column-input-container">
+                        <input type="text" class="contact-form-column-input" placeholder=" ">
+                        <label class="placeholder">Company name</label>
+                    </div>
+
+                    <div class="contact-form-column-big-input-container">
+                        <input type="text" class="contact-form-column-input" placeholder=" ">
+                        <label class="placeholder">Messages</label>
+                    </div>
+                    <div class="contact-form-column-btn-container">
+                        <button type="submit" class="contact-form-column-btn">Send message</button>
+                    </div>
+                </form>
+            </div>
+            <div class="contact-form-image-column">
+                <img src="{% static 'main/images/contactus/contactus.svg' %}" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- End Contact form Section -->
 </main>
 {% endblock %}
