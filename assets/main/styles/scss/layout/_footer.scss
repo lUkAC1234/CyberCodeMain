@@ -3,6 +3,7 @@
     background: var(--footer-background);
     padding: 6rem 0 4rem;
     margin-top: 1rem;
+    z-index: var(--z-index-10);
 }
 
 .footer .footer-links {

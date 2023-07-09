@@ -23,7 +23,7 @@
     width: 100%;
 
     h1 {
-        font-size: 2.8rem;
+        font-size: 2.6rem;
         text-align: center;
         font-family: var(--poppins);
         font-weight: 900;
@@ -195,7 +195,7 @@
     grid-area: message;
 }
 
-.contact-form-column-input-container, 
+.contact-form-column-input-container,
 .contact-form-column-big-input-container {
     position: relative;
     width: 100%;
@@ -208,6 +208,11 @@
         outline: none;
         color: var(--text-purple);
         border: 1px solid var(--background-purple);
+
+        &::selection {
+            background: var(--background-purple);
+            color: var(--text-white);
+        }
     }
 
     .placeholder {
@@ -222,8 +227,8 @@
         pointer-events: none;
     }
 
-    .contact-form-column-input:focus + .placeholder,
-    .contact-form-column-input:not(:placeholder-shown) + .placeholder {
+    .contact-form-column-input:focus+.placeholder,
+    .contact-form-column-input:not(:placeholder-shown)+.placeholder {
         top: -15px;
         background: var(--background-white);
     }
@@ -231,11 +236,12 @@
 
 .contact-form-column-big-input-container {
     width: 100%;
-    
+
     input {
         width: 100%;
         padding: 2.5rem 1rem !important;
     }
+
     .placeholder {
         top: 2.6rem;
     }
@@ -247,6 +253,7 @@
     grid-area: button;
     .contact-form-column-btn {
         @extend .onerem-tworem-purple-button;
+        cursor: pointer;
         padding: 1rem 2rem !important;
         margin: 0 auto;
     }
@@ -254,7 +261,8 @@
 
 @media screen and (max-width: 992px) {
     .contact-form__wrapper {
-        flex-flow: column-reverse;;
+        flex-flow: column-reverse;
+        ;
     }
 }
 
@@ -263,6 +271,7 @@
         width: 96%;
         margin: 0 2%;
     }
+
     .contact-form-column-form {
         grid-template-areas:
             "name"
@@ -288,3 +297,135 @@
 
 
 // END CONTACT FORM
+
+
+// START FAQ SECTION
+
+.faq-section {
+    margin-top: 5rem;
+}
+
+.faq-main-title {
+    @extend .dark-blue-text-center-grotext-family-3rem;
+}
+
+.faq-main-info {
+    @extend .info-text-gray-1-125rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.faq-container {
+    @extend .flex-column-justify-align-center;
+}
+
+.faq {
+    position: relative;
+    margin: 0.3rem 0;
+}
+
+.faq-btn-container {
+    padding: 1.5rem;
+    background: #F9F9FB;
+    border-radius: 1.25rem;
+    width: 54rem;
+}
+
+.faq-card-title {
+    @extend .dark-blue-text-center-grotext-family-1rem;
+    @extend .text-align-start;
+    margin-left: 2rem;
+}
+
+.faq-icon {
+    color: var(--text-purple);
+    margin-right: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.faq-toggle-btn {
+    position: absolute;
+    top: 1.4rem;
+    left: 1.5rem;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.faq.active .faq-toggle-btn {
+    top: 0.85rem;
+    left: 25px;
+    transform: rotate(-45deg);
+}
+
+.faq.active .faq-card-title {
+    color: var(--text-purple);
+}
+
+.faq-text {
+    @extend .info-text-gray-1rem;
+    width: 47rem;
+    margin: 30px 1.5rem 0;
+    display: none;  
+}
+
+.faq.active .faq-text {
+    display: block;
+}
+
+@media screen and (max-width: 1100px) {
+    .faq-btn-container {
+        width: 96%;
+        margin: 0 2%;
+    }
+
+    .faq {
+        width: 100%;
+    }
+    
+    .faq-toggle-btn {
+        left: 2rem;
+    }
+
+    .faq.active .faq-toggle-btn {
+        top: 0.85rem;
+        left: 1.8rem;
+        transform: rotate(-45deg);
+    }
+
+    .faq-text {
+        width: 80%;
+        margin: 30px 4.5% 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .faq-toggle-btn {
+        left: 1.5rem;
+    }
+
+    .faq.active .faq-toggle-btn {
+        left: 1.3rem;
+    }
+
+    .faq-main-title {
+        font-size: 2rem !important;
+    }
+    
+    .faq-main-info {
+        font-size: 1rem !important;
+    }
+
+    .faq-btn-container {
+        border-radius: 0.625rem;
+    }
+
+    .faq-text {
+        width: 90%;
+        margin: 30px 5% 0;
+    }
+}
+
+// END FAQ SECTION

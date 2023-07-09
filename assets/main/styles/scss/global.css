@@ -462,7 +462,7 @@
   width: 100%;
 }
 .contact-main-text-column h1 {
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   text-align: center;
   font-family: var(--poppins);
   font-weight: 900;
@@ -597,6 +597,11 @@
   color: var(--text-purple);
   border: 1px solid var(--background-purple);
 }
+.contact-form-column-input-container .contact-form-column-input::selection,
+.contact-form-column-big-input-container .contact-form-column-input::selection {
+  background: var(--background-purple);
+  color: var(--text-white);
+}
 .contact-form-column-input-container .placeholder,
 .contact-form-column-big-input-container .placeholder {
   position: absolute;
@@ -633,6 +638,7 @@
   grid-area: button;
 }
 .contact-form-column-btn-container .contact-form-column-btn {
+  cursor: pointer;
   padding: 1rem 2rem !important;
   margin: 0 auto;
 }
@@ -659,6 +665,110 @@
   }
   .contact-form-column-input {
     border-radius: 8px !important;
+  }
+}
+.faq-section {
+  margin-top: 5rem;
+}
+
+.faq-main-info {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.faq {
+  position: relative;
+  margin: 0.3rem 0;
+}
+
+.faq-btn-container {
+  padding: 1.5rem;
+  background: #F9F9FB;
+  border-radius: 1.25rem;
+  width: 54rem;
+}
+
+.faq-card-title {
+  margin-left: 2rem;
+}
+
+.faq-icon {
+  color: var(--text-purple);
+  margin-right: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.faq-toggle-btn {
+  position: absolute;
+  top: 1.4rem;
+  left: 1.5rem;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.faq.active .faq-toggle-btn {
+  top: 0.85rem;
+  left: 25px;
+  transform: rotate(-45deg);
+}
+
+.faq.active .faq-card-title {
+  color: var(--text-purple);
+}
+
+.faq-text {
+  width: 47rem;
+  margin: 30px 1.5rem 0;
+  display: none;
+}
+
+.faq.active .faq-text {
+  display: block;
+}
+
+@media screen and (max-width: 1100px) {
+  .faq-btn-container {
+    width: 96%;
+    margin: 0 2%;
+  }
+  .faq {
+    width: 100%;
+  }
+  .faq-toggle-btn {
+    left: 2rem;
+  }
+  .faq.active .faq-toggle-btn {
+    top: 0.85rem;
+    left: 1.8rem;
+    transform: rotate(-45deg);
+  }
+  .faq-text {
+    width: 80%;
+    margin: 30px 4.5% 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .faq-toggle-btn {
+    left: 1.5rem;
+  }
+  .faq.active .faq-toggle-btn {
+    left: 1.3rem;
+  }
+  .faq-main-title {
+    font-size: 2rem !important;
+  }
+  .faq-main-info {
+    font-size: 1rem !important;
+  }
+  .faq-btn-container {
+    border-radius: 0.625rem;
+  }
+  .faq-text {
+    width: 90%;
+    margin: 30px 5% 0;
   }
 }
 .header {
@@ -951,6 +1061,7 @@
   background: var(--footer-background);
   padding: 6rem 0 4rem;
   margin-top: 1rem;
+  z-index: var(--z-index-10);
 }
 
 .footer .footer-links {
@@ -1186,8 +1297,8 @@
   justify-content: end;
   align-items: end;
   bottom: 1rem;
+  right: 0;
   padding: 1rem;
-  width: 100%;
 }
 .btn-top-container a {
   margin-right: 2rem;
@@ -1203,7 +1314,7 @@
     padding: 0;
   }
 }
-.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .dark-blue-text-center-grotext-family-1-5rem, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .contact-us-hero-text-container .contact-us-hero-column-title {
+.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .faq-card-title, .dark-blue-text-center-grotext-family-1-5rem, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .faq-main-title, .contact-us-hero-text-container .contact-us-hero-column-title {
   color: var(--text-dark-blue);
   text-align: center;
   font-size: 4rem;
@@ -1213,7 +1324,7 @@
   text-transform: capitalize;
 }
 
-.dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title {
+.dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .faq-main-title {
   font-size: 3rem;
 }
 
@@ -1225,19 +1336,19 @@
   font-size: 1.5rem;
 }
 
-.dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1 {
+.dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .faq-card-title {
   font-size: 1rem;
 }
 
-.info-text-gray-1-125rem, .info-text-gray-1rem, .choices-column .price-column .date, .static-info .static-info-text, .choices-column .abilities .abilities-ul .abilities-li, .choices-column:nth-child(even) .price-column .abilities-ul .abilities-li,
-.choices-column:nth-child(even) .abilities .abilities-ul .abilities-li, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail {
+.info-text-gray-1-125rem, .info-text-gray-1rem, .choices-column .price-column .date, .faq-text, .static-info .static-info-text, .choices-column .abilities .abilities-ul .abilities-li, .choices-column:nth-child(even) .price-column .abilities-ul .abilities-li,
+.choices-column:nth-child(even) .abilities .abilities-ul .abilities-li, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info {
   color: #666;
   font-size: 1.125rem;
   font-family: var(--grotext-sans);
   line-height: 160%;
 }
 
-.info-text-gray-1rem, .choices-column .price-column .date {
+.info-text-gray-1rem, .choices-column .price-column .date, .faq-text {
   font-size: 1rem;
 }
 
@@ -1266,7 +1377,7 @@
   font-size: 0.75rem;
 }
 
-.text-align-start, .task-content-column .task-title, .static-info .static-info-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title {
+.text-align-start, .task-content-column .task-title, .static-info .static-info-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .faq-card-title {
   text-align: start;
 }
 
@@ -1293,7 +1404,7 @@
   align-items: start;
 }
 
-.flex-row-justify-align-center, .flex-column-justify-align-center, .gradient-container, .contact-us-hero-get-in-touch-main-container, .contact-us-hero-get-in-touch-container .contact-us-hero-logo-image-container, .contact-form-column-btn-container {
+.flex-row-justify-align-center, .flex-column-justify-align-center, .faq-container, .gradient-container, .contact-us-hero-get-in-touch-main-container, .contact-us-hero-get-in-touch-container .contact-us-hero-logo-image-container, .contact-form-column-btn-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1358,7 +1469,7 @@
   flex-flow: column;
 }
 
-.flex-column-justify-align-center {
+.flex-column-justify-align-center, .faq-container {
   flex-flow: column;
 }
 
