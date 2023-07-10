@@ -251,6 +251,7 @@
     @extend .flex-row-justify-align-center;
     width: 100%;
     grid-area: button;
+
     .contact-form-column-btn {
         @extend .onerem-tworem-purple-button;
         cursor: pointer;
@@ -368,7 +369,7 @@
     @extend .info-text-gray-1rem;
     width: 47rem;
     margin: 30px 1.5rem 0;
-    display: none;  
+    display: none;
 }
 
 .faq.active .faq-text {
@@ -384,7 +385,7 @@
     .faq {
         width: 100%;
     }
-    
+
     .faq-toggle-btn {
         left: 2rem;
     }
@@ -413,7 +414,7 @@
     .faq-main-title {
         font-size: 2rem !important;
     }
-    
+
     .faq-main-info {
         font-size: 1rem !important;
     }
@@ -429,3 +430,143 @@
 }
 
 // END FAQ SECTION
+
+// START READY TO TRY SECTION
+
+.ready-to-try-section {
+    display: grid;
+    place-items: center;
+    margin-top: 5rem;
+}
+
+.ready-to-try-container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 90%;
+    padding: 2rem 0rem 0 3.5rem;
+    border-radius: 2.5rem;
+    background: linear-gradient(168deg, rgba(170, 235, 255, 1) 0%, rgba(255, 217, 221, 1) 0%, rgba(222, 181, 255, 1) 16%, rgba(193, 188, 255, 1) 33%, rgba(193, 115, 255, 1) 96%);
+}
+
+.ready-to-try-column {
+    width: 50%
+}
+
+.ready-to-try-title {
+    @extend .dark-blue-text-center-grotext-family-4rem;
+    @extend .text-align-start;
+    color: var(--text-white) !important;
+}
+
+.ready-to-try-info {
+    @extend .info-text-gray-1-125rem;
+    color: var(--text-white) !important;
+    margin: 0.5rem 0 2.25rem;
+}
+
+.ready-to-try-buttons-container {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.ready-to-try-button {
+    @extend .onerem-tworem-purple-button;
+}
+
+.ready-to-try-button-without-background {
+    @extend .onerem-tworem-purple-button-without-background;
+}
+
+.ready-to-try-image-column {
+    @extend .flex-row-align-end;
+    width: 50%;
+    height: 30rem;
+    margin-top: 3rem;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 2.5rem 2.5rem 0 0;
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    .ready-to-try-container {
+        width: 100%;
+        border-radius: 0;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .ready-to-try-title {
+        font-size: 3rem !important;
+    }
+
+    .ready-to-try-info {
+        font-size: 1rem !important;
+    }
+
+    .ready-to-try-button,
+    .ready-to-try-button-without-background {
+        padding: 0.6rem 1.5rem !important;
+    }
+
+    .ready-to-try-image-column {
+        height: 20rem;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .ready-to-try-container {
+        flex-flow: column;
+        padding: 0;
+        padding-top: 3rem;
+    }
+
+    .ready-to-try-column,
+    .ready-to-try-image-column {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+        width: 96%;
+        height: auto;
+    }
+
+    .ready-to-try-title {
+        font-size: 4rem !important;
+    }
+
+    .ready-to-try-info {
+        font-size: 1.125rem !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .ready-to-try-title {
+        font-size: 3rem !important;
+    }
+
+    .ready-to-try-info {
+        font-size: 1rem !important;
+        width: 80%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .ready-to-try-buttons-container {
+        gap: 1rem;
+    }
+
+    .ready-to-try-button,
+    .ready-to-try-button-without-background {
+        padding: 0.5rem 1rem !important;
+    }
+}
+
+// END READY TO TRY SECTION

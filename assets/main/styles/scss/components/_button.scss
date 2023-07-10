@@ -10,6 +10,7 @@
     border-radius: 40px;
     border: 1px solid var(--background-purple);
     transition: all 0.5s;
+    cursor: pointer;
 
     &:hover {
         background: none;
@@ -29,6 +30,7 @@
     border: none;
     background: none;
     transition: all 0.5s;
+    cursor: pointer;
 
     &:hover {
         color: var(--text-purple);
@@ -47,6 +49,7 @@
     border: none;
     background: var(--gray-button);
     transition: 0.5s;
+    cursor: pointer;
     &:hover {
         background: var(--background-purple);
         color: var(--gray-button);
