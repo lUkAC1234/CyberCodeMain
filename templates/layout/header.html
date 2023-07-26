@@ -1,30 +1,40 @@
 {% load static %}
-<header class="header" id="header">
-    <nav class="navbar">
-        <section class="logo-section">
-            <a href="{% url 'main:index' %}" class="logo">
-                <img src="{% static 'main/images/layout/codecraftheader.svg' %}" alt="">
-            </a>
-        </section>
-        <input type="checkbox" class="hamburger-checkbox">
-        <div class="hamburger" id="hamburger"></div>
-        <section class="pages-section">
-            <ul class="pages-section-container">
-                <li class="active"><a href="{% url 'main:index' %}">Home</a></li>
-                <li><a href="{% url 'main:about' %}">About</a></li>
-                <li><a href="{% url 'main:contact' %}">Contact</a></li>
-                <li><a href="">Pricing</a></li>
-                <li><a href="">Blog</a></li>
-                <li class="sign-li"><a href="">Login</a></li>
-            </ul>
-        </section>
-        <section class="sign-section">
-            <a href="" class="sign-button login">
-                <button>Login</button>
-            </a>
-            <a href="" class="sign-button get-started">
-                <button>Get started</button>
-            </a>
-        </section>
-    </nav>
-</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header" id="header">
+        <nav class="navbar">
+            <section class="logo-section">
+                <a href="{% url 'main:index' %}" class="logo">
+                    <img src="{% static 'main/images/layout/codecraftheader.svg' %}" alt="">
+                </a>
+            </section>
+            <input type="checkbox" class="hamburger-checkbox">
+            <div class="hamburger" id="hamburger"></div>
+            <section class="pages-section">
+                <ul class="pages-section-container">
+                    <li class="active"><a href="{% url 'main:index' %}">Home</a></li>
+                    <li><a href="{% url 'main:about' %}">About</a></li>
+                    <li><a href="{% url 'main:contact' %}">Contact</a></li>
+                    <li><a href="">Pricing</a></li>
+                    <li><a href="">Blog</a></li>
+                    <li class="sign-li"><a href="">Login</a></li>
+                </ul>
+            </section>
+            <section class="sign-section">
+                <a href="" class="sign-button login">
+                    <button>Login</button>
+                </a>
+                <a href="" class="sign-button get-started">
+                    <button>Get started</button>
+                </a>
+            </section>
+        </nav>
+    </header>
+</body>
+</html>
