@@ -200,7 +200,6 @@
   border-top: 18px solid transparent;
   border-right: 35px solid var(--background-white);
   border-bottom: 18px solid transparent;
-  border-radius: 50%;
   filter: drop-shadow(0 0.5px 0px rgba(0, 0, 0, 0.1));
 }
 
@@ -1319,7 +1318,7 @@
   --background-filter-gray: #8F8F8F;
   --background-dark-blue: #20184E;
   --background-white: #FFFFFF;
-  --background-black: #FFFFFF;
+  --background-black: #000;
   --footer-background: #260055;
   --scroolbar-dark: #242942;
   --gray-button: #F8F2FF;
