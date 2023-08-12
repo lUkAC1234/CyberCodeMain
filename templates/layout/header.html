@@ -1,11 +1,13 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <header class="header" id="header">
         <nav class="navbar">
@@ -18,23 +20,69 @@
             <div class="hamburger" id="hamburger"></div>
             <section class="pages-section">
                 <ul class="pages-section-container">
-                    <li class="active"><a href="{% url 'main:index' %}">Home</a></li>
-                    <li><a href="{% url 'main:about' %}">About</a></li>
-                    <li><a href="{% url 'main:contact' %}">Contact</a></li>
-                    <li><a href="">Pricing</a></li>
-                    <li><a href="">Blog</a></li>
-                    <li class="sign-li"><a href="">Login</a></li>
+                    <li class="active">
+                        <i class="fa-solid fa-house"></i>
+                        <a href="{% url 'main:index' %}">Home</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-info-circle"></i>
+                        <a href="{% url 'main:about' %}">About</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-address-card"></i>
+                        <a href="{% url 'main:contact' %}">Contact</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-wallet"></i>
+                        <a href="">Pricing</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-book-open"></i>
+                        <a href="">Blog</a>
+                    </li>
                 </ul>
-            </section>
-            <section class="sign-section">
-                <a href="" class="sign-button login">
-                    <button>Login</button>
-                </a>
-                <a href="" class="sign-button get-started">
-                    <button>Get started</button>
-                </a>
+                <div class="hidden-content">
+                    <div class="hidden-btn-container">
+                        <a href="">
+                            <button class="hidden-login">Login</button>
+                        </a>
+                        <a href="">
+                            <button>Get started</button>
+                        </a>
+                    </div>
+                    <div class="hiddent-text-container">
+                        <div class="hiddent-text-column">
+                            <a href=""><i class="fas fa-question-circle"></i> Help Center</a>
+                            <a href="tel:+998331701706">+998 33 170 17 06</a>
+                            <a href="mailto:supportcybercraft@gmail.com">supportcybercraft@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="hidden-social-media-icons">
+                        <a href="">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="login-part-header">
+                    <a href="">
+                        <button class="sign-button login">Login</button>
+                    </a>
+                    <a href="">
+                        <button class="sign-button get-started">Get started</button>
+                    </a>
+                </div>
             </section>
         </nav>
     </header>
 </body>
+
 </html>
