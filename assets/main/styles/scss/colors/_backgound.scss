@@ -13,6 +13,7 @@ $box-shadow-dark-blue: #140B48;
 $package-background: #F9F9FB;
 $recommended: #FFDA58;
 $background-header-menu: #363636;
+$carousel-background: #FDFDFD;
 :root {
     --background-purple: #{$background-purple};
     --background-light-purple: #{$background-light-purple};
@@ -29,4 +30,5 @@ $background-header-menu: #363636;
     --package-background: #{$package-background};
     --recommended: #{$recommended};
     --background-header-menu: #{$background-header-menu};
+    --carousel-background: #{$carousel-background};
 }

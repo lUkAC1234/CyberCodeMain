@@ -1,44 +1,30 @@
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <header class="header" id="header">
-        <nav class="navbar">
-            <section class="logo-section">
-                <a href="{% url 'main:index' %}" class="logo">
-                    <img src="{% static 'main/images/layout/codecraftheader.svg' %}" alt="">
-                </a>
-            </section>
-            <input type="checkbox" class="hamburger-checkbox">
-            <div class="hamburger" id="hamburger"></div>
-            <section class="pages-section">
-                <ul class="pages-section-container">
-                    <li class="active">
-                        <i class="fa-solid fa-house"></i>
-                        <a href="{% url 'main:index' %}">Home</a>
+<header class="header" id="header">
+    <nav class="navbar">
+        <section class="logo-section">
+            <a href="{% url 'main:index' %}" class="logo">
+                <img src="{% static 'main/images/layout/codecraftheader.svg' %}" alt="">
+            </a>
+        </section>
+        <input type="checkbox" class="hamburger-checkbox">
+        <div class="hamburger" id="hamburger"></div>
+        <section class="pages-section">
+            <div class="pages-section-container">
+                <ul class="pages-section-ul">
+                    <li class="nav-link {% if request.path == '/' %}active{% endif %}">
+                        <a href="{% url 'main:index' %}"><i class="fa-solid fa-house"></i> Home</a>
                     </li>
-                    <li>
-                        <i class="fas fa-info-circle"></i>
-                        <a href="{% url 'main:about' %}">About</a>
+                    <li class="nav-link {% if request.path == '/about/us/' %}active{% endif %}">
+                        <a href="{% url 'main:about' %}"><i class="fas fa-info-circle"></i> About</a>
                     </li>
-                    <li>
-                        <i class="fas fa-address-card"></i>
-                        <a href="{% url 'main:contact' %}">Contact</a>
+                    <li class="nav-link {% if request.path == '/contact/us/' %}active{% endif %}">
+                        <a href="{% url 'main:contact' %}"><i class="fas fa-address-card"></i> Contact</a>
                     </li>
-                    <li>
-                        <i class="fas fa-wallet"></i>
-                        <a href="">Pricing</a>
+                    <li class="nav-link {% if request.path == '' %}active{% endif %}">
+                        <a href=""><i class="fas fa-wallet"></i> Pricing</a>
                     </li>
-                    <li>
-                        <i class="fas fa-book-open"></i>
-                        <a href="">Blog</a>
+                    <li class="nav-link {% if request.path == '' %}active{% endif %}">
+                        <a href=""><i class="fas fa-book-open"></i> Blog</a>
                     </li>
                 </ul>
                 <div class="hidden-content">
@@ -72,17 +58,15 @@
                         </a>
                     </div>
                 </div>
-                <div class="login-part-header">
-                    <a href="">
-                        <button class="sign-button login">Login</button>
-                    </a>
-                    <a href="">
-                        <button class="sign-button get-started">Get started</button>
-                    </a>
-                </div>
-            </section>
-        </nav>
-    </header>
-</body>
-
-</html>
+            </div>
+            <div class="login-part-header">
+                <a href="">
+                    <button class="sign-button login">Login</button>
+                </a>
+                <a href="">
+                    <button class="sign-button get-started">Get started</button>
+                </a>
+            </div>
+        </section>
+    </nav>
+</header>
