@@ -1363,13 +1363,19 @@
 
 .carousel-outer-container {
     overflow: hidden;
-    width: 100%;
+    width: 100vw;
+    position: relative;
+    background: #f3f3f3;
+    margin-top: 5rem;
+    padding: 2rem 0;
 }
+
+
 
 .carousel-container {
     width: 100%;
     position: relative;
-    margin: 3rem 2rem;
+    margin: 3rem 0;
     overflow: hidden;
 }
 
@@ -1377,8 +1383,8 @@
     position: relative;
     display: flex;
     transition: transform 0.3s ease-in-out;
-    width: 1200px;
-    padding: 0 0 5rem 0;
+    max-width: 1800px;
+    margin: 0 auto 3rem;
 }
 
 .carousel-slide {
@@ -1396,13 +1402,14 @@
     display: flex;
     flex-flow: column;
     width: 10rem;
+
     img {
         width: 100%;
         height: 12rem;
         object-fit: cover;
         border-radius: 1.25rem;
-    } 
-} 
+    }
+}
 
 .carousel-data-container {
     text-align: start;
@@ -1412,10 +1419,12 @@
     p {
         @extend .chat-date-text;
     }
+
     .carousel-data {
         color: var(--text-purple);
     }
 }
+
 .carousel-slide-content {
     .carousel-title {
         @extend .dark-blue-text-center-grotext-family-1-5rem;
@@ -1455,10 +1464,38 @@
     }
 }
 
+@media screen and (max-width: 600px) {
+    .carousel-container {
+        width: 100%;
+        position: relative;
+        margin: 3rem 0.5rem;
+        overflow: hidden;
+    }
 
+    .carousel {
+        position: relative;
+        gap: 1rem;
+        grid-auto-rows: 1fr;
+        transition: transform 0.3s ease-in-out;
+        max-width: 1800px;
+        margin: 0 auto 3rem;
+    }
 
-// CAROUSEL END
+    .carousel-image-info-container {
+        width: 8rem;
 
+        img {
+            height: 9rem;
+        }
+    }
 
+    .carousel-slide-content {
+        margin: auto 0;
+
+        .carousel-title {
+            font-size: 1.25rem !important;
+        }
+    }
+}
 
 // CAROUSEL END

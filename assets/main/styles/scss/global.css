@@ -922,13 +922,17 @@
 }
 .carousel-outer-container {
   overflow: hidden;
-  width: 100%;
+  width: 100vw;
+  position: relative;
+  background: #f3f3f3;
+  margin-top: 5rem;
+  padding: 2rem 0;
 }
 
 .carousel-container {
   width: 100%;
   position: relative;
-  margin: 3rem 2rem;
+  margin: 3rem 0;
   overflow: hidden;
 }
 
@@ -936,8 +940,8 @@
   position: relative;
   display: flex;
   transition: transform 0.3s ease-in-out;
-  width: 1200px;
-  padding: 0 0 5rem 0;
+  max-width: 1800px;
+  margin: 0 auto 3rem;
 }
 
 .carousel-slide {
@@ -1003,6 +1007,34 @@
   color: var(--text-purple);
 }
 
+@media screen and (max-width: 600px) {
+  .carousel-container {
+    width: 100%;
+    position: relative;
+    margin: 3rem 0.5rem;
+    overflow: hidden;
+  }
+  .carousel {
+    position: relative;
+    gap: 1rem;
+    grid-auto-rows: 1fr;
+    transition: transform 0.3s ease-in-out;
+    max-width: 1800px;
+    margin: 0 auto 3rem;
+  }
+  .carousel-image-info-container {
+    width: 8rem;
+  }
+  .carousel-image-info-container img {
+    height: 9rem;
+  }
+  .carousel-slide-content {
+    margin: auto 0;
+  }
+  .carousel-slide-content .carousel-title {
+    font-size: 1.25rem !important;
+  }
+}
 .contact-main-image-container {
   width: 100%;
   height: 26rem;
@@ -2273,6 +2305,7 @@ html {
 }
 html body {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 html a {
   text-decoration: none;
