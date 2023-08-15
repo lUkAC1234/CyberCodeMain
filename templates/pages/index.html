@@ -185,8 +185,7 @@
                 <div class="carousel-slide">
                     <div class="carousel-image-info-container">
                         <div class="image-container">
-                            <img src="{% static 'main/images/main-page/carousel1.png' %}" onerror="showNoImage(this)">
-                            <span class="carousel-no-image">No image <i class="fa-solid fa-exclamation fa-bounce"></i></span>
+                            <img src="{% static 'main/images/main-page/carousel1.png' %}">
                         </div>
                     </div>
                     <div class="carousel-slide-content">
@@ -202,8 +201,7 @@
                 <div class="carousel-slide">
                     <div class="carousel-image-info-container">
                         <div class="image-container">
-                            <img src="{% static 'main/images/main-page/carousesl1.png' %}" onerror="showNoImage(this)">
-                            <span class="carousel-no-image">No image <i class="fa-solid fa-exclamation fa-bounce"></i></span>
+                            <img src="{% static 'main/images/main-page/carousel1.png' %}">
                         </div>
                     </div>
                     <div class="carousel-slide-content">
@@ -219,8 +217,7 @@
                 <div class="carousel-slide">
                     <div class="carousel-image-info-container">
                         <div class="image-container">
-                            <img src="{% static 'main/images/main-page/carousesl1.png' %}" onerror="showNoImage(this)">
-                            <span class="carousel-no-image">No image <i class="fa-solid fa-exclamation fa-bounce"></i></span>
+                            <img src="{% static 'main/images/main-page/carousel1.png' %}">
                         </div>
                     </div>
                     <div class="carousel-slide-content">
@@ -236,8 +233,7 @@
                 <div class="carousel-slide">
                     <div class="carousel-image-info-container">
                         <div class="image-container">
-                            <img src="{% static 'main/images/main-page/carousesl1.png' %}" onerror="showNoImage(this)">
-                            <span class="carousel-no-image">No image <i class="fa-solid fa-exclamation fa-bounce"></i></span>
+                            <img src="{% static 'main/images/main-page/carousel1.png' %}">
                         </div>
                     </div>
                     <div class="carousel-slide-content">
@@ -253,8 +249,23 @@
                 <div class="carousel-slide">
                     <div class="carousel-image-info-container">
                         <div class="image-container">
-                            <img src="{% static 'main/images/main-page/avatar.svg' %}" onerror="showNoImage(this)">
-                            <span class="carousel-no-image">No image <i class="fa-solid fa-exclamation fa-bounce"></i></span>
+                            <img src="{% static 'main/images/main-page/carousel1.png' %}">
+                        </div>
+                    </div>
+                    <div class="carousel-slide-content">
+                        <h1 href="" class="carousel-title"><a href="">What’s growth hacking? 8 great books to learntWhat’s growth hacking? 8 great books to learn more about itWhat’s growth hacking? 8 great books to learn more about it</a></h1>
+                        <p class="carousel-text">How you can set personal boundaries to reduce stress and burnout
+                        </p>
+                    </div>
+                    <div class="carousel-data-container">
+                        <span class="posted-on">Posted on</span>
+                        <p class="carousel-data">October 26, 2021</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="carousel-image-info-container">
+                        <div class="image-container">
+                            <img src="{% static 'main/images/main-page/carousel1.png' %}">
                         </div>
                     </div>
                     <div class="carousel-slide-content">
@@ -289,13 +300,6 @@
     // No image
 
 
-    function showNoImage(imgElement) {
-        imgElement.style.display = 'none';
-        var imageContainer = imgElement.closest('.image-container');
-        var noImageText = imageContainer.querySelector('.carousel-no-image');
-        noImageText.style.display = 'flex';
-    }
-
     // 
     const carousel = document.querySelector('.carousel');
     const prevButton = document.querySelector('.carousel-prev');
@@ -309,9 +313,9 @@
         if (firstSlide) {
             slideWidth = firstSlide.clientWidth;
             if (window.innerWidth < 500) { // Mobile
-                slideWidth += 0.5 * 16;
+                slideWidth += 0.4 * 16;
             } else if (window.innerWidth < 768) {
-                slideWidth += 2.2 * 16;
+                slideWidth += 1 * 16;
             }
         }
     }
@@ -324,6 +328,7 @@
     let currentIndex = 0;
 
     function showSlide(index) {
+        console.log('Count: ', index)
         currentIndex = Math.min(Math.max(index, 0), totalSlides - 1);
         const translateValue = -currentIndex * slideWidth;
         carousel.style.transform = `translateX(${translateValue}px)`;
