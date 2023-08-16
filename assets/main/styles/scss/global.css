@@ -466,11 +466,11 @@
 }
 .carousel-outer-container {
   overflow: hidden;
-  width: 100vw;
   position: relative;
-  background: #f3f3f3;
+  background: var(--carousel-image-background);
   margin-top: 5rem;
   padding: 2rem 0;
+  max-width: 100vw;
 }
 
 .carousel-container {
@@ -489,6 +489,7 @@
 }
 
 .carousel-slide {
+  position: relative;
   display: flex;
   gap: 2rem;
   background: var(--carousel-background);
@@ -498,22 +499,35 @@
   padding: 1.5rem;
   border-radius: 1.25rem;
   height: fit-content;
+  min-height: 18rem;
 }
 
 .carousel-image-info-container {
   width: 10rem;
 }
-.carousel-image-info-container .image-container img {
+.carousel-image-info-container .image-container img,
+.carousel-image-info-container .image-container .noImageMessage {
   width: 100%;
   height: 12rem;
   object-fit: cover;
   border-radius: 1.25rem;
   z-index: var(--z-index-2);
 }
+.carousel-image-info-container .image-container .noImageMessage {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border: 3px dashed var(--carousel-image-background);
+  font-family: var(--grotext-sans);
+  font-size: 1.125rem;
+  color: var(--text-dark-blue);
+}
 
 .carousel-data-container {
   position: absolute;
   bottom: 1.5rem;
+  left: 1.5rem;
   text-align: start;
   margin-top: 1rem;
 }
@@ -560,15 +574,13 @@
 
 @media screen and (max-width: 600px) {
   .carousel-container {
-    width: 100%;
-    position: relative;
     margin: 3rem 0.5rem;
-    overflow: hidden;
   }
   .carousel-image-info-container {
     width: 8rem;
   }
-  .carousel-image-info-container .image-container img {
+  .carousel-image-info-container .image-container img,
+  .carousel-image-info-container .image-container .noImageMessage {
     height: 9rem;
   }
   .carousel-slide-content {
@@ -592,7 +604,8 @@
   .carousel-image-info-container {
     width: 100%;
   }
-  .carousel-image-info-container .image-container img {
+  .carousel-image-info-container .image-container img,
+  .carousel-image-info-container .image-container .noImageMessage {
     border-radius: 0.5rem;
   }
   .carousel-data-container {
@@ -603,11 +616,156 @@
   }
   .carousel-slide-content .carousel-title {
     margin-top: 1rem;
+    font-size: 1rem !important;
   }
   .carousel-slide-content .carousel-text {
     margin: 1rem 0 2rem 0;
   }
 }
+.used-by-section {
+  margin-top: 15rem;
+  background: var(--carousel-white);
+  padding: 1rem 0;
+}
+
+.used-technologies-container {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  place-content: center;
+  gap: 1rem;
+  margin: 5rem auto;
+}
+.used-technologies-container .used-technologies-column {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  width: 15rem;
+  height: fit-content;
+  min-height: 15rem;
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  margin: 1rem 0;
+  border-radius: 8px;
+}
+.used-technologies-container .used-technologies-column:hover {
+  background: linear-gradient(168deg, rgb(170, 235, 255) 0%, rgb(255, 217, 221) 0%, rgb(222, 181, 255) 16%, rgb(193, 188, 255) 33%, rgb(193, 115, 255) 96%);
+}
+.used-technologies-container .used-technologies-column:hover p {
+  color: var(--text-white);
+  transition: all 0.2s;
+}
+.used-technologies-container .used-technologies-column .used-technologies-text {
+  margin-bottom: 1rem;
+}
+
+.used-technologies-image-container {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.used-technologies-image-container img {
+  margin-top: -1.5rem;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--background-purple);
+  padding: 0.2rem;
+}
+
+@media screen and (max-width: 1350px) {
+  .used-technologies-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-inline: 1rem;
+  }
+}
+@media screen and (max-width: 850px) {
+  .used-by-section .used-by-title {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (max-width: 850px) and (max-width: 700px) {
+  .used-by-section .used-by-title {
+    font-size: 2rem;
+  }
+}
+@media screen and (max-width: 850px) and (max-width: 550px) {
+  .used-by-section .used-by-title {
+    font-size: 1.5rem;
+  }
+}
+.feedback-list-section {
+  position: relative;
+  background: url(../../images/main-page/feedback.svg) no-repeat;
+  background-size: cover;
+  padding: 10rem 0rem 10rem 3rem;
+  margin-top: 5rem;
+}
+
+.feedback-list-container {
+  position: relative;
+  display: flex;
+  gap: 3rem;
+}
+
+.feedback-outer-container {
+  overflow: hidden;
+  height: 100%;
+}
+
+.feedback-list-text-column .feedback-list-text-column-title {
+  font-size: 3rem !important;
+}
+.feedback-list-text-column .feedback-list-text-column-text {
+  width: 27rem;
+}
+
+.feedback-slide {
+  width: 25rem;
+  background: var(--carousel-image-background);
+  border-radius: 1.25rem;
+  padding: 2rem 1rem 1rem;
+}
+.feedback-user {
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.feedback-user .feedback-user-container {
+  width: 3rem;
+  height: 3rem;
+}
+.feedback-user .feedback-user-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.feedback-user .feedback-username {
+  color: var(--text-purple) !important;
+}
+
+.feedback-controls {
+  position: absolute;
+  right: 10rem;
+  bottom: -5rem;
+}
+
+.feedback-prev,
+.feedback-next {
+  border: none;
+  background: none;
+  margin: 0 0.4rem;
+  cursor: pointer;
+}
+.feedback-prev i,
+.feedback-next i {
+  font-size: 1.5rem;
+  color: var(--text-purple);
+}
+
 @media screen and (min-width: 3000px) and (max-width: 4000px) {
   .gradient-container,
   .tasks,
@@ -1694,7 +1852,7 @@
     padding: 0;
   }
 }
-.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .faq-card-title, .dark-blue-text-center-grotext-family-1-5rem, .carousel-slide-content .carousel-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .faq-main-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title {
+.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .faq-card-title, .dark-blue-text-center-grotext-family-1-5rem, .carousel-slide-content .carousel-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .used-by-title, .faq-main-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title {
   color: var(--text-dark-blue);
   text-align: center;
   font-size: 4rem;
@@ -1704,7 +1862,7 @@
   text-transform: capitalize;
 }
 
-.dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .faq-main-title {
+.dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .used-by-title, .faq-main-title {
   font-size: 3rem;
 }
 
@@ -1716,19 +1874,19 @@
   font-size: 1.5rem;
 }
 
-.dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .faq-card-title {
+.dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .faq-card-title {
   font-size: 1rem;
 }
 
-.info-text-gray-1-125rem, .info-text-gray-1rem, .choices-column .price-column .date, .faq-text, .static-info .static-info-text, .choices-column .abilities .abilities-ul .abilities-li, .choices-column:nth-child(even) .price-column .abilities-ul .abilities-li,
-.choices-column:nth-child(even) .abilities .abilities-ul .abilities-li, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info, .ready-to-try-info {
+.info-text-gray-1-125rem, .info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content, .faq-text, .static-info .static-info-text, .choices-column .abilities .abilities-ul .abilities-li, .choices-column:nth-child(even) .price-column .abilities-ul .abilities-li,
+.choices-column:nth-child(even) .abilities .abilities-ul .abilities-li, .feedback-user .feedback-username, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info, .ready-to-try-info {
   color: #666;
   font-size: 1.125rem;
   font-family: var(--grotext-sans);
   line-height: 160%;
 }
 
-.info-text-gray-1rem, .choices-column .price-column .date, .faq-text {
+.info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content, .faq-text {
   font-size: 1rem;
 }
 
@@ -1771,7 +1929,7 @@
   text-align: end;
 }
 
-.white-1rem-grotext, .choices-column .price-column .choice-type {
+.white-1rem-grotext, .choices-column .price-column .choice-type, .feedback-list-text-column .feedback-list-text-column-title, .feedback-list-text-column .feedback-list-text-column-text {
   color: var(--text-white);
   font-size: 1rem;
   font-family: var(--grotext-sans);
@@ -1837,7 +1995,7 @@
 }
 
 .flex-row-align-center, .flex-column-align-center, .choices-column .abilities .abilities-ul .abilities-li, .choices-column:nth-child(even) .price-column .abilities-ul .abilities-li,
-.choices-column:nth-child(even) .abilities .abilities-ul .abilities-li, .contact-us-hero-get-in-touch-container {
+.choices-column:nth-child(even) .abilities .abilities-ul .abilities-li, .feedback-user, .contact-us-hero-get-in-touch-container {
   display: flex;
   align-items: center;
 }
@@ -1910,7 +2068,6 @@ html {
 }
 html body {
   scroll-behavior: smooth;
-  overflow-x: hidden !important;
 }
 html a {
   text-decoration: none;
