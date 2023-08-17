@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
     {# ------------------------------------------------------------------------------------------- #}
+    {# Swiper (Carousel) #}
+    <link href="{% static 'main/scripts/js/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    {# ------------------------------------------------------------------------------------------- #}
     {# User css links #}
     <link rel="stylesheet" type="text/css" href="{% static 'main/styles/scss/global.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8" defer></script>
@@ -82,17 +85,20 @@
 {# ------------------------------------------------------------------------------------------- #}
 {# Scripts #}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Swiper (Carousel) -->
+<script src="{% static 'main/scripts/js/owlcarousel/owl.carousel.min.js' %}"></script>
+<!-- Swiper (Carousel) -->
 <script type="text/javascript">
-        // ------------------------------------------------------------------------------------------- //
-        /*------------------
-                Preloader
-        --------------------*/
-        (function ($) {
-            $(window).on('load', function () {
-                $(".loader").fadeOut();
-                $("#preloder").delay(200).fadeOut("slow");
-            });
-        })(jQuery);
+    // ------------------------------------------------------------------------------------------- //
+    /*------------------
+            Preloader
+    --------------------*/
+    (function ($) {
+        $(window).on('load', function () {
+            $(".loader").fadeOut();
+            $("#preloder").delay(200).fadeOut("slow");
+        });
+    })(jQuery);
     /* END Preloader */
 
     /* HEADER-NAVBAR + BOTTOM BTN TO TOP */

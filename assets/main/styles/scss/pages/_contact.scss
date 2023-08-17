@@ -436,7 +436,7 @@
 .ready-to-try-section {
     display: grid;
     place-items: center;
-    margin-top: 5rem;
+    margin: 5rem 0 1rem;
 }
 
 .ready-to-try-container {
@@ -519,6 +519,9 @@
 }
 
 @media screen and (max-width: 992px) {
+    .ready-to-try-section {
+        margin: 5rem 0 0rem;
+    }
     .ready-to-try-container {
         flex-flow: column;
         padding: 0;
@@ -568,36 +571,3 @@
 }
 
 // END READY TO TRY SECTION
-
-
-
-// FIT CONTENT
-
-
-// FIT CONTENT 
-
-@media screen and (min-width: 2200px) and (max-width: 4000px) {
-    .contact-main-image-container,
-    .contact-us-hero-info,
-    .contact-form,
-    .faq-section {
-        transform: scale(1.3);
-    }
-
-    .contact-us-hero-info {
-        margin-top: 5rem;
-    }
-
-    .contact-form {
-        margin-top: 5rem;
-    }
-
-    .faq-section {
-        margin-top: 15rem;
-    }
-
-    .ready-to-try-section {
-        margin-top: 15rem;
-    }
-    
-}

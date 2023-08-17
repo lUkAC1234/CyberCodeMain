@@ -1,130 +1,77 @@
-    // Carousel No image function 
+(function ($) {
+    "use strict";
 
-    const imageContainers = document.querySelectorAll('.image-container');
+    $(".carousel-slide-container").owlCarousel({
+        smartSpeed: 1000,
+        loop: true,
+        center: true,
+        dots: false,
+        nav: true,
+        navText : [
+            '<i class="fa-sharp fa-solid fa-circle-chevron-left carouselPrev"></i>',
+            '<i class="fa-sharp fa-solid fa-circle-chevron-right carouselNext"></i>'
+        ],
+        responsive: {
+            0:{
+                items:1
+            },
+            600:{
+                items:1.5
+            },
+            1000:{
+                items:2
+            },
+            1300:{
+                items:3
+            },
+            2000:{
+                items:4
+            },
 
-    imageContainers.forEach(container => {
-        const img = container.querySelector('img');
-        const noImageMessage = container.querySelector('.noImageMessage');
-
-        img.onerror = function () {
-            img.style.display = 'none';
-            noImageMessage.style.display = 'flex';
-        };
+            3000:{
+                items:5
+            },
+        }
     });
 
-    // End Carousel No image function 
+    $(".feedback-container").owlCarousel({
+        smartSpeed: 1000,
+        loop: true,
+        center: true,
+        dots: false,
+        nav: true,
+        margin: 10,
+        navText : [
+            '<i class="fa-sharp fa-solid fa-circle-chevron-left feedbackPrev"></i>',
+            '<i class="fa-sharp fa-solid fa-circle-chevron-right feedbackNext"></i>'
+        ],
+        responsive: {
+            0:{
+                items: 1.25
+            },
+            600:{
+                items: 2
+            },
+            992:{
+                items: 1.1
+            },
+            1300:{
+                items:1.1
+            },
 
-    // Carousel function
-
-    const carousel = document.querySelector('.carousel');
-    const prevButton = document.querySelector('.carousel-prev');
-    const nextButton = document.querySelector('.carousel-next');
-    const totalSlides = carousel.children.length;
-
-    let slideWidth = 0;
-
-    function calculateSlideWidth() {
-        const firstSlide = carousel.querySelector('.carousel-slide');
-        if (firstSlide) {
-            slideWidth = firstSlide.clientWidth;
-            if (window.innerWidth < 500) { // Mobile
-                slideWidth += 0.4 * 16;
-            } else if (window.innerWidth < 768) {
-                slideWidth += 1 * 16;
+            2000:{
+                items: 1.5
+            },
+            3000:{
+                items: 2
+            },
+            4000:{
+                items: 3
             }
         }
-    }
-
-    calculateSlideWidth();
-
-    let touchStartX = 0;
-    let touchEndX = 0;
-    let dragging = false;
-    let currentIndex = 0;
-
-    function showSlide(index) {
-        console.log('Count: ', index)
-        currentIndex = Math.min(Math.max(index, 0), totalSlides - 1);
-        const translateValue = -currentIndex * slideWidth;
-        carousel.style.transform = `translateX(${translateValue}px)`;
-    }
-
-    function handleTouchStart(event) {
-        touchStartX = event.touches[0].clientX;
-        dragging = true;
-    }
-
-    function handleTouchMove(event) {
-        if (!dragging) return;
-        touchEndX = event.touches[0].clientX;
-    }
-
-    function handleTouchEnd() {
-        if (!dragging) return;
-        dragging = false;
-
-        const touchDiff = touchStartX - touchEndX;
-
-        if (touchDiff > 50) {
-            showSlide(currentIndex + 1); // Change to +1 for one slide forward
-        } else if (touchDiff < -50) {
-            showSlide(currentIndex - 1); // Change to -1 for one slide backward
-        }
-    }
-
-    function handleMouseDown(event) {
-        touchStartX = event.clientX;
-        dragging = true;
-        document.addEventListener('mousemove', handleMouseMove);
-        document.addEventListener('mouseup', handleMouseUp);
-    }
-
-    function handleMouseMove(event) {
-        if (!dragging) return;
-        touchEndX = event.clientX;
-    }
-
-    function handleMouseUp() {
-        if (!dragging) return;
-        dragging = false;
-        document.removeEventListener('mousemove', handleMouseMove);
-        document.removeEventListener('mouseup', handleMouseUp);
-
-        const touchDiff = touchStartX - touchEndX;
-
-        if (touchDiff > 50) {
-            showSlide(currentIndex + 1); // Change to +1 for one slide forward
-        } else if (touchDiff < -50) {
-            showSlide(currentIndex - 1); // Change to -1 for one slide backward
-        }
-    }
-
-    window.addEventListener('resize', calculateSlideWidth);
-    nextButton.addEventListener('click', () => showSlide(currentIndex + 1)); // Change to +1 for one slide forward
-    prevButton.addEventListener('click', () => showSlide(currentIndex - 1)); // Change to -1 for one slide backward
-    carousel.addEventListener('touchstart', handleTouchStart);
-    carousel.addEventListener('touchmove', handleTouchMove);
-    carousel.addEventListener('touchend', handleTouchEnd);
-    carousel.addEventListener('mousedown', handleMouseDown);
-
-    showSlide(currentIndex);
+    });
+    
+})(jQuery);
 
 
 
-// Uncomment the following lines if you want to enable autoplay
-// const autoplayInterval = 300; // Adjust as needed
-// let autoplayTimer;
-// function startAutoplay() {
-//   autoplayTimer = setInterval(() => {
-//     nextSlide();
-//   }, autoplayInterval);
-// }
-// function stopAutoplay() {
-//   clearInterval(autoplayTimer);
-// }
-// startAutoplay();
-// carousel.addEventListener('mouseenter', stopAutoplay);
-// carousel.addEventListener('mouseleave', startAutoplay);
-
-
-// End Carousel function
