@@ -1,8 +1,65 @@
 {% extends 'layout/base.html' %}
 {% load static %}
 
+{% block title %}
+<title>About us - CyberCode</title>
+{% endblock %}
+
 {% block content %}
-<main class="about">
-    
+<main class="about-main">
+    <!-- START GRADIENT CONTENT -->
+    <section class="about-page-gradient-section">
+        <div class="about-page-gradient-main-container">
+            <article class="about-page-gradient-text-container">
+                <h1 class="about-page-gradient-title">Our mission is to make people happy and productive</h1>
+                <p class="about-page-gradient-text">We are on a mission to give you more control. Start your business,
+                    organizing and reacting. Spend more time doing the things that matter.</p>
+                <div class="about-page-gradient-btn-container">
+                    <a href="">
+                        <button class="about-page-gradient-btn">Get in touch</button>
+                    </a>
+                </div>
+            </article>
+            <article class="about-page-gradient-image-container">
+                <div class="about-page-gradient-image-column">
+                    <img class="about-page-gradient-image"
+                        src="{% static 'main/images/about-us/gradientmainimage.svg' %}" alt="">
+                    <article class="about-page-gradient-image-column-info-container-border">
+                        <div class="about-page-gradient-image-column-info-container">
+                            <h1 class="about-page-gradient-image-column-title">In progress</h1>
+                            <div class="about-page-gradient-image-column-task">
+                                <div class="about-page-gradient-image-tasks-user-category-container">
+                                    <p class="about-page-gradient-image-tasks-category">UX Design</p>
+                                    <div class="about-page-gradient-image-tasks-users-image-container">
+                                        <img src="{% static 'main/images/main-page/carousel1.png' %}" alt="">
+                                        <img src="{% static 'main/images/main-page/avatar.svg' %}" alt="">
+                                    </div>
+                                </div>
+                                <h1 class="about-page-gradient-image-column-task-title">Creating user story</h1>
+                                <span class="about-page-gradient-image-column-task-date">
+                                    <i class="fas fa-calendar-week"></i> 11 Oct
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </article>
+        </div>
+    </section>
+    <!-- END GRADIENT CONTENT -->
+
+    <!-- START HELPING PEOPLE SECTION -->
+
+    <section class="helping-people-section">
+        <div class="helping-people-container">
+            <h1 class="helping-people-title">helping People feel better about their work</h1>
+            <p class="helping-people-text">
+                We started working on Taskable because we had the same problem. All the tasks, files, and information we
+                needed to get work done was spread across Slack, email, project management tools, and cloud storage.
+            </p>
+        </div>
+    </section>
+
+    <!-- END HELPING PEOPLE SECTION -->
 </main>
 {% endblock %}

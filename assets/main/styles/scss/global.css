@@ -756,6 +756,252 @@
     right: 4.5rem;
   }
 }
+.about-page-gradient-section {
+  position: relative;
+  background-image: url(../../images/layout/wave.svg);
+  background: linear-gradient(168deg, rgb(170, 235, 255) 0%, rgb(255, 217, 221) 0%, rgb(222, 181, 255) 16%, rgb(193, 188, 255) 33%, rgb(193, 115, 255) 96%);
+  background-position: center bottom;
+  padding: 10.5rem 0;
+}
+.about-page-gradient-section::after {
+  content: "";
+  position: absolute;
+  background: url(../../images/layout/wave.svg);
+  width: 100%;
+  height: 200px;
+  background-position: bottom center;
+  bottom: -10px;
+  background-size: cover;
+}
+
+.about-page-gradient-main-container {
+  display: flex;
+  place-content: center;
+  gap: 1rem;
+}
+
+.about-page-gradient-text-container {
+  width: 50%;
+  padding-left: 1rem;
+}
+.about-page-gradient-text-container .about-page-gradient-title {
+  color: var(--text-white) !important;
+  font-size: 3.5rem !important;
+  width: min(100%, 40rem);
+}
+.about-page-gradient-text-container .about-page-gradient-title::first-line {
+  color: var(--text-purple);
+}
+.about-page-gradient-text-container .about-page-gradient-text {
+  color: var(--text-white) !important;
+  margin: 1.25rem 0 3rem;
+  width: min(100%, 28rem);
+}
+
+.about-page-gradient-image-container {
+  width: min(50%, 32rem);
+  position: relative;
+}
+
+.about-page-gradient-image-column {
+  width: 100%;
+}
+.about-page-gradient-image-column .about-page-gradient-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 1.25rem;
+  object-fit: cover;
+}
+
+.about-page-gradient-image-column-info-container-border {
+  position: absolute;
+  background: var(--background-white);
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+  width: min(100%, 18rem);
+  bottom: -1rem;
+  left: -6rem;
+}
+
+.about-page-gradient-image-column-info-container {
+  background: var(--carousel-image-background);
+  border-radius: 1.25rem;
+  padding: 1rem;
+}
+.about-page-gradient-image-column-info-container .about-page-gradient-image-column-title {
+  margin-bottom: 1rem;
+}
+
+.about-page-gradient-image-column-task {
+  background: var(--background-white);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.about-page-gradient-image-tasks-user-category-container {
+  display: flex;
+  justify-content: space-between;
+}
+.about-page-gradient-image-tasks-user-category-container .about-page-gradient-image-tasks-category {
+  padding: 0.25rem 0.5rem;
+  background: var(--gray-button);
+  height: fit-content;
+  font-size: 0.7rem;
+  color: var(--text-purple);
+  border-radius: 3.875rem;
+  text-align: center;
+  font-family: var(--nunito);
+}
+
+.about-page-gradient-image-tasks-users-image-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.about-page-gradient-image-tasks-users-image-container img {
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  right: 0;
+  border-radius: 50%;
+}
+.about-page-gradient-image-tasks-users-image-container img:nth-child(1) {
+  right: 1.5rem;
+  z-index: var(--z-index-2);
+}
+
+.about-page-gradient-image-column-task-title {
+  font-size: 0.87rem !important;
+  margin: 1rem 0;
+}
+
+.about-page-gradient-image-column-task-date {
+  font-size: 0.75rem !important;
+}
+.about-page-gradient-image-column-task-date i {
+  color: var(--text-purple);
+}
+
+@media screen and (max-width: 1430px) {
+  .about-page-gradient-text-container .about-page-gradient-title {
+    font-size: 3rem !important;
+  }
+  .about-page-gradient-text-container .about-page-gradient-text {
+    width: min(100%, 20rem);
+  }
+}
+@media screen and (max-width: 1200px) {
+  .about-page-gradient-text-container {
+    width: 80%;
+    padding: 0 10%;
+  }
+  .about-page-gradient-image-container {
+    width: min(50%, 25rem);
+  }
+  .about-page-gradient-image-column-info-container-border {
+    transform: scale(0.8);
+    bottom: 4rem;
+  }
+}
+@media screen and (max-width: 975px) {
+  .about-page-gradient-main-container {
+    flex-flow: column;
+  }
+  .about-page-gradient-text-container {
+    width: 90%;
+    margin: 0 5%;
+  }
+  .about-page-gradient-text-container .about-page-gradient-text {
+    width: min(100%, 28rem);
+  }
+  .about-page-gradient-image-container {
+    width: 70%;
+    margin: 2rem 15%;
+  }
+  .about-page-gradient-image-container .about-page-gradient-image-column-info-container-border {
+    width: 90%;
+    transform: scale(1);
+    bottom: -5rem;
+    left: 50%;
+    transform: translate(-50%);
+  }
+}
+@media screen and (max-width: 600px) {
+  .about-page-gradient-image-container .about-page-gradient-image-column-info-container-border {
+    width: 90%;
+    min-width: 15rem;
+    bottom: -5rem;
+    left: -20%;
+    transform: scale(0.8);
+  }
+  .about-page-gradient-text-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  .about-page-gradient-text-container .about-page-gradient-title {
+    font-size: 2.5rem !important;
+  }
+  .about-page-gradient-text-container .about-page-gradient-text {
+    font-size: 1rem !important;
+  }
+}
+@media screen and (max-width: 600px) and (max-width: 450px) {
+  .about-page-gradient-image-container {
+    width: 90%;
+    margin-inline: 5%;
+  }
+  .about-page-gradient-image-container .about-page-gradient-image-column-info-container-border {
+    width: 50%;
+    left: 50%;
+    bottom: -6rem;
+    transform: translate(-50%);
+  }
+}
+.helping-people-section {
+  position: relative;
+  margin-top: 10rem;
+  min-height: 100vh;
+}
+.helping-people-section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -5rem;
+  width: 10rem;
+  height: 500px;
+  background-image: url("../../images/about-us/leftcircle.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+@media screen and (max-width: 600px) {
+  .helping-people-section::before {
+    width: 8rem;
+    height: 300px;
+    top: -3rem;
+  }
+}
+
+.helping-people-container {
+  padding-inline: 1rem;
+}
+
+.helping-people-title,
+.helping-people-text {
+  text-align: center;
+  width: min(100%, 45rem);
+  margin: 1.25rem auto;
+}
+
+@media screen and (max-width: 500px) {
+  .helping-people-title {
+    font-size: 2rem !important;
+  }
+  .helping-people-text {
+    font-size: 1rem !important;
+  }
+}
 .contact-main-image-container {
   width: 100%;
   height: 26rem;
@@ -1387,7 +1633,7 @@
     position: absolute;
     display: none;
     top: 0;
-    background: linear-gradient(to left, #c2c2c2 0%, var(--background-white) 100%);
+    background: linear-gradient(to left, #c8c8c8 0%, var(--background-white) 100%);
     min-height: 100vh;
     gap: 1.25rem;
     justify-content: start;
@@ -1727,7 +1973,7 @@
 /* Get percent based on width */
 /*=============== GOOGLE FONTS ===============*/
 /*=============== VARIABLES CSS ===============*/
-.onerem-tworem-purple-button, .gradient-buttons-container .gradient-btn-column a .gradient-button, .carousel-title-container .carousel-link-container .carousel-link, .contact-form-column-btn-container .contact-form-column-btn, .ready-to-try-button {
+.onerem-tworem-purple-button, .gradient-buttons-container .gradient-btn-column a .gradient-button, .carousel-title-container .carousel-link-container .carousel-link, .about-page-gradient-btn-container a .about-page-gradient-btn, .contact-form-column-btn-container .contact-form-column-btn, .ready-to-try-button {
   padding: 1rem 2rem;
   color: var(--text-white);
   text-align: center;
@@ -1740,7 +1986,7 @@
   transition: all 0.5s;
   cursor: pointer;
 }
-.onerem-tworem-purple-button:hover, .gradient-buttons-container .gradient-btn-column a .gradient-button:hover, .carousel-title-container .carousel-link-container .carousel-link:hover, .contact-form-column-btn-container .contact-form-column-btn:hover, .ready-to-try-button:hover {
+.onerem-tworem-purple-button:hover, .gradient-buttons-container .gradient-btn-column a .gradient-button:hover, .carousel-title-container .carousel-link-container .carousel-link:hover, .about-page-gradient-btn-container a .about-page-gradient-btn:hover, .contact-form-column-btn-container .contact-form-column-btn:hover, .ready-to-try-button:hover {
   background: none;
   color: var(--text-purple);
 }
@@ -1813,7 +2059,7 @@
     padding: 0;
   }
 }
-.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .faq-card-title, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .faq-main-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title {
+.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .faq-card-title, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .helping-people-title, .faq-main-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title {
   color: var(--text-dark-blue);
   text-align: center;
   font-size: 4rem;
@@ -1823,7 +2069,7 @@
   text-transform: capitalize;
 }
 
-.dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .faq-main-title {
+.dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .helping-people-title, .faq-main-title {
   font-size: 3rem;
 }
 
@@ -1835,12 +2081,12 @@
   font-size: 1.5rem;
 }
 
-.dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .faq-card-title {
+.dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .faq-card-title {
   font-size: 1rem;
 }
 
 .info-text-gray-1-125rem, .info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content, .faq-text, .static-info .static-info-text, .choices-column .abilities .abilities-ul .abilities-li, .choices-column:nth-child(even) .price-column .abilities-ul .abilities-li,
-.choices-column:nth-child(even) .abilities .abilities-ul .abilities-li, .carousel-title-container .carousel-text, .feedback-user .feedback-username, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info, .ready-to-try-info {
+.choices-column:nth-child(even) .abilities .abilities-ul .abilities-li, .carousel-title-container .carousel-text, .feedback-user .feedback-username, .helping-people-text, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info, .ready-to-try-info {
   color: #666;
   font-size: 1.125rem;
   font-family: var(--grotext-sans);
@@ -1851,8 +2097,8 @@
   font-size: 1rem;
 }
 
-.chat-text-gray, .chat-date-text, .chat-text-gray-1-125, .task-content-column .task-text, .package .package-info, .contact-us-hero-text-container .contact-us-hero-column-info, .chat-column .message-container .chat-message-text, .carousel-text-container .carousel-slide-text, .carousel-date-container .carousel-date-posted,
-.carousel-date-container .carousel-date {
+.chat-text-gray, .chat-date-text, .chat-text-gray-1-125, .task-content-column .task-text, .package .package-info, .about-page-gradient-text-container .about-page-gradient-text, .contact-us-hero-text-container .contact-us-hero-column-info, .chat-column .message-container .chat-message-text, .carousel-text-container .carousel-slide-text, .carousel-date-container .carousel-date-posted,
+.carousel-date-container .carousel-date, .about-page-gradient-image-column-task-date {
   color: var(--text-light-gray);
   font-size: 1rem;
   font-family: var(--nunito);
@@ -1860,7 +2106,7 @@
   line-height: 140%;
 }
 
-.chat-text-gray-1-125, .task-content-column .task-text, .package .package-info, .contact-us-hero-text-container .contact-us-hero-column-info {
+.chat-text-gray-1-125, .task-content-column .task-text, .package .package-info, .about-page-gradient-text-container .about-page-gradient-text, .contact-us-hero-text-container .contact-us-hero-column-info {
   font-size: 1.125rem;
   line-height: 160%;
 }
@@ -1877,7 +2123,7 @@
   font-size: 0.75rem;
 }
 
-.text-align-start, .task-content-column .task-title, .static-info .static-info-title, .carousel-title-container .carousel-title, .carousel-text-container .carousel-slide-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .faq-card-title, .ready-to-try-title {
+.text-align-start, .task-content-column .task-title, .static-info .static-info-title, .carousel-title-container .carousel-title, .carousel-text-container .carousel-slide-title, .about-page-gradient-text-container .about-page-gradient-title, .about-page-gradient-image-column-task-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .faq-card-title, .ready-to-try-title {
   text-align: start;
 }
 

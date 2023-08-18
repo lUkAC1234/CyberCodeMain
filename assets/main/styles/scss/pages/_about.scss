@@ -1,0 +1,307 @@
+// GRADIENT SECTION START
+
+.about-page-gradient-section {
+    position: relative;
+    background-image: url(../../images/layout/wave.svg);
+    background: linear-gradient(168deg, rgba(170, 235, 255, 1) 0%, rgba(255, 217, 221, 1) 0%, rgba(222, 181, 255, 1) 16%, rgba(193, 188, 255, 1) 33%, rgba(193, 115, 255, 1) 96%);
+    background-position: center bottom;
+    padding: 10.5rem 0;
+
+    &::after {
+        content: "";
+        position: absolute;
+        background: url(../../images/layout/wave.svg);
+        width: 100%;
+        height: 200px;
+        background-position: bottom center;
+        bottom: -10px;
+        background-size: cover;
+    }
+}
+
+.about-page-gradient-main-container {
+    display: flex;
+    place-content: center;
+    gap: 1rem;
+}
+
+.about-page-gradient-text-container {
+    width: 50%;
+    padding-left: 1rem;
+
+    .about-page-gradient-title {
+        @extend .dark-blue-text-center-grotext-family-4rem;
+        @extend .text-align-start;
+        color: var(--text-white) !important;
+        font-size: 3.5rem !important;
+        width: min(100%, 40rem);
+
+        &::first-line {
+            color: var(--text-purple)
+        }
+    }
+
+    .about-page-gradient-text {
+        @extend .chat-text-gray-1-125;
+        color: var(--text-white) !important;
+        margin: 1.25rem 0 3rem;
+        width: min(100%, 28rem);
+    }
+}
+
+.about-page-gradient-btn-container {
+    a {
+        .about-page-gradient-btn {
+            @extend .onerem-tworem-purple-button;
+        }
+    }
+}
+
+.about-page-gradient-image-container {
+    width: min(50%, 32rem);
+    position: relative;
+}
+
+.about-page-gradient-image-column {
+    width: 100%;
+
+    .about-page-gradient-image {
+        width: 100%;
+        height: 100%;
+        border-radius: 1.25rem;
+        object-fit: cover;
+    }
+}
+
+.about-page-gradient-image-column-info-container-border {
+    position: absolute;
+    background: var(--background-white);
+    border-radius: 1.25rem;
+    padding: 1.25rem;
+    width: min(100%, 18rem);
+    bottom: -1rem;
+    left: -6rem;
+}
+
+.about-page-gradient-image-column-info-container {
+    background: var(--carousel-image-background);
+    border-radius: 1.25rem;
+    padding: 1rem;
+
+    .about-page-gradient-image-column-title {
+        @extend .dark-blue-text-center-grotext-family-1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+.about-page-gradient-image-column-task {
+    background: var(--background-white);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.about-page-gradient-image-tasks-user-category-container {
+    display: flex;
+    justify-content: space-between;
+
+    .about-page-gradient-image-tasks-category {
+        padding: 0.25rem 0.5rem;
+        background: var(--gray-button);
+        height: fit-content;
+        font-size: 0.7rem;
+        color: var(--text-purple);
+        border-radius: 3.875rem;
+        text-align: center;
+        font-family: var(--nunito);
+    }
+}
+
+.about-page-gradient-image-tasks-users-image-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    img {
+        width: 2rem;
+        height: 2rem;
+        position: absolute;
+        right: 0;
+        border-radius: 50%;
+
+        &:nth-child(1) {
+            right: 1.5rem;
+            z-index: var(--z-index-2);
+        }
+    }
+}
+
+.about-page-gradient-image-column-task-title {
+    @extend .dark-blue-text-center-grotext-family-1rem;
+    @extend .text-align-start;
+    font-size: 0.87rem !important;
+    margin: 1rem 0;
+}
+
+.about-page-gradient-image-column-task-date {
+    @extend .chat-text-gray;
+    font-size: 0.75rem !important;
+
+    i {
+        color: var(--text-purple);
+    }
+}
+
+@media screen and (max-width: 1430px) {
+    .about-page-gradient-text-container {
+        .about-page-gradient-title {
+            font-size: 3rem !important;
+        }
+
+        .about-page-gradient-text {
+            width: min(100%, 20rem);
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .about-page-gradient-text-container {
+        width: 80%;
+        padding: 0 10%;
+    }
+
+    .about-page-gradient-image-container {
+        width: min(50%, 25rem);
+    }
+
+    .about-page-gradient-image-column-info-container-border {
+        transform: scale(0.8);
+        bottom: 4rem;
+    }
+
+}
+
+@media screen and (max-width: 975px) {
+    .about-page-gradient-main-container {
+        flex-flow: column;
+    }
+    .about-page-gradient-text-container {
+        width: 90%;
+        margin: 0 5%;
+
+        .about-page-gradient-text {
+            width: min(100%, 28rem);
+        }
+    }
+
+    .about-page-gradient-image-container {
+        width: 70%;
+        margin: 2rem 15%;
+        .about-page-gradient-image-column-info-container-border {
+            width: 90%;
+            transform: scale(1);
+            bottom: -5rem;
+            left: 50%;
+            transform: translate(-50%);
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .about-page-gradient-image-container {
+        .about-page-gradient-image-column-info-container-border {
+            width: 90%;
+            min-width: 15rem;
+            bottom: -5rem;
+            left: -20%;
+            transform: scale(0.8);
+        }
+    }
+
+    .about-page-gradient-text-container {
+        width: 100%;
+        margin: 0 auto;
+        padding: 1rem;
+        .about-page-gradient-title {
+            font-size: 2.5rem !important;
+        }
+
+        .about-page-gradient-text {
+            font-size: 1rem !important;
+        }
+    }
+
+    @media screen and (max-width: 450px) {
+        .about-page-gradient-image-container {
+            width: 90%;
+            margin-inline: 5%;
+        }
+        .about-page-gradient-image-container {
+            .about-page-gradient-image-column-info-container-border {
+                width: 50%;
+                left: 50%;
+                bottom: -6rem;
+                transform: translate(-50%);
+            }
+        }
+    }
+}
+
+// GRADIENT SECTION END
+
+// HELPING PEOPLE SECTION START
+
+.helping-people-section {
+    position: relative;
+    margin-top: 10rem;
+    min-height: 100vh;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: -5rem;
+        width: 10rem;
+        height: 500px;
+        background-image: url('../../images/about-us/leftcircle.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        @media screen and (max-width: 600px) {
+            width: 8rem;
+            height: 300px;
+            top: -3rem;
+        }
+    }
+}
+
+.helping-people-container {
+    padding-inline: 1rem;
+}
+
+.helping-people-title {
+    @extend .dark-blue-text-center-grotext-family-3rem;
+}
+
+
+.helping-people-text {
+    @extend .info-text-gray-1-125rem;
+}
+
+.helping-people-title,
+.helping-people-text {
+    text-align: center;
+    width: min(100%, 45rem);
+    margin: 1.25rem auto;
+}
+
+@media screen and (max-width: 500px) {
+    .helping-people-title {
+       font-size: 2rem !important;
+    }
+    .helping-people-text {
+        font-size: 1rem !important;
+    }
+}
+
+// HELPING PEOPLE SECTION END
