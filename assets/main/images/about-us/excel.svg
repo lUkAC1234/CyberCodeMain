@@ -1,0 +1,24 @@
+<svg width="54" height="48" viewBox="0 0 54 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="excel">
+<rect id="rectangle" x="13.5" y="0.375" width="40.5" height="47.25" rx="3.375" fill="#2FB776"/>
+<path id="rectangle_2" d="M13.5 35.8125H54V44.25C54 46.114 52.489 47.625 50.625 47.625H16.875C15.011 47.625 13.5 46.114 13.5 44.25V35.8125Z" fill="url(#paint0_linear_266_107)"/>
+<rect id="rectangle_3" x="33.75" y="24" width="20.25" height="11.8125" fill="#229C5B"/>
+<rect id="rectangle_4" x="33.75" y="12.1875" width="20.25" height="11.8125" fill="#27AE68"/>
+<path id="rectangle_5" d="M13.5 3.75C13.5 1.88604 15.011 0.375 16.875 0.375H33.75V12.1875H13.5V3.75Z" fill="#1D854F"/>
+<rect id="rectangle_6" x="13.5" y="12.1875" width="20.25" height="11.8125" fill="#197B43"/>
+<rect id="rectangle_7" x="13.5" y="24" width="20.25" height="11.8125" fill="#1B5B38"/>
+<path id="rectangle_8" d="M13.5 17.25C13.5 14.4541 15.7666 12.1875 18.5625 12.1875H28.6875C31.4834 12.1875 33.75 14.4541 33.75 17.25V37.5C33.75 40.2959 31.4834 42.5625 28.6875 42.5625H13.5V17.25Z" fill="black" fill-opacity="0.3"/>
+<rect id="rectangle_9" y="8.8125" width="30.375" height="30.375" rx="3.375" fill="url(#paint1_linear_266_107)"/>
+<path id="X" d="M21.9375 32.4375L17.1823 23.8313L21.7287 15.5625H18.0174L15.2107 20.842L12.4504 15.5625H8.62307L13.1927 23.8313L8.4375 32.4375H12.1488L15.1411 26.8446L18.1102 32.4375H21.9375Z" fill="white"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_266_107" x1="13.5" y1="41.7187" x2="54" y2="41.7188" gradientUnits="userSpaceOnUse">
+<stop stop-color="#163C27"/>
+<stop offset="1" stop-color="#2A6043"/>
+</linearGradient>
+<linearGradient id="paint1_linear_266_107" x1="0" y1="24" x2="30.375" y2="24" gradientUnits="userSpaceOnUse">
+<stop stop-color="#185A30"/>
+<stop offset="1" stop-color="#176F3D"/>
+</linearGradient>
+</defs>
+</svg>

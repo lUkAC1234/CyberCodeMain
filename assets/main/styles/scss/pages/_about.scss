@@ -249,12 +249,11 @@
 
 // GRADIENT SECTION END
 
-// HELPING PEOPLE SECTION START
+// WEBSITE TECHNOLOGIES SECTION START
 
-.helping-people-section {
+.website-technologies-section {
     position: relative;
-    margin-top: 10rem;
-    min-height: 100vh;
+    margin: 10rem 0;
 
     &::before {
         content: "";
@@ -275,33 +274,187 @@
     }
 }
 
-.helping-people-container {
+.website-technologies-title-container {
     padding-inline: 1rem;
 }
 
-.helping-people-title {
+.website-technologies-main-title {
     @extend .dark-blue-text-center-grotext-family-3rem;
 }
 
 
-.helping-people-text {
+.website-technologies-main-text {
     @extend .info-text-gray-1-125rem;
 }
 
-.helping-people-title,
-.helping-people-text {
+.website-technologies-main-title,
+.website-technologies-main-text {
     text-align: center;
     width: min(100%, 45rem);
     margin: 1.25rem auto;
 }
 
 @media screen and (max-width: 500px) {
-    .helping-people-title {
+    .website-technologies-main-title {
        font-size: 2rem !important;
     }
-    .helping-people-text {
+    .website-technologies-main-text {
         font-size: 1rem !important;
     }
 }
 
-// HELPING PEOPLE SECTION END
+.website-technologies-container {
+    @extend .flex-row-justify-align-center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 10rem;
+}
+
+.website-technologies-column {
+    display: grid;
+    place-items: center;
+    background: var(--background-white);
+    border-radius: 1.25rem;
+    width: min(100%, 25rem);
+    padding: 2rem 1.5rem;
+    box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.1);
+    min-height: 20rem;
+    .website-technologies-image-container {
+        img {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            object-fit: cover
+        }
+    }
+
+    .website-technologies-title {
+        @extend .dark-blue-text-center-grotext-family-1-5rem ;
+        margin: 1rem 0 0.5rem;
+    }
+    .website-technologies-type {
+        @extend .info-text-gray-1-125rem;
+        color: var(--text-purple) !important;
+        text-align: center;
+    }
+    .website-technologies-text {
+        @extend .chat-text-gray-1-125;
+        text-align: center;
+        margin-top: 1rem;
+    }
+}
+
+// WEBSITE TECHNOLOGIES SECTION END
+
+// CLIENTS SECTION START
+
+.clienst-section {
+    position: relative;
+    background: var(--package-background);
+    background-position: center bottom;
+    padding: 15rem 0;
+    &::before {
+        content: "";
+        position: absolute;
+        background: url(../../images/about-us/percentwavetop.svg);
+        width: 100%;
+        height: 300px;
+        background-position: top center;
+        top: 0px;
+        background-size: cover;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        background: url(../../images/layout/wave.svg);
+        width: 100%;
+        height: 200px;
+        background-position: bottom center;
+        bottom: -10px;
+        background-size: cover;
+    }
+}
+
+.clients-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    padding-inline: 1rem;
+}
+
+.clients-column {
+    display: grid;
+    place-items: center;
+    height: fit-content;
+    width: min(100%, 20rem);
+    .client-title {
+        @extend .dark-blue-text-center-grotext-family-1-5rem;
+        margin: 1.5rem 0 1rem;
+    }
+    .client-text {
+        @extend .info-text-gray-1-125rem;
+        text-align: center;
+    }
+}
+
+.clients-column.first {
+    margin-top: -4rem;
+}
+
+.clients-column.second {
+    margin-top: 1rem;
+}
+
+.clients-column.third {
+    margin-top: 4rem;
+}
+
+.clients-column.fourth {
+    margin-top: 7rem;
+}
+
+.client-sphere {
+    display: grid;
+    place-content: center;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    background: var(--background-purple);
+    .client-sphere-info {
+        text-align: center;
+        @extend .white-1rem-grotext;
+        font-size: 1.75rem !important;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .clients-container {
+        flex-wrap: wrap;
+        gap: 3rem;
+        .clients-column {
+            .client-title {
+                font-size: 1.25rem;
+            }
+            .client-text {
+                font-size: 1rem;
+            }
+        }
+        .client-sphere {
+            width: 7rem;
+            height: 7rem;
+            .client-sphere-info {
+                font-size: 1.4rem !important;
+            }
+        }        
+    }
+
+    .clients-column.first,
+    .clients-column.second,
+    .clients-column.third,
+    .clients-column.fourth  {
+        margin-top: 0rem;
+    }
+}
+
+// CLIENTS SECTION END

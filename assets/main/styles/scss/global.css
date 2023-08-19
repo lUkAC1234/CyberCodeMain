@@ -959,12 +959,11 @@
     transform: translate(-50%);
   }
 }
-.helping-people-section {
+.website-technologies-section {
   position: relative;
-  margin-top: 10rem;
-  min-height: 100vh;
+  margin: 10rem 0;
 }
-.helping-people-section::before {
+.website-technologies-section::before {
   content: "";
   position: absolute;
   left: 0;
@@ -976,30 +975,165 @@
   background-size: contain;
 }
 @media screen and (max-width: 600px) {
-  .helping-people-section::before {
+  .website-technologies-section::before {
     width: 8rem;
     height: 300px;
     top: -3rem;
   }
 }
 
-.helping-people-container {
+.website-technologies-title-container {
   padding-inline: 1rem;
 }
 
-.helping-people-title,
-.helping-people-text {
+.website-technologies-main-title,
+.website-technologies-main-text {
   text-align: center;
   width: min(100%, 45rem);
   margin: 1.25rem auto;
 }
 
 @media screen and (max-width: 500px) {
-  .helping-people-title {
+  .website-technologies-main-title {
     font-size: 2rem !important;
   }
-  .helping-people-text {
+  .website-technologies-main-text {
     font-size: 1rem !important;
+  }
+}
+.website-technologies-container {
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 10rem;
+}
+
+.website-technologies-column {
+  display: grid;
+  place-items: center;
+  background: var(--background-white);
+  border-radius: 1.25rem;
+  width: min(100%, 25rem);
+  padding: 2rem 1.5rem;
+  box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.1);
+  min-height: 20rem;
+}
+.website-technologies-column .website-technologies-image-container img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.website-technologies-column .website-technologies-title {
+  margin: 1rem 0 0.5rem;
+}
+.website-technologies-column .website-technologies-type {
+  color: var(--text-purple) !important;
+  text-align: center;
+}
+.website-technologies-column .website-technologies-text {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.clienst-section {
+  position: relative;
+  background: var(--package-background);
+  background-position: center bottom;
+  padding: 15rem 0;
+}
+.clienst-section::before {
+  content: "";
+  position: absolute;
+  background: url(../../images/about-us/percentwavetop.svg);
+  width: 100%;
+  height: 300px;
+  background-position: top center;
+  top: 0px;
+  background-size: cover;
+}
+.clienst-section::after {
+  content: "";
+  position: absolute;
+  background: url(../../images/layout/wave.svg);
+  width: 100%;
+  height: 200px;
+  background-position: bottom center;
+  bottom: -10px;
+  background-size: cover;
+}
+
+.clients-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  padding-inline: 1rem;
+}
+
+.clients-column {
+  display: grid;
+  place-items: center;
+  height: fit-content;
+  width: min(100%, 20rem);
+}
+.clients-column .client-title {
+  margin: 1.5rem 0 1rem;
+}
+.clients-column .client-text {
+  text-align: center;
+}
+
+.clients-column.first {
+  margin-top: -4rem;
+}
+
+.clients-column.second {
+  margin-top: 1rem;
+}
+
+.clients-column.third {
+  margin-top: 4rem;
+}
+
+.clients-column.fourth {
+  margin-top: 7rem;
+}
+
+.client-sphere {
+  display: grid;
+  place-content: center;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  background: var(--background-purple);
+}
+.client-sphere .client-sphere-info {
+  text-align: center;
+  font-size: 1.75rem !important;
+}
+
+@media screen and (max-width: 992px) {
+  .clients-container {
+    flex-wrap: wrap;
+    gap: 3rem;
+  }
+  .clients-container .clients-column .client-title {
+    font-size: 1.25rem;
+  }
+  .clients-container .clients-column .client-text {
+    font-size: 1rem;
+  }
+  .clients-container .client-sphere {
+    width: 7rem;
+    height: 7rem;
+  }
+  .clients-container .client-sphere .client-sphere-info {
+    font-size: 1.4rem !important;
+  }
+  .clients-column.first,
+  .clients-column.second,
+  .clients-column.third,
+  .clients-column.fourth {
+    margin-top: 0rem;
   }
 }
 .contact-main-image-container {
@@ -2059,7 +2193,7 @@
     padding: 0;
   }
 }
-.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .faq-card-title, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .helping-people-title, .faq-main-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title {
+.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .faq-card-title, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .faq-main-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title {
   color: var(--text-dark-blue);
   text-align: center;
   font-size: 4rem;
@@ -2069,7 +2203,7 @@
   text-transform: capitalize;
 }
 
-.dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .helping-people-title, .faq-main-title {
+.dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .faq-main-title {
   font-size: 3rem;
 }
 
@@ -2077,7 +2211,7 @@
   font-size: 2rem;
 }
 
-.dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title {
+.dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title {
   font-size: 1.5rem;
 }
 
@@ -2086,7 +2220,7 @@
 }
 
 .info-text-gray-1-125rem, .info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content, .faq-text, .static-info .static-info-text, .choices-column .abilities .abilities-ul .abilities-li, .choices-column:nth-child(even) .price-column .abilities-ul .abilities-li,
-.choices-column:nth-child(even) .abilities .abilities-ul .abilities-li, .carousel-title-container .carousel-text, .feedback-user .feedback-username, .helping-people-text, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info, .ready-to-try-info {
+.choices-column:nth-child(even) .abilities .abilities-ul .abilities-li, .carousel-title-container .carousel-text, .feedback-user .feedback-username, .website-technologies-main-text, .website-technologies-column .website-technologies-type, .clients-column .client-text, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info, .ready-to-try-info {
   color: #666;
   font-size: 1.125rem;
   font-family: var(--grotext-sans);
@@ -2097,7 +2231,7 @@
   font-size: 1rem;
 }
 
-.chat-text-gray, .chat-date-text, .chat-text-gray-1-125, .task-content-column .task-text, .package .package-info, .about-page-gradient-text-container .about-page-gradient-text, .contact-us-hero-text-container .contact-us-hero-column-info, .chat-column .message-container .chat-message-text, .carousel-text-container .carousel-slide-text, .carousel-date-container .carousel-date-posted,
+.chat-text-gray, .chat-date-text, .chat-text-gray-1-125, .task-content-column .task-text, .package .package-info, .about-page-gradient-text-container .about-page-gradient-text, .website-technologies-column .website-technologies-text, .contact-us-hero-text-container .contact-us-hero-column-info, .chat-column .message-container .chat-message-text, .carousel-text-container .carousel-slide-text, .carousel-date-container .carousel-date-posted,
 .carousel-date-container .carousel-date, .about-page-gradient-image-column-task-date {
   color: var(--text-light-gray);
   font-size: 1rem;
@@ -2106,7 +2240,7 @@
   line-height: 140%;
 }
 
-.chat-text-gray-1-125, .task-content-column .task-text, .package .package-info, .about-page-gradient-text-container .about-page-gradient-text, .contact-us-hero-text-container .contact-us-hero-column-info {
+.chat-text-gray-1-125, .task-content-column .task-text, .package .package-info, .about-page-gradient-text-container .about-page-gradient-text, .website-technologies-column .website-technologies-text, .contact-us-hero-text-container .contact-us-hero-column-info {
   font-size: 1.125rem;
   line-height: 160%;
 }
@@ -2135,7 +2269,7 @@
   text-align: end;
 }
 
-.white-1rem-grotext, .choices-column .price-column .choice-type, .feedback-list-text-column .feedback-list-text-column-title, .feedback-list-text-column .feedback-list-text-column-text {
+.white-1rem-grotext, .choices-column .price-column .choice-type, .feedback-list-text-column .feedback-list-text-column-title, .feedback-list-text-column .feedback-list-text-column-text, .client-sphere .client-sphere-info {
   color: var(--text-white);
   font-size: 1rem;
   font-family: var(--grotext-sans);
@@ -2150,7 +2284,7 @@
   align-items: start;
 }
 
-.flex-row-justify-align-center, .flex-column-justify-align-center, .faq-container, .gradient-container, .contact-us-hero-get-in-touch-main-container, .contact-us-hero-get-in-touch-container .contact-us-hero-logo-image-container, .contact-form-column-btn-container, .pages-section-container {
+.flex-row-justify-align-center, .flex-column-justify-align-center, .faq-container, .gradient-container, .website-technologies-container, .contact-us-hero-get-in-touch-main-container, .contact-us-hero-get-in-touch-container .contact-us-hero-logo-image-container, .contact-form-column-btn-container, .pages-section-container {
   display: flex;
   justify-content: center;
   align-items: center;
