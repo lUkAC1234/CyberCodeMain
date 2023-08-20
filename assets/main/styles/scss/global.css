@@ -1136,6 +1136,380 @@
     margin-top: 0rem;
   }
 }
+.team-members-section {
+  position: relative;
+  margin: 10rem 0;
+}
+.team-members-section::before {
+  content: "";
+  position: absolute;
+  top: -10rem;
+  right: 0;
+  width: 10rem;
+  height: 500px;
+  background-image: url("../../images/main-page/rightcircle.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+@media screen and (max-width: 600px) {
+  .team-members-section::before {
+    width: 7rem;
+    height: 300px;
+    top: -5rem;
+  }
+}
+
+.team-members-container {
+  display: flex;
+  justify-content: center;
+  padding: 0 5rem;
+  gap: 3rem;
+}
+@media screen and (max-width: 992px) {
+  .team-members-container {
+    flex-flow: column-reverse;
+    align-items: center;
+    padding-inline: 1rem;
+  }
+}
+
+.team-members-image-column {
+  position: relative;
+  width: min(100%, 30rem);
+}
+.team-members-image-column img {
+  width: 100%;
+  height: 100%;
+  border-radius: 1.25rem;
+  object-fit: cover;
+}
+@media screen and (max-width: 992px) {
+  .team-members-image-column {
+    width: min(100%, 35rem);
+  }
+}
+
+.team-members-info-container {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  background: var(--background-white);
+  bottom: 0;
+  right: 0;
+  padding: 1rem;
+  border-radius: 0.5rem 0 0 0;
+}
+.team-members-info-container .team-members-icon {
+  color: var(--background-purple);
+}
+.team-members-info-container .team-members-count {
+  font-family: var(--grotext-sans);
+  font-size: 2.25rem;
+  color: var(--text-purple);
+}
+@media screen and (max-width: 600px) {
+  .team-members-info-container .team-members-count {
+    font-family: var(--grotext-sans);
+    font-size: 1.5rem;
+    color: var(--text-purple);
+  }
+  .team-members-info-container .team-members-count-text {
+    font-size: 0.8rem !important;
+  }
+}
+
+.team-members-info-column {
+  width: min(100%, 35rem);
+}
+.team-members-info-column .team-members-info-text {
+  margin: 1.5rem 0 2.75rem;
+}
+@media screen and (max-width: 600px) {
+  .team-members-info-column .team-members-title {
+    font-size: 2.5rem !important;
+  }
+  .team-members-info-column .team-members-info-text {
+    font-size: 1rem !important;
+  }
+}
+
+.system-section {
+  position: relative;
+  margin: 1rem 0;
+}
+.system-section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -5rem;
+  width: 10rem;
+  height: 500px;
+  background-image: url("../../images/about-us/leftcircle.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+@media screen and (max-width: 600px) {
+  .system-section::before {
+    width: 8rem;
+    height: 300px;
+    top: -3rem;
+  }
+}
+.system-section::after {
+  content: "";
+  display: none;
+  position: absolute;
+  top: 0rem;
+  right: 0;
+  width: 10rem;
+  height: 500px;
+  background-image: url("../../images/main-page/rightcircle.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+@media screen and (max-width: 600px) {
+  .system-section::after {
+    width: 7rem;
+    height: 300px;
+    top: 10rem;
+  }
+}
+
+.system-container {
+  gap: 1rem;
+}
+
+.system-info-container {
+  padding: 0 1rem;
+  width: min(100%, 28rem);
+}
+.system-info-container .system-info-text {
+  margin: 1.5rem 0 2.75rem;
+}
+
+.system-icon-text-wrapper {
+  display: grid;
+  grid-template-columns: auto auto;
+  width: min(100%, 40rem);
+  background: url("../../images/about-us/systemcircle.svg") no-repeat;
+  background-position: center;
+  background-size: 50%;
+}
+
+.system-column {
+  display: grid;
+  place-items: center;
+  background: var(--background-white);
+  box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  width: 18rem;
+  height: fit-content;
+}
+.system-column .system-icon-container {
+  display: grid;
+  place-items: center;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  background: var(--gray-button);
+}
+.system-column .system-icon-container .system-icon {
+  font-size: 3rem;
+  color: var(--background-purple);
+}
+.system-column .system-title {
+  margin: 0.5rem 0 0.75rem;
+}
+.system-column .system-text {
+  text-align: center;
+  width: min(100%, 15rem);
+}
+
+.system-column.first {
+  margin-left: 2rem;
+}
+
+.system-column.second {
+  margin: 4rem 0 0 4rem;
+}
+
+.system-column.fourth {
+  margin: 4rem 2rem;
+}
+
+@media screen and (max-width: 1600px) {
+  .system-section::after {
+    display: block;
+  }
+  .system-container {
+    flex-flow: column;
+  }
+  .system-info-container {
+    width: 100%;
+  }
+  .system-info-container .system-info-title {
+    font-size: 3.5rem !important;
+    width: min(100%, 50rem);
+  }
+  .system-info-container .system-info-text {
+    width: min(100%, 28rem);
+    margin: 1.5rem 0 2.75rem;
+  }
+  .system-icon-text-wrapper {
+    width: 100%;
+    place-content: center;
+    margin-top: 5rem;
+    background-size: 25rem;
+  }
+}
+@media screen and (max-width: 820px) {
+  .system-icon-text-wrapper {
+    margin-top: 0;
+    background-size: 15rem;
+  }
+  .system-column {
+    width: 100%;
+    max-width: 18rem;
+    transform: scale(0.8);
+  }
+  .system-column .system-icon-container {
+    width: 4rem;
+    height: 4rem;
+  }
+  .system-column .system-icon-container .system-icon {
+    font-size: 2rem;
+  }
+  .system-column .system-title {
+    font-size: 1.25rem !important;
+  }
+  .system-column .system-text {
+    font-size: 1rem !important;
+  }
+  .system-column.first,
+  .system-column.second,
+  .system-column.third,
+  .system-column.fourth {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 650px) {
+  .system-column {
+    transform: scale(0.6);
+  }
+  .system-container .system-info-container .system-info-title {
+    font-size: 2.5rem !important;
+  }
+  .system-container .system-info-container .system-info-text {
+    font-size: 1rem !important;
+  }
+}
+@media screen and (max-width: 530px) {
+  .system-icon-text-wrapper {
+    background-repeat: repeat-y;
+  }
+  .system-icon-text-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .system-column {
+    transform: scale(1);
+    width: 100% !important;
+  }
+}
+.about-get-in-touch-section {
+  margin-top: 5rem;
+  padding: 7.5rem 1rem 7.5rem 5rem;
+  background: linear-gradient(168deg, rgb(170, 235, 255) 0%, rgb(255, 217, 221) 0%, rgb(222, 181, 255) 16%, rgb(193, 115, 255) 33%, rgb(193, 188, 255) 96%);
+}
+
+.about-get-in-touch-container {
+  gap: 2rem;
+}
+
+.about-get-in-touch-text-column {
+  width: min(100%, 22rem);
+}
+.about-get-in-touch-text-column .about-get-in-touch-title {
+  font-size: 3rem !important;
+  line-height: 100% !important;
+}
+.about-get-in-touch-text-column .about-get-in-touch-text {
+  margin-top: 1rem;
+}
+
+.about-get-in-touch-info-container {
+  display: flex;
+  justify-content: end;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: fit-content;
+}
+
+.about-get-in-touch-info-column {
+  gap: 2.5rem;
+  padding: 2rem;
+  background: var(--background-white);
+  border-radius: 1.25rem;
+}
+
+.about-get-in-touch-icon-container {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  background: var(--gray-button);
+}
+.about-get-in-touch-icon-container i {
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 850px) {
+  .about-get-in-touch-section {
+    margin-top: 5rem;
+    padding: 7.5rem 1rem;
+  }
+  .about-get-in-touch-text-column {
+    width: 100%;
+  }
+  .about-get-in-touch-container {
+    flex-flow: column;
+  }
+  .about-get-in-touch-info-container {
+    justify-content: center;
+  }
+  .about-get-in-touch-info-column,
+  .about-get-in-touch-text-column {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .about-get-in-touch-info-column,
+  .about-get-in-touch-text-column {
+    width: 100%;
+  }
+  .about-get-in-touch-info-column {
+    gap: 1.5rem;
+  }
+  .about-get-in-touch-icon-container {
+    width: fit-content;
+    height: fit-content;
+    padding: 1rem;
+  }
+  .about-get-in-touch-icon-container i {
+    font-size: 1.5rem;
+  }
+  .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title {
+    font-size: 1.25rem !important;
+  }
+  .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-info {
+    font-size: 1rem !important;
+  }
+}
 .contact-main-image-container {
   width: 100%;
   height: 26rem;
@@ -2107,7 +2481,7 @@
 /* Get percent based on width */
 /*=============== GOOGLE FONTS ===============*/
 /*=============== VARIABLES CSS ===============*/
-.onerem-tworem-purple-button, .gradient-buttons-container .gradient-btn-column a .gradient-button, .carousel-title-container .carousel-link-container .carousel-link, .about-page-gradient-btn-container a .about-page-gradient-btn, .contact-form-column-btn-container .contact-form-column-btn, .ready-to-try-button {
+.onerem-tworem-purple-button, .gradient-buttons-container .gradient-btn-column a .gradient-button, .carousel-title-container .carousel-link-container .carousel-link, .about-page-gradient-btn-container a .about-page-gradient-btn, .team-members-btn-container a .team-members-btn, .system-info-btn-container a .system-info-btn, .contact-form-column-btn-container .contact-form-column-btn, .ready-to-try-button {
   padding: 1rem 2rem;
   color: var(--text-white);
   text-align: center;
@@ -2120,7 +2494,7 @@
   transition: all 0.5s;
   cursor: pointer;
 }
-.onerem-tworem-purple-button:hover, .gradient-buttons-container .gradient-btn-column a .gradient-button:hover, .carousel-title-container .carousel-link-container .carousel-link:hover, .about-page-gradient-btn-container a .about-page-gradient-btn:hover, .contact-form-column-btn-container .contact-form-column-btn:hover, .ready-to-try-button:hover {
+.onerem-tworem-purple-button:hover, .gradient-buttons-container .gradient-btn-column a .gradient-button:hover, .carousel-title-container .carousel-link-container .carousel-link:hover, .about-page-gradient-btn-container a .about-page-gradient-btn:hover, .team-members-btn-container a .team-members-btn:hover, .system-info-btn-container a .system-info-btn:hover, .contact-form-column-btn-container .contact-form-column-btn:hover, .ready-to-try-button:hover {
   background: none;
   color: var(--text-purple);
 }
@@ -2193,7 +2567,7 @@
     padding: 0;
   }
 }
-.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .faq-card-title, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .faq-main-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title {
+.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title {
   color: var(--text-dark-blue);
   text-align: center;
   font-size: 4rem;
@@ -2203,7 +2577,7 @@
   text-transform: capitalize;
 }
 
-.dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .faq-main-title {
+.dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title {
   font-size: 3rem;
 }
 
@@ -2211,16 +2585,16 @@
   font-size: 2rem;
 }
 
-.dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title {
+.dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title {
   font-size: 1.5rem;
 }
 
-.dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .faq-card-title {
+.dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title {
   font-size: 1rem;
 }
 
 .info-text-gray-1-125rem, .info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content, .faq-text, .static-info .static-info-text, .choices-column .abilities .abilities-ul .abilities-li, .choices-column:nth-child(even) .price-column .abilities-ul .abilities-li,
-.choices-column:nth-child(even) .abilities .abilities-ul .abilities-li, .carousel-title-container .carousel-text, .feedback-user .feedback-username, .website-technologies-main-text, .website-technologies-column .website-technologies-type, .clients-column .client-text, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info, .ready-to-try-info {
+.choices-column:nth-child(even) .abilities .abilities-ul .abilities-li, .carousel-title-container .carousel-text, .feedback-user .feedback-username, .website-technologies-main-text, .website-technologies-column .website-technologies-type, .clients-column .client-text, .team-members-info-column .team-members-info-text, .system-info-container .system-info-text, .system-column .system-text, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-info, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info, .ready-to-try-info {
   color: #666;
   font-size: 1.125rem;
   font-family: var(--grotext-sans);
@@ -2257,7 +2631,7 @@
   font-size: 0.75rem;
 }
 
-.text-align-start, .task-content-column .task-title, .static-info .static-info-title, .carousel-title-container .carousel-title, .carousel-text-container .carousel-slide-title, .about-page-gradient-text-container .about-page-gradient-title, .about-page-gradient-image-column-task-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .faq-card-title, .ready-to-try-title {
+.text-align-start, .task-content-column .task-title, .static-info .static-info-title, .carousel-title-container .carousel-title, .carousel-text-container .carousel-slide-title, .about-page-gradient-text-container .about-page-gradient-title, .about-page-gradient-image-column-task-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .faq-card-title, .ready-to-try-title {
   text-align: start;
 }
 
@@ -2269,7 +2643,7 @@
   text-align: end;
 }
 
-.white-1rem-grotext, .choices-column .price-column .choice-type, .feedback-list-text-column .feedback-list-text-column-title, .feedback-list-text-column .feedback-list-text-column-text, .client-sphere .client-sphere-info {
+.white-1rem-grotext, .choices-column .price-column .choice-type, .feedback-list-text-column .feedback-list-text-column-title, .feedback-list-text-column .feedback-list-text-column-text, .client-sphere .client-sphere-info, .about-get-in-touch-text-column .about-get-in-touch-title, .about-get-in-touch-text-column .about-get-in-touch-text {
   color: var(--text-white);
   font-size: 1rem;
   font-family: var(--grotext-sans);
@@ -2284,7 +2658,7 @@
   align-items: start;
 }
 
-.flex-row-justify-align-center, .flex-column-justify-align-center, .faq-container, .gradient-container, .website-technologies-container, .contact-us-hero-get-in-touch-main-container, .contact-us-hero-get-in-touch-container .contact-us-hero-logo-image-container, .contact-form-column-btn-container, .pages-section-container {
+.flex-row-justify-align-center, .flex-column-justify-align-center, .faq-container, .gradient-container, .website-technologies-container, .system-container, .about-get-in-touch-info-column, .contact-us-hero-get-in-touch-main-container, .contact-us-hero-get-in-touch-container .contact-us-hero-logo-image-container, .contact-form-column-btn-container, .pages-section-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2296,7 +2670,7 @@
   align-items: end;
 }
 
-.flex-row-center-between, .flex-column-center-between, .chat-column .message-container .message-creating-details, .carousel-title-container, .contact-main-image-container, .navbar {
+.flex-row-center-between, .flex-column-center-between, .chat-column .message-container .message-creating-details, .carousel-title-container, .about-get-in-touch-container, .contact-main-image-container, .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
