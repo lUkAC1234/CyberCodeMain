@@ -87,3 +87,8 @@
     font-weight: 700;
     line-height: 160%;
 }
+
+.white-1-125rem-grotext {
+    @extend .white-1rem-grotext;
+    font-size: 1.125rem;
+}

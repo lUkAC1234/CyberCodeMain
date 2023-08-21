@@ -1466,6 +1466,7 @@
 }
 .about-get-in-touch-icon-container i {
   font-size: 2rem;
+  color: var(--background-purple);
 }
 
 @media screen and (max-width: 850px) {
@@ -1950,6 +1951,192 @@
     padding: 0.5rem 1rem !important;
   }
 }
+.pricing-popular-packages-section {
+  position: relative;
+  background-image: url(../../images/layout/wave.svg);
+  background: linear-gradient(168deg, rgb(170, 235, 255) 0%, rgb(255, 217, 221) 0%, rgb(222, 181, 255) 16%, rgb(193, 188, 255) 33%, rgb(193, 115, 255) 96%);
+  background-position: center bottom;
+  padding: 10.5rem 0;
+  margin-bottom: 10rem;
+}
+.pricing-popular-packages-section::after {
+  content: "";
+  position: absolute;
+  background: url(../../images/layout/wave.svg);
+  width: 100%;
+  height: 200px;
+  background-position: bottom center;
+  bottom: -10px;
+  background-size: cover;
+}
+
+.pricing-popular-package-title {
+  color: var(--text-white) !important;
+}
+
+.pricing-popular-package-info {
+  text-align: center;
+}
+
+.pricing-popular-package-container {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  gap: 1rem;
+  margin-top: 5rem;
+}
+
+.pricing-popular-column {
+  width: 24rem;
+}
+
+.price-column {
+  position: relative;
+  background: linear-gradient(168deg, rgb(136, 40, 255) 0%, rgb(136, 40, 255) 36%, rgb(171, 124, 208) 80%);
+  padding: 2rem 2.5rem 3rem;
+  border-radius: 1.25rem 1.25rem 0rem 0rem;
+}
+.price-column .pricing-popular-price {
+  color: var(--text-white) !important;
+}
+.price-column .pricing-popular-date {
+  color: var(--text-white) !important;
+}
+.price-column .recommended {
+  position: absolute;
+  top: 0;
+  right: 1.5rem;
+  background: var(--recommended);
+  padding: 0.7rem 1.4rem;
+  border-radius: 0 0 1rem 1rem;
+}
+.pricing-popular-abilities {
+  position: relative;
+  background: var(--background-white);
+  border-radius: 0rem 0rem 1.25rem 1.25rem;
+  padding: 2.5rem 5rem 2.5rem 2.5rem;
+}
+
+.pricing-popular-abilities-ul {
+  gap: 0.6rem;
+}
+.pricing-popular-abilities-ul .abilities-li {
+  position: relative;
+}
+.pricing-popular-abilities-ul .abilities-li::before {
+  content: "";
+  position: absolute;
+  background: url(../../images/main-page/arrow.svg);
+  width: 20px;
+  height: 20px;
+  left: -1.25rem;
+}
+
+.pricing-abilities-btn {
+  transform: scale(0.9);
+  margin-top: 1rem;
+}
+
+.pricing-popular-column:nth-child(even) {
+  background: linear-gradient(168deg, rgb(136, 40, 255) 0%, rgb(136, 40, 255) 36%, rgb(171, 124, 208) 80%);
+  border-radius: 1.25rem;
+}
+.pricing-popular-column:nth-child(even) .price-column,
+.pricing-popular-column:nth-child(even) .pricing-popular-abilities {
+  background: none;
+}
+.pricing-popular-column:nth-child(even) .price-column .pricing-popular-abilities-ul .abilities-li,
+.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-popular-abilities-ul .abilities-li {
+  color: var(--text-white) !important;
+}
+.pricing-popular-column:nth-child(even) .price-column .pricing-popular-abilities-ul .abilities-li::before,
+.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-popular-abilities-ul .abilities-li::before {
+  background: url(../../images/main-page/arrow-white.svg);
+}
+.pricing-popular-column:nth-child(even) .price-column .pricing-abilities-btn,
+.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-abilities-btn {
+  transform: scale(0.9);
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 660px) {
+  .pricing-popular-package-title {
+    font-size: 2rem !important;
+  }
+  .pricing-popular-package-info {
+    font-size: 1rem !important;
+    width: 60%;
+    margin-inline: 20%;
+  }
+  .pricing-popular-column {
+    width: 22rem;
+  }
+}
+@media screen and (max-width: 660px) and (max-width: 400px) {
+  .pricing-popular-column {
+    width: 96%;
+    margin: 0 2%;
+  }
+  .pricing-popular-column .pricing-popular-abilities-ul .abilities-li {
+    font-size: 0.9rem !important;
+  }
+}
+.btn-for-list-of-packages {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  margin: 2rem auto;
+  width: fit-content;
+}
+.btn-for-list-of-packages a {
+  margin-top: -0.5rem;
+}
+.btn-for-list-of-packages i {
+  font-size: 2rem;
+  color: var(--gray-button);
+}
+.btn-for-list-of-packages .click-title {
+  background: linear-gradient(90deg, var(--background-white) 0%, var(--linear-gray-background) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.btn-for-list-of-packages .click-line {
+  margin: 0 0.47rem;
+  width: 0.3rem;
+  height: 8rem;
+  background: var(--gray-button);
+  border-radius: 1.25rem;
+}
+
+.btn-for-list-of-packages {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 0.3s ease, transform 1s ease;
+}
+
+.btn-for-list-of-packages.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.click-image-container {
+  position: absolute;
+  bottom: 0rem;
+  right: 6rem;
+}
+.click-image-container img {
+  width: 1.5rem;
+  height: 1.5rem;
+  object-fit: cover;
+}
+
 .header {
   width: 100%;
   position: fixed;
@@ -2141,7 +2328,7 @@
     position: absolute;
     display: none;
     top: 0;
-    background: linear-gradient(to left, #c8c8c8 0%, var(--background-white) 100%);
+    background: linear-gradient(to left, var(--linear-gray-background) 0%, var(--background-white) 100%);
     min-height: 100vh;
     gap: 1.25rem;
     justify-content: start;
@@ -2465,6 +2652,7 @@
   --background-header-menu: #363636;
   --carousel-background: #FDFDFD;
   --carousel-image-background: #f3f3f3;
+  --linear-gray-background: #c3c3c3;
 }
 
 :root {
@@ -2517,7 +2705,8 @@
 }
 
 .gray-button-purple-1rem-2rem, .task-content-column .task-button-a .task-button, .choices-column .abilities .abilities-btn, .choices-column:nth-child(even) .price-column .abilities-btn,
-.choices-column:nth-child(even) .abilities .abilities-btn {
+.choices-column:nth-child(even) .abilities .abilities-btn, .pricing-abilities-btn, .pricing-popular-column:nth-child(even) .price-column .pricing-abilities-btn,
+.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-abilities-btn {
   color: var(--text-purple);
   text-align: center;
   font-size: 1.125rem;
@@ -2531,7 +2720,8 @@
   cursor: pointer;
 }
 .gray-button-purple-1rem-2rem:hover, .task-content-column .task-button-a .task-button:hover, .choices-column .abilities .abilities-btn:hover, .choices-column:nth-child(even) .price-column .abilities-btn:hover,
-.choices-column:nth-child(even) .abilities .abilities-btn:hover {
+.choices-column:nth-child(even) .abilities .abilities-btn:hover, .pricing-abilities-btn:hover, .pricing-popular-column:nth-child(even) .price-column .pricing-abilities-btn:hover,
+.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-abilities-btn:hover {
   background: var(--background-purple);
   color: var(--gray-button);
 }
@@ -2567,7 +2757,7 @@
     padding: 0;
   }
 }
-.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title {
+.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title {
   color: var(--text-dark-blue);
   text-align: center;
   font-size: 4rem;
@@ -2581,7 +2771,7 @@
   font-size: 3rem;
 }
 
-.dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price {
+.dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price {
   font-size: 2rem;
 }
 
@@ -2589,19 +2779,20 @@
   font-size: 1.5rem;
 }
 
-.dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title {
+.dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1 {
   font-size: 1rem;
 }
 
-.info-text-gray-1-125rem, .info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content, .faq-text, .static-info .static-info-text, .choices-column .abilities .abilities-ul .abilities-li, .choices-column:nth-child(even) .price-column .abilities-ul .abilities-li,
-.choices-column:nth-child(even) .abilities .abilities-ul .abilities-li, .carousel-title-container .carousel-text, .feedback-user .feedback-username, .website-technologies-main-text, .website-technologies-column .website-technologies-type, .clients-column .client-text, .team-members-info-column .team-members-info-text, .system-info-container .system-info-text, .system-column .system-text, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-info, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info, .ready-to-try-info {
+.info-text-gray-1-125rem, .info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content, .faq-text, .price-column .pricing-popular-date, .static-info .static-info-text, .choices-column .abilities .abilities-ul .abilities-li, .choices-column:nth-child(even) .price-column .abilities-ul .abilities-li,
+.choices-column:nth-child(even) .abilities .abilities-ul .abilities-li, .carousel-title-container .carousel-text, .feedback-user .feedback-username, .website-technologies-main-text, .website-technologies-column .website-technologies-type, .clients-column .client-text, .team-members-info-column .team-members-info-text, .system-info-container .system-info-text, .system-column .system-text, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-info, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info, .ready-to-try-info, .pricing-popular-abilities-ul .abilities-li, .pricing-popular-column:nth-child(even) .price-column .pricing-popular-abilities-ul .abilities-li,
+.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-popular-abilities-ul .abilities-li {
   color: #666;
   font-size: 1.125rem;
   font-family: var(--grotext-sans);
   line-height: 160%;
 }
 
-.info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content, .faq-text {
+.info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content, .faq-text, .price-column .pricing-popular-date {
   font-size: 1rem;
 }
 
@@ -2643,7 +2834,7 @@
   text-align: end;
 }
 
-.white-1rem-grotext, .choices-column .price-column .choice-type, .feedback-list-text-column .feedback-list-text-column-title, .feedback-list-text-column .feedback-list-text-column-text, .client-sphere .client-sphere-info, .about-get-in-touch-text-column .about-get-in-touch-title, .about-get-in-touch-text-column .about-get-in-touch-text {
+.white-1rem-grotext, .white-1-125rem-grotext, .pricing-popular-package-info, .btn-for-list-of-packages .click-title, .choices-column .price-column .choice-type, .feedback-list-text-column .feedback-list-text-column-title, .feedback-list-text-column .feedback-list-text-column-text, .client-sphere .client-sphere-info, .about-get-in-touch-text-column .about-get-in-touch-title, .about-get-in-touch-text-column .about-get-in-touch-text, .price-column .pricing-popular-type {
   color: var(--text-white);
   font-size: 1rem;
   font-family: var(--grotext-sans);
@@ -2652,7 +2843,11 @@
   line-height: 160%;
 }
 
-.flex-row-justify-align-start, .flex-column-justify-align-start, .choices-column .abilities .abilities-ul {
+.white-1-125rem-grotext, .pricing-popular-package-info, .btn-for-list-of-packages .click-title {
+  font-size: 1.125rem;
+}
+
+.flex-row-justify-align-start, .flex-column-justify-align-start, .choices-column .abilities .abilities-ul, .pricing-popular-abilities-ul {
   display: flex;
   justify-content: flex-start;
   align-items: start;
@@ -2709,7 +2904,8 @@
 }
 
 .flex-row-align-center, .flex-column-align-center, .choices-column .abilities .abilities-ul .abilities-li, .choices-column:nth-child(even) .price-column .abilities-ul .abilities-li,
-.choices-column:nth-child(even) .abilities .abilities-ul .abilities-li, .feedback-user, .contact-us-hero-get-in-touch-container {
+.choices-column:nth-child(even) .abilities .abilities-ul .abilities-li, .feedback-user, .contact-us-hero-get-in-touch-container, .pricing-popular-abilities-ul .abilities-li, .pricing-popular-column:nth-child(even) .price-column .pricing-popular-abilities-ul .abilities-li,
+.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-popular-abilities-ul .abilities-li {
   display: flex;
   align-items: center;
 }
@@ -2719,7 +2915,7 @@
   align-items: end;
 }
 
-.flex-column-justify-align-start, .choices-column .abilities .abilities-ul {
+.flex-column-justify-align-start, .choices-column .abilities .abilities-ul, .pricing-popular-abilities-ul {
   flex-flow: column;
 }
 

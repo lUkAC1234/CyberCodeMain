@@ -1,0 +1,93 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Pricing - CyberCode</title>
+{% endblock %}
+
+{% block content %}
+<main class="pricing-main">
+    <!-- START POPULAR PACKAGES SECTION -->
+    <section class="pricing-popular-packages-section">
+        <div class="pricing-popular-main-container">
+            <h1 class="pricing-popular-package-title">Our 3 popular pricing models</h1>
+            <p class="pricing-popular-package-info">Save 20% of your project costs with our Monthly Subscription plan
+            </p>
+            <div class="pricing-popular-package-container">
+                <div class="pricing-popular-column">
+                    <div class="price-column">
+                        <h1 class="pricing-popular-type">Free plan</h1>
+                        <span class="pricing-popular-price">$600</span>
+                        <span class="pricing-popular-date">/ Life time</span>
+                    </div>
+                    <div class="pricing-popular-abilities">
+                        <ul class="pricing-popular-abilities-ul">
+                            <li class="abilities-li">Today & Planning view</li>
+                            <li class="abilities-li">Checklist templates</li>
+                            <li class="abilities-li">Calendar integration</li>
+                            <li class="abilities-li">Browser extension</li>
+                        </ul>
+                        <button class="pricing-abilities-btn">Get started</button>
+                    </div>
+                </div>
+                <div class="pricing-popular-column">
+                    <div class="price-column">
+                        <h1 class="pricing-popular-type">Free plan</h1>
+                        <span class="pricing-popular-price">$600</span>
+                        <span class="pricing-popular-date">/ Life time</span>
+                        <div class="recommended">
+                            <h1>Recommended</h1>
+                        </div>
+                    </div>
+                    <div class="pricing-popular-abilities">
+                        <ul class="pricing-popular-abilities-ul">
+                            <li class="abilities-li">Today & Planning view</li>
+                            <li class="abilities-li">Checklist templates</li>
+                            <li class="abilities-li">Calendar integration</li>
+                            <li class="abilities-li">Browser extension</li>
+                        </ul>
+                        <button class="pricing-abilities-btn">Get started</button>
+                    </div>
+                </div>
+                <div class="pricing-popular-column">
+                    <div class="price-column">
+                        <h1 class="pricing-popular-type">Free plan</h1>
+                        <span class="pricing-popular-price">$600</span>
+                        <span class="pricing-popular-date">/ Life time</span>
+                    </div>
+                    <div class="pricing-popular-abilities">
+                        <ul class="pricing-popular-abilities-ul">
+                            <li class="abilities-li">Today & Planning view</li>
+                            <li class="abilities-li">Checklist templates</li>
+                            <li class="abilities-li">Calendar integration</li>
+                            <li class="abilities-li">Browser extension</li>
+                        </ul>
+                        <button class="pricing-abilities-btn">Get started </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- START BUTTON FOR OTHER PACKAGES -->
+
+            <article class="btn-for-list-of-packages">
+                <h1 class="click-title">Click to see other packages</h1>
+                <a href="">
+                    <div class="click-line"></div>
+                    <i class="fas fa-angle-down"></i>
+                </a>
+                <div class="click-image-container">
+                    <img class="click-image" src="{% static 'main/images/about-us/click.svg' %}" alt="">
+                </div>
+            </article>
+            <!-- END BUTTON FOR OTHER PACKAGES -->
+        </div>
+    </section>
+    <!-- END POPULAR PACKAGES SECTION -->
+</main>
+{% endblock %}
+
+{% block js_block %}
+<script>
+</script>
+<script src="{% static 'main/scripts/js/clickbtnpricing.js' %}"></script>
+{% endblock %}

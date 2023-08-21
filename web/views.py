@@ -9,3 +9,6 @@ class about(TemplateView):
 
 class contact(TemplateView):
     template_name = "pages/contact.html"
+
+class pricing(TemplateView):
+    template_name = "pages/pricing.html"

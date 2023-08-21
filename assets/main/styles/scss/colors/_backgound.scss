@@ -15,6 +15,7 @@ $recommended: #FFDA58;
 $background-header-menu: #363636;
 $carousel-background: #FDFDFD;
 $carousel-image-background: #f3f3f3;
+$linear-gray-background: #c3c3c3;
 :root {
     --background-purple: #{$background-purple};
     --background-light-purple: #{$background-light-purple};
@@ -33,4 +34,5 @@ $carousel-image-background: #f3f3f3;
     --background-header-menu: #{$background-header-menu};
     --carousel-background: #{$carousel-background};
     --carousel-image-background: #{$carousel-image-background};
+    --linear-gray-background: #{$linear-gray-background};
 }
