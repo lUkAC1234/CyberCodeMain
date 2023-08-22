@@ -1975,6 +1975,7 @@
 }
 
 .pricing-popular-package-info {
+  margin-top: 1rem;
   text-align: center;
 }
 
@@ -2084,10 +2085,7 @@
 }
 .btn-for-list-of-packages {
   position: relative;
-  display: flex;
   flex-flow: column;
-  justify-content: center;
-  align-items: center;
   padding: 1rem;
   margin: 2rem auto;
   width: fit-content;
@@ -2137,6 +2135,128 @@
   object-fit: cover;
 }
 
+.custom-build-container {
+  flex-wrap: wrap;
+  gap: 3rem 1.25rem;
+  padding: 0 1rem;
+}
+
+.custom-build-column {
+  position: relative;
+  display: grid;
+  place-items: center;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+  background: var(--background-white);
+  padding: 4rem;
+  width: min(100%, 36rem);
+  border-radius: 1.25rem;
+}
+.custom-build-column .custom-build-text {
+  width: min(100%, 22rem);
+  text-align: center;
+  margin: 1rem 0;
+}
+@media screen and (max-width: 600px) {
+  .custom-build-column {
+    padding: 4rem 1rem;
+  }
+  .custom-build-column .custom-build-title {
+    font-size: 1.5rem !important;
+  }
+  .custom-build-column .custom-build-text {
+    font-size: 1rem !important;
+  }
+}
+
+.custom-build-btn-container {
+  position: absolute;
+  bottom: -1.5rem;
+}
+.services-section {
+  margin: 15rem 1rem 5rem;
+}
+
+.services-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+@media screen and (max-width: 1300px) {
+  .services-container {
+    flex-flow: column;
+    align-items: start;
+    gap: 5rem;
+  }
+  .services-container .services-text-container {
+    width: 100%;
+  }
+  .services-container .services-text-container .services-text-text {
+    max-width: 100%;
+    width: min(100%, 50rem);
+  }
+}
+
+.services-text-container {
+  width: 50%;
+}
+.services-text-container .services-text-text {
+  margin: 1rem 0 2rem;
+  max-width: 30rem;
+}
+
+.services-info-container {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  row-gap: 3rem;
+  margin: 0 auto;
+}
+@media screen and (max-width: 750px) {
+  .services-info-container {
+    grid-template-columns: auto;
+  }
+}
+
+.services-icon {
+  display: grid;
+  place-items: center;
+  background: var(--gray-button);
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+}
+.services-icon i {
+  color: var(--background-purple);
+  font-size: 2.5rem;
+}
+
+.services-info-column {
+  display: grid;
+  place-items: center;
+}
+.services-info-column .services-info-title {
+  margin: 0.5rem 0 0.75rem;
+}
+.services-info-column .services-info-text {
+  text-align: center;
+  width: min(100%, 16rem);
+}
+
+@media screen and (max-width: 600px) {
+  .services-text-text {
+    font-size: 1rem !important;
+    text-align: center;
+  }
+  .services-text-title {
+    font-size: 1.75rem !important;
+    text-align: center !important;
+  }
+  .services-link-container {
+    display: grid;
+    place-items: center;
+  }
+}
 .header {
   width: 100%;
   position: fixed;
@@ -2669,7 +2789,7 @@
 /* Get percent based on width */
 /*=============== GOOGLE FONTS ===============*/
 /*=============== VARIABLES CSS ===============*/
-.onerem-tworem-purple-button, .gradient-buttons-container .gradient-btn-column a .gradient-button, .carousel-title-container .carousel-link-container .carousel-link, .about-page-gradient-btn-container a .about-page-gradient-btn, .team-members-btn-container a .team-members-btn, .system-info-btn-container a .system-info-btn, .contact-form-column-btn-container .contact-form-column-btn, .ready-to-try-button {
+.onerem-tworem-purple-button, .gradient-buttons-container .gradient-btn-column a .gradient-button, .carousel-title-container .carousel-link-container .carousel-link, .about-page-gradient-btn-container a .about-page-gradient-btn, .team-members-btn-container a .team-members-btn, .system-info-btn-container a .system-info-btn, .contact-form-column-btn-container .contact-form-column-btn, .ready-to-try-button, .custom-build-btn-container button, .services-link-container button {
   padding: 1rem 2rem;
   color: var(--text-white);
   text-align: center;
@@ -2682,7 +2802,7 @@
   transition: all 0.5s;
   cursor: pointer;
 }
-.onerem-tworem-purple-button:hover, .gradient-buttons-container .gradient-btn-column a .gradient-button:hover, .carousel-title-container .carousel-link-container .carousel-link:hover, .about-page-gradient-btn-container a .about-page-gradient-btn:hover, .team-members-btn-container a .team-members-btn:hover, .system-info-btn-container a .system-info-btn:hover, .contact-form-column-btn-container .contact-form-column-btn:hover, .ready-to-try-button:hover {
+.onerem-tworem-purple-button:hover, .gradient-buttons-container .gradient-btn-column a .gradient-button:hover, .carousel-title-container .carousel-link-container .carousel-link:hover, .about-page-gradient-btn-container a .about-page-gradient-btn:hover, .team-members-btn-container a .team-members-btn:hover, .system-info-btn-container a .system-info-btn:hover, .contact-form-column-btn-container .contact-form-column-btn:hover, .ready-to-try-button:hover, .custom-build-btn-container button:hover, .services-link-container button:hover {
   background: none;
   color: var(--text-purple);
 }
@@ -2757,7 +2877,7 @@
     padding: 0;
   }
 }
-.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title {
+.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title {
   color: var(--text-dark-blue);
   text-align: center;
   font-size: 4rem;
@@ -2767,15 +2887,15 @@
   text-transform: capitalize;
 }
 
-.dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title {
+.dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title {
   font-size: 3rem;
 }
 
-.dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price {
+.dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title {
   font-size: 2rem;
 }
 
-.dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title {
+.dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title {
   font-size: 1.5rem;
 }
 
@@ -2785,7 +2905,7 @@
 
 .info-text-gray-1-125rem, .info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content, .faq-text, .price-column .pricing-popular-date, .static-info .static-info-text, .choices-column .abilities .abilities-ul .abilities-li, .choices-column:nth-child(even) .price-column .abilities-ul .abilities-li,
 .choices-column:nth-child(even) .abilities .abilities-ul .abilities-li, .carousel-title-container .carousel-text, .feedback-user .feedback-username, .website-technologies-main-text, .website-technologies-column .website-technologies-type, .clients-column .client-text, .team-members-info-column .team-members-info-text, .system-info-container .system-info-text, .system-column .system-text, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-info, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info, .ready-to-try-info, .pricing-popular-abilities-ul .abilities-li, .pricing-popular-column:nth-child(even) .price-column .pricing-popular-abilities-ul .abilities-li,
-.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-popular-abilities-ul .abilities-li {
+.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-popular-abilities-ul .abilities-li, .custom-build-column .custom-build-text, .services-text-container .services-text-text {
   color: #666;
   font-size: 1.125rem;
   font-family: var(--grotext-sans);
@@ -2796,7 +2916,7 @@
   font-size: 1rem;
 }
 
-.chat-text-gray, .chat-date-text, .chat-text-gray-1-125, .task-content-column .task-text, .package .package-info, .about-page-gradient-text-container .about-page-gradient-text, .website-technologies-column .website-technologies-text, .contact-us-hero-text-container .contact-us-hero-column-info, .chat-column .message-container .chat-message-text, .carousel-text-container .carousel-slide-text, .carousel-date-container .carousel-date-posted,
+.chat-text-gray, .chat-date-text, .chat-text-gray-1-125, .task-content-column .task-text, .package .package-info, .about-page-gradient-text-container .about-page-gradient-text, .website-technologies-column .website-technologies-text, .contact-us-hero-text-container .contact-us-hero-column-info, .services-info-column .services-info-text, .chat-column .message-container .chat-message-text, .carousel-text-container .carousel-slide-text, .carousel-date-container .carousel-date-posted,
 .carousel-date-container .carousel-date, .about-page-gradient-image-column-task-date {
   color: var(--text-light-gray);
   font-size: 1rem;
@@ -2805,7 +2925,7 @@
   line-height: 140%;
 }
 
-.chat-text-gray-1-125, .task-content-column .task-text, .package .package-info, .about-page-gradient-text-container .about-page-gradient-text, .website-technologies-column .website-technologies-text, .contact-us-hero-text-container .contact-us-hero-column-info {
+.chat-text-gray-1-125, .task-content-column .task-text, .package .package-info, .about-page-gradient-text-container .about-page-gradient-text, .website-technologies-column .website-technologies-text, .contact-us-hero-text-container .contact-us-hero-column-info, .services-info-column .services-info-text {
   font-size: 1.125rem;
   line-height: 160%;
 }
@@ -2822,7 +2942,7 @@
   font-size: 0.75rem;
 }
 
-.text-align-start, .task-content-column .task-title, .static-info .static-info-title, .carousel-title-container .carousel-title, .carousel-text-container .carousel-slide-title, .about-page-gradient-text-container .about-page-gradient-title, .about-page-gradient-image-column-task-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .faq-card-title, .ready-to-try-title {
+.text-align-start, .task-content-column .task-title, .static-info .static-info-title, .carousel-title-container .carousel-title, .carousel-text-container .carousel-slide-title, .about-page-gradient-text-container .about-page-gradient-title, .about-page-gradient-image-column-task-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .faq-card-title, .ready-to-try-title, .services-text-container .services-text-title {
   text-align: start;
 }
 
@@ -2853,7 +2973,7 @@
   align-items: start;
 }
 
-.flex-row-justify-align-center, .flex-column-justify-align-center, .faq-container, .gradient-container, .website-technologies-container, .system-container, .about-get-in-touch-info-column, .contact-us-hero-get-in-touch-main-container, .contact-us-hero-get-in-touch-container .contact-us-hero-logo-image-container, .contact-form-column-btn-container, .pages-section-container {
+.flex-row-justify-align-center, .flex-column-justify-align-center, .faq-container, .gradient-container, .website-technologies-container, .system-container, .about-get-in-touch-info-column, .contact-us-hero-get-in-touch-main-container, .contact-us-hero-get-in-touch-container .contact-us-hero-logo-image-container, .contact-form-column-btn-container, .btn-for-list-of-packages, .custom-build-container, .pages-section-container {
   display: flex;
   justify-content: center;
   align-items: center;

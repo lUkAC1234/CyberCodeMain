@@ -27,6 +27,7 @@
 
 .pricing-popular-package-info {
     @extend .white-1-125rem-grotext;
+    margin-top: 1rem;
     text-align: center;
 }
 
@@ -174,11 +175,9 @@
 }
 
 .btn-for-list-of-packages {
+    @extend .flex-row-justify-align-center;
     position: relative;
-    display: flex;
     flex-flow: column;
-    justify-content: center;
-    align-items: center;
     padding: 1rem;
     margin: 2rem auto;
     width: fit-content;
@@ -233,4 +232,168 @@
         object-fit: cover;
     }
 }
+
 // POPULAR PACKAGES SECTION END
+
+// CUSTOM BUILD SECTION START
+
+.custom-build-container {
+    @extend .flex-row-justify-align-center;
+    flex-wrap: wrap;
+    gap: 3rem 1.25rem;
+    padding: 0 1rem;
+}
+
+.custom-build-column {
+    position: relative;
+    display: grid;
+    place-items: center;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+    background: var(--background-white);
+    padding: 4rem;
+    width: min(100%, 36rem);
+    border-radius: 1.25rem;
+
+    .custom-build-title {
+        @extend .dark-blue-text-center-grotext-family-2rem;
+    }
+
+    .custom-build-text {
+        @extend .info-text-gray-1-125rem;
+        width: min(100%, 22rem);
+        text-align: center;
+        margin: 1rem 0;
+    }
+
+    @media screen and (max-width: 600px) {
+        padding: 4rem 1rem;
+        .custom-build-title {
+            font-size: 1.5rem !important;
+        }
+    
+        .custom-build-text {
+            font-size: 1rem !important;
+        }
+    }
+}
+
+.custom-build-btn-container {
+    position: absolute;
+    bottom: -1.5rem;
+    button {
+        @extend .onerem-tworem-purple-button;
+    }
+}
+
+// CUSTOM BUILD SECTION END
+
+// OUR SERVICES SECTION START
+
+.services-section {
+    margin: 15rem 1rem 5rem;
+}
+
+.services-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0 1rem;
+
+    @media screen and (max-width: 1300px) {
+        flex-flow: column;
+        align-items: start;
+        gap: 5rem;
+
+        .services-text-container {
+            width: 100%;
+
+            .services-text-text {
+                max-width: 100%;
+                width: min(100%, 50rem);
+            }
+        }
+    }
+}
+
+.services-text-container {
+    width: 50%;
+
+    .services-text-title {
+        @extend .dark-blue-text-center-grotext-family-3rem;
+        @extend .text-align-start;
+    }
+
+    .services-text-text {
+        @extend .info-text-gray-1-125rem;
+        margin: 1rem 0 2rem;
+        max-width: 30rem;
+    }
+}
+
+.services-link-container {
+    button {
+        @extend .onerem-tworem-purple-button;
+    }
+}
+
+.services-info-container {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    row-gap: 3rem;
+    margin: 0 auto;
+
+    @media screen and (max-width: 750px) {
+        grid-template-columns: auto;
+    }
+}
+
+.services-icon {
+    display: grid;
+    place-items: center;
+    background: var(--gray-button);
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+
+    i {
+        color: var(--background-purple);
+        font-size: 2.5rem;
+    }
+}
+
+.services-info-column {
+    display: grid;
+    place-items: center;
+
+    .services-info-title {
+        @extend .dark-blue-text-center-grotext-family-1-5rem;
+        margin: 0.5rem 0 0.75rem;
+    }
+
+    .services-info-text {
+        @extend .chat-text-gray-1-125;
+        text-align: center;
+        width: min(100%, 16rem);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .services-text-text {
+        font-size: 1rem !important;
+        text-align: center;
+    }
+
+    .services-text-title {
+        font-size: 1.75rem !important;
+        text-align: center !important;
+    }
+
+
+    .services-link-container {
+        display: grid;
+        place-items: center;
+    }
+}
+
+// OUR SERVICES SECTION END
