@@ -1,0 +1,86 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Pricing - CyberCode</title>
+{% endblock %}
+
+{% block content %}
+<main class="pricing-list-main">
+    <!-- START PRICING LISTS SECTION -->
+
+    <section class="pricing-list-section">
+        <div class="pricing-list-container">
+            <div class="pricing-list-text-container">
+                <h1 class="pricing-list-title">Here is a list of all possible categories of our services</h1>
+                <p class="pricing-list-text">We guarantee that you will receive your order without delay, which means that we can place your order even earlier! At the same time, the quality will be perfect, and after we give your order, and if in a day - a month you contact us with a complaint that you don’t like something or that something needs to be changed, we will do it. it's free! However, only once, so be careful!</p>
+                <div class="pricing-list-btn-container">
+                    <a href="">
+                        <button class="pricing-list-btn"></button>
+                    </a>
+                </div>
+            </div>
+            <div class="pricing-list-image-container">
+                <img src="{% static 'main/images/pricinglist/people.png' %}" alt="">
+                <img src="{% static 'main/images/pricinglist/people2.png' %}" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- END PRICING LISTS SECTION -->
+
+    <!-- START PRICING CATEGORIES SECTION -->
+
+    <section class="pricing-categories-section">
+        <div class="pricing-categories-container">
+            <div class="pricing-list-column">
+                <h1 class="pricing-list-column-title"></h1>
+                <p class="pricing-list-column-text"></p>
+                <div class="pricing-list-features-container">
+                    <ul class="pricing-list-feature-wrapper">
+                        <li class="pricing-list-feature"></li>
+                    </ul>
+                    <div class="pricing-categories-btn-container">
+                        <a href="">
+                            <button class="pricing-categorie-btn"></button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- END PRICING CATEGORIES SECTION -->
+
+    <!-- Start READY TO TRY SECTION -->
+    <!-- <section class="ready-to-try-section">
+        <div class="ready-to-try-container">
+            <div class="ready-to-try-column">
+                <h1 class="ready-to-try-title">Ready to try <br> Cyber Code?</h1>
+                <p class="ready-to-try-info">Try Cyber Code and take back control of your day</p>
+                <div class="ready-to-try-buttons-container">
+                    <div class="ready-to-try-btn-column">
+                        <a href="">
+                            <button class="ready-to-try-button">Get started</button>
+                        </a>
+                    </div>
+                    <div class="ready-to-try-btn-column">
+                        <a href="">
+                            <button class="ready-to-try-button-without-background">Try free trial</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="ready-to-try-image-column">
+                <img src="{% static 'main/images/contactus/readytotry.svg' %}" alt="">
+            </div>
+        </div>
+    </section> -->
+    <!-- End READY TO TRY SECTION -->
+</main>
+{% endblock %}
+
+{% block js_block %}
+<script>
+</script>
+{% endblock %}

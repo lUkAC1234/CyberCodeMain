@@ -25,22 +25,3 @@ window.addEventListener('scroll', handleScroll);
 
 // Вызываем обработчик события один раз, чтобы проверить видимость элемента при загрузке страницы
 handleScroll();
-
-document.addEventListener('DOMContentLoaded', function () {
-    const triggerButton = document.querySelector('.btn-for-list-of-packages a');
-
-    triggerButton.addEventListener('click', function (event) {
-        event.preventDefault();
-        const targetElement = document.querySelector(this.getAttribute('href'));
-
-        if (targetElement) {
-            const targetOffset = targetElement.getBoundingClientRect().top + window.scrollY;
-
-            // Используем smooth scrolling для плавной прокрутки
-            window.scrollTo({
-                top: targetOffset,
-                behavior: 'smooth'
-            });
-        }
-    });
-});

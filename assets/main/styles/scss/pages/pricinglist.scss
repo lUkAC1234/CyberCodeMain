@@ -1,0 +1,30 @@
+.pricing-list-section {
+    position: relative;
+    background-image: url(../../images/layout/wave.svg);
+    background: linear-gradient(168deg, rgba(170, 235, 255, 1) 0%, rgba(255, 217, 221, 1) 0%, rgba(222, 181, 255, 1) 16%, rgba(193, 188, 255, 1) 33%, rgba(193, 115, 255, 1) 96%);
+    background-position: center bottom;
+    padding: 10.5rem 0;
+    margin-bottom: 10rem;
+
+    &::after {
+        content: "";
+        position: absolute;
+        background: url(../../images/layout/wave.svg);
+        width: 100%;
+        height: 200px;
+        background-position: bottom center;
+        bottom: -10px;
+        background-size: cover;
+    }
+}
+
+.pricing-list-container {
+    display: flex;
+}
+
+.pricing-list-text-container {
+    .pricing-list-title {
+        @extend .dark-blue-text-center-grotext-family-4rem;
+        color: var(--text-white) !important;
+    }   
+}

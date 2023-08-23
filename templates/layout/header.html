@@ -20,7 +20,7 @@
                     <li class="nav-link {% if request.path == '/contact/us/' %}active{% endif %}">
                         <a href="{% url 'main:contact' %}"><i class="fas fa-address-card"></i> Contact</a>
                     </li>
-                    <li class="nav-link {% if request.path == '/package/prices/' %}active{% endif %}">
+                    <li class="nav-link {% if request.path == '/package/prices/' or request.path == '/package/prices/list' %}active{% endif %}">
                         <a href="{% url 'main:pricing' %}"><i class="fas fa-wallet"></i> Pricing</a>
                     </li>
                     <li class="nav-link {% if request.path == '' %}active{% endif %}">
