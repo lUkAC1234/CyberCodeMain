@@ -327,6 +327,17 @@
             border-bottom: 18px solid transparent;
             filter: drop-shadow(0 0.5px 0px rgba(0, 0, 0, 0.1));
         }
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 2.5rem;
+            height: 0.5rem;
+            background: var(--background-purple);
+            border-radius: 3.5625rem;
+            bottom: -1rem;
+            left: 0;
+        }
     }
 }
 
@@ -345,6 +356,17 @@
             border-left: 35px solid var(--background-white);
             border-bottom: 18px solid transparent;
             filter: drop-shadow(0 0.5px 0px rgba(0, 0, 0, 0.1));
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 2.5rem;
+            height: 0.5rem;
+            background: var(--background-purple);
+            border-radius: 3.5625rem;
+            bottom: -1rem;
+            right: 0;
         }
     }
 }
@@ -416,6 +438,12 @@
                 border-bottom: 15px solid transparent;
                 filter: none;
             }
+
+            &::before {
+                width: 1.5rem;
+                height: 0.35rem;
+                bottom: -0.5rem;
+            }
         }
     }
 
@@ -428,11 +456,19 @@
                 border-bottom: 15px solid transparent;
                 filter: none;
             }
+
+            &::before {
+                width: 1.5rem;
+                height: 0.35rem;
+                bottom: -0.5rem;
+            }
         }
     }
 
     .chat-column {
         transform: scale(0.9);
+
+        
 
         .message-container {
             .chat-message-text {

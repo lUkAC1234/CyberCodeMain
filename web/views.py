@@ -15,3 +15,6 @@ class pricing(TemplateView):
 
 class pricinglist(TemplateView):
     template_name = "pages/pricinglist.html"
+    
+class documentation(TemplateView):
+    template_name = "pages/documentation.html"    
