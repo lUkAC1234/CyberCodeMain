@@ -1,0 +1,164 @@
+// START DOCUMENTATION TOGGLE SECTION
+
+.documentation-main {
+    padding: 10rem 0rem 0;
+}
+
+.language-toggle-section {
+    padding-inline: 1rem;
+}
+
+.language-toggle-container {
+    display: grid;
+    place-items: center;
+    gap: 2rem;
+    margin-top: 20px;
+}
+
+.language-toggle-text-container {
+    display: grid;
+    place-items: center;
+    .toggle-language-title {
+        @extend .dark-blue-text-center-grotext-family-3rem;
+    }
+    
+    .toggle-language-text {
+        @extend .info-text-gray-1-125rem;
+        text-align: center;
+        margin-top: 1rem;
+        width: 80%;
+    }
+
+    @media screen and (max-width: 750px) {
+        .toggle-language-title {
+            font-size: 2.5rem !important;
+        }
+        
+        .toggle-language-text {
+            font-size: 1rem !important;
+            width: 100%;
+        }
+    }
+}
+
+.language-btn-container {
+    display: flex;
+    gap: 2rem;
+
+    @media screen and (max-width: 550px) {
+        gap: 1rem;
+    }
+}
+
+.toggle-button {
+    @extend .gray-button-purple-1rem-2rem;
+    display: inline-flex;
+    gap: 0.3rem;
+    cursor: pointer;
+
+    @media screen and (max-width: 550px) {
+        .language-content-word {
+            display: none
+        }
+    }
+}
+
+.toggle-button.active {
+    & {
+        @extend .onerem-tworem-purple-button;
+    }
+    &:hover {
+        background: var(--background-purple) !important;
+        color: var(--text-white) !important;
+    }
+}
+
+// END DOCUMENTATION TOGGLE SECTION
+
+// START DOCUMENTATION CONTENT SECTION
+
+.documentation-section {
+    margin-top: 5rem;
+    padding-inline: 3rem;
+
+    @media screen and (max-width: 700px) {
+        padding-inline: 1rem;
+    }
+}
+
+.english-content {
+    display: block;
+}
+
+.russian-content {
+    display: none;
+}
+
+.documentation-content-title {
+    &:not(:first-child) {
+        margin-top: 5rem
+    }
+    @extend .dark-blue-text-center-grotext-family-2rem;
+    @extend .text-align-start;
+}
+
+.documentation-content-text {
+    @extend .info-text-gray-1rem;
+    margin: 1rem 0 3rem;
+}
+
+.documentation-content-wrapper {
+    display: flex;
+    flex-flow: column;
+    gap: 1.5rem;
+    padding-left: 2rem;
+    .documentation-content-li {
+        @extend .info-text-gray-1rem;
+        list-style-type: disc;
+
+        .documentation-content-li-title {
+            color: var(--text-dark-blue);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+    }
+}
+
+.documentation-image-container {
+    width: 100%;
+    margin: 2.5rem 0;
+
+    .documentation-image {
+        width: 100%;
+        height: 30rem;
+        object-fit: cover;
+        border-radius: 1.25rem;
+        margin: 0.5rem 0;
+
+        @media screen and (max-width: 850px) {
+            height: 20rem;
+        }
+    
+        @media screen and (max-width: 500px) {
+            height: 15rem;
+        }
+    
+        @media screen and (max-width: 400px) {
+            height: 10rem;
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .documentation-content-wrapper {
+        padding-left: 1rem;
+    }
+    
+    .documentation-content-title {
+        font-size: 1.5rem !important;
+    }
+    
+}
+
+// END DOCUMENTATION CONTENT SECTION
