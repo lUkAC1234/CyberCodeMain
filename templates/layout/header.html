@@ -14,9 +14,9 @@
                     <li class="nav-link {% if request.path == '/' %}active{% endif %}">
                         <a href="{% url 'main:index' %}"><i class="fa-solid fa-house"></i> Home</a>
                     </li>
-                    <li class="nav-link {% if request.path == '/about/us/' %}active{% endif %}">
+                    <li class="nav-link {% if request.path == '/about/us/' %}active{% endif %}" id="aboutDropdown">
                         <a href="{% url 'main:about' %}"><i class="fas fa-info-circle"></i> About</a>
-                    </li>
+                    </li>                                      
                     <li class="nav-link {% if request.path == '/contact/us/' %}active{% endif %}">
                         <a href="{% url 'main:contact' %}"><i class="fas fa-address-card"></i> Contact</a>
                     </li>
@@ -70,3 +70,4 @@
         </section>
     </nav>
 </header>
+
