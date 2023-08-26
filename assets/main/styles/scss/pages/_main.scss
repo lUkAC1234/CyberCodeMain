@@ -45,7 +45,7 @@
         color: var(--text-white);
         font-size: 1.05rem;
         font-family: var(--grotext-sans);
-        line-height: 2rem;
+        line-height: 160%;
         margin: 0.5rem 0 0 0.3rem;
     }
 
@@ -81,6 +81,7 @@
 
 @media screen and (max-width: 1100px) {
     .gradient-text-container {
+        padding-left: 1rem;
         .gradient-title {
             font-size: 2.5rem;
         }
@@ -92,47 +93,13 @@
 }
 
 @media screen and (max-width: 992px) {
-    .gradient-text-container {
-        .gradient-title {
-            font-size: 2rem;
-        }
-
-        .gradient-text {
-            font-size: 0.9rem;
-            line-height: 1.5rem;
-        }
-    }
-
-    .gradient-image-container {
-        width: 60%;
-    }
-
-    .gradient-buttons-container {
-        .gradient-btn-column {
-            a {
-
-                .gradient-button,
-                .gradient-button-without-background {
-                    padding: 0.5rem 1rem !important;
-                    font-size: 1rem !important;
-                }
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 760px) {
-    .gradient-text-container {
-        padding-left: 3rem;
-    }
-
     .gradient-container {
-        flex-flow: column;
-        justify-content: center;
-        align-items: center;
+        flex-wrap: wrap;
     }
-
+    
     .gradient-text-container {
+        width: 100%;
+
         .gradient-title {
             font-size: 3rem;
         }
@@ -144,30 +111,21 @@
     }
 
     .gradient-image-container {
-        width: 90%;
+        width: 80%;
         margin: 3rem 0;
-    }
+    } 
+}
 
-    .gradient-buttons-container {
-        .gradient-btn-column {
-            a {
-
-                .gradient-button,
-                .gradient-button-without-background {
-                    padding: 1rem 2rem !important;
-                    font-size: 1.125rem !important;
-                }
-            }
-        }
+@media screen and (max-width: 760px) {
+    .gradient-image-container {
+        width: 90%;
     }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 600px) {
     .gradient-text-container {
-        padding-left: 1rem;
-
         .gradient-title {
-            font-size: 2.1rem;
+            font-size: 2.5rem;
         }
 
         .gradient-text {
@@ -189,6 +147,16 @@
         }
     }
 }
+
+@media screen and (max-width: 400px) {
+    .gradient-text-container {
+        .gradient-title {
+            font-size: 2rem;
+        }
+
+    }
+}
+
 
 // GRADIENT CONTENT END
 

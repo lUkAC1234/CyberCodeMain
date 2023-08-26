@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Roboto");
@@ -47,7 +46,7 @@
   color: var(--text-white);
   font-size: 1.05rem;
   font-family: var(--grotext-sans);
-  line-height: 2rem;
+  line-height: 160%;
   margin: 0.5rem 0 0 0.3rem;
 }
 
@@ -66,6 +65,9 @@
   margin-top: 1rem;
 }
 @media screen and (max-width: 1100px) {
+  .gradient-text-container {
+    padding-left: 1rem;
+  }
   .gradient-text-container .gradient-title {
     font-size: 2.5rem;
   }
@@ -74,30 +76,11 @@
   }
 }
 @media screen and (max-width: 992px) {
-  .gradient-text-container .gradient-title {
-    font-size: 2rem;
-  }
-  .gradient-text-container .gradient-text {
-    font-size: 0.9rem;
-    line-height: 1.5rem;
-  }
-  .gradient-image-container {
-    width: 60%;
-  }
-  .gradient-buttons-container .gradient-btn-column a .gradient-button,
-  .gradient-buttons-container .gradient-btn-column a .gradient-button-without-background {
-    padding: 0.5rem 1rem !important;
-    font-size: 1rem !important;
-  }
-}
-@media screen and (max-width: 760px) {
-  .gradient-text-container {
-    padding-left: 3rem;
-  }
   .gradient-container {
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+  }
+  .gradient-text-container {
+    width: 100%;
   }
   .gradient-text-container .gradient-title {
     font-size: 3rem;
@@ -107,21 +90,18 @@
     line-height: 2rem;
   }
   .gradient-image-container {
-    width: 90%;
+    width: 80%;
     margin: 3rem 0;
   }
-  .gradient-buttons-container .gradient-btn-column a .gradient-button,
-  .gradient-buttons-container .gradient-btn-column a .gradient-button-without-background {
-    padding: 1rem 2rem !important;
-    font-size: 1.125rem !important;
+}
+@media screen and (max-width: 760px) {
+  .gradient-image-container {
+    width: 90%;
   }
 }
-@media screen and (max-width: 550px) {
-  .gradient-text-container {
-    padding-left: 1rem;
-  }
+@media screen and (max-width: 600px) {
   .gradient-text-container .gradient-title {
-    font-size: 2.1rem;
+    font-size: 2.5rem;
   }
   .gradient-text-container .gradient-text {
     font-size: 0.9rem;
@@ -131,6 +111,11 @@
   .gradient-buttons-container .gradient-btn-column a .gradient-button-without-background {
     padding: 0.5rem 1rem !important;
     font-size: 1rem !important;
+  }
+}
+@media screen and (max-width: 400px) {
+  .gradient-text-container .gradient-title {
+    font-size: 2rem;
   }
 }
 .tasks {
@@ -2590,6 +2575,286 @@
     font-size: 1.5rem !important;
   }
 }
+.blog-main {
+  overflow-x: hidden;
+}
+
+.blog-gradient-section {
+  position: relative;
+  background-image: url(../../images/layout/wave.svg);
+  background: linear-gradient(168deg, rgb(170, 235, 255) 0%, rgb(255, 217, 221) 0%, rgb(222, 181, 255) 16%, rgb(193, 188, 255) 33%, rgb(193, 115, 255) 96%);
+  background-position: center bottom;
+  padding: 10.5rem 0;
+}
+.blog-gradient-section::after {
+  content: "";
+  position: absolute;
+  background: url(../../images/layout/wave.svg);
+  width: 100%;
+  height: 200px;
+  background-position: bottom center;
+  bottom: -10px;
+  background-size: cover;
+}
+
+.blog-gradient-container {
+  padding-inline: 3rem 1rem;
+}
+@media screen and (max-width: 600px) {
+  .blog-gradient-container {
+    padding-inline: 1rem;
+  }
+}
+
+.blog-gradient-title {
+  color: var(--text-white) !important;
+  width: min(100%, 51rem);
+}
+.blog-gradient-title::first-line {
+  color: var(--text-purple);
+}
+@media screen and (max-width: 800px) {
+  .blog-gradient-title {
+    font-size: 3rem !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  .blog-gradient-title {
+    font-size: 2rem !important;
+  }
+}
+
+.latest-posts-section {
+  margin: 3rem 0;
+}
+
+.latest-posts-container {
+  width: 90%;
+  margin: 0 auto;
+}
+.latest-posts-container .latest-posts-title {
+  font-size: 2.25rem;
+  font-family: var(--grotext-sans);
+  font-weight: 700;
+  line-height: 120%;
+  text-transform: capitalize;
+  color: var(--text-purple);
+}
+
+.latest-post-wrapper {
+  display: flex;
+  margin: 2rem auto 0;
+  gap: 2rem;
+}
+
+.post-image-container {
+  width: min(100%, 35rem);
+  height: 21rem;
+}
+.post-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1.25rem;
+}
+
+.post-text-container {
+  width: min(100%, 35rem);
+}
+.post-text-container .post-title {
+  font-size: 2.25rem !important;
+}
+.post-text-container .post-text {
+  margin: 1.25rem 0 2.5rem;
+}
+.post-text-container .post-posted {
+  font-size: 1.125rem !important;
+}
+.post-text-container .post-date {
+  color: var(--text-purple) !important;
+  margin-top: 0.3rem;
+}
+
+@media screen and (max-width: 1100px) {
+  .post-text-container {
+    width: min(100%, 35rem);
+  }
+  .post-text-container .post-title {
+    font-size: 1.75rem !important;
+  }
+  .post-text-container .post-text {
+    margin: 1.25rem 0 2.5rem;
+    font-size: 1rem !important;
+  }
+}
+@media screen and (max-width: 800px) {
+  .latest-post-wrapper {
+    flex-wrap: wrap;
+  }
+  .post-text-container,
+  .post-image-container {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .post-text-container .post-title {
+    font-size: 1.25rem !important;
+  }
+  .post-image-container {
+    height: 12rem;
+  }
+  .latest-posts-container .latest-posts-title {
+    font-size: 1.5rem;
+  }
+}
+.featured-posts-section {
+  margin: 10rem 0;
+}
+
+.featured-posts-container {
+  padding: 0 1rem;
+}
+
+.featured-posts-search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+@media screen and (max-width: 1300px) {
+  .featured-posts-search-container {
+    flex-wrap: wrap;
+  }
+  .featured-posts-search-container .featured-categories-wrapper {
+    max-width: 90vw;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.search-container {
+  gap: 1rem;
+  border: 1px solid var(--background-header-menu);
+  border-radius: 5.125rem;
+  padding: 0.25rem 0.5rem 0.25rem 1rem;
+  width: 30rem;
+}
+.search-container:has(.featured-search-input:focus) {
+  border-color: var(--background-purple);
+}
+@media screen and (max-width: 600px) {
+  .search-container {
+    width: 20rem;
+  }
+}
+.search-container .featured-search-input {
+  border: none;
+  outline: none;
+  font-family: var(--grotext-sans);
+  width: 90%;
+  color: var(--text-purple);
+}
+.search-container .featured-search-input::placeholder {
+  font-size: 0.7rem;
+}
+.search-container .featured-search-btn {
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.7rem;
+  background: var(--background-purple);
+  color: var(--text-white);
+  font-family: var(--grotext-sans);
+  font-weight: 400;
+  line-height: 160%;
+  border-radius: 2.5rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.featured-search-title,
+.featured-posts-category-title {
+  font-size: 1.125rem !important;
+  margin: 1rem 0;
+}
+
+.featured-categories-wrapper {
+  display: flex;
+  gap: 1.5rem;
+  max-width: 30rem;
+}
+.featured-categories-wrapper .featured-category-column {
+  display: grid;
+  place-items: center;
+  place-content: center;
+  font-size: 1rem !important;
+}
+
+.featured-posts-wrapper {
+  margin: 15rem auto 10rem;
+}
+
+.featured-posts-column-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 2rem;
+  padding: 0 3rem;
+}
+
+.featured-posts-column {
+  position: relative;
+  width: min(100%, 35rem);
+}
+.featured-posts-column:first-child::before {
+  content: "Featured posts";
+  position: absolute;
+  top: -5rem;
+  left: 0;
+  font-size: 2.25rem;
+  font-family: var(--grotext-sans);
+  font-weight: 700;
+  line-height: 120%;
+  text-transform: capitalize;
+  color: var(--text-purple);
+}
+.featured-posts-column .featured-post-column-title {
+  font-size: 2.25rem !important;
+}
+.featured-posts-column .featured-post-column-text {
+  margin: 1.25rem 0 2.5rem;
+}
+.featured-posts-column .featured-post-column-posted {
+  font-size: 1.125rem !important;
+}
+.featured-posts-column .featured-post-column-date {
+  color: var(--text-purple) !important;
+  margin-top: 0.3rem;
+}
+
+@media screen and (max-width: 992px) {
+  .featured-posts-column-container {
+    padding: 0 1rem;
+  }
+  .featured-posts-column .featured-post-column-title {
+    font-size: 1.5rem !important;
+  }
+  .featured-posts-column .featured-post-column-text {
+    font-size: 1rem !important;
+  }
+  .featured-posts-column .featured-post-column-posted {
+    font-size: 1rem !important;
+  }
+  .featured-posts-column .featured-post-column-date {
+    color: var(--text-purple) !important;
+    margin-top: 0.3rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .featured-posts-column-container {
+    grid-template-columns: auto;
+    place-items: center;
+  }
+}
 .header {
   width: 100%;
   position: fixed;
@@ -3088,6 +3353,7 @@
 }
 
 :root {
+  --body-background: #f3f3f3;
   --background-purple: #8828FF;
   --background-light-purple: #C08DFF;
   --background-gray: #C1BCFF;
@@ -3115,11 +3381,32 @@
   --poppins: Poppins, sans-serif;
 }
 
-/* Конвертирует px в rem. Основная единица rem */
-/* Конвертирует px в em. Основная единица em */
-/* Конвертирует px в vw. Основная единица viewWidth */
-/* Конвертирует px в vh. Основная единица viewHeight */
-/* Get percent based on width */
+@media screen and (min-width: 2000px) {
+  .main {
+    margin: 0 auto;
+    max-width: 2000px;
+  }
+}
+@media screen and (min-width: 2500px) {
+  .main {
+    max-width: 2500px;
+  }
+}
+@media screen and (min-width: 3000px) {
+  .main {
+    max-width: 3000px;
+  }
+}
+@media screen and (min-width: 3500px) {
+  .main {
+    max-width: 3500px;
+  }
+}
+@media screen and (min-width: 4000px) {
+  .main {
+    max-width: 4000px;
+  }
+}
 /*=============== GOOGLE FONTS ===============*/
 /*=============== VARIABLES CSS ===============*/
 .onerem-tworem-purple-button, .gradient-buttons-container .gradient-btn-column a .gradient-button, .carousel-title-container .carousel-link-container .carousel-link, .about-page-gradient-btn-container a .about-page-gradient-btn, .team-members-btn-container a .team-members-btn, .system-info-btn-container a .system-info-btn, .contact-form-column-btn-container .contact-form-column-btn, .ready-to-try-button, .custom-build-btn-container button, .services-link-container button, .pricing-list-btn-container .pricing-list-btn, .toggle-button.active {
@@ -3159,7 +3446,7 @@
 
 .gray-button-purple-1rem-2rem, .task-content-column .task-button-a .task-button, .choices-column .abilities .abilities-btn, .choices-column:nth-child(even) .price-column .abilities-btn,
 .choices-column:nth-child(even) .abilities .abilities-btn, .pricing-abilities-btn, .pricing-popular-column:nth-child(even) .price-column .pricing-abilities-btn,
-.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-abilities-btn, .categories-abilities-btn, .toggle-button {
+.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-abilities-btn, .categories-abilities-btn, .toggle-button, .featured-categories-wrapper .featured-category-column {
   color: var(--text-purple);
   text-align: center;
   font-size: 1.125rem;
@@ -3174,7 +3461,7 @@
 }
 .gray-button-purple-1rem-2rem:hover, .task-content-column .task-button-a .task-button:hover, .choices-column .abilities .abilities-btn:hover, .choices-column:nth-child(even) .price-column .abilities-btn:hover,
 .choices-column:nth-child(even) .abilities .abilities-btn:hover, .pricing-abilities-btn:hover, .pricing-popular-column:nth-child(even) .price-column .pricing-abilities-btn:hover,
-.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-abilities-btn:hover, .categories-abilities-btn:hover, .toggle-button:hover {
+.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-abilities-btn:hover, .categories-abilities-btn:hover, .toggle-button:hover, .featured-categories-wrapper .featured-category-column:hover {
   background: var(--background-purple);
   color: var(--gray-button);
 }
@@ -3210,7 +3497,8 @@
     padding: 0;
   }
 }
-.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .documentation-content-title, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .language-toggle-text-container .toggle-language-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title {
+.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .post-text-container .post-posted, .featured-posts-column .featured-post-column-posted, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .documentation-content-title, .post-text-container .post-title, .featured-posts-column .featured-post-column-title, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .language-toggle-text-container .toggle-language-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
+.featured-posts-category-title {
   color: var(--text-dark-blue);
   text-align: center;
   font-size: 4rem;
@@ -3224,7 +3512,7 @@
   font-size: 3rem;
 }
 
-.dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .documentation-content-title {
+.dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .documentation-content-title, .post-text-container .post-title, .featured-posts-column .featured-post-column-title {
   font-size: 2rem;
 }
 
@@ -3232,13 +3520,13 @@
   font-size: 1.5rem;
 }
 
-.dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1 {
+.dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .post-text-container .post-posted, .featured-posts-column .featured-post-column-posted {
   font-size: 1rem;
 }
 
 .info-text-gray-1-125rem, .info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content, .faq-text, .price-column .pricing-popular-date, .pricing-list-text-container .pricing-list-text, .categorie-column .pricing-popular-date, .documentation-content-text, .documentation-content-wrapper .documentation-content-li, .static-info .static-info-text, .choices-column .abilities .abilities-ul .abilities-li, .choices-column:nth-child(even) .price-column .abilities-ul .abilities-li,
 .choices-column:nth-child(even) .abilities .abilities-ul .abilities-li, .carousel-title-container .carousel-text, .feedback-user .feedback-username, .website-technologies-main-text, .website-technologies-column .website-technologies-type, .clients-column .client-text, .team-members-info-column .team-members-info-text, .system-info-container .system-info-text, .system-column .system-text, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-info, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info, .ready-to-try-info, .pricing-popular-abilities-ul .abilities-li, .pricing-popular-column:nth-child(even) .price-column .pricing-popular-abilities-ul .abilities-li,
-.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-popular-abilities-ul .abilities-li, .custom-build-column .custom-build-text, .services-text-container .services-text-text, .pricing-categories-abilities-ul .categories-abilities-li, .language-toggle-text-container .toggle-language-text {
+.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-popular-abilities-ul .abilities-li, .custom-build-column .custom-build-text, .services-text-container .services-text-text, .pricing-categories-abilities-ul .categories-abilities-li, .language-toggle-text-container .toggle-language-text, .post-text-container .post-text, .featured-posts-column .featured-post-column-text {
   color: #666;
   font-size: 1.125rem;
   font-family: var(--grotext-sans);
@@ -3275,7 +3563,8 @@
   font-size: 0.75rem;
 }
 
-.text-align-start, .task-content-column .task-title, .static-info .static-info-title, .carousel-title-container .carousel-title, .carousel-text-container .carousel-slide-title, .about-page-gradient-text-container .about-page-gradient-title, .about-page-gradient-image-column-task-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .faq-card-title, .ready-to-try-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .documentation-content-title {
+.text-align-start, .task-content-column .task-title, .static-info .static-info-title, .carousel-title-container .carousel-title, .carousel-text-container .carousel-slide-title, .about-page-gradient-text-container .about-page-gradient-title, .about-page-gradient-image-column-task-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .faq-card-title, .ready-to-try-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .documentation-content-title, .blog-gradient-title, .post-text-container .post-title, .featured-search-title,
+.featured-posts-category-title, .featured-posts-column .featured-post-column-title {
   text-align: start;
 }
 
@@ -3287,7 +3576,7 @@
   text-align: end;
 }
 
-.white-1rem-grotext, .white-1-125rem-grotext, .pricing-popular-package-info, .btn-for-list-of-packages .click-title, .choices-column .price-column .choice-type, .feedback-list-text-column .feedback-list-text-column-title, .feedback-list-text-column .feedback-list-text-column-text, .client-sphere .client-sphere-info, .about-get-in-touch-text-column .about-get-in-touch-title, .about-get-in-touch-text-column .about-get-in-touch-text, .price-column .pricing-popular-type, .categorie-column .pricing-popular-type {
+.white-1rem-grotext, .white-1-125rem-grotext, .pricing-popular-package-info, .btn-for-list-of-packages .click-title, .choices-column .price-column .choice-type, .feedback-list-text-column .feedback-list-text-column-title, .feedback-list-text-column .feedback-list-text-column-text, .client-sphere .client-sphere-info, .about-get-in-touch-text-column .about-get-in-touch-title, .about-get-in-touch-text-column .about-get-in-touch-text, .price-column .pricing-popular-type, .categorie-column .pricing-popular-type, .post-text-container .post-date, .featured-posts-column .featured-post-column-date {
   color: var(--text-white);
   font-size: 1rem;
   font-family: var(--grotext-sans);
@@ -3318,7 +3607,7 @@
   align-items: end;
 }
 
-.flex-row-center-between, .flex-column-center-between, .chat-column .message-container .message-creating-details, .carousel-title-container, .about-get-in-touch-container, .contact-main-image-container, .navbar {
+.flex-row-center-between, .flex-column-center-between, .chat-column .message-container .message-creating-details, .carousel-title-container, .about-get-in-touch-container, .contact-main-image-container, .search-container, .search-container .featured-search-btn, .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -3444,6 +3733,8 @@ body {
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
   scroll-behavior: smooth !important;
+  margin: 0 auto;
+  background: var(--body-background);
 }
 
 .header {
@@ -3452,6 +3743,7 @@ body {
 
 .main {
   grid-area: content;
+  background: var(--background-white);
 }
 
 .footer {

@@ -1,0 +1,102 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Blog - CyberCode</title>
+{% endblock %}
+
+{% block content %}
+<main class="main blog-main">
+    <!-- START GRADIENT CONTENT -->
+    <section class="blog-gradient-section">
+        <div class="blog-gradient-container">
+            <h1 class="blog-gradient-title">Our best tips for building and launching creative projects.</h1>
+        </div>
+    </section>
+    <!-- END GRADIENT CONTENT -->
+
+    <!-- START LATEST POST SECTION -->
+
+    <section class="latest-posts-section">
+        <div class="latest-posts-container">
+            <h1 class="latest-posts-title">Latest posts</h1>
+            <div class="latest-post-wrapper">
+                <div class="post-image-container">
+                    <img src="{% static 'main/images/blog/post.svg' %}" alt="">
+                </div>
+                <div class="post-text-container">
+                    <h1 class="post-title">How to add analytics to your Phone easily</h1>
+                    <p class="post-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lobortis arcu enim urna adipiscing prae</p>
+                    <span class="post-posted">Posted on</span>
+                    <p class="post-date">October 26, 2021</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- END LATEST POST SECTION -->
+
+    <!-- START FEAUTURED POSTS SECTION -->
+
+    <section class="featured-posts-section">
+        <div class="featured-posts-container">
+            <article class="featured-posts-search-container">
+                <div class="featured-search-wrapper">
+                    <h1 class="featured-search-title">By keyword</h1>
+                    <label class="search-container" for="">
+                        <input class="featured-search-input" type="text" placeholder="Type keyword here">
+                        <button class="featured-search-btn"><i class="fa-sharp fa-solid fa-magnifying-glass"></i> Search</button>
+                    </label>
+                </div>
+                <div class="featured-posts-category">
+                    <h1 class="featured-posts-category-title">By category</h1>
+                    <div class="featured-categories-wrapper owl-carousel">
+                        <div class="featured-category-column">Finance</div>
+                        <div class="featured-category-column">Marketing</div>
+                        <div class="featured-category-column">Creativity</div>
+                        <div class="featured-category-column">Programming</div>
+                        <div class="featured-category-column">Designing</div>
+                        <div class="featured-category-column">More</div>
+                    </div>
+                </div>
+            </article>
+            <article class="featured-posts-wrapper">
+                <div class="featured-posts-column-container">
+                    <div class="featured-posts-column">
+                        <h1 class="featured-post-column-title">10 interesting apps to grow your audience on</h1>
+                        <p class="featured-post-column-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lobortis arcu enim urna adipiscing prae</p>
+                        <span class="featured-post-column-posted">Posted on</span>
+                        <p class="featured-post-column-date">October 26, 2021</p>
+                    </div>
+                    <div class="featured-posts-column">
+                        <h1 class="featured-post-column-title">8 great books to learn more about growth hacking</h1>
+                        <p class="featured-post-column-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lobortis arcu enim urna adipiscing prae</p>
+                        <span class="featured-post-column-posted">Posted on</span>
+                        <p class="featured-post-column-date">October 26, 2021</p>
+                    </div>
+                    <div class="featured-posts-column">
+                        <h1 class="featured-post-column-title">How To Create an Attention-Grabbing site</h1>
+                        <p class="featured-post-column-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lobortis arcu enim urna adipiscing prae</p>
+                        <span class="featured-post-column-posted">Posted on</span>
+                        <p class="featured-post-column-date">October 26, 2021</p>
+                    </div>
+                    <div class="featured-posts-column">
+                        <h1 class="featured-post-column-title">How To Create an Attention-Grabbing site</h1>
+                        <p class="featured-post-column-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lobortis arcu enim urna adipiscing prae</p>
+                        <span class="featured-post-column-posted">Posted on</span>
+                        <p class="featured-post-column-date">October 26, 2021</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- END FEAUTURED POSTS SECTION -->
+</main>
+{% endblock %}
+
+{% block js_block %}
+<script>
+</script>
+<script src="{% static 'main/scripts/js/carousel.js' %}"></script>
+{% endblock %}

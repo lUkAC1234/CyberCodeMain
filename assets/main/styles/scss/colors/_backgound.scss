@@ -1,3 +1,4 @@
+$body-background: #f3f3f3;
 $background-purple: #8828FF;
 $background-light-purple: #C08DFF;
 $background-gray: #C1BCFF;
@@ -17,6 +18,7 @@ $carousel-background: #FDFDFD;
 $carousel-image-background: #f3f3f3;
 $linear-gray-background: #c3c3c3;
 :root {
+    --body-background: #{$body-background};
     --background-purple: #{$background-purple};
     --background-light-purple: #{$background-light-purple};
     --background-gray: #{$background-gray};

@@ -23,8 +23,8 @@
                     <li class="nav-link {% if request.path == '/package/prices/' %}active{% endif %}">
                         <a href="{% url 'main:pricing' %}"><i class="fas fa-wallet"></i> Pricing</a>
                     </li>
-                    <li class="nav-link {% if request.path == '' %}active{% endif %}">
-                        <a href=""><i class="fas fa-book-open"></i> Blog</a>
+                    <li class="nav-link {% if request.path == '/website/blogs/list' %}active{% endif %}">
+                        <a href="{% url 'main:blog' %}"><i class="fas fa-book-open"></i> Blog</a>
                     </li>
                 </ul>
                 <div class="hidden-content">

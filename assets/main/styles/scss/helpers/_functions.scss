@@ -1,24 +1,30 @@
- /* Конвертирует px в rem. Основная единица rem */
-@function rem ($size) {
-  @return #{$size / $base-fz + rem};
+@media screen and (min-width: 2000px) {
+  .main {
+    margin: 0 auto;
+    max-width: 2000px;
+  }
 }
 
-/* Конвертирует px в em. Основная единица em */
-@function em ($size, $em: $base-fz) {
-  @return #{$size / $em + em};
+@media screen and (min-width: 2500px) {
+  .main {
+    max-width: 2500px;
+  }
 }
 
-/* Конвертирует px в vw. Основная единица viewWidth */
-@function vw ($size, $vw-cur: 1920) {
-  @return #{($size / $vw-cur) * 100 + vw};
+@media screen and (min-width: 3000px) {
+  .main {
+    max-width: 3000px;
+  }
 }
 
-/* Конвертирует px в vh. Основная единица viewHeight */
-@function vh ($size, $vh-cur: 970) {
-  @return #{($size / $vh-cur) * 100 + vh};
+@media screen and (min-width: 3500px) {
+  .main {
+    max-width: 3500px;
+  }
 }
 
-/* Get percent based on width */
-@function setPercentage ($size, $width: 1920) {
-  @return (($size / $width) * 100) + 0%;
+@media screen and (min-width: 4000px) {
+  .main {
+    max-width: 4000px;
+  }
 }
