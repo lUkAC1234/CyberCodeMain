@@ -45,7 +45,6 @@
         center: true,
         dots: false,
         nav: true,
-        margin: 10,
         navText : [
             '<i class="fa-sharp fa-solid fa-circle-chevron-left feedbackPrev"></i>',
             '<i class="fa-sharp fa-solid fa-circle-chevron-right feedbackNext"></i>'

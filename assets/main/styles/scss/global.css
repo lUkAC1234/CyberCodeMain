@@ -2783,11 +2783,12 @@
   gap: 1.5rem;
   max-width: 30rem;
 }
-.featured-categories-wrapper .featured-category-column {
+.featured-categories-wrapper .featured-category-column button {
   display: grid;
   place-items: center;
   place-content: center;
   font-size: 1rem !important;
+  width: 8rem;
 }
 
 .featured-posts-wrapper {
@@ -2818,7 +2819,14 @@
   color: var(--text-purple);
 }
 .featured-posts-column .featured-post-column-title {
+  display: inline-flex;
+  gap: 0.5rem;
   font-size: 2.25rem !important;
+}
+.featured-posts-column .featured-post-column-title i {
+  font-size: 1.5rem;
+  color: var(--background-purple);
+  margin-top: 0.75rem;
 }
 .featured-posts-column .featured-post-column-text {
   margin: 1.25rem 0 2.5rem;
@@ -2831,12 +2839,16 @@
   margin-top: 0.3rem;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1100px) {
   .featured-posts-column-container {
     padding: 0 1rem;
   }
   .featured-posts-column .featured-post-column-title {
     font-size: 1.5rem !important;
+  }
+  .featured-posts-column .featured-post-column-title i {
+    font-size: 1.25rem;
+    margin-top: 0.5rem;
   }
   .featured-posts-column .featured-post-column-text {
     font-size: 1rem !important;
@@ -2854,7 +2866,54 @@
     grid-template-columns: auto;
     place-items: center;
   }
+  .featured-posts-column .featured-post-column-title {
+    gap: 3rem;
+  }
 }
+@media screen and (max-width: 450px) {
+  .featured-posts-column .featured-post-column-title {
+    gap: 1rem;
+  }
+}
+.posts-tags-section {
+  margin-bottom: 10rem;
+}
+
+.posts-tags-container {
+  padding: 0 4rem;
+}
+@media screen and (max-width: 992px) {
+  .posts-tags-container {
+    padding-inline: 1rem;
+  }
+}
+
+.posts-tags-title {
+  font-size: 2.25rem !important;
+  margin-bottom: 2.5rem;
+}
+
+.posts-tags-wrapper {
+  display: flex;
+  gap: 1rem 1.5rem;
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 700px) {
+  .posts-tags-wrapper {
+    column-gap: 1rem;
+  }
+}
+
+.posts-tags-column a button {
+  font-size: 1rem !important;
+}
+@media screen and (max-width: 700px) {
+  .posts-tags-column a button {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.7rem !important;
+  }
+}
+
 .header {
   width: 100%;
   position: fixed;
@@ -3446,7 +3505,7 @@
 
 .gray-button-purple-1rem-2rem, .task-content-column .task-button-a .task-button, .choices-column .abilities .abilities-btn, .choices-column:nth-child(even) .price-column .abilities-btn,
 .choices-column:nth-child(even) .abilities .abilities-btn, .pricing-abilities-btn, .pricing-popular-column:nth-child(even) .price-column .pricing-abilities-btn,
-.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-abilities-btn, .categories-abilities-btn, .toggle-button, .featured-categories-wrapper .featured-category-column {
+.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-abilities-btn, .categories-abilities-btn, .toggle-button, .featured-categories-wrapper .featured-category-column button, .posts-tags-column a button {
   color: var(--text-purple);
   text-align: center;
   font-size: 1.125rem;
@@ -3461,7 +3520,7 @@
 }
 .gray-button-purple-1rem-2rem:hover, .task-content-column .task-button-a .task-button:hover, .choices-column .abilities .abilities-btn:hover, .choices-column:nth-child(even) .price-column .abilities-btn:hover,
 .choices-column:nth-child(even) .abilities .abilities-btn:hover, .pricing-abilities-btn:hover, .pricing-popular-column:nth-child(even) .price-column .pricing-abilities-btn:hover,
-.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-abilities-btn:hover, .categories-abilities-btn:hover, .toggle-button:hover, .featured-categories-wrapper .featured-category-column:hover {
+.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-abilities-btn:hover, .categories-abilities-btn:hover, .toggle-button:hover, .featured-categories-wrapper .featured-category-column button:hover, .posts-tags-column a button:hover {
   background: var(--background-purple);
   color: var(--gray-button);
 }
@@ -3498,7 +3557,7 @@
   }
 }
 .dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .post-text-container .post-posted, .featured-posts-column .featured-post-column-posted, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .documentation-content-title, .post-text-container .post-title, .featured-posts-column .featured-post-column-title, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .language-toggle-text-container .toggle-language-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
-.featured-posts-category-title {
+.featured-posts-category-title, .posts-tags-title {
   color: var(--text-dark-blue);
   text-align: center;
   font-size: 4rem;
@@ -3564,7 +3623,7 @@
 }
 
 .text-align-start, .task-content-column .task-title, .static-info .static-info-title, .carousel-title-container .carousel-title, .carousel-text-container .carousel-slide-title, .about-page-gradient-text-container .about-page-gradient-title, .about-page-gradient-image-column-task-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .faq-card-title, .ready-to-try-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .documentation-content-title, .blog-gradient-title, .post-text-container .post-title, .featured-search-title,
-.featured-posts-category-title, .featured-posts-column .featured-post-column-title {
+.featured-posts-category-title, .featured-posts-column .featured-post-column-title, .posts-tags-title {
   text-align: start;
 }
 
