@@ -21,3 +21,6 @@ class documentation(TemplateView):
 
 class blog(TemplateView):
     template_name = "pages/blog.html"    
+
+class blogdetail(TemplateView):
+    template_name = "pages/blogdetail.html"    

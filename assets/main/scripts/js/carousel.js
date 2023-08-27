@@ -44,6 +44,7 @@
         loop: true,
         center: true,
         dots: false,
+        margin: 10,
         nav: true,
         navText : [
             '<i class="fa-sharp fa-solid fa-circle-chevron-left feedbackPrev"></i>',

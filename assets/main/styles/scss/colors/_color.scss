@@ -8,6 +8,7 @@ $text-black: #000;
 $text-light-purple: #C08DFF;
 $text-light-gray: #ADABB7;
 $text-header-menu: #363636;
+$text-light-white: #DEDEDE;
 :root {
     --text-purple: #{$text-purple};
     --text-aqua: #{$text-aqua};
@@ -19,4 +20,5 @@ $text-header-menu: #363636;
     --text-light-purple: #{$text-light-purple};
     --text-light-gray: #{$text-light-gray};
     --text-header-menu: #{$text-header-menu};
+    --text-light-white: #{$text-light-white};
 }

@@ -418,3 +418,23 @@
 }
 
 // END POSTS TAGS SECTION
+
+// START SIMILAR POPULAR POSTS SECTION
+
+.similar-popular-container {
+    .featured-posts-column:first-child::before {
+        content: "Popular Similar Posts";
+
+        @media screen and (max-width: 992px) {
+            font-size: 2rem;
+            top: -4rem;
+        }
+
+        @media screen and (max-width: 600px) {
+            font-size: 1.5rem;
+            top: -3rem;
+        }
+    }
+}
+
+// END SIMILAR POPULAR POSTS SECTION
