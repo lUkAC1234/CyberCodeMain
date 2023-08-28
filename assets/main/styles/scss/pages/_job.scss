@@ -1,0 +1,54 @@
+// START JOIN OUR TEAM SECTION
+
+.join-our-team-section {
+    margin: 0 0 5rem;
+
+    @media screen and (max-width: 600px) {
+        margin-bottom: 0;
+    }
+}
+
+.join-our-team-container {
+    width: 90%;
+    padding: 5rem 3.5rem;
+    border-radius: 1.875rem;
+    margin: 0 auto;
+    background: linear-gradient(168deg, rgba(170, 235, 255, 1) 0%, rgba(255, 217, 221, 1) 0%, rgba(222, 181, 255, 1) 16%, rgba(193, 188, 255, 1) 33%, rgba(193, 115, 255, 1) 96%);
+
+    @media screen and (max-width: 600px) {
+        width: 100%;
+        border-radius: 0;
+        padding-inline: 1rem;
+    }
+}
+
+.join-our-team-title {
+    @extend .dark-blue-text-center-grotext-family-3rem;
+    @extend .text-align-start;
+    max-width: 38rem;
+    color: var(--text-white) !important;
+}
+
+.join-our-team-text {
+    @extend .white-1-125rem-grotext;
+    margin: 1.25rem 0 2rem;
+    max-width: 38rem;
+}
+
+.join-our-team-btn-container {
+    button {
+        @extend .onerem-tworem-purple-button;
+    }
+} 
+
+@media screen and (max-width: 992px) {
+    .join-our-team-title {
+        font-size: 2.25rem !important;
+    }
+    
+    .join-our-team-text {
+        font-size: 1rem !important;
+    }
+}
+
+// END JOIN OUR TEAM SECTION

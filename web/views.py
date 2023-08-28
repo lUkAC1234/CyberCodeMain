@@ -24,3 +24,9 @@ class blog(TemplateView):
 
 class blogdetail(TemplateView):
     template_name = "pages/blogdetail.html"    
+
+class job(TemplateView):
+    template_name = "pages/job.html"    
+
+class jobdetail(TemplateView):
+    template_name = "pages/jobdetail.html"    

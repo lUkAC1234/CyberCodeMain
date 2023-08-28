@@ -29,6 +29,9 @@
                     <li class="nav-link {% if request.path == '/website/blogs/list' %}active{% endif %}">
                         <a href="{% url 'main:blog' %}"><i class="fas fa-book-open"></i> Blog</a>
                     </li>
+                    <li class="nav-link {% if request.path == '/website/jobs/list/' %}active{% endif %}">
+                        <a href="{% url 'main:job' %}"><i class="fa-solid fa-briefcase"></i> Job</a>
+                    </li>
                 </ul>
                 <div class="hidden-content">
                     <div class="hidden-btn-container">

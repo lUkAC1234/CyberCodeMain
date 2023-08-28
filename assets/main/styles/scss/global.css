@@ -1083,7 +1083,7 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 2rem;
-    width: 90%;
+    width: 100%;
     min-height: 15rem;
   }
   .website-technologies-column .website-technologies-image-container img {
@@ -1103,9 +1103,8 @@
 }
 @media screen and (max-width: 450px) {
   .website-technologies-column {
-    width: 100%;
     min-height: auto;
-    gap: 0.5rem 2rem;
+    gap: 0.5rem 1rem;
   }
   .website-technologies-column .website-technologies-image-container img {
     width: 2.5rem;
@@ -3306,6 +3305,48 @@
     font-size: 0.8rem !important;
   }
 }
+.join-our-team-section {
+  margin: 0 0 5rem;
+}
+@media screen and (max-width: 600px) {
+  .join-our-team-section {
+    margin-bottom: 0;
+  }
+}
+
+.join-our-team-container {
+  width: 90%;
+  padding: 5rem 3.5rem;
+  border-radius: 1.875rem;
+  margin: 0 auto;
+  background: linear-gradient(168deg, rgb(170, 235, 255) 0%, rgb(255, 217, 221) 0%, rgb(222, 181, 255) 16%, rgb(193, 188, 255) 33%, rgb(193, 115, 255) 96%);
+}
+@media screen and (max-width: 600px) {
+  .join-our-team-container {
+    width: 100%;
+    border-radius: 0;
+    padding-inline: 1rem;
+  }
+}
+
+.join-our-team-title {
+  max-width: 38rem;
+  color: var(--text-white) !important;
+}
+
+.join-our-team-text {
+  margin: 1.25rem 0 2rem;
+  max-width: 38rem;
+}
+
+@media screen and (max-width: 992px) {
+  .join-our-team-title {
+    font-size: 2.25rem !important;
+  }
+  .join-our-team-text {
+    font-size: 1rem !important;
+  }
+}
 #preloder {
   position: fixed;
   width: 100%;
@@ -3649,7 +3690,7 @@
   display: none;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1400px) {
   .pages-section .pages-section-container {
     width: 400px;
     position: absolute;
@@ -4020,7 +4061,7 @@
 }
 /*=============== GOOGLE FONTS ===============*/
 /*=============== VARIABLES CSS ===============*/
-.onerem-tworem-purple-button, .gradient-buttons-container .gradient-btn-column a .gradient-button, .carousel-title-container .carousel-link-container .carousel-link, .about-page-gradient-btn-container a .about-page-gradient-btn, .team-members-btn-container a .team-members-btn, .system-info-btn-container a .system-info-btn, .contact-form-column-btn-container .contact-form-column-btn, .ready-to-try-button, .custom-build-btn-container button, .services-link-container button, .pricing-list-btn-container .pricing-list-btn, .toggle-button.active {
+.onerem-tworem-purple-button, .gradient-buttons-container .gradient-btn-column a .gradient-button, .carousel-title-container .carousel-link-container .carousel-link, .about-page-gradient-btn-container a .about-page-gradient-btn, .team-members-btn-container a .team-members-btn, .system-info-btn-container a .system-info-btn, .contact-form-column-btn-container .contact-form-column-btn, .ready-to-try-button, .custom-build-btn-container button, .services-link-container button, .pricing-list-btn-container .pricing-list-btn, .toggle-button.active, .join-our-team-btn-container button {
   padding: 1rem 2rem;
   color: var(--text-white);
   text-align: center;
@@ -4033,7 +4074,7 @@
   transition: all 0.5s;
   cursor: pointer;
 }
-.onerem-tworem-purple-button:hover, .gradient-buttons-container .gradient-btn-column a .gradient-button:hover, .carousel-title-container .carousel-link-container .carousel-link:hover, .about-page-gradient-btn-container a .about-page-gradient-btn:hover, .team-members-btn-container a .team-members-btn:hover, .system-info-btn-container a .system-info-btn:hover, .contact-form-column-btn-container .contact-form-column-btn:hover, .ready-to-try-button:hover, .custom-build-btn-container button:hover, .services-link-container button:hover, .pricing-list-btn-container .pricing-list-btn:hover, .toggle-button.active:hover {
+.onerem-tworem-purple-button:hover, .gradient-buttons-container .gradient-btn-column a .gradient-button:hover, .carousel-title-container .carousel-link-container .carousel-link:hover, .about-page-gradient-btn-container a .about-page-gradient-btn:hover, .team-members-btn-container a .team-members-btn:hover, .system-info-btn-container a .system-info-btn:hover, .contact-form-column-btn-container .contact-form-column-btn:hover, .ready-to-try-button:hover, .custom-build-btn-container button:hover, .services-link-container button:hover, .pricing-list-btn-container .pricing-list-btn:hover, .toggle-button.active:hover, .join-our-team-btn-container button:hover {
   background: none;
   color: var(--text-purple);
 }
@@ -4108,7 +4149,7 @@
     padding: 0;
   }
 }
-.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .post-text-container .post-posted, .featured-posts-column .featured-post-column-posted, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .documentation-content-title, .post-text-container .post-title, .featured-posts-column .featured-post-column-title, .detail-gradient-container .detail-gradient-username, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .language-toggle-text-container .toggle-language-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
+.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .post-text-container .post-posted, .featured-posts-column .featured-post-column-posted, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .documentation-content-title, .post-text-container .post-title, .featured-posts-column .featured-post-column-title, .detail-gradient-container .detail-gradient-username, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .language-toggle-text-container .toggle-language-title, .join-our-team-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
 .featured-posts-category-title, .posts-tags-title, .detail-gradient-container .detail-gradient-title, .detail-content-wrapper .detail-content-title, .detail-link-text-container .detail-link-title {
   color: var(--text-dark-blue);
   text-align: center;
@@ -4119,7 +4160,7 @@
   text-transform: capitalize;
 }
 
-.dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .language-toggle-text-container .toggle-language-title {
+.dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .language-toggle-text-container .toggle-language-title, .join-our-team-title {
   font-size: 3rem;
 }
 
@@ -4178,7 +4219,7 @@
 }
 
 .text-align-start, .task-content-column .task-title, .static-info .static-info-title, .carousel-title-container .carousel-title, .carousel-text-container .carousel-slide-title, .about-page-gradient-text-container .about-page-gradient-title, .about-page-gradient-image-column-task-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .faq-card-title, .ready-to-try-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .documentation-content-title, .blog-gradient-title, .post-text-container .post-title, .featured-search-title,
-.featured-posts-category-title, .featured-posts-column .featured-post-column-title, .posts-tags-title, .detail-content-wrapper .detail-content-title, .detail-link-text-container .detail-link-title {
+.featured-posts-category-title, .featured-posts-column .featured-post-column-title, .posts-tags-title, .detail-content-wrapper .detail-content-title, .detail-link-text-container .detail-link-title, .join-our-team-title {
   text-align: start;
 }
 
@@ -4190,7 +4231,7 @@
   text-align: end;
 }
 
-.white-1rem-grotext, .white-1-125rem-grotext, .contact-page-gradient-text-container .contact-page-gradient-text, .pricing-popular-package-info, .btn-for-list-of-packages .click-title, .detail-gradient-container .detail-gradient-posted-date, .detail-share-user-info-container .detail-share-username, .choices-column .price-column .choice-type, .feedback-list-text-column .feedback-list-text-column-title, .feedback-list-text-column .feedback-list-text-column-text, .client-sphere .client-sphere-info, .about-get-in-touch-text-column .about-get-in-touch-title, .about-get-in-touch-text-column .about-get-in-touch-text, .price-column .pricing-popular-type, .categorie-column .pricing-popular-type, .post-text-container .post-date, .featured-posts-column .featured-post-column-date {
+.white-1rem-grotext, .white-1-125rem-grotext, .contact-page-gradient-text-container .contact-page-gradient-text, .pricing-popular-package-info, .btn-for-list-of-packages .click-title, .detail-gradient-container .detail-gradient-posted-date, .detail-share-user-info-container .detail-share-username, .join-our-team-text, .choices-column .price-column .choice-type, .feedback-list-text-column .feedback-list-text-column-title, .feedback-list-text-column .feedback-list-text-column-text, .client-sphere .client-sphere-info, .about-get-in-touch-text-column .about-get-in-touch-title, .about-get-in-touch-text-column .about-get-in-touch-text, .price-column .pricing-popular-type, .categorie-column .pricing-popular-type, .post-text-container .post-date, .featured-posts-column .featured-post-column-date {
   color: var(--text-white);
   font-size: 1rem;
   font-family: var(--grotext-sans);
@@ -4199,7 +4240,7 @@
   line-height: 160%;
 }
 
-.white-1-125rem-grotext, .contact-page-gradient-text-container .contact-page-gradient-text, .pricing-popular-package-info, .btn-for-list-of-packages .click-title, .detail-gradient-container .detail-gradient-posted-date, .detail-share-user-info-container .detail-share-username {
+.white-1-125rem-grotext, .contact-page-gradient-text-container .contact-page-gradient-text, .pricing-popular-package-info, .btn-for-list-of-packages .click-title, .detail-gradient-container .detail-gradient-posted-date, .detail-share-user-info-container .detail-share-username, .join-our-team-text {
   font-size: 1.125rem;
 }
 

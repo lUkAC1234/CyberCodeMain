@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import index, about, contact, pricing, pricinglist, \
-documentation, blog, blogdetail
+documentation, blog, blogdetail, job, jobdetail
 
 app_name = "main"
 
@@ -13,4 +13,6 @@ urlpatterns = [
     path('website/documentation/', documentation.as_view(), name="documentation"),
     path('website/blogs/list', blog.as_view(), name="blog"),
     path('website/blog/detail/', blogdetail.as_view(), name="blogdetail"),
+    path('website/jobs/list/', job.as_view(), name="job"),
+    path('website/job/detail/', jobdetail.as_view(), name="jobdetail"),
 ]
