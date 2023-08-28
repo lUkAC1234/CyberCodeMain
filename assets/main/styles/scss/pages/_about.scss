@@ -198,7 +198,7 @@
         width: 70%;
         margin: 2rem 15%;
         .about-page-gradient-image-column-info-container-border {
-            width: 90%;
+            width: min(100%, 20rem);
             transform: scale(1);
             bottom: -5rem;
             left: 50%;
@@ -238,10 +238,8 @@
         }
         .about-page-gradient-image-container {
             .about-page-gradient-image-column-info-container-border {
-                width: 50%;
-                left: 50%;
-                bottom: -6rem;
-                transform: translate(-50%);
+                bottom: -8rem;
+                left: 5%;
             }
         }
     }
@@ -341,6 +339,61 @@
         @extend .chat-text-gray-1-125;
         text-align: center;
         margin-top: 1rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .website-technologies-container {
+        gap: 2rem;
+        margin-top: 5rem;
+    }
+    .website-technologies-column {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        width: 90%;
+        min-height: 15rem;
+        .website-technologies-image-container {
+            img {
+                width: 4rem;
+                height: 4rem;
+                border-radius: 1rem;
+            }
+        }
+    
+        .website-technologies-title {
+            margin: 0rem 0 0;
+        }
+        .website-technologies-type,
+        .website-technologies-title,
+        .website-technologies-text {
+            text-align: start !important;
+            margin: 0rem 0 0;
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .website-technologies-column {
+        width: 100%;
+        min-height: auto;
+        gap: 0.5rem 2rem;
+        .website-technologies-image-container {
+            img {
+                width: 2.5rem;
+                height: 2.5rem;
+                border-radius: 0.5rem;
+            }
+        }
+    
+        .website-technologies-title {
+            font-size: 1.125rem !important;
+        }
+        .website-technologies-type,
+        .website-technologies-text {
+            font-size: 1rem !important;
+        }
     }
 }
 

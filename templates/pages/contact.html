@@ -6,24 +6,22 @@
 {% endblock %}
 
 {% block content %}
-<main class="main contact">
-    <!-- Start Image Part -->
-    <section class="contact-main-image-container">
-        <div class="contact-main-image-column">
-            <img src="{% static 'main/images/contactus/discord-left.svg' %}" alt="">
-        </div>
-        <div class="contact-main-text-column">
-            <h1>Get in
-                <div class="touch-div">
-                    <h1 class="touch">touch</h1>
+<main class="main contact-us-main">
+    <!-- START CONTACT GRADIENT SECTION -->
+    <section class="contact-page-gradient-section">
+        <div class="contact-page-gradient-main-container">
+            <article class="contact-page-gradient-text-container">
+                <h1 class="contact-page-gradient-title">Contact us</h1>
+                <p class="contact-page-gradient-text">Questions? Comments? Want to schedule a demo? We’d love to chat!</p>
+            </article>
+            <article class="contact-page-gradient-image-container">
+                <div class="contact-page-gradient-image-column">
+                    <img class="contact-page-gradient-image" src="{% static 'main/images/contactus/contactusmain.webp' %}" alt="">
                 </div>
-            </h1>
-        </div>
-        <div class="contact-main-image-column">
-            <img src="{% static 'main/images/contactus/discord-right.svg' %}" alt="">
+            </article>
         </div>
     </section>
-    <!-- End Image Part -->
+    <!-- END CONTACT GRADIENT SECTION -->
 
     <!-- Start Hero Section -->
     <section class="contact-us-hero-info">

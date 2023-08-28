@@ -960,7 +960,7 @@
     margin: 2rem 15%;
   }
   .about-page-gradient-image-container .about-page-gradient-image-column-info-container-border {
-    width: 90%;
+    width: min(100%, 20rem);
     transform: scale(1);
     bottom: -5rem;
     left: 50%;
@@ -993,10 +993,8 @@
     margin-inline: 5%;
   }
   .about-page-gradient-image-container .about-page-gradient-image-column-info-container-border {
-    width: 50%;
-    left: 50%;
-    bottom: -6rem;
-    transform: translate(-50%);
+    bottom: -8rem;
+    left: 5%;
   }
 }
 .website-technologies-section {
@@ -1075,6 +1073,53 @@
   margin-top: 1rem;
 }
 
+@media screen and (max-width: 600px) {
+  .website-technologies-container {
+    gap: 2rem;
+    margin-top: 5rem;
+  }
+  .website-technologies-column {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 90%;
+    min-height: 15rem;
+  }
+  .website-technologies-column .website-technologies-image-container img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 1rem;
+  }
+  .website-technologies-column .website-technologies-title {
+    margin: 0rem 0 0;
+  }
+  .website-technologies-column .website-technologies-type,
+  .website-technologies-column .website-technologies-title,
+  .website-technologies-column .website-technologies-text {
+    text-align: start !important;
+    margin: 0rem 0 0;
+  }
+}
+@media screen and (max-width: 450px) {
+  .website-technologies-column {
+    width: 100%;
+    min-height: auto;
+    gap: 0.5rem 2rem;
+  }
+  .website-technologies-column .website-technologies-image-container img {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+  }
+  .website-technologies-column .website-technologies-title {
+    font-size: 1.125rem !important;
+  }
+  .website-technologies-column .website-technologies-type,
+  .website-technologies-column .website-technologies-text {
+    font-size: 1rem !important;
+  }
+}
 .clienst-section {
   position: relative;
   background: var(--package-background);
@@ -1551,49 +1596,102 @@
     font-size: 1rem !important;
   }
 }
-.contact-main-image-container {
+.contact-page-gradient-section {
+  position: relative;
+  background-image: url(../../images/layout/wave.svg);
+  background: linear-gradient(168deg, rgb(170, 235, 255) 0%, rgb(255, 217, 221) 0%, rgb(222, 181, 255) 16%, rgb(193, 188, 255) 33%, rgb(193, 115, 255) 96%);
+  background-position: center bottom;
+  padding: 10.5rem 0;
+}
+.contact-page-gradient-section::after {
+  content: "";
+  position: absolute;
+  background: url(../../images/layout/wave.svg);
   width: 100%;
-  height: 26rem;
-  background: url(../../images/contactus/discord-main.svg) center center no-repeat;
+  height: 200px;
+  background-position: bottom center;
+  bottom: -10px;
   background-size: cover;
 }
 
-.contact-main-image-column {
-  height: 100%;
-  width: 100%;
+.contact-page-gradient-main-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding-inline: 1rem;
 }
-.contact-main-image-column img {
-  width: 100%;
-  background-size: cover;
-}
-
-.contact-main-text-column {
-  width: 100%;
-}
-.contact-main-text-column h1 {
-  font-size: 2.6rem;
-  text-align: center;
-  font-family: var(--poppins);
-  font-weight: 900;
-  color: var(--text-white);
-}
-
-.touch-div {
-  display: inline-block;
-  background: var(--background-light-purple);
-  border-radius: 32px;
-  transform: rotate(7deg);
-  padding: 0rem 0.5rem;
-}
-.touch-div .touch {
-  transform: rotate(-7deg);
-}
-
 @media screen and (max-width: 992px) {
-  .contact-main-image-column {
-    display: none !important;
+  .contact-page-gradient-main-container {
+    flex-flow: column;
+  }
+  .contact-page-gradient-main-container .contact-page-gradient-image-container {
+    width: 80%;
+    margin: 2rem auto;
+  }
+  .contact-page-gradient-main-container .contact-page-gradient-image-column {
+    width: 100%;
+  }
+  .contact-page-gradient-main-container .contact-page-gradient-text-container {
+    width: 100%;
+    align-items: start;
+  }
+  .contact-page-gradient-main-container .contact-page-gradient-text-container .contact-page-gradient-title,
+  .contact-page-gradient-main-container .contact-page-gradient-text-container .contact-page-gradient-text {
+    width: 100%;
   }
 }
+
+.contact-page-gradient-text-container {
+  width: 50%;
+  display: flex;
+  align-items: end;
+  flex-flow: column;
+}
+.contact-page-gradient-text-container .contact-page-gradient-title {
+  color: var(--text-white) !important;
+  width: min(100%, 25rem);
+  font-family: var(--poppins) !important;
+}
+.contact-page-gradient-text-container .contact-page-gradient-text {
+  width: min(100%, 25rem);
+}
+@media screen and (max-width: 600px) {
+  .contact-page-gradient-text-container .contact-page-gradient-title {
+    font-size: 2.5rem !important;
+  }
+  .contact-page-gradient-text-container .contact-page-gradient-text {
+    font-size: 1rem !important;
+  }
+}
+
+.contact-page-gradient-image-container {
+  display: flex;
+  place-content: start;
+  width: 50%;
+}
+@media screen and (max-width: 600px) {
+  .contact-page-gradient-image-container {
+    width: 100%;
+    margin: 2rem auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .contact-page-gradient-main-container .contact-page-gradient-image-container {
+    width: 100%;
+    margin: 0rem auto;
+  }
+}
+.contact-page-gradient-image-column {
+  width: min(100%, 30rem);
+}
+.contact-page-gradient-image-column img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1.25rem;
+}
+
 .contact-us-hero-info {
   padding: 3rem 0;
 }
@@ -3071,19 +3169,25 @@
   word-wrap: break-word;
   margin: 0;
 }
-.detail-content-wrapper pre > *,
-.detail-content-wrapper li > *,
-.detail-content-wrapper a > *,
-.detail-content-wrapper span > *,
-.detail-content-wrapper p > *,
-.detail-content-wrapper h1 > * {
-  margin: 2rem 3rem;
-}
 .detail-content-wrapper img {
   width: 100%;
   margin: 2rem 0;
   border-radius: 1.25rem;
   max-height: 35rem;
+}
+.detail-content-wrapper a {
+  color: var(--text-purple) !important;
+  text-decoration: underline;
+  margin: 0;
+}
+
+.detail-content-wrapper > pre > *,
+.detail-content-wrapper > li > *,
+.detail-content-wrapper > a > *,
+.detail-content-wrapper > h1 > *,
+.detail-content-wrapper > p > *,
+.detail-content-wrapper > span > * {
+  margin: 1rem 0;
 }
 
 @media screen and (max-width: 992px) {
@@ -3106,26 +3210,100 @@
   .detail-content-wrapper p {
     font-size: 1rem !important;
   }
-  .detail-content-wrapper pre > *,
-  .detail-content-wrapper li > *,
-  .detail-content-wrapper a > *,
-  .detail-content-wrapper span > *,
-  .detail-content-wrapper p > *,
-  .detail-content-wrapper h1 > * {
-    margin-inline: 1rem;
-  }
 }
 @media screen and (max-width: 450px) {
   .detail-content-wrapper .detail-content-title {
     font-size: 1.125rem !important;
   }
-  .detail-content-wrapper pre > *,
-  .detail-content-wrapper li > *,
-  .detail-content-wrapper a > *,
-  .detail-content-wrapper span > *,
-  .detail-content-wrapper p > *,
-  .detail-content-wrapper h1 > * {
-    margin-inline: 0.5rem;
+}
+.detail-link-section {
+  margin-bottom: 5rem;
+}
+
+.detail-link-container {
+  padding-inline: 5rem;
+}
+@media screen and (max-width: 992px) {
+  .detail-link-container {
+    padding-inline: 1rem;
+  }
+}
+
+.detail-link-text-container .detail-link-title {
+  font-size: 2.25rem !important;
+  margin: 1rem 0;
+}
+@media screen and (max-width: 750px) {
+  .detail-link-text-container .detail-link-title {
+    font-size: 1.5rem !important;
+  }
+}
+@media screen and (max-width: 450px) {
+  .detail-link-text-container .detail-link-title {
+    font-size: 1.125rem !important;
+  }
+}
+.detail-link-text-container .detail-link-text {
+  margin: 1.25rem 0 3rem;
+}
+
+.detail-share-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.detail-share-user-info-container {
+  display: flex;
+  gap: 0.5rem;
+}
+.detail-share-user-info-container .detail-share-username {
+  color: var(--text-purple) !important;
+}
+
+.detail-share-social-container {
+  display: flex;
+  gap: 1rem;
+}
+.detail-share-social-container .detail-share-social-text {
+  margin-right: 2rem;
+}
+.detail-share-social-container i {
+  font-size: 1.5rem;
+}
+.detail-share-social-container .detail-share-link-icon {
+  color: var(--text-purple);
+}
+.detail-share-social-container .detail-share-social-icon {
+  color: var(--text-dark-blue);
+}
+
+@media screen and (max-width: 600px) {
+  .detail-link-text-container .detail-link-text {
+    font-size: 1rem !important;
+  }
+  .detail-share-user-info-container .detail-share-posted,
+  .detail-share-user-info-container .detail-share-username {
+    font-size: 1rem !important;
+  }
+  .detail-share-social-container .detail-share-social-text {
+    font-size: 1rem !important;
+  }
+  .detail-share-social-container i {
+    font-size: 1.25rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .detail-link-text-container .detail-link-text {
+    font-size: 0.8rem !important;
+  }
+  .detail-share-user-info-container .detail-share-posted,
+  .detail-share-user-info-container .detail-share-username {
+    font-size: 0.8rem !important;
+  }
+  .detail-share-social-container .detail-share-social-text {
+    font-size: 0.8rem !important;
   }
 }
 #preloder {
@@ -3930,8 +4108,8 @@
     padding: 0;
   }
 }
-.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .post-text-container .post-posted, .featured-posts-column .featured-post-column-posted, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .documentation-content-title, .post-text-container .post-title, .featured-posts-column .featured-post-column-title, .detail-gradient-container .detail-gradient-username, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .language-toggle-text-container .toggle-language-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
-.featured-posts-category-title, .posts-tags-title, .detail-gradient-container .detail-gradient-title, .detail-content-wrapper .detail-content-title {
+.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .post-text-container .post-posted, .featured-posts-column .featured-post-column-posted, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .documentation-content-title, .post-text-container .post-title, .featured-posts-column .featured-post-column-title, .detail-gradient-container .detail-gradient-username, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .language-toggle-text-container .toggle-language-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
+.featured-posts-category-title, .posts-tags-title, .detail-gradient-container .detail-gradient-title, .detail-content-wrapper .detail-content-title, .detail-link-text-container .detail-link-title {
   color: var(--text-dark-blue);
   text-align: center;
   font-size: 4rem;
@@ -3962,7 +4140,7 @@
 .pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-popular-abilities-ul .abilities-li, .custom-build-column .custom-build-text, .services-text-container .services-text-text, .pricing-categories-abilities-ul .categories-abilities-li, .language-toggle-text-container .toggle-language-text, .post-text-container .post-text, .featured-posts-column .featured-post-column-text, .detail-content-wrapper pre,
 .detail-content-wrapper li,
 .detail-content-wrapper span,
-.detail-content-wrapper p {
+.detail-content-wrapper p, .detail-link-text-container .detail-link-text, .detail-share-user-info-container .detail-share-posted, .detail-share-social-container .detail-share-social-text {
   color: #666;
   font-size: 1.125rem;
   font-family: var(--grotext-sans);
@@ -3999,8 +4177,8 @@
   font-size: 0.75rem;
 }
 
-.text-align-start, .task-content-column .task-title, .static-info .static-info-title, .carousel-title-container .carousel-title, .carousel-text-container .carousel-slide-title, .about-page-gradient-text-container .about-page-gradient-title, .about-page-gradient-image-column-task-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .faq-card-title, .ready-to-try-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .documentation-content-title, .blog-gradient-title, .post-text-container .post-title, .featured-search-title,
-.featured-posts-category-title, .featured-posts-column .featured-post-column-title, .posts-tags-title, .detail-content-wrapper .detail-content-title {
+.text-align-start, .task-content-column .task-title, .static-info .static-info-title, .carousel-title-container .carousel-title, .carousel-text-container .carousel-slide-title, .about-page-gradient-text-container .about-page-gradient-title, .about-page-gradient-image-column-task-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .faq-card-title, .ready-to-try-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .documentation-content-title, .blog-gradient-title, .post-text-container .post-title, .featured-search-title,
+.featured-posts-category-title, .featured-posts-column .featured-post-column-title, .posts-tags-title, .detail-content-wrapper .detail-content-title, .detail-link-text-container .detail-link-title {
   text-align: start;
 }
 
@@ -4012,7 +4190,7 @@
   text-align: end;
 }
 
-.white-1rem-grotext, .white-1-125rem-grotext, .pricing-popular-package-info, .btn-for-list-of-packages .click-title, .detail-gradient-container .detail-gradient-posted-date, .choices-column .price-column .choice-type, .feedback-list-text-column .feedback-list-text-column-title, .feedback-list-text-column .feedback-list-text-column-text, .client-sphere .client-sphere-info, .about-get-in-touch-text-column .about-get-in-touch-title, .about-get-in-touch-text-column .about-get-in-touch-text, .price-column .pricing-popular-type, .categorie-column .pricing-popular-type, .post-text-container .post-date, .featured-posts-column .featured-post-column-date {
+.white-1rem-grotext, .white-1-125rem-grotext, .contact-page-gradient-text-container .contact-page-gradient-text, .pricing-popular-package-info, .btn-for-list-of-packages .click-title, .detail-gradient-container .detail-gradient-posted-date, .detail-share-user-info-container .detail-share-username, .choices-column .price-column .choice-type, .feedback-list-text-column .feedback-list-text-column-title, .feedback-list-text-column .feedback-list-text-column-text, .client-sphere .client-sphere-info, .about-get-in-touch-text-column .about-get-in-touch-title, .about-get-in-touch-text-column .about-get-in-touch-text, .price-column .pricing-popular-type, .categorie-column .pricing-popular-type, .post-text-container .post-date, .featured-posts-column .featured-post-column-date {
   color: var(--text-white);
   font-size: 1rem;
   font-family: var(--grotext-sans);
@@ -4021,7 +4199,7 @@
   line-height: 160%;
 }
 
-.white-1-125rem-grotext, .pricing-popular-package-info, .btn-for-list-of-packages .click-title, .detail-gradient-container .detail-gradient-posted-date {
+.white-1-125rem-grotext, .contact-page-gradient-text-container .contact-page-gradient-text, .pricing-popular-package-info, .btn-for-list-of-packages .click-title, .detail-gradient-container .detail-gradient-posted-date, .detail-share-user-info-container .detail-share-username {
   font-size: 1.125rem;
 }
 
@@ -4037,13 +4215,13 @@
   align-items: center;
 }
 
-.flex-row-justify-align-end, .flex-column-justify-align-end, .chat-column, .contact-main-image-column {
+.flex-row-justify-align-end, .flex-column-justify-align-end, .chat-column {
   display: flex;
   justify-content: flex-end;
   align-items: end;
 }
 
-.flex-row-center-between, .flex-column-center-between, .chat-column .message-container .message-creating-details, .carousel-title-container, .about-get-in-touch-container, .contact-main-image-container, .search-container, .search-container .featured-search-btn, .navbar {
+.flex-row-center-between, .flex-column-center-between, .chat-column .message-container .message-creating-details, .carousel-title-container, .about-get-in-touch-container, .search-container, .search-container .featured-search-btn, .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
