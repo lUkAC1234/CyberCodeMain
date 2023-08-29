@@ -158,7 +158,64 @@
 // START JOB INFORMATION SECTION
 
 .job-info-section {
-    margin: 15rem 0;
+    margin: 15rem 0 10rem;
+
+    @media screen and (max-width: 992px) {
+        margin: 20rem 0 10rem;
+    }
+}
+
+.job-info-container {
+    display: grid;
+    place-items: center;
+    padding-inline: 1rem;
+    .job-info-title {
+        @extend .dark-blue-text-center-grotext-family-3rem;
+    }
+
+    .job-info-text {
+        @extend .info-text-gray-1-125rem;
+        text-align: center;
+        width: min(100%, 30rem);
+        margin: 1rem 0 2.5rem;
+    }
+
+    @media screen and (max-width: 600px) {
+        .job-info-title {
+            font-size: 1.75rem !important;
+        }
+    
+        .job-info-text {
+            font-size: 1rem !important;
+        }
+    }
+}
+
+.job-info-btn-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+
+    @media screen and (max-width: 500px) {
+        gap: 1rem;
+        button {
+            padding: 0.75rem 1.5rem !important;
+            font-size: 1rem !important;
+        }
+    }
+}
+
+// END JOB INFORMATION SECTION
+
+// START JOB DETAIL TEXT SECTION
+
+.job-detail-text-container {
+    padding-inline: 5rem;
+
+    @media screen and (max-width: 992px) {
+        padding-inline: 1rem;
+    }
 }
 
 .about-the-job-content,
@@ -172,4 +229,17 @@
 .requirements-content.active {
     display: block;
 }
-// END JOB INFORMATION SECTION
+
+// END JOB DETAIL TEXT SECTION
+
+// START MORE JOB OPENINGS SECTION
+
+.more-job-openings-btn-container {
+    margin: 3rem auto 0;
+    width: fit-content;
+    button {
+        @extend .onerem-tworem-purple-button;
+    }
+}
+
+// END MORE JOB OPENINGS SECTION
