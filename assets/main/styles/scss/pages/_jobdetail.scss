@@ -1,0 +1,175 @@
+// START JOB DETAIL GRADIENT SECTION
+
+.job-gradient-section {
+    position: relative;
+    background-image: url(../../images/layout/wave.svg);
+    background: linear-gradient(168deg, rgba(170, 235, 255, 1) 0%, rgba(255, 217, 221, 1) 0%, rgba(222, 181, 255, 1) 16%, rgba(193, 188, 255, 1) 33%, rgba(193, 115, 255, 1) 96%);
+    background-position: center bottom;
+    padding: 15rem 0 5rem;
+
+    &::after {
+        content: "";
+        position: absolute;
+        background: url(../../images/layout/wave.svg);
+        width: 100%;
+        height: 200px;
+        background-position: bottom center;
+        bottom: -10px;
+        background-size: cover;
+    }
+}
+
+.job-gradient-container {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 3rem;
+    gap: 2rem;
+
+    @media screen and (max-width: 1300px) {
+        padding-left: 1rem;
+
+        .job-gradient-info-container {
+            .job-gradient-info-title {
+                font-size: 2rem !important;
+            }
+        
+            .job-gradient-info-category {
+                font-size: 1.25rem !important
+            }
+        
+            .job-gradient-info-text {
+                font-size: 1rem !important;
+            }
+        }
+    } 
+
+    @media screen and (max-width: 992px) {
+        flex-flow: column;
+
+        .job-gradient-info-container {
+            margin: 0 auto;
+        }
+
+        .job-gradient-image-container {
+            margin: 0 0 0 auto;
+            top: -5rem;
+            img {
+                height: 25rem;
+            }
+        }
+        
+    }
+
+    @media screen and (max-width: 700px) {
+        padding-inline: 0;
+        .job-gradient-info-container {
+            width: 96%;
+            margin: 0 2%;
+        }
+
+        .job-gradient-image-container {
+            width: 98%;
+            margin: 0 0 0 2%;
+        }
+    }
+
+    @media screen and (max-width: 450px) {
+        .job-gradient-info-container {
+            .job-gradient-info-title {
+                font-size: 1.5rem !important
+            }
+        
+            .job-gradient-info-category {
+                font-size: 1.125rem !important;
+                margin-top: 0.5rem;
+            }
+        
+            .job-gradient-info-text {
+                margin-bottom: 1.5rem;
+            }
+        }
+    }
+        
+}
+
+.job-gradient-info-container {
+    width: min(100%, 35rem);
+    position: relative;
+    background: var(--job-detail-background);
+    border-radius: 1.25rem;
+    padding: 2.5rem;
+    height: fit-content;
+    bottom: 5rem;
+
+    .job-gradient-info-title {
+        @extend .dark-blue-text-center-grotext-family-3rem;
+        @extend .text-align-start;
+        margin-top: 2rem;
+    }
+
+    .job-gradient-info-category {
+        @extend .dark-blue-text-center-grotext-family-1-5rem;
+        @extend .text-align-start;
+        color: var(--text-purple) !important;
+    }
+
+    .job-gradient-info-text {
+        @extend .info-text-gray-1-125rem;
+        margin: 1rem 0 2.75rem;
+        width: min(100%, 30rem);
+    }
+}
+
+.job-gradient-info-image-container {
+    position: absolute;
+    top: -3rem;
+    left: 2rem;
+    background: var(--background-white);
+    border-radius: 50%;
+    i {
+        font-size: 3rem;
+        color: var(--text-purple);
+        border-radius: 50%;
+        border: 1.75rem solid var(--background-white);
+    }
+}
+
+.job-gradient-info-btn-container {
+    button {
+        @extend .onerem-tworem-purple-button;
+    }
+}
+
+.job-gradient-image-container {
+    position: relative;
+    width: min(100%, 35rem);
+    img {
+        position: absolute;
+        width: 100%;
+        height: 30rem;
+        object-fit: cover;
+        border-radius: 1.25rem 0rem 0rem 1.25rem;
+        z-index: var(--z-index-2);
+    }
+}
+
+// END JOB DETAIL GRADIENT SECTION
+
+// START JOB INFORMATION SECTION
+
+.job-info-section {
+    margin: 15rem 0;
+}
+
+.about-the-job-content,
+.responsibilities-content,
+.requirements-content {
+    display: none;
+}
+
+.about-the-job-content.active,
+.responsibilities-content.active ,
+.requirements-content.active {
+    display: block;
+}
+// END JOB INFORMATION SECTION

@@ -1,0 +1,77 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% block title %}
+<title>Job Detail - CyberCode</title>
+{% endblock %}
+<main class="main job-detail-main">
+    
+    <!-- START JOB DETAIL GRADIENT SECTION -->
+
+    <section class="job-gradient-section">
+        <div class="job-gradient-container">
+            <div class="job-gradient-info-container">
+                <div class="job-gradient-info-image-container">
+                    <i class="fa-solid fa-image"></i>
+                </div>
+                <h1 class="job-gradient-info-title">Lead UI Designer</h1>
+                <h2 class="job-gradient-info-category">Development</h2>
+                <p class="job-gradient-info-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit lobortis arcu enim urna adipiscing  praesent velit viverra sit semper dat.</p>
+                <div class="job-gradient-info-btn-container">
+                    <a href="">
+                        <button class="job-gradient-info-btn">Apply now</button>
+                    </a>
+                </div>
+            </div>
+            <div class="job-gradient-image-container">
+                <img src="{% static 'main/images/jobdetail/jobdetailmain.png' %}" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- END JOB DETAIL GRADIENT SECTION -->
+
+    <!-- START JOB INFORMATION SECTION -->
+
+    <section class="job-info-section">
+        <div class="job-info-container">
+            <h1 class="job-info-title"></h1>
+            <p class="job-info-text"></p>
+            <div class="job-info-btn-container">
+                <button class="toggle-button active" id="about-the-jobBtn">About the job</button>
+                <button class="toggle-button" id="responsibilitiesBtn">Responsibilities</button>
+                <button class="toggle-button" id="requirementsBtn">Requirements</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- END JOB INFORMATION SECTION -->
+
+    <!-- START JOB DETAIL TEXT SECTION -->
+
+    <section class="job-detail-text-section">
+        <div class="job-detail-text-container">
+            <div class="about-the-job-content active">
+                <h1>ABOUT THE JOB ACTIVATED</h1>
+            </div>
+            <div class="responsibilities-content">
+                <h1>Responsibilities ACTIVATED</h1>
+            </div>
+            <div class="requirements-content">
+                <h1>Requirements ACTIVATED</h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- END JOB DETAIL TEXT SECTION -->
+
+</main>
+{% endblock %}
+
+{% block js_block %}
+<script>
+</script>
+<script src="{% static 'main/scripts/js/jobdetailtoggle.js' %}"></script>
+{% endblock %}

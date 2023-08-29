@@ -18,6 +18,7 @@ $background-header-menu: #363636;
 $carousel-background: #FDFDFD;
 $carousel-image-background: #f3f3f3;
 $linear-gray-background: #c3c3c3;
+$job-detail-background: rgba(255, 255, 255, 0.75);
 :root {
     --body-background: #{$body-background};
     --progress-background: #{$progress-background};
@@ -39,4 +40,5 @@ $linear-gray-background: #c3c3c3;
     --carousel-background: #{$carousel-background};
     --carousel-image-background: #{$carousel-image-background};
     --linear-gray-background: #{$linear-gray-background};
+    --job-detail-background: #{$job-detail-background};
 }
