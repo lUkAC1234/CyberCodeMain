@@ -19,7 +19,7 @@
                     </li>
                     <li class="nav-link {% if request.path == '/about/us/' %}active{% endif %}" id="aboutDropdown">
                         <a href="{% url 'main:about' %}"><i class="fas fa-info-circle"></i> About</a>
-                    </li>                                      
+                    </li>
                     <li class="nav-link {% if request.path == '/contact/us/' %}active{% endif %}">
                         <a href="{% url 'main:contact' %}"><i class="fas fa-address-card"></i> Contact</a>
                     </li>
@@ -66,14 +66,34 @@
                 </div>
             </div>
             <div class="login-part-header">
-                <a href="">
-                    <button class="sign-button login">Login</button>
-                </a>
-                <a href="">
-                    <button class="sign-button get-started">Get started</button>
-                </a>
+                <div class="dropdown-container" id="dropdown-content">
+                    <button class="dropdown__button" id="dropdown-button">
+                        <img class="dropdown__icon" src="{% static 'main/images/main-page/avatar.svg' %}" alt="">
+                        <span class="dropdown__name">My profile</span>
+
+                        <div class="dropdown__icons">
+                            <i class="fa-sharp fa-solid fa-caret-down fa-rotate-270 dropdown__arrow"></i>
+                            <i class="fa-sharp fa-solid fa-caret-down dropdown__close"></i>
+                        </div>
+                    </button>
+                    <ul class="dropdown__menu" id="dropdown__menu">
+                        <li class="dropdown__item">
+                            <i class="fa-solid fa-user dropdown__icon"></i>
+                            <span class="dropdown__name">Profile</span>
+                        </li>
+
+                        <li class="dropdown__item">
+                            <i class="fa-solid fa-comments dropdown__icon"></i>
+                            <span class="dropdown__name">Messages</span>
+                        </li>
+
+                        <li class="dropdown__item">
+                            <i class="fa-solid fa-right-from-bracket dropdown__icon"></i>
+                            <span class="dropdown__name">Logout</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </section>
     </nav>
 </header>
-

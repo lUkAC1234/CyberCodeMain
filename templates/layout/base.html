@@ -78,9 +78,6 @@
         }, 150);
     });
 
-
-
-
     /* END Preloader */
 
     /* HEADER-NAVBAR + BOTTOM BTN TO TOP */
@@ -115,6 +112,7 @@
 
     // HIDE THE HEADER WHEN USER SCROOLS DOWN 
     const siteHeader = document.getElementById('header');
+    const dropdownMenu = document.getElementById('dropdown__menu');
     let lastScrollPosition = 0;
     const screenWidthThreshold = 1400;
     window.addEventListener('scroll', () => {
@@ -128,12 +126,18 @@
         siteProgressBar.style.bottom = '0';
         siteProgressBar.style.top = 'unset';
         siteProgressBar.style.transform = 'translateY(5px)';
+        if (dropdownMenu) {
+            dropdownMenu.style.transform = 'translateY(-120%)';
+        }
         } else {
             // Scrolling up
             siteHeader.style.transform = 'translateY(0)';
             siteProgressBar.style.top = '0';
             siteProgressBar.style.bottom = 'unset';
             siteProgressBar.style.transform = 'translateY(0px)';
+            if (dropdownMenu) {
+                dropdownMenu.style.transform = 'translateY(0)';
+            }
         }
         lastScrollPosition = currentScrollPosition; 
     }
@@ -149,6 +153,18 @@
             link.classList.toggle('active');
         }
     });
+
+    /*=============== DROPDOWN JS ===============*/
+    const showDropdown = (content, button) =>{
+        const dropdownContent = document.getElementById(content),
+                dropdownButton = document.getElementById(button)
+
+        dropdownButton.addEventListener('click', () =>{
+            dropdownContent.classList.toggle('show-dropdown')
+        })
+    }
+
+    showDropdown('dropdown-content','dropdown-button')
 
     /*  HEADER ACTIVE CLASS FUNCTION END */
 
