@@ -1,0 +1,235 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    {# ------------------------------------------------------------------------------------------- #}
+    {# Swiper (Carousel) #}
+    <link href="{% static 'main/scripts/js/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    {# ------------------------------------------------------------------------------------------- #}
+    {# User css links #}
+    <link rel="stylesheet" type="text/css" href="{% static 'main/styles/scss/global.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8" defer></script>
+    {# ------------------------------------------------------------------------------------------- #}
+</head>
+
+<body>
+    {% include 'layout/preloader.html' %}
+    <main class="main help-center-main">
+
+        <!-- START MESSENGER SECTION -->
+
+        <section class="messenger-section">
+            <div class="messenger-container">
+                <header class="messenger-header">
+                    <div class="messenger-header-container">
+                        <div class="messenger-header-user-container">
+                            <div class="messenger-header-user-image-container">
+                                <img src="{% static 'main/images/main-page/avatar.svg' %}" alt="">
+                            </div>
+                            <div class="messenger-header-user-info-container">
+                                <h1 class="messenger-header-username">Cyber Code</h1>
+                                <p class="messenger-header-user">Admin</p>
+                            </div>
+                        </div>
+                        <div class="messenger-header-search-container">
+                            <div class="messenger-header-search-btn-container">
+                                <button class="messenger-header-search-btn">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                                <div class="messenger-search-after-container">
+                                    <div class="messenger-search-after-search-btn-container">
+                                        <button class="messenger-search-after-search-btn">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                        </button>
+                                    </div>
+                                    <div class="messenger-search-after-input-container">
+                                        <input type="text" placeholder="Search">
+                                    </div>
+                                    <div class="messenger-search-after-cancel-container">
+                                        <button class="messenger-search-after-cancel-btn">
+                                            <i class="fa-sharp fa-solid fa-xmark"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <article class="messenger-content-section">
+                    <div class="messenger-content-wrapper">
+                        <div class="messenger-go-back-container">
+                            <a href="{% url 'main:index' %}">Go back</a>
+                        </div>
+                        <div class="messenger-content">
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+
+
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+                            <h1>HI !</h1>
+
+                        </div>
+                    </div>
+                </article>
+                <footer class="messenger-footer">
+                    <div class="messenger-footer-type-container">
+                        <div class="messenger-footer-links-container">
+                            <label class="messenger-footer-links-label">
+                                <input type="file" placeholder="">
+                                <i class="fa-solid fa-paperclip"></i>
+                            </label>
+                        </div>
+                        <div class="messenger-footer-input-container">
+                            <input type="text" id="message-input" class="message-input"
+                                placeholder="Type your message here…">
+                        </div>
+                        <div class="messenger-footer-emoji-container">
+                            <div class="emoji-container">
+                                <button class="emoji-button"><i class="fa-solid fa-face-smile"></i></button>
+                                <div class="emoji-list" id="emoji-list">
+                                    <span class="emoji">😀</span>
+                                    <span class="emoji">😄</span>
+                                    <span class="emoji">😊</span>
+                                    <span class="emoji">🙂</span>
+                                    <span class="emoji">😀</span>
+                                    <span class="emoji">😄</span>
+                                    <span class="emoji">😊</span>
+                                    <span class="emoji">😀</span>
+                                    <span class="emoji">😄</span>
+                                    <span class="emoji">😊</span>
+                                    <span class="emoji">🙂</span>
+                                    <span class="emoji">😀</span>
+                                    <span class="emoji">😄</span>
+                                    <span class="emoji">😊</span>
+                                    <span class="emoji">😀</span>
+                                    <span class="emoji">😄</span>
+                                    <span class="emoji">😊</span>
+                                    <span class="emoji">🙂</span>
+                                    <span class="emoji">😀</span>
+                                    <span class="emoji">😄</span>
+                                    <span class="emoji">😊</span>
+                                    <span class="emoji">😀</span>
+                                    <span class="emoji">😄</span>
+                                    <span class="emoji">😊</span>
+                                    <span class="emoji">🙂</span>
+                                    <span class="emoji">😀</span>
+                                    <span class="emoji">😄</span>
+                                    <span class="emoji">😊</span>
+                                    <span class="emoji">😀</span>
+                                    <span class="emoji">😄</span>
+                                    <span class="emoji">😊</span>
+                                    <span class="emoji">🙂</span>
+                                    <span class="emoji">😀</span>
+                                    <span class="emoji">😄</span>
+                                    <span class="emoji">😊</span>
+                                    <span class="emoji">🙂</span>
+                                    <span class="emoji">😀</span>
+                                    <span class="emoji">😄</span>
+                                    <span class="emoji">😊</span>
+                                    <span class="emoji">🙂</span>
+                                    <span class="emoji">😀</span>
+                                    <span class="emoji">😄</span>
+                                    <span class="emoji">😊</span>
+                                    <span class="emoji">🙂</span>
+                                    <span class="emoji">😀</span>
+                                    <span class="emoji">😄</span>
+                                    <span class="emoji">😊</span>
+                                    <span class="emoji">🙂</span>
+                                    <span class="emoji">😀</span>
+                                    <span class="emoji">😄</span>
+                                    <span class="emoji">😊</span>
+                                    <span class="emoji">🙂</span>
+                                    <span class="emoji">😀</span>
+                                    <span class="emoji">😄</span>
+                                    <span class="emoji">😊</span>
+                                    <span class="emoji">🙂</span>
+                                    <span class="emoji">😀</span>
+                                    <span class="emoji">😄</span>
+                                    <span class="emoji">😊</span>
+                                    <span class="emoji">🙂</span>
+                                    <span class="emoji">😀</span>
+                                    <span class="emoji">😄</span>
+                                    <span class="emoji">😊</span>
+                                    <span class="emoji">🙂</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="messenger-footer-send-btn-container">
+                            <button class="messenger-footer-send-btn">
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </section>
+
+        <!-- END MESSENGER SECTION -->
+
+    </main>
+
+    <script src="{% static 'main/scripts/js/emoji.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        /*------------------
+                Preloader
+        --------------------*/
+        (function ($) {
+            $(window).on('load', function () {
+                $(".loader").fadeOut();
+                $("#preloder").delay(200).fadeOut("slow");
+            });
+        })(jQuery);
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const hiddenText = document.querySelector(".hidden-preloader-text");
+
+            setTimeout(() => {
+                hiddenText.style.opacity = "1";
+                hiddenText.style.transform = "scaleX(1)";
+            }, 150);
+        });
+    </script>
+</body>
+
+</html>

@@ -88,7 +88,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--text-purple);
+    background: var(--background-purple);
     background: -webkit-linear-gradient(to right, var(--text-light-purple), var(--text-purple));
     background: linear-gradient(to right, var(--text-light-purple), var(--text-purple));
     border-radius: 0.3em;

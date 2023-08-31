@@ -30,3 +30,6 @@ class job(TemplateView):
 
 class jobdetail(TemplateView):
     template_name = "pages/jobdetail.html"    
+
+class helpcenter(TemplateView):
+    template_name = "pages/helpcenter.html"    

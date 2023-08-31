@@ -34,6 +34,7 @@
                     </li>
                 </ul>
                 <div class="hidden-content">
+                    {% if request.user.is_authenticated %}
                     <div class="hidden-btn-container">
                         <a href="">
                             <button class="hidden-login">Login</button>
@@ -42,6 +43,7 @@
                             <button>Get started</button>
                         </a>
                     </div>
+                    {% endif %}
                     <div class="hiddent-text-container">
                         <div class="hiddent-text-column">
                             <a href=""><i class="fas fa-question-circle"></i> Help Center</a>
@@ -72,27 +74,64 @@
                         <span class="dropdown__name">My profile</span>
 
                         <div class="dropdown__icons">
-                            <i class="fa-sharp fa-solid fa-caret-down fa-rotate-270 dropdown__arrow"></i>
-                            <i class="fa-sharp fa-solid fa-caret-down dropdown__close"></i>
+                            <i class="fa-sharp fa-solid fa-angle-right dropdown__arrow"></i>
+                            <i class="fa-sharp fa-solid fa-angle-right fa-rotate-90 dropdown__close"></i>
                         </div>
                     </button>
                     <ul class="dropdown__menu" id="dropdown__menu">
-                        <li class="dropdown__item">
-                            <i class="fa-solid fa-user dropdown__icon"></i>
-                            <span class="dropdown__name">Profile</span>
-                        </li>
+                        <div class="dropdown-item-container">
+                            <a href="">
+                                <li class="dropdown__item">
+                                    <i class="fas fa-star dropdown__icon"></i>
+                                    <span class="dropdown__name">Get started</span>
+                                </li>
+                            </a>
+                        </div>
+                        <div class="dropdown-item-container">
+                            <a href="">
+                                <li class="dropdown__item">
+                                    <i class="fa-solid fa-user dropdown__icon"></i>
+                                    <span class="dropdown__name">Profile</span>
+                                </li>
+                            </a>
+                            <a href="">
+                                <li class="dropdown__item">
+                                    <i class="fa-solid fa-comments dropdown__icon"></i>
+                                    <span class="dropdown__name">Messages</span>
+                                </li>
+                            </a>
+                        </div>
+                        <div class="dropdown-item-container">
+                            <a href="">
+                                <li class="dropdown__item">
+                                    <i class="fa-sharp fa-solid fa-pencil dropdown__icon"></i>
+                                    <span class="dropdown__name">Instruction</span>
+                                </li>
+                            </a>
+                            <a href="{% url 'main:helpcenter' %}">
+                                <li class="dropdown__item {% if request.path == '/help/center/' %}active{% endif %}">
+                                    <i class="fa-solid fa-handshake-angle dropdown__icon"></i>
+                                    <span class="dropdown__name">Help Center</span>
+                                </li>
+                            </a>
+                        </div>
 
-                        <li class="dropdown__item">
-                            <i class="fa-solid fa-comments dropdown__icon"></i>
-                            <span class="dropdown__name">Messages</span>
-                        </li>
-
-                        <li class="dropdown__item">
-                            <i class="fa-solid fa-right-from-bracket dropdown__icon"></i>
-                            <span class="dropdown__name">Logout</span>
-                        </li>
+                        <div class="dropdown-item-container">
+                            <a href="">
+                                <li class="dropdown__item">
+                                    <i class="fa-solid fa-right-from-bracket dropdown__icon"></i>
+                                    <span class="dropdown__name">Logout</span>
+                                </li>
+                            </a>
+                        </div>
                     </ul>
                 </div>
+                <!-- <a class="dekstop-login-part" href="">
+                    <button class="sign-button login">Login</button>
+                </a>
+                <a class="dekstop-login-part" href="">
+                    <button class="sign-button get-started">Get started</button>
+                </a> -->
             </div>
         </section>
     </nav>
