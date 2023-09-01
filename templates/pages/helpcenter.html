@@ -66,48 +66,64 @@
                 </header>
                 <article class="messenger-content-section">
                     <div class="messenger-content-wrapper">
-                        <div class="messenger-go-back-container">
-                            <a href="{% url 'main:index' %}">Go back</a>
-                        </div>
                         <div class="messenger-content">
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-
-
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-                            <h1>HI !</h1>
-
+                            <div class="messenger-your-message-container">
+                                <div class="messenger-your-message-wrapper">
+                                    <div class="messenger-your-message-user-profile">
+                                        <div class="messenger-your-message-user-image">
+                                            <img src="{% static 'main/images/main-page/avatar.svg' %}" alt="">
+                                        </div>
+                                        <h1 class="messenger-your-message-username">You</h1>
+                                        <p class="messenger-your-message-time">12:15 AM</p>
+                                    </div>
+                                    <div class="messenger-your-message">
+                                        <p class="messenger-your-message-text">
+                                            Hi, Oscar! Nice to meet you We will work with new prject together Hi, Oscar! Nice to meet you We will work with new prject together
+                                        </p>
+                                        <div class="messenger-your-message-images-container">
+                                            <img src="{% static 'main/images/blog/post.svg' %}" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="messenger-others-message-container">
+                                <div class="messenger-others-message-wrapper">
+                                    <div class="messenger-others-message-user-profile">
+                                        <div class="messenger-others-message-user-image">
+                                            <img src="{% static 'main/images/main-page/tasks.svg' %}" alt="">
+                                        </div>
+                                        <h1 class="messenger-others-message-username">Him</h1>
+                                        <p class="messenger-others-message-time">12:15 AM</p>
+                                    </div>
+                                    <div class="messenger-others-message">
+                                        <p class="messenger-others-message-text">
+                                        </p>
+                                        <div class="messenger-others-message-images-container">
+                                            <img src="{% static 'main/images/main-page/avatar.svg' %}" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="messenger-your-message-container">
+                                <div class="messenger-your-message-wrapper">
+                                    <div class="messenger-your-message-user-profile">
+                                        <div class="messenger-your-message-user-image">
+                                            <img src="{% static 'main/images/main-page/avatar.svg' %}" alt="">
+                                        </div>
+                                        <h1 class="messenger-your-message-username">You</h1>
+                                        <p class="messenger-your-message-time">12:15 AM</p>
+                                    </div>
+                                    <div class="messenger-your-message">
+                                        <p class="messenger-your-message-text">
+                                            Hi, Oscar! Nice to meet you We will work with new prject together Hi, Oscar! Nice to meet you We will work with new prject together
+                                            Hi, User! Nice to meet you <a href="{% url 'main:index' %}">There you can go back</a>
+                                        </p>
+                                        <div class="messenger-your-message-images-container">
+                                            <img src="{% static 'main/images/main-page/carousel1.png' %}" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </article>

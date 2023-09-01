@@ -3560,18 +3560,14 @@
   grid-area: messenger-header;
   display: grid;
   place-items: start;
+  border-bottom: 1px solid var(--messenger-gray-background);
 }
 
 .messenger-header-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   width: 100%;
 }
 
 .messenger-header-user-container {
-  display: flex;
-  align-items: center;
   gap: 1rem;
 }
 
@@ -3630,13 +3626,14 @@
 .messenger-search-after-container {
   width: 100%;
   position: absolute;
-  display: flex;
+  display: none;
   margin-top: 0.5rem;
   left: 0;
   padding: 0.5rem 0.5rem;
   gap: 1rem;
   border-bottom: 1px solid var(--messenger-gray-background);
   background: var(--background-white);
+  z-index: var(--z-index-2);
 }
 .messenger-search-after-container:has(.messenger-search-after-input-container input:focus) {
   border-color: var(--background-purple);
@@ -3684,8 +3681,15 @@
 }
 
 .messenger-content-section {
+  position: relative;
   width: 100%;
   grid-area: messenger-content;
+}
+
+.messenger-content-wrapper {
+  position: absolute;
+  width: 100%;
+  padding-block: 1rem;
 }
 
 .messenger-content-section {
@@ -3707,21 +3711,106 @@
   width: 100%;
 }
 
-.messenger-go-back-container {
-  position: sticky;
-  top: 2.45rem;
-  padding: 1rem 0;
-  background: var(--background-white);
+.messenger-your-message-container,
+.messenger-others-message-container {
+  width: 100%;
 }
-.messenger-go-back-container a {
-  color: var(--text-purple);
-  font-family: var(--grotext-sans);
-  font-weight: 600;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  background: var(--gray-button);
+.messenger-your-message-container:not(:first-child),
+.messenger-others-message-container:not(:first-child) {
+  margin-top: 2rem;
+  padding-top: 0.5rem;
 }
 
+.messenger-your-message-wrapper,
+.messenger-others-message-wrapper {
+  width: min(100%, 50rem);
+}
+.messenger-your-message-wrapper:not(:first-child),
+.messenger-others-message-wrapper:not(:first-child) {
+  padding-top: 0.5rem;
+  margin-top: 1rem;
+  border-top: 1px solid var(--messenger-gray-background);
+}
+
+.messenger-your-message-user-profile,
+.messenger-others-message-user-profile {
+  gap: 0.5rem;
+}
+.messenger-your-message-user-profile .messenger-your-message-user-image,
+.messenger-your-message-user-profile .messenger-others-message-user-image,
+.messenger-others-message-user-profile .messenger-your-message-user-image,
+.messenger-others-message-user-profile .messenger-others-message-user-image {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.messenger-your-message-user-profile .messenger-your-message-user-image img,
+.messenger-your-message-user-profile .messenger-others-message-user-image img,
+.messenger-others-message-user-profile .messenger-your-message-user-image img,
+.messenger-others-message-user-profile .messenger-others-message-user-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.messenger-your-message-user-profile .messenger-your-message-time,
+.messenger-your-message-user-profile .messenger-others-message-time,
+.messenger-others-message-user-profile .messenger-your-message-time,
+.messenger-others-message-user-profile .messenger-others-message-time {
+  font-size: 0.8rem !important;
+  margin-top: 0.25rem;
+}
+
+.messenger-your-message,
+.messenger-others-message {
+  display: grid;
+  gap: 1rem;
+  margin: 0 1rem 0 3rem;
+}
+.messenger-your-message .messenger-your-message-text,
+.messenger-your-message .messenger-others-message-text,
+.messenger-others-message .messenger-your-message-text,
+.messenger-others-message .messenger-others-message-text {
+  overflow-wrap: break-word;
+  overflow-x: hidden;
+  word-wrap: break-word;
+}
+.messenger-your-message .messenger-your-message-text a,
+.messenger-your-message .messenger-others-message-text a,
+.messenger-others-message .messenger-your-message-text a,
+.messenger-others-message .messenger-others-message-text a {
+  color: var(--text-purple);
+  text-decoration: underline;
+}
+.messenger-your-message .messenger-your-message-images-container,
+.messenger-your-message .messenger-others-message-images-container,
+.messenger-others-message .messenger-your-message-images-container,
+.messenger-others-message .messenger-others-message-images-container {
+  width: min(100%, 30rem);
+  max-height: 20rem;
+  min-height: 15rem;
+}
+.messenger-your-message .messenger-your-message-images-container img,
+.messenger-your-message .messenger-others-message-images-container img,
+.messenger-others-message .messenger-your-message-images-container img,
+.messenger-others-message .messenger-others-message-images-container img {
+  width: 100%;
+  height: min(100%, 20rem);
+  object-fit: cover;
+  border-radius: 1.25rem;
+}
+.messenger-your-message .messenger-your-message-images-container img:not(:first-child),
+.messenger-your-message .messenger-others-message-images-container img:not(:first-child),
+.messenger-others-message .messenger-your-message-images-container img:not(:first-child),
+.messenger-others-message .messenger-others-message-images-container img:not(:first-child) {
+  margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 500px) {
+  .messenger-your-message,
+  .messenger-others-message {
+    margin: 1rem 1rem 0 0.5rem;
+  }
+}
 .messenger-footer {
   display: grid;
   place-items: end;
@@ -3729,8 +3818,6 @@
 }
 
 .messenger-footer-type-container {
-  display: flex;
-  align-items: center;
   width: 100%;
   border: 1px solid #D8E0F0;
   background: var(--background-white);
@@ -4786,7 +4873,10 @@
     padding: 0;
   }
 }
-.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .post-text-container .post-posted, .featured-posts-column .featured-post-column-posted, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .job-gradient-info-container .job-gradient-info-category, .messenger-header-user-info-container .messenger-header-username, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .documentation-content-title, .post-text-container .post-title, .featured-posts-column .featured-post-column-title, .detail-gradient-container .detail-gradient-username, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .language-toggle-text-container .toggle-language-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
+.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .post-text-container .post-posted, .featured-posts-column .featured-post-column-posted, .messenger-your-message-user-profile .messenger-your-message-username,
+.messenger-your-message-user-profile .messenger-others-message-username,
+.messenger-others-message-user-profile .messenger-your-message-username,
+.messenger-others-message-user-profile .messenger-others-message-username, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .job-gradient-info-container .job-gradient-info-category, .messenger-header-user-info-container .messenger-header-username, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .documentation-content-title, .post-text-container .post-title, .featured-posts-column .featured-post-column-title, .detail-gradient-container .detail-gradient-username, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .language-toggle-text-container .toggle-language-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
 .featured-posts-category-title, .posts-tags-title, .detail-gradient-container .detail-gradient-title, .detail-content-wrapper .detail-content-title, .detail-link-text-container .detail-link-title {
   color: var(--text-dark-blue);
   text-align: center;
@@ -4809,7 +4899,10 @@
   font-size: 1.5rem;
 }
 
-.dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .post-text-container .post-posted, .featured-posts-column .featured-post-column-posted {
+.dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .post-text-container .post-posted, .featured-posts-column .featured-post-column-posted, .messenger-your-message-user-profile .messenger-your-message-username,
+.messenger-your-message-user-profile .messenger-others-message-username,
+.messenger-others-message-user-profile .messenger-your-message-username,
+.messenger-others-message-user-profile .messenger-others-message-username {
   font-size: 1rem;
 }
 
@@ -4818,7 +4911,10 @@
 .pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-popular-abilities-ul .abilities-li, .custom-build-column .custom-build-text, .services-text-container .services-text-text, .pricing-categories-abilities-ul .categories-abilities-li, .language-toggle-text-container .toggle-language-text, .post-text-container .post-text, .featured-posts-column .featured-post-column-text, .detail-content-wrapper pre,
 .detail-content-wrapper li,
 .detail-content-wrapper span,
-.detail-content-wrapper p, .detail-link-text-container .detail-link-text, .detail-share-user-info-container .detail-share-posted, .detail-share-social-container .detail-share-social-text, .job-gradient-info-container .job-gradient-info-text, .job-info-container .job-info-text {
+.detail-content-wrapper p, .detail-link-text-container .detail-link-text, .detail-share-user-info-container .detail-share-posted, .detail-share-social-container .detail-share-social-text, .job-gradient-info-container .job-gradient-info-text, .job-info-container .job-info-text, .messenger-your-message .messenger-your-message-text,
+.messenger-your-message .messenger-others-message-text,
+.messenger-others-message .messenger-your-message-text,
+.messenger-others-message .messenger-others-message-text {
   color: #666;
   font-size: 1.125rem;
   font-family: var(--grotext-sans);
@@ -4830,7 +4926,10 @@
 }
 
 .chat-text-gray, .chat-date-text, .chat-text-gray-1-125, .task-content-column .task-text, .package .package-info, .about-page-gradient-text-container .about-page-gradient-text, .website-technologies-column .website-technologies-text, .contact-us-hero-text-container .contact-us-hero-column-info, .services-info-column .services-info-text, .detail-gradient-container .detail-gradient-posted, .chat-column .message-container .chat-message-text, .carousel-text-container .carousel-slide-text, .carousel-date-container .carousel-date-posted,
-.carousel-date-container .carousel-date, .about-page-gradient-image-column-task-date {
+.carousel-date-container .carousel-date, .about-page-gradient-image-column-task-date, .messenger-your-message-user-profile .messenger-your-message-time,
+.messenger-your-message-user-profile .messenger-others-message-time,
+.messenger-others-message-user-profile .messenger-your-message-time,
+.messenger-others-message-user-profile .messenger-others-message-time {
   color: var(--text-light-gray);
   font-size: 1rem;
   font-family: var(--nunito);
@@ -4856,7 +4955,10 @@
 }
 
 .text-align-start, .task-content-column .task-title, .static-info .static-info-title, .carousel-title-container .carousel-title, .carousel-text-container .carousel-slide-title, .about-page-gradient-text-container .about-page-gradient-title, .about-page-gradient-image-column-task-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .faq-card-title, .ready-to-try-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .documentation-content-title, .blog-gradient-title, .post-text-container .post-title, .featured-search-title,
-.featured-posts-category-title, .featured-posts-column .featured-post-column-title, .posts-tags-title, .detail-content-wrapper .detail-content-title, .detail-link-text-container .detail-link-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-gradient-info-container .job-gradient-info-category, .messenger-header-user-info-container .messenger-header-username {
+.featured-posts-category-title, .featured-posts-column .featured-post-column-title, .posts-tags-title, .detail-content-wrapper .detail-content-title, .detail-link-text-container .detail-link-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-gradient-info-container .job-gradient-info-category, .messenger-header-user-info-container .messenger-header-username, .messenger-your-message-user-profile .messenger-your-message-username,
+.messenger-your-message-user-profile .messenger-others-message-username,
+.messenger-others-message-user-profile .messenger-your-message-username,
+.messenger-others-message-user-profile .messenger-others-message-username {
   text-align: start;
 }
 
@@ -4899,7 +5001,7 @@
   align-items: end;
 }
 
-.flex-row-center-between, .flex-column-center-between, .chat-column .message-container .message-creating-details, .carousel-title-container, .about-get-in-touch-container, .search-container, .search-container .featured-search-btn, .navbar {
+.flex-row-center-between, .flex-column-center-between, .chat-column .message-container .message-creating-details, .carousel-title-container, .about-get-in-touch-container, .search-container, .search-container .featured-search-btn, .messenger-header-container, .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -4939,7 +5041,8 @@
 
 .flex-row-align-center, .flex-column-align-center, .choices-column .abilities .abilities-ul .abilities-li, .choices-column:nth-child(even) .price-column .abilities-ul .abilities-li,
 .choices-column:nth-child(even) .abilities .abilities-ul .abilities-li, .feedback-user, .contact-us-hero-get-in-touch-container, .pricing-popular-abilities-ul .abilities-li, .pricing-popular-column:nth-child(even) .price-column .pricing-popular-abilities-ul .abilities-li,
-.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-popular-abilities-ul .abilities-li, .pricing-categories-abilities-ul .categories-abilities-li {
+.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-popular-abilities-ul .abilities-li, .pricing-categories-abilities-ul .categories-abilities-li, .messenger-header-user-container, .messenger-your-message-user-profile,
+.messenger-others-message-user-profile, .messenger-footer-type-container {
   display: flex;
   align-items: center;
 }
