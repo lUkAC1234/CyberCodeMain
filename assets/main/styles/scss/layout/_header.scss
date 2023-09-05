@@ -504,11 +504,12 @@
     padding-block: 1rem;
     display: flex;
     flex-flow: column;
-    width: 100%;
+    width: max-content;
     left: 0;
     top: 4rem;
     transform: scale(.1);
-    transform-origin: 10rem -2rem;
+    transform-origin: center;
+    transform: translate(50%);
     pointer-events: none;
     transition: opacity .4s, transform .4s;
     opacity: 0;

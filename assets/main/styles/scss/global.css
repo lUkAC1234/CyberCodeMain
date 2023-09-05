@@ -3589,7 +3589,7 @@
 .messenger-header-search-btn-container .messenger-header-search-btn {
   border: none;
   outline: none;
-  background: #F4F9FD;
+  background: var(--light-gray-background);
   padding: 0.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
@@ -3787,7 +3787,6 @@
 .messenger-others-message .messenger-others-message-images-container {
   width: min(100%, 30rem);
   max-height: 20rem;
-  min-height: 15rem;
 }
 .messenger-your-message .messenger-your-message-images-container img,
 .messenger-your-message .messenger-others-message-images-container img,
@@ -3795,6 +3794,7 @@
 .messenger-others-message .messenger-others-message-images-container img {
   width: 100%;
   height: min(100%, 20rem);
+  min-height: 15rem;
   object-fit: cover;
   border-radius: 1.25rem;
 }
@@ -3914,6 +3914,379 @@
   transform: rotate(50deg);
 }
 
+.profile-main {
+  background: var(--background-white) !important;
+}
+
+.profile-section {
+  margin: -10rem 0 5rem;
+}
+
+.profile-gradient-container {
+  margin: 4rem 0 0;
+  width: 100%;
+  height: 20rem;
+  background: url(../../images/profile/background.svg) no-repeat center;
+  background-size: cover;
+}
+
+.profile-container form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding-inline: 1rem;
+}
+@media screen and (max-width: 992px) {
+  .profile-container form {
+    flex-wrap: wrap;
+  }
+  .profile-container form .profile-edit-container,
+  .profile-container form .profile-general-info-container {
+    width: 100%;
+  }
+}
+
+.profile-general-info-container,
+.profile-edit-container {
+  width: 50%;
+  background: var(--background-white);
+  border-radius: 0.5rem;
+  box-shadow: 0px 6px 58px 0px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+.profile-general-info-container {
+  width: min(100%, 25rem);
+}
+
+.profile-image-edit-container {
+  display: grid;
+  place-items: center;
+}
+.profile-image-edit-container .profile-image-container {
+  position: relative;
+  width: 7.5rem;
+  height: 7.5rem;
+}
+.profile-image-edit-container .profile-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.profile-image-edit-container .profile-image-container .file-upload-label {
+  position: absolute;
+  bottom: 0;
+  right: 0.5rem;
+  background: var(--background-white);
+  border-radius: 50%;
+  padding: 0.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.profile-image-edit-container .profile-image-container .profile-add-icon {
+  width: 0.75rem;
+  height: 0.75rem;
+  position: relative;
+  font-size: 1.125rem;
+  color: var(--text-purple);
+  cursor: pointer;
+  z-index: var(--z-index-2);
+}
+.profile-image-edit-container .profile-image-container input[type=file] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.profile-user-info-container {
+  margin: 1rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--messenger-gray-background);
+}
+.profile-user-info-container .profile-email {
+  text-align: center;
+}
+
+.profile-main-edit-container {
+  padding-bottom: 1rem;
+}
+.profile-main-edit-wrapper {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: auto auto;
+}
+
+.profile-edit-column {
+  display: flex;
+  flex-flow: column;
+}
+.profile-edit-column label {
+  margin: 0.5rem 0;
+}
+.profile-edit-column .profile-edit-input {
+  border: 1px solid var(--profile-input-border);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--text-dark-blue);
+  font-size: 0.8rem;
+  font-family: var(--grotext-sans);
+  transition: 0.4s all;
+}
+.profile-edit-column .profile-edit-input:focus {
+  border-color: var(--background-dark-blue);
+}
+
+.profile-contact-edit-container {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--messenger-gray-background);
+}
+.profile-submit-btn-container {
+  margin-top: 1rem;
+}
+.profile-submit-btn-container .profile-submit-btn {
+  width: 100%;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  background: url(../../images/profile/background.svg) no-repeat center;
+  background-size: cover;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-family: var(--grotext-sans);
+  color: var(--text-white);
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+.profile-submit-btn-container .profile-submit-btn i {
+  font-size: 0.8rem;
+}
+@media screen and (max-width: 600px) {
+  .profile-submit-btn-container .profile-submit-btn {
+    font-size: 0.8rem;
+  }
+  .profile-submit-btn-container .profile-submit-btn i {
+    font-size: 0.6rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .profile-container {
+    width: 96%;
+    margin-inline: 2%;
+  }
+  .profile-user-info-container .profile-username {
+    font-size: 1.125rem !important;
+  }
+  .profile-user-info-container .profile-email {
+    font-size: 1rem !important;
+  }
+  .profile-main-edit-container .profile-edit-title {
+    font-size: 1.125rem !important;
+  }
+  .profile-main-edit-wrapper {
+    grid-template-columns: auto;
+  }
+  .profile-contact-edit-container .profile-edit-title {
+    font-size: 1.125rem !important;
+  }
+  .profile-edit-column label {
+    font-size: 0.8rem !important;
+  }
+  .profile-edit-column .profile-edit-input {
+    font-size: 0.7rem !important;
+  }
+  .profile-image-edit-container .profile-image-container {
+    width: 5rem;
+    height: 5rem;
+  }
+  .profile-image-edit-container .profile-image-container .file-upload-label {
+    display: grid;
+    place-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    right: 0.25rem;
+    bottom: -0.25rem;
+  }
+  .profile-image-edit-container .profile-image-container .profile-add-icon {
+    font-size: 0.8rem;
+  }
+}
+.sign-section {
+  position: relative;
+  height: 100vh;
+}
+
+.sign-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  display: flex;
+  box-shadow: 0px 6px 58px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 1.5rem;
+  height: 90%;
+}
+
+.sign-image-container {
+  width: 50%;
+  border-radius: 1.5rem 0 0 1.5rem;
+  background: var(--background-white);
+  background: linear-gradient(90deg, rgb(136, 40, 255) 0%, rgb(255, 255, 255) 100%);
+}
+.sign-image-container .sign-image-logo-container {
+  width: 100%;
+  position: relative;
+  display: inline-flex;
+  align-items: end;
+}
+.sign-image-container .sign-image-logo-container img {
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+  margin: 1rem 0 0 1rem;
+}
+.sign-image-container .sign-image-logo-container .sign-image-logo-text {
+  position: absolute;
+  left: 4.75rem;
+  bottom: 0.5rem;
+  font-size: 2rem;
+  color: var(--text-white);
+  font-family: var(--grotext-sans);
+}
+.sign-image-container .sign-image-title {
+  color: var(--text-white) !important;
+  margin: 1rem;
+}
+.sign-image-container .sign-image-wrapper {
+  width: 100%;
+  height: 25rem;
+}
+.sign-image-container .sign-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 0 0 0 1.5rem;
+}
+
+.sign-info-container {
+  width: 50%;
+  padding: 10rem 5rem;
+}
+.sign-info-container .sign-info-title {
+  margin-bottom: 1rem;
+}
+
+.sign-info-input-container .sign-info-input-column {
+  display: flex;
+  flex-flow: column;
+}
+.sign-info-input-container .sign-info-input-column .sign-info-label {
+  margin: 0.5rem 0;
+}
+.sign-info-input-container .sign-info-input-column .sign-info-input {
+  border: 1px solid var(--profile-input-border);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--text-dark-blue);
+  font-size: 0.8rem;
+  font-family: var(--grotext-sans);
+  transition: 0.4s all;
+}
+.sign-info-input-container .sign-info-input-column .sign-info-input:focus {
+  border-color: var(--background-dark-blue);
+}
+
+.sign-info-extra-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.sign-info-extra-container .sign-info-extra-remember-container {
+  display: inline-flex;
+  gap: 0.5rem;
+}
+.sign-info-extra-container .sign-info-extra-remember-container input[type=checkbox] {
+  position: relative;
+  padding: 0.5rem;
+  transform: scale(1.5);
+}
+.sign-info-btn-container {
+  display: grid;
+  place-items: center;
+  margin: 2rem 0;
+}
+.sign-info-btn-container .sign-info-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 2rem;
+  border: none;
+  outline: none;
+  background: var(--background-purple);
+  font-size: 1rem;
+  font-family: var(--grotext-sans);
+  color: var(--text-white);
+  cursor: pointer;
+}
+.sign-info-btn-container .sign-info-btn i {
+  font-size: 0.8rem;
+  margin-top: 0.1rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .sign-image-container {
+    display: none;
+  }
+  .sign-info-container {
+    width: 100%;
+    padding-inline: 10rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .sign-info-container {
+    width: 100%;
+    padding-inline: 5rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  .sign-container {
+    height: fit-content;
+  }
+  .sign-info-container {
+    width: 100%;
+    padding-inline: 2rem;
+  }
+  .sign-info-container .sign-info-title {
+    font-size: 1.25rem !important;
+  }
+  .sign-info-input-container .sign-info-input-column .sign-info-label {
+    font-size: 0.9rem !important;
+  }
+  .sign-info-input-container .sign-info-input-column .sign-info-input {
+    font-size: 0.7rem;
+  }
+  .sign-info-extra-container .sign-info-extra-remember-container input[type=checkbox] {
+    transform: scale(1);
+  }
+  .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text {
+    font-size: 0.8rem !important;
+  }
+  .sign-info-extra-password-container .sign-info-extra-password-text {
+    font-size: 0.8rem !important;
+  }
+}
 #preloder {
   position: fixed;
   width: 100%;
@@ -4499,11 +4872,12 @@
   padding-block: 1rem;
   display: flex;
   flex-flow: column;
-  width: 100%;
+  width: max-content;
   left: 0;
   top: 4rem;
   transform: scale(0.1);
-  transform-origin: 10rem -2rem;
+  transform-origin: center;
+  transform: translate(50%);
   pointer-events: none;
   transition: opacity 0.4s, transform 0.4s;
   opacity: 0;
@@ -4748,6 +5122,9 @@
   --linear-gray-background: #c3c3c3;
   --job-detail-background: rgba(255, 255, 255, 0.75);
   --messenger-gray-background: #cccccc;
+  --profile-background: #efeff3;
+  --profile-input-border: #D8E0F0;
+  --light-gray-background: #F4F9FD;
 }
 
 :root {
@@ -4759,8 +5136,9 @@
 
 @media screen and (min-width: 2000px) {
   .main {
-    margin: 0 auto;
     max-width: 2000px;
+    margin: 0 auto;
+    width: 100vw;
   }
 }
 @media screen and (min-width: 2500px) {
@@ -4876,7 +5254,7 @@
 .dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .post-text-container .post-posted, .featured-posts-column .featured-post-column-posted, .messenger-your-message-user-profile .messenger-your-message-username,
 .messenger-your-message-user-profile .messenger-others-message-username,
 .messenger-others-message-user-profile .messenger-your-message-username,
-.messenger-others-message-user-profile .messenger-others-message-username, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .job-gradient-info-container .job-gradient-info-category, .messenger-header-user-info-container .messenger-header-username, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .documentation-content-title, .post-text-container .post-title, .featured-posts-column .featured-post-column-title, .detail-gradient-container .detail-gradient-username, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .language-toggle-text-container .toggle-language-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
+.messenger-others-message-user-profile .messenger-others-message-username, .profile-edit-column label, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .job-gradient-info-container .job-gradient-info-category, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-info-container .sign-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .documentation-content-title, .post-text-container .post-title, .featured-posts-column .featured-post-column-title, .detail-gradient-container .detail-gradient-username, .sign-image-container .sign-image-title, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .language-toggle-text-container .toggle-language-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
 .featured-posts-category-title, .posts-tags-title, .detail-gradient-container .detail-gradient-title, .detail-content-wrapper .detail-content-title, .detail-link-text-container .detail-link-title {
   color: var(--text-dark-blue);
   text-align: center;
@@ -4891,18 +5269,18 @@
   font-size: 3rem;
 }
 
-.dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .documentation-content-title, .post-text-container .post-title, .featured-posts-column .featured-post-column-title, .detail-gradient-container .detail-gradient-username {
+.dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .documentation-content-title, .post-text-container .post-title, .featured-posts-column .featured-post-column-title, .detail-gradient-container .detail-gradient-username, .sign-image-container .sign-image-title {
   font-size: 2rem;
 }
 
-.dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .job-gradient-info-container .job-gradient-info-category, .messenger-header-user-info-container .messenger-header-username {
+.dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .job-gradient-info-container .job-gradient-info-category, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-info-container .sign-info-title {
   font-size: 1.5rem;
 }
 
 .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .post-text-container .post-posted, .featured-posts-column .featured-post-column-posted, .messenger-your-message-user-profile .messenger-your-message-username,
 .messenger-your-message-user-profile .messenger-others-message-username,
 .messenger-others-message-user-profile .messenger-your-message-username,
-.messenger-others-message-user-profile .messenger-others-message-username {
+.messenger-others-message-user-profile .messenger-others-message-username, .profile-edit-column label, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text {
   font-size: 1rem;
 }
 
@@ -4925,7 +5303,7 @@
   font-size: 1rem;
 }
 
-.chat-text-gray, .chat-date-text, .chat-text-gray-1-125, .task-content-column .task-text, .package .package-info, .about-page-gradient-text-container .about-page-gradient-text, .website-technologies-column .website-technologies-text, .contact-us-hero-text-container .contact-us-hero-column-info, .services-info-column .services-info-text, .detail-gradient-container .detail-gradient-posted, .chat-column .message-container .chat-message-text, .carousel-text-container .carousel-slide-text, .carousel-date-container .carousel-date-posted,
+.chat-text-gray, .chat-date-text, .chat-text-gray-1-125, .task-content-column .task-text, .package .package-info, .about-page-gradient-text-container .about-page-gradient-text, .website-technologies-column .website-technologies-text, .contact-us-hero-text-container .contact-us-hero-column-info, .services-info-column .services-info-text, .detail-gradient-container .detail-gradient-posted, .profile-user-info-container .profile-email, .chat-column .message-container .chat-message-text, .carousel-text-container .carousel-slide-text, .carousel-date-container .carousel-date-posted,
 .carousel-date-container .carousel-date, .about-page-gradient-image-column-task-date, .messenger-your-message-user-profile .messenger-your-message-time,
 .messenger-your-message-user-profile .messenger-others-message-time,
 .messenger-others-message-user-profile .messenger-your-message-time,
@@ -4937,7 +5315,7 @@
   line-height: 140%;
 }
 
-.chat-text-gray-1-125, .task-content-column .task-text, .package .package-info, .about-page-gradient-text-container .about-page-gradient-text, .website-technologies-column .website-technologies-text, .contact-us-hero-text-container .contact-us-hero-column-info, .services-info-column .services-info-text, .detail-gradient-container .detail-gradient-posted {
+.chat-text-gray-1-125, .task-content-column .task-text, .package .package-info, .about-page-gradient-text-container .about-page-gradient-text, .website-technologies-column .website-technologies-text, .contact-us-hero-text-container .contact-us-hero-column-info, .services-info-column .services-info-text, .detail-gradient-container .detail-gradient-posted, .profile-user-info-container .profile-email {
   font-size: 1.125rem;
   line-height: 160%;
 }
@@ -4958,7 +5336,7 @@
 .featured-posts-category-title, .featured-posts-column .featured-post-column-title, .posts-tags-title, .detail-content-wrapper .detail-content-title, .detail-link-text-container .detail-link-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-gradient-info-container .job-gradient-info-category, .messenger-header-user-info-container .messenger-header-username, .messenger-your-message-user-profile .messenger-your-message-username,
 .messenger-your-message-user-profile .messenger-others-message-username,
 .messenger-others-message-user-profile .messenger-your-message-username,
-.messenger-others-message-user-profile .messenger-others-message-username {
+.messenger-others-message-user-profile .messenger-others-message-username, .profile-main-edit-container .profile-edit-title, .profile-edit-column label, .profile-contact-edit-container .profile-edit-title, .sign-image-container .sign-image-title, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text {
   text-align: start;
 }
 

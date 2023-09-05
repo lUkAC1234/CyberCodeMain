@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {# ------------------------------------------------------------------------------------------- #}
+    {# Links #}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+
+    {# ------------------------------------------------------------------------------------------- #}
+    {# Font Awesome (Fas fa icons) #}
+
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    {# ------------------------------------------------------------------------------------------- #}
+    {# Swiper (Carousel) #}
+    <link href="{% static 'main/scripts/js/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    {# ------------------------------------------------------------------------------------------- #}
+    {# User css links #}
+    <link rel="stylesheet" type="text/css" href="{% static 'main/styles/scss/global.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8" defer></script>
+    {# ------------------------------------------------------------------------------------------- #}
+    <title>Sign in - CyberCode</title>
+</head>
+<body>
+{% include 'layout/preloader.html' %}
+<main class="main login-main">
+    <!-- START LOGIN CONTENT -->
+
+    <section class="sign-section">
+        <div class="sign-container">
+            <div class="sign-image-container">
+                <div class="sign-image-logo-container">
+                    <img src="{% static 'main/images/layout/codecraftfooter.svg' %}" alt="">
+                    <h1 class="sign-image-logo-text">yber Code</h1>
+                </div>
+                <h1 class="sign-image-title">Your place to work Plan. Create. Control.</h1>
+                <div class="sign-image-wrapper">
+                    <img src="{% static 'main/images/login/login.svg' %}" alt="">
+                </div>
+            </div>
+            <div class="sign-info-container">
+                <h1 class="sign-info-title">Sign In to Website</h1>
+                <div class="sign-info-input-container">
+                    <div class="sign-info-input-column">
+                        <label class="sign-info-label">Email Address</label>
+                        <input class="sign-info-input" type="text" placeholder="youremail@gmail.com">
+                    </div>
+                    <div class="sign-info-input-column">
+                        <label class="sign-info-label">Password</label>
+                        <input class="sign-info-input" type="password" placeholder="••••••••">
+                    </div>
+                </div>
+                <div class="sign-info-extra-container">
+                    <div class="sign-info-extra-wrapper">
+                        <div class="sign-info-extra-remember-container">
+                            <input type="checkbox" name="" id="">
+                            <h1 class="sign-info-extra-remember-text">Remember me</h1>
+                        </div>
+                        <div class="sign-info-extra-password-container">
+                            <h1 class="sign-info-extra-password-text">Forgot Password ?</h1>
+                        </div>
+                    </div>
+                    <div class="sign-info-btn-container">
+                        <button class="sign-info-btn">Sign in <i class="fa-solid fa-arrow-right"></i></button>
+                        <a href="" class="sign-info-check-account">Don’t have an account?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- END LOGIN CONTENT -->
+    <script src="{% static 'main/scripts/js/notranslate.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        /*------------------
+                Preloader
+        --------------------*/
+        (function ($) {
+            $(window).on('load', function () {
+                $(".loader").fadeOut();
+                $("#preloder").delay(200).fadeOut("slow");
+            });
+        })(jQuery);
+    
+        document.addEventListener("DOMContentLoaded", function () {
+            const hiddenText = document.querySelector(".hidden-preloader-text");
+    
+            setTimeout(() => {
+                hiddenText.style.opacity = "1";
+                hiddenText.style.transform = "scaleX(1)";
+            }, 150);
+        });
+        /* END Preloader */
+    </script>
+</main>
+</body>
+</html>

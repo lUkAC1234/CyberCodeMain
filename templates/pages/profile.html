@@ -1,0 +1,84 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Profile - CyberCode</title>
+{% endblock %}
+
+{% block content %}
+<main class="main profile-main">
+    <!-- START PROFILE SECTION -->
+    <div class="profile-gradient-container"></div>
+    <section class="profile-section">
+        <div class="profile-container">
+            <form action="">
+                <article class="profile-general-info-container">
+                    <div class="profile-image-edit-container">
+                        <div class="profile-image-container">
+                            <img src="{% static 'main/images/profile/profile.svg' %}" alt="" class="profile-image">
+                            <label class="file-upload-label">
+                                <i class="fa-sharp fa-solid fa-camera profile-add-icon"></i>
+                                <input class="profile-upload-input" type="file" name="" id="" accept=".jpg, .png, .jpeg, .webp">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="profile-user-info-container">
+                        <h1 class="profile-username">Evan Yates</h1>
+                        <p class="profile-email">supportcybercode@gmail.com</p>
+                    </div>
+                </article>
+                <article class="profile-edit-container">
+                    <div class="profile-main-edit-container">
+                        <h1 class="profile-edit-title">Main info</h1>
+                        <div class="profile-main-edit-wrapper">
+                            <div class="profile-edit-column">
+                                <label for="">First Name</label>
+                                <input class="profile-edit-input" type="text" placeholder="Evan Yates">
+                            </div>
+                            <div class="profile-edit-column">
+                                <label for="">Company</label>
+                                <input class="profile-edit-input" type="text" placeholder="Cadabra">
+                            </div>
+                            <div class="profile-edit-column">
+                                <label for="">Location</label>
+                                <input class="profile-edit-input" type="text" placeholder="NYC, New York, USA">
+                            </div>
+                            <div class="profile-edit-column">
+                                <label for="">Position</label>
+                                <input class="profile-edit-input" type="text" placeholder="UI/UX Designer">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-contact-edit-container">
+                        <h1 class="profile-edit-title">Contact Info</h1>
+                        <div class="profile-contact-edit-wrapper">
+                            <div class="profile-edit-column">
+                                <label for="">Mobile Number</label>
+                                <input class="profile-edit-input" type="text" placeholder="+998331701706" pattern="\+\d{12}" minlength="12" required>
+                            </div>
+                            <div class="profile-edit-column">
+                                <label for="">Email</label>
+                                <input class="profile-edit-input" type="email" placeholder="supportcybercode@gmail.com">
+                            </div>
+                            <div class="profile-edit-column">
+                                <label for="">Social Media</label>
+                                <input class="profile-edit-input" type="url" placeholder="https://www.instagram.com/">
+                            </div>
+                        </div>
+                        <div class="profile-submit-btn-container">
+                            <button type="submit" class="profile-submit-btn"><i class="fa-solid fa-circle-check"></i> Submit</button>
+                        </div>
+                    </div>
+                </article>
+            </form>
+        </div>
+    </section>
+
+    <!-- END PROFILE SECTION -->
+</main>
+{% endblock %}
+
+{% block js_block %}
+<script src="{% static 'main/scripts/js/profile.js' %}"></script>
+
+{% endblock %}

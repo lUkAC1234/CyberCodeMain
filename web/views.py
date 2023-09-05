@@ -33,3 +33,12 @@ class jobdetail(TemplateView):
 
 class helpcenter(TemplateView):
     template_name = "pages/helpcenter.html"    
+
+class profile(TemplateView):
+    template_name = "pages/profile.html"    
+
+class login(TemplateView):
+    template_name = "pages/login.html"    
+
+class registration(TemplateView):
+    template_name = "pages/registration.html"    

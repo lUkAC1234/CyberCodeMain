@@ -20,6 +20,9 @@ $carousel-image-background: #f3f3f3;
 $linear-gray-background: #c3c3c3;
 $job-detail-background: rgba(255, 255, 255, 0.75);
 $messenger-gray-background: #cccccc;
+$profile-background: #efeff3;
+$profile-input-border: #D8E0F0;
+$light-gray-background: #F4F9FD;
 :root {
     --body-background: #{$body-background};
     --progress-background: #{$progress-background};
@@ -43,4 +46,7 @@ $messenger-gray-background: #cccccc;
     --linear-gray-background: #{$linear-gray-background};
     --job-detail-background: #{$job-detail-background};
     --messenger-gray-background: #{$messenger-gray-background};
+    --profile-background: #{$profile-background};
+    --profile-input-border: #{$profile-input-border};
+    --light-gray-background: #{$light-gray-background};
 }

@@ -36,7 +36,7 @@
                 <div class="hidden-content">
                     {% if request.user.is_authenticated %}
                     <div class="hidden-btn-container">
-                        <a href="">
+                        <a href="{% url 'main:login' %}">
                             <button class="hidden-login">Login</button>
                         </a>
                         <a href="">
@@ -70,7 +70,7 @@
             <div class="login-part-header">
                 <div class="dropdown-container" id="dropdown-content">
                     <button class="dropdown__button" id="dropdown-button">
-                        <img class="dropdown__icon" src="{% static 'main/images/main-page/avatar.svg' %}" alt="">
+                        <img class="dropdown__icon" src="{% static 'main/images/profile/profile.svg' %}" alt="">
                         <span class="dropdown__name">My profile</span>
 
                         <div class="dropdown__icons">
@@ -88,8 +88,8 @@
                             </a>
                         </div>
                         <div class="dropdown-item-container">
-                            <a href="">
-                                <li class="dropdown__item">
+                            <a href="{% url 'main:profile' %}">
+                                <li class="dropdown__item {% if request.path == '/user/profile/' %}active{% endif %}">
                                     <i class="fa-solid fa-user dropdown__icon"></i>
                                     <span class="dropdown__name">Profile</span>
                                 </li>
@@ -102,8 +102,8 @@
                             </a>
                         </div>
                         <div class="dropdown-item-container">
-                            <a href="">
-                                <li class="dropdown__item">
+                            <a href="{% url 'main:documentation' %}">
+                                <li class="dropdown__item {% if request.path == '/website/documentation/' %}active{% endif %}">
                                     <i class="fa-sharp fa-solid fa-pencil dropdown__icon"></i>
                                     <span class="dropdown__name">Instruction</span>
                                 </li>
@@ -126,10 +126,10 @@
                         </div>
                     </ul>
                 </div>
-                <!-- <a class="dekstop-login-part" href="">
+                <a class="dekstop-login-part" href="{% url 'main:login' %}">
                     <button class="sign-button login">Login</button>
                 </a>
-                <a class="dekstop-login-part" href="">
+                <!-- <a class="dekstop-login-part" href="">
                     <button class="sign-button get-started">Get started</button>
                 </a> -->
             </div>
