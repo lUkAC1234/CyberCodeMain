@@ -1,7 +1,7 @@
 # Добро пожаловать в репозиторий CyberCode!
 
-<div align="center">
-  <img src="{% static 'main/images/profile/profile.svg' %}" alt="Логотип CyberCode" width="200">
+<div>
+  <img src="https://mikond.com/media/logos/2023/07/17/mikond.jpg" alt="Логотип CyberCode" width="200">
 </div>
 
 <p align="center">
