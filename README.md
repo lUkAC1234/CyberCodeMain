@@ -68,7 +68,7 @@
   <img src="https://example.com/path/to/example2.png" alt="Пример 2" width="300">
 </div>
 
-Если у вас есть вопросы или вы хотите сотрудничать с нами, свяжитесь с нами по адресу [info@cybercode.com](mailto:info@cybercode.com).
+Если у вас есть вопросы или вы хотите сотрудничать с нами, свяжитесь с нами по адресу [supportcybercode@gmail.com](mailto:supportcybercode@gmail.com).
 
 Спасибо, что посетили наш репозиторий!
 
