@@ -1,11 +1,11 @@
-# Добро пожаловать в репозиторий CyberCode!
+# Добро пожаловать в репозиторий <b>CyberCode</b> !
 
 <div>
   <img src="https://mikond.com/media/logos/2023/07/17/mikond.jpg" alt="Логотип CyberCode" width="200">
 </div>
 
 <p align="center">
-  Мы - команда <b style="font-size: 2.5rem; font-weight: 600;">CyberCode</b>, и наш сайт создан для того, чтобы представить себя и рассказать о наших услугах. Мы специализируемся на разработке высококачественных веб-сайтов на заказ. Наша цель - сделать вашу онлайн-присутствие неповторимым и успешным.
+  Мы - команда <b>CyberCode</b>, и наш сайт создан для того, чтобы представить себя и рассказать о наших услугах. Мы специализируемся на разработке высококачественных веб-сайтов на заказ. Наша цель - сделать вашу онлайн-присутствие неповторимым и успешным.
 </p>
 
 ## О нас
@@ -46,10 +46,10 @@
     <p align="center"><img src="https://sun9-17.userapi.com/impg/H0Qn36Wnbe-DTQS476PQEA9dIZZMQ-uBcDal8w/5IkuysphJ4c.jpg?size=1890x800&quality=96&sign=b7fdd620c942cda80d3ed97de30c1fad&c_uniq_tag=DYIt0ssf_OkKeFiVL_T7iFsPBAVu3sqCFO3zP8IsJlI&type=album" alt="Python" width="100%" height="auto"></p>
   </div>
   <div style="width: 48%;">
-    <p align="center"><img src="https://hostgeek.ru/uploads/posts/2020-07/1593623379_deploj-django.jpg alt="Django" width="100%" height="auto"></p>
+    <p align="center"><img src="https://hostgeek.ru/uploads/posts/2020-07/1593623379_deploj-django.jpg" alt="Django" width="100%" height="auto"></p>
   </div>
   <div style="width: 48%;">
-    <p align="center"><img src="https://www.linode.com/wp-content/uploads/2020/09/postgres-featured-image.png alt="PostgreSQL" width="100%" height="auto"></p>
+    <p align="center"><img src="https://www.linode.com/wp-content/uploads/2020/09/postgres-featured-image.png" alt="PostgreSQL" width="100%" height="auto"></p>
   </div>
   <!-- Добавьте другие технологии по аналогии здесь -->
 </div>
