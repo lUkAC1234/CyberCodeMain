@@ -27,8 +27,10 @@
 ## Технологии, которые мы используем
 
 <div align="center" style="display: flex; justify-content: center;">
-  <p align="center"><img src="https://www.rosloto.net/public/userfiles/blog/2018-09/html5-games.jpg" alt="HTML" width="500" height="300"></p>
-  <p align="center"><img src="https://mind-flows.com/wp-content/uploads/2021/07/css.gif" alt="CSS" width="500" height="300"></p>
+  <div>
+    <p align="center"><img src="https://www.rosloto.net/public/userfiles/blog/2018-09/html5-games.jpg" alt="HTML" width="500" height="300"></p>
+    <p align="center"><img src="https://mind-flows.com/wp-content/uploads/2021/07/css.gif" alt="CSS" width="500" height="300"></p>
+  </div>
   <p align="center"><img src="https://videosdeti.com.br/wp-content/uploads/2019/01/sass-cover.png" alt="SASS" width="500" height="300"></p>
   <p align="center"><img src="https://it-black.ru/wp-content/uploads/2017/08/javscript.png" alt="JavaScript" width="500" height="300"></p>
   <p align="center"><img src="https://treningi4you.com/upload/iblock/d87/js_react_shkola_programmirovaniya_khekslet.jpg" alt="React" width="500" height="300"></p>
