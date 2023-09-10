@@ -1,7 +1,7 @@
 # Добро пожаловать в репозиторий CyberCode!
 
 <div align="center">
-  <img src="https://example.com/path/to/logo.png" alt="Логотип CyberCode" width="200">
+  <img src="{% static 'main/images/profile/profile.svg' %}" alt="Логотип CyberCode" width="200">
 </div>
 
 <p align="center">
