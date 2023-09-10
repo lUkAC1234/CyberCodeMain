@@ -45,8 +45,12 @@
                 </div>
             </div>
             <div class="sign-info-container">
-                <h1 class="sign-info-title">Sign In to Website</h1>
+                <h1 class="sign-info-title">Sign up to Website</h1>
                 <div class="sign-info-input-container">
+                    <div class="sign-info-input-column">
+                        <label class="sign-info-label">Username</label>
+                        <input class="sign-info-input" type="text" placeholder="myusername">
+                    </div>
                     <div class="sign-info-input-column">
                         <label class="sign-info-label">Email Address</label>
                         <input class="sign-info-input" type="text" placeholder="youremail@gmail.com">
@@ -55,20 +59,15 @@
                         <label class="sign-info-label">Password</label>
                         <input class="sign-info-input" type="password" placeholder="••••••••">
                     </div>
+                    <div class="sign-info-input-column">
+                        <label class="sign-info-label">Confirm Password</label>
+                        <input class="sign-info-input" type="password" placeholder="••••••••">
+                    </div>
                 </div>
                 <div class="sign-info-extra-container">
-                    <div class="sign-info-extra-wrapper">
-                        <div class="sign-info-extra-remember-container">
-                            <input type="checkbox" name="" id="">
-                            <h1 class="sign-info-extra-remember-text">Remember me</h1>
-                        </div>
-                        <div class="sign-info-extra-password-container">
-                            <a href="" class="sign-info-extra-password-text">Forgot Password ?</a>
-                        </div>
-                    </div>
                     <div class="sign-info-btn-container">
-                        <button class="sign-info-btn">Sign in <i class="fa-solid fa-arrow-right"></i></button>
-                        <a href="{% url 'main:registration' %}" class="sign-info-check-account">Don’t have an account?</a>
+                        <button class="sign-info-btn">Sign up <i class="fa-solid fa-arrow-right"></i></button>
+                        <a href="{% url 'main:login' %}" class="sign-info-check-account">Already have an account?</a>
                     </div>
                 </div>
             </div>

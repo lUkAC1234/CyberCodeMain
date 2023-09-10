@@ -8,11 +8,11 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%;
+    width: 95%;
     display: flex;
     box-shadow: 0px 6px 58px 0px rgba(0, 0, 0, 0.1);
     border-radius: 1.5rem;
-    height: 90%;
+    max-height: 98%;
 }
 
 .sign-image-container {
@@ -155,6 +155,12 @@
             margin-top: 0.1rem;
         }
     }
+
+    .sign-info-check-account {
+        @extend .dark-blue-text-center-grotext-family-1rem;
+        margin: 1rem 0;
+        color: var(--text-purple) !important;
+    }
 }
 
 @media screen and (max-width: 1200px) {
@@ -201,7 +207,8 @@
     .sign-info-extra-container {
         .sign-info-extra-remember-container {
             input[type=checkbox] {
-                transform: scale(1)
+                transform: scale(1);
+                margin-top: -0.33rem;
             }
     
             .sign-info-extra-remember-text {
@@ -213,6 +220,12 @@
     .sign-info-extra-password-container {
         .sign-info-extra-password-text {
             font-size: 0.8rem !important;
+        }
+    }
+
+    .sign-info-btn-container {
+        .sign-info-check-account {
+            font-size: 0.9rem !important;
         }
     }
 }

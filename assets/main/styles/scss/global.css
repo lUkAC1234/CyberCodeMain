@@ -4130,11 +4130,11 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 90%;
+  width: 95%;
   display: flex;
   box-shadow: 0px 6px 58px 0px rgba(0, 0, 0, 0.1);
   border-radius: 1.5rem;
-  height: 90%;
+  max-height: 98%;
 }
 
 .sign-image-container {
@@ -4244,6 +4244,10 @@
   font-size: 0.8rem;
   margin-top: 0.1rem;
 }
+.sign-info-btn-container .sign-info-check-account {
+  margin: 1rem 0;
+  color: var(--text-purple) !important;
+}
 
 @media screen and (max-width: 1200px) {
   .sign-image-container {
@@ -4279,12 +4283,16 @@
   }
   .sign-info-extra-container .sign-info-extra-remember-container input[type=checkbox] {
     transform: scale(1);
+    margin-top: -0.33rem;
   }
   .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text {
     font-size: 0.8rem !important;
   }
   .sign-info-extra-password-container .sign-info-extra-password-text {
     font-size: 0.8rem !important;
+  }
+  .sign-info-btn-container .sign-info-check-account {
+    font-size: 0.9rem !important;
   }
 }
 #preloder {
@@ -4814,9 +4822,9 @@
   border: none;
   outline: none;
   cursor: pointer;
-  background: linear-gradient(185deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 8%, rgb(136, 40, 255) 100%);
   padding: 0.25rem 0.5rem;
   border-radius: 0.5rem;
+  background: none;
 }
 .dropdown__button .dropdown__name,
 .dropdown__button .dropdown__icons {
@@ -4824,8 +4832,8 @@
 }
 
 .dropdown__button > .dropdown__icon {
-  width: 35px;
-  height: 35px;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -5254,7 +5262,7 @@
 .dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .post-text-container .post-posted, .featured-posts-column .featured-post-column-posted, .messenger-your-message-user-profile .messenger-your-message-username,
 .messenger-your-message-user-profile .messenger-others-message-username,
 .messenger-others-message-user-profile .messenger-your-message-username,
-.messenger-others-message-user-profile .messenger-others-message-username, .profile-edit-column label, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .job-gradient-info-container .job-gradient-info-category, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-info-container .sign-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .documentation-content-title, .post-text-container .post-title, .featured-posts-column .featured-post-column-title, .detail-gradient-container .detail-gradient-username, .sign-image-container .sign-image-title, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .language-toggle-text-container .toggle-language-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
+.messenger-others-message-user-profile .messenger-others-message-username, .profile-edit-column label, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text, .sign-info-btn-container .sign-info-check-account, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .job-gradient-info-container .job-gradient-info-category, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-info-container .sign-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .documentation-content-title, .post-text-container .post-title, .featured-posts-column .featured-post-column-title, .detail-gradient-container .detail-gradient-username, .sign-image-container .sign-image-title, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .language-toggle-text-container .toggle-language-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
 .featured-posts-category-title, .posts-tags-title, .detail-gradient-container .detail-gradient-title, .detail-content-wrapper .detail-content-title, .detail-link-text-container .detail-link-title {
   color: var(--text-dark-blue);
   text-align: center;
@@ -5280,7 +5288,7 @@
 .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .post-text-container .post-posted, .featured-posts-column .featured-post-column-posted, .messenger-your-message-user-profile .messenger-your-message-username,
 .messenger-your-message-user-profile .messenger-others-message-username,
 .messenger-others-message-user-profile .messenger-your-message-username,
-.messenger-others-message-user-profile .messenger-others-message-username, .profile-edit-column label, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text {
+.messenger-others-message-user-profile .messenger-others-message-username, .profile-edit-column label, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text, .sign-info-btn-container .sign-info-check-account {
   font-size: 1rem;
 }
 

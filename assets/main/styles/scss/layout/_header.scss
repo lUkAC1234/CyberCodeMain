@@ -444,9 +444,9 @@
     border: none;
     outline: none;
     cursor: pointer;
-    background: linear-gradient(185deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 8%, rgba(136, 40, 255, 1) 100%);
     padding: 0.25rem 0.5rem;
     border-radius: 0.5rem;
+    background: none;
 
     .dropdown__name,
     .dropdown__icons {
@@ -455,8 +455,8 @@
 }
 
 .dropdown__button>.dropdown__icon {
-    width: 35px;
-    height: 35px;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
     object-fit: cover;
 }
