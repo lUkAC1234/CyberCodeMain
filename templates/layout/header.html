@@ -34,7 +34,7 @@
                     </li>
                 </ul>
                 <div class="hidden-content">
-                    {% if request.user.is_authenticated %}
+                    {% if not request.user.is_authenticated %}
                     <div class="hidden-btn-container">
                         <a href="{% url 'main:login' %}">
                             <button class="hidden-login">Login</button>
@@ -70,7 +70,7 @@
             <div class="login-part-header">
                 <div class="dropdown-container" id="dropdown-content">
                     <button class="dropdown__button" id="dropdown-button">
-                        <img class="dropdown__icon" src="{% static 'main/images/profile/profile.svg' %}" alt="">
+                        <img class="dropdown__icon" id="dropdownProfileImage" src="{% static 'main/images/profile/profile.svg' %}" alt="">
                         <span class="dropdown__name"></span>
                     </button>
                     <ul class="dropdown__menu" id="dropdown__menu">
@@ -121,10 +121,10 @@
                         </div>
                     </ul>
                 </div>
-                <a class="dekstop-login-part" href="{% url 'main:login' %}">
+                <!-- <a class="dekstop-login-part" href="{% url 'main:login' %}">
                     <button class="sign-button login">Login</button>
                 </a>
-                <!-- <a class="dekstop-login-part" href="">
+                <a class="dekstop-login-part" href="">
                     <button class="sign-button get-started">Get started</button>
                 </a> -->
             </div>

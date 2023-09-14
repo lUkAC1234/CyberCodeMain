@@ -186,71 +186,28 @@
                 <p class="carousel-text">We regularly share resources on startups, productivity, and the future of work
                 </p>
                 <div class="carousel-link-container">
-                    <a href="" class="carousel-link">See more articeles</a>
+                    <a href="{% url 'main:blog' %}" class="carousel-link">See more articeles</a>
                 </div>
             </div>
             <div class="carousel__wrapper">
                 <div class="owl-carousel carousel-slide-container">
+                    {% for object in posts %}
                     <div class="carousel-slide">
                         <div class="carousel-image-container">
-                            <img src="{% static 'main/images/main-page/tasks.svg' %}" alt="">
+                            <img src="{{ object.image.url }}" alt="">
                         </div>
                         <div class="carousel-text-container">
-                            <h1 class="carousel-slide-title">What’s growth hacking? 8 great books to learn more about it
-                            </h1>
-                            <p class="carousel-slide-text">How you can set personal boundaries to reduce stress and
-                                burnout</p>
+                            <a href="{% url 'main:blogdetail' pk=object.pk %}">
+                                <h1 class="carousel-slide-title">{{ object.title }}</h1>
+                            </a>
+                            <p class="carousel-slide-text">{{ object.short_description }}</p>
                         </div>
                         <div class="carousel-date-container">
                             <p class="carousel-date-posted">Posted on</p>
-                            <span class="carousel-date">October 26, 2021</span>
+                            <span class="carousel-date">{{ object.posted_on|date:"F d, Y" }}</span>
                         </div>
-                    </div>
-                    <div class="carousel-slide">
-                        <div class="carousel-image-container">
-                            <img src="{% static 'main/images/main-page/people.svg' %}" alt="">
-                        </div>
-                        <div class="carousel-text-container">
-                            <h1 class="carousel-slide-title">What’s growth hacking? 9 great books to learn more about it
-                            </h1>
-                            <p class="carousel-slide-text">How you can set personal boundaries to reduce stress and
-                                burnout</p>
-                        </div>
-                        <div class="carousel-date-container">
-                            <p class="carousel-date-posted">Posted on</p>
-                            <span class="carousel-date">October 26, 2021</span>
-                        </div>
-                    </div>
-                    <div class="carousel-slide">
-                        <div class="carousel-image-container">
-                            <img src="{% static 'main/images/main-page/futurenew.svg' %}" alt="">
-                        </div>
-                        <div class="carousel-text-container">
-                            <h1 class="carousel-slide-title">What’s growth hacking? 8 great books to learn more about it
-                            </h1>
-                            <p class="carousel-slide-text">How you can set personal boundaries to reduce stress and
-                                burnout</p>
-                        </div>
-                        <div class="carousel-date-container">
-                            <p class="carousel-date-posted">Posted on</p>
-                            <span class="carousel-date">October 26, 2021</span>
-                        </div>
-                    </div>
-                    <div class="carousel-slide">
-                        <div class="carousel-image-container">
-                            <img src="{% static 'main/images/main-page/carousel1.png' %}" alt="">
-                        </div>
-                        <div class="carousel-text-container">
-                            <h1 class="carousel-slide-title">What’s growth hacking? 8 great books to learn more about it
-                            </h1>
-                            <p class="carousel-slide-text">How you can set personal boundaries to reduce stress and
-                                burnout</p>
-                        </div>
-                        <div class="carousel-date-container">
-                            <p class="carousel-date-posted">Posted on</p>
-                            <span class="carousel-date">October 26, 2021</span>
-                        </div>
-                    </div>
+                    </div> 
+                    {% endfor %}
                 </div>
             </div>
         </div>

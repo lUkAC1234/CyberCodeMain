@@ -1,8 +1,14 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView, DetailView
+from .models import PostModel
 
 class index(TemplateView):
     template_name = "pages/index.html"
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['posts'] = PostModel.objects.all()
+        return data
 
 class about(TemplateView):
     template_name = "pages/about.html"
@@ -21,8 +27,14 @@ class documentation(TemplateView):
 
 class blog(TemplateView):
     template_name = "pages/blog.html"    
+    def get_context_data(self, *, object_list=None, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['posts'] = PostModel.objects.all()
+        data['latestPost'] = PostModel.objects.all().order_by('-id')[:1]
+        return data  
 
-class blogdetail(TemplateView):
+class blogdetail(DetailView):
+    model = PostModel
     template_name = "pages/blogdetail.html"    
 
 class job(TemplateView):

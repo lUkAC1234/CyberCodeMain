@@ -21,15 +21,17 @@
         <div class="latest-posts-container">
             <h1 class="latest-posts-title">Latest posts</h1>
             <div class="latest-post-wrapper">
+                {% for object in latestPost %}
                 <div class="post-image-container">
-                    <img src="{% static 'main/images/blog/post.svg' %}" alt="">
+                    <img src="{{ object.image.url }}" alt="">
                 </div>
                 <div class="post-text-container">
-                    <a href="{% url 'main:blogdetail' %}"><h1 class="post-title">How to add analytics to your Phone easily</h1></a>
-                    <p class="post-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lobortis arcu enim urna adipiscing prae</p>
+                    <a href="{% url 'main:blogdetail' pk=object.pk %}"><h1 class="post-title">{{ object.title }}</h1></a>
+                    <p class="post-text">{{ object.short_description }}</p>
                     <span class="post-posted">Posted on</span>
-                    <p class="post-date">October 26, 2021</p>
+                    <p class="post-date">{{ object.posted_on|date:"F d, Y" }}</p>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </section>

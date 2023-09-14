@@ -73,12 +73,14 @@ navLinks.forEach(link => {
 });
 
 /*=============== DROPDOWN JS ===============*/
+const dropdownProfileImage = document.getElementById('dropdownProfileImage');
 const showDropdown = (content, button) =>{
     const dropdownContent = document.getElementById(content),
-            dropdownButton = document.getElementById(button)
+            dropdownButton = document.getElementById(button);
 
     dropdownButton.addEventListener('click', () =>{
-        dropdownContent.classList.toggle('show-dropdown')
+        dropdownContent.classList.toggle('show-dropdown');
+        dropdownProfileImage.classList.toggle('active');
     })
 }
 

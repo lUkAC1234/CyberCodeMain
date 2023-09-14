@@ -268,6 +268,7 @@
 }
 
 .detail-share-container {
+    position: relative;
     display: flex;
     justify-content: space-between;
     gap: 1rem;
@@ -307,6 +308,36 @@
 
     .detail-share-social-icon {
         color: var(--text-dark-blue);
+    }
+
+    .shareBtn {
+        border: none;
+        background: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .shareAfterText {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        bottom: -5rem;
+        left: 0;
+        background: var(--background-purple);
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        color: var(--text-white);
+        font-family: var(--grotext-sans);
+
+        p, i {
+            font-size: 1rem;
+        }
+
+        i {
+            margin: 0 0 0 0.5rem;
+        }
     }
 }
 
@@ -352,6 +383,12 @@
     .detail-share-social-container {
         .detail-share-social-text {
             font-size: 0.8rem !important;
+        }
+
+        .shareAfterText {
+            p, i {
+                font-size: 0.8rem;
+            }
         }
     }
 }

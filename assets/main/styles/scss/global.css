@@ -560,6 +560,10 @@
 .carousel-text-container .carousel-slide-title {
   font-size: 1.25rem !important;
 }
+.carousel-text-container .carousel-slide-text {
+  margin-top: 0.5rem;
+}
+
 .carousel-date-container {
   position: absolute;
   bottom: 1.5rem;
@@ -3248,6 +3252,7 @@
 }
 
 .detail-share-container {
+  position: relative;
   display: flex;
   justify-content: space-between;
   gap: 1rem;
@@ -3278,6 +3283,32 @@
 .detail-share-social-container .detail-share-social-icon {
   color: var(--text-dark-blue);
 }
+.detail-share-social-container .shareBtn {
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+}
+.detail-share-social-container .shareAfterText {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  bottom: -5rem;
+  left: 0;
+  background: var(--background-purple);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  color: var(--text-white);
+  font-family: var(--grotext-sans);
+}
+.detail-share-social-container .shareAfterText p, .detail-share-social-container .shareAfterText i {
+  font-size: 1rem;
+}
+.detail-share-social-container .shareAfterText i {
+  margin: 0 0 0 0.5rem;
+}
 
 @media screen and (max-width: 600px) {
   .detail-link-text-container .detail-link-text {
@@ -3304,6 +3335,9 @@
   }
   .detail-share-social-container .detail-share-social-text {
     font-size: 0.8rem !important;
+  }
+  .detail-share-social-container .shareAfterText p, .detail-share-social-container .shareAfterText i {
+    font-size: 0.8rem;
   }
 }
 .join-our-team-section {
@@ -4836,6 +4870,13 @@
   height: 2.5rem;
   border-radius: 50%;
   object-fit: cover;
+  border: 1px solid transparent;
+  padding: 2px;
+}
+
+#dropdownProfileImage.active {
+  border-color: var(--background-purple);
+  transition: all 0.4s;
 }
 
 .dropdown__icon,
@@ -4942,6 +4983,11 @@
   pointer-events: initial;
 }
 
+@media screen and (max-width: 1400px) {
+  .dropdown__menu {
+    left: -3rem;
+  }
+}
 @media screen and (max-width: 600px) {
   .navbar .hamburger-checkbox:checked ~ .pages-section .dropdown-container {
     display: block !important;
