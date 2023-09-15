@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView
-from .models import PostModel
+from .models import PostModel, PricingModel
 
 class index(TemplateView):
     template_name = "pages/index.html"
 
     def get_context_data(self, *, object_list=None, **kwargs):
         data = super().get_context_data(**kwargs)
+        data['pricing'] = PricingModel.objects.filter(popular=True).order_by('-popular', '-id')[:3]
         data['posts'] = PostModel.objects.all()
         return data
 
@@ -18,9 +19,26 @@ class contact(TemplateView):
 
 class pricing(TemplateView):
     template_name = "pages/pricing.html"
+    def get_context_data(self, *, object_list=None, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['pricing'] = PricingModel.objects.filter(popular=True).order_by('-popular', '-id')[:3]
+        return data
 
-class pricinglist(TemplateView):
+class pricinglist(ListView):
+    model = PricingModel
     template_name = "pages/pricinglist.html"
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        recommended_items = queryset.filter(recommended=True).order_by('-id')
+        popular_items = queryset.filter(popular=True, recommended=False).order_by('-id')
+        other_items = queryset.exclude(recommended=True, popular=True).order_by('-id')
+        queryset = list(recommended_items) + list(popular_items) + list(other_items)
+        
+        # Deleting duplicate elements
+        queryset = list({item.id: item for item in queryset}.values())
+
+        return queryset
+
     
 class documentation(TemplateView):
     template_name = "pages/documentation.html"    

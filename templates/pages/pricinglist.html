@@ -37,150 +37,24 @@
 
     <section class="pricing-categories-section">
         <div class="pricing-categories-container">
+            {% for object in object_list %}
             <div class="pricing-categories-column">
                 <div class="categorie-column">
-                    <h1 class="pricing-popular-type">Free plan</h1>
-                    <span class="pricing-popular-price">$600</span>
+                    <h1 class="pricing-popular-type">{{ object.type }}</h1>
+                    <span class="pricing-popular-price">${{ object.price }}</span>
                     <span class="pricing-popular-date">/ Life time</span>
+                    {% if object.recommended %}
+                        <div class="recommended">
+                            <h1>Recommended</h1>
+                        </div>
+                    {% endif %}
                 </div>
                 <div class="pricing-categories-abilities">
-                    <ul class="pricing-categories-abilities-ul">
-                        <li class="categories-abilities-li">Today & Planning view</li>
-                        <li class="categories-abilities-li">Checklist templates</li>
-                        <li class="categories-abilities-li">Calendar integration</li>
-                        <li class="categories-abilities-li">Browser extension</li>
-                    </ul>
+                    {{ object.advantages|safe }}
                     <a href=""><button class="categories-abilities-btn">Get started</button></a>
                 </div>
             </div>
-            <div class="pricing-categories-column">
-                <div class="categorie-column">
-                    <h1 class="pricing-popular-type">Free plan</h1>
-                    <span class="pricing-popular-price">$600</span>
-                    <span class="pricing-popular-date">/ Life time</span>
-                </div>
-                <div class="pricing-categories-abilities">
-                    <ul class="pricing-categories-abilities-ul">
-                        <li class="categories-abilities-li">Today & Planning view</li>
-                        <li class="categories-abilities-li">Checklist templates</li>
-                        <li class="categories-abilities-li">Calendar integration</li>
-                        <li class="categories-abilities-li">Browser extension</li>
-                    </ul>
-                    <a href=""><button class="categories-abilities-btn">Get started</button></a>
-                </div>
-            </div>
-            <div class="pricing-categories-column">
-                <div class="categorie-column">
-                    <h1 class="pricing-popular-type">Free plan</h1>
-                    <span class="pricing-popular-price">$600</span>
-                    <span class="pricing-popular-date">/ Life time</span>
-                </div>
-                <div class="pricing-categories-abilities">
-                    <ul class="pricing-categories-abilities-ul">
-                        <li class="categories-abilities-li">Today & Planning view</li>
-                        <li class="categories-abilities-li">Checklist templates</li>
-                        <li class="categories-abilities-li">Calendar integration</li>
-                        <li class="categories-abilities-li">Browser extension</li>
-                    </ul>
-                    <a href=""><button class="categories-abilities-btn">Get started</button></a>
-                </div>
-            </div>
-            <div class="pricing-categories-column">
-                <div class="categorie-column">
-                    <h1 class="pricing-popular-type">Free plan</h1>
-                    <span class="pricing-popular-price">$600</span>
-                    <span class="pricing-popular-date">/ Life time</span>
-                </div>
-                <div class="pricing-categories-abilities">
-                    <ul class="pricing-categories-abilities-ul">
-                        <li class="categories-abilities-li">Today & Planning view</li>
-                        <li class="categories-abilities-li">Checklist templates</li>
-                        <li class="categories-abilities-li">Calendar integration</li>
-                        <li class="categories-abilities-li">Browser extension</li>
-                    </ul>
-                    <a href=""><button class="categories-abilities-btn">Get started</button></a>
-                </div>
-            </div>
-            <div class="pricing-categories-column">
-                <div class="categorie-column">
-                    <h1 class="pricing-popular-type">Free plan</h1>
-                    <span class="pricing-popular-price">$600</span>
-                    <span class="pricing-popular-date">/ Life time</span>
-                </div>
-                <div class="pricing-categories-abilities">
-                    <ul class="pricing-categories-abilities-ul">
-                        <li class="categories-abilities-li">Today & Planning view</li>
-                        <li class="categories-abilities-li">Checklist templates</li>
-                        <li class="categories-abilities-li">Calendar integration</li>
-                        <li class="categories-abilities-li">Browser extension</li>
-                    </ul>
-                    <a href=""><button class="categories-abilities-btn">Get started</button></a>
-                </div>
-            </div>
-            <div class="pricing-categories-column">
-                <div class="categorie-column">
-                    <h1 class="pricing-popular-type">Free plan</h1>
-                    <span class="pricing-popular-price">$600</span>
-                    <span class="pricing-popular-date">/ Life time</span>
-                </div>
-                <div class="pricing-categories-abilities">
-                    <ul class="pricing-categories-abilities-ul">
-                        <li class="categories-abilities-li">Today & Planning view</li>
-                        <li class="categories-abilities-li">Checklist templates</li>
-                        <li class="categories-abilities-li">Calendar integration</li>
-                        <li class="categories-abilities-li">Browser extension</li>
-                    </ul>
-                    <a href=""><button class="categories-abilities-btn">Get started</button></a>
-                </div>
-            </div>
-            <div class="pricing-categories-column">
-                <div class="categorie-column">
-                    <h1 class="pricing-popular-type">Free plan</h1>
-                    <span class="pricing-popular-price">$600</span>
-                    <span class="pricing-popular-date">/ Life time</span>
-                </div>
-                <div class="pricing-categories-abilities">
-                    <ul class="pricing-categories-abilities-ul">
-                        <li class="categories-abilities-li">Today & Planning view</li>
-                        <li class="categories-abilities-li">Checklist templates</li>
-                        <li class="categories-abilities-li">Calendar integration</li>
-                        <li class="categories-abilities-li">Browser extension</li>
-                    </ul>
-                    <a href=""><button class="categories-abilities-btn">Get started</button></a>
-                </div>
-            </div>
-            <div class="pricing-categories-column">
-                <div class="categorie-column">
-                    <h1 class="pricing-popular-type">Free plan</h1>
-                    <span class="pricing-popular-price">$600</span>
-                    <span class="pricing-popular-date">/ Life time</span>
-                </div>
-                <div class="pricing-categories-abilities">
-                    <ul class="pricing-categories-abilities-ul">
-                        <li class="categories-abilities-li">Today & Planning view</li>
-                        <li class="categories-abilities-li">Checklist templates</li>
-                        <li class="categories-abilities-li">Calendar integration</li>
-                        <li class="categories-abilities-li">Browser extension</li>
-                    </ul>
-                    <a href=""><button class="categories-abilities-btn">Get started</button></a>
-                </div>
-            </div>
-            <div class="pricing-categories-column">
-                <div class="categorie-column">
-                    <h1 class="pricing-popular-type">Free plan</h1>
-                    <span class="pricing-popular-price">$600</span>
-                    <span class="pricing-popular-date">/ Life time</span>
-                </div>
-                <div class="pricing-categories-abilities">
-                    <ul class="pricing-categories-abilities-ul">
-                        <li class="categories-abilities-li">Today & Planning view</li>
-                        <li class="categories-abilities-li">Checklist templates</li>
-                        <li class="categories-abilities-li">Calendar integration</li>
-                        <li class="categories-abilities-li">Browser extension</li>
-                    </ul>
-                    <a href=""><button class="categories-abilities-btn">Get started</button></a>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </section>
 

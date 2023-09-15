@@ -15,57 +15,24 @@
             <p class="pricing-popular-package-info">Save 20% of your project costs with our Monthly Subscription plan
             </p>
             <div class="pricing-popular-package-container">
+                {% for object in pricing %}
                 <div class="pricing-popular-column">
                     <div class="price-column">
-                        <h1 class="pricing-popular-type">Free plan</h1>
-                        <span class="pricing-popular-price">$600</span>
+                        <h1 class="pricing-popular-type">{{ object.type }}</h1>
+                        <span class="pricing-popular-price">${{ object.price }}</span>
                         <span class="pricing-popular-date">/ Life time</span>
-                    </div>
-                    <div class="pricing-popular-abilities">
-                        <ul class="pricing-popular-abilities-ul">
-                            <li class="abilities-li">Today & Planning view</li>
-                            <li class="abilities-li">Checklist templates</li>
-                            <li class="abilities-li">Calendar integration</li>
-                            <li class="abilities-li">Browser extension</li>
-                        </ul>
-                        <a href=""><button class="pricing-abilities-btn">Get started</button></a>
-                    </div>
-                </div>
-                <div class="pricing-popular-column">
-                    <div class="price-column">
-                        <h1 class="pricing-popular-type">Free plan</h1>
-                        <span class="pricing-popular-price">$600</span>
-                        <span class="pricing-popular-date">/ Life time</span>
+                        {% if object.recommended %}
                         <div class="recommended">
                             <h1>Recommended</h1>
                         </div>
+                        {% endif %}
                     </div>
                     <div class="pricing-popular-abilities">
-                        <ul class="pricing-popular-abilities-ul">
-                            <li class="abilities-li">Today & Planning view</li>
-                            <li class="abilities-li">Checklist templates</li>
-                            <li class="abilities-li">Calendar integration</li>
-                            <li class="abilities-li">Browser extension</li>
-                        </ul>
+                        {{ object.advantages|safe }}
                         <a href=""><button class="pricing-abilities-btn">Get started</button></a>
                     </div>
                 </div>
-                <div class="pricing-popular-column">
-                    <div class="price-column">
-                        <h1 class="pricing-popular-type">Free plan</h1>
-                        <span class="pricing-popular-price">$600</span>
-                        <span class="pricing-popular-date">/ Life time</span>
-                    </div>
-                    <div class="pricing-popular-abilities">
-                        <ul class="pricing-popular-abilities-ul">
-                            <li class="abilities-li">Today & Planning view</li>
-                            <li class="abilities-li">Checklist templates</li>
-                            <li class="abilities-li">Calendar integration</li>
-                            <li class="abilities-li">Browser extension</li>
-                        </ul>
-                        <a href=""><button class="pricing-abilities-btn">Get started</button></a>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
 
             <!-- START BUTTON FOR OTHER PACKAGES -->
@@ -101,7 +68,8 @@
             </div>
             <div class="custom-build-column">
                 <h1 class="custom-build-title">You don't know how to order?</h1>
-                <p class="custom-build-text">Follow this link to find out the instruction how to order and order requirements</p>
+                <p class="custom-build-text">Follow this link to find out the instruction how to order and order
+                    requirements</p>
                 <div class="custom-build-btn-container">
                     <a href="{% url 'main:documentation' %}">
                         <button class="custom-build-btn">Get instruction</button>

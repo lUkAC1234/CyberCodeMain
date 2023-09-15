@@ -13,6 +13,19 @@ class UserModel(AbstractUser):
     socialMedia = models.URLField(blank=True, null=True)
 # --------------------------------------------------------------------------- #
 
+
+class PricingModel(models.Model):
+    type = models.CharField(max_length=100)
+    price = models.PositiveIntegerField()
+    advantages = RichTextField()
+    popular = models.BooleanField(null=True)
+    recommended = models.BooleanField(null=True)
+
+    class Meta:
+        verbose_name = 'Pricing'
+        verbose_name_plural = 'Pricings'
+        ordering = ('-id',)
+
 class PostModel(models.Model):
     title = models.CharField(max_length=100)
     image = models.ImageField(upload_to='blog/posts/images/%Y/%m/%d/')

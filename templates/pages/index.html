@@ -121,59 +121,28 @@
     <!-- START PACKAGE -->
     <section class="package">
         <h1 class="package-title">Your Suitable package <br> for your needs</h1>
-        <p class="package-info">Our powerful free plan gives you access to core Cyber Code features.</p>
+        <p class="package-info">Our powerful plan gives you access to core Cyber Code features.</p>
         <div class="package-choices-container">
+            {% for object in pricing %}
             <div class="choices-column">
                 <div class="price-column">
-                    <h1 class="choice-type">Free plan</h1>
-                    <span class="price">$600</span>
+                    <h1 class="choice-type">{{ object.type }}</h1>
+                    <span class="price">${{ object.price }}</span>
                     <span class="date">/ Life time</span>
-                </div>
-                <div class="abilities">
-                    <ul class="abilities-ul">
-                        <li class="abilities-li">Today & Planning view</li>
-                        <li class="abilities-li">Checklist templates</li>
-                        <li class="abilities-li">Calendar integration</li>
-                        <li class="abilities-li">Browser extension</li>
-                    </ul>
-                    <button class="abilities-btn">Get started</button>
-                </div>
-            </div>
-            <div class="choices-column">
-                <div class="price-column">
-                    <h1 class="choice-type">Basic plan</h1>
-                    <span class="price">$1000</span>
-                    <span class="date">/ Life time</span>
+                    {% if object.recommended %}
                     <div class="recommended">
                         <h1>Recommended</h1>
                     </div>
+                    {% endif %}
                 </div>
                 <div class="abilities">
-                    <ul class="abilities-ul">
-                        <li class="abilities-li">Today & Planning view</li>
-                        <li class="abilities-li">Checklist templates</li>
-                        <li class="abilities-li">Calendar integration</li>
-                        <li class="abilities-li">Browser extension</li>
-                    </ul>
-                    <button class="abilities-btn">Get started</button>
+                    {{ object.advantages|safe }}
+                    <a href="">
+                        <button class="abilities-btn">Get started</button>
+                    </a>
                 </div>
             </div>
-            <div class="choices-column">
-                <div class="price-column">
-                    <h1 class="choice-type">Advance plan</h1>
-                    <span class="price">$5000</span>
-                    <span class="date">/ Life time</span>
-                </div>
-                <div class="abilities">
-                    <ul class="abilities-ul">
-                        <li class="abilities-li">Today & Planning view</li>
-                        <li class="abilities-li">Checklist templates</li>
-                        <li class="abilities-li">Calendar integration</li>
-                        <li class="abilities-li">Browser extension</li>
-                    </ul>
-                    <button class="abilities-btn">Get started </button>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </section>
     <!-- END PACKAGE -->

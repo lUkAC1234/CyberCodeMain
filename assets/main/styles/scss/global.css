@@ -415,6 +415,8 @@
 
 .choices-column {
   width: 24rem;
+  min-height: 28rem;
+  height: max-content;
 }
 .choices-column .price-column {
   position: relative;
@@ -442,13 +444,14 @@
   border-radius: 0rem 0rem 1.25rem 1.25rem;
   padding: 2.5rem 5rem 2.5rem 2.5rem;
 }
-.choices-column .abilities .abilities-ul {
+.choices-column .abilities ul {
   gap: 0.6rem;
 }
-.choices-column .abilities .abilities-ul .abilities-li {
+.choices-column .abilities ul li {
   position: relative;
+  width: max-content;
 }
-.choices-column .abilities .abilities-ul .abilities-li::before {
+.choices-column .abilities ul li::before {
   content: "";
   position: absolute;
   background: url(../../images/main-page/arrow.svg);
@@ -461,24 +464,24 @@
   margin-top: 1rem;
 }
 
-.choices-column:nth-child(even) {
+.choices-column:has(.recommended) {
   background: linear-gradient(168deg, rgb(136, 40, 255) 0%, rgb(136, 40, 255) 36%, rgb(171, 124, 208) 80%);
   border-radius: 1.25rem;
 }
-.choices-column:nth-child(even) .price-column,
-.choices-column:nth-child(even) .abilities {
+.choices-column:has(.recommended) .price-column,
+.choices-column:has(.recommended) .abilities {
   background: none;
 }
-.choices-column:nth-child(even) .price-column .abilities-ul .abilities-li,
-.choices-column:nth-child(even) .abilities .abilities-ul .abilities-li {
+.choices-column:has(.recommended) .price-column ul li,
+.choices-column:has(.recommended) .abilities ul li {
   color: var(--text-white) !important;
 }
-.choices-column:nth-child(even) .price-column .abilities-ul .abilities-li::before,
-.choices-column:nth-child(even) .abilities .abilities-ul .abilities-li::before {
+.choices-column:has(.recommended) .price-column ul li::before,
+.choices-column:has(.recommended) .abilities ul li::before {
   background: url(../../images/main-page/arrow-white.svg);
 }
-.choices-column:nth-child(even) .price-column .abilities-btn,
-.choices-column:nth-child(even) .abilities .abilities-btn {
+.choices-column:has(.recommended) .price-column .abilities-btn,
+.choices-column:has(.recommended) .abilities .abilities-btn {
   transform: scale(0.9);
   margin-top: 1rem;
 }
@@ -505,7 +508,7 @@
     width: 96%;
     margin: 0 2%;
   }
-  .choices-column .abilities-ul .abilities-li {
+  .choices-column ul li {
     font-size: 0.9rem !important;
   }
 }
@@ -2132,6 +2135,8 @@
 
 .pricing-popular-column {
   width: 24rem;
+  min-height: 28rem;
+  height: max-content;
 }
 
 .price-column {
@@ -2160,14 +2165,14 @@
   border-radius: 0rem 0rem 1.25rem 1.25rem;
   padding: 2.5rem 5rem 2.5rem 2.5rem;
 }
-
-.pricing-popular-abilities-ul {
+.pricing-popular-abilities ul {
   gap: 0.6rem;
 }
-.pricing-popular-abilities-ul .abilities-li {
+.pricing-popular-abilities ul li {
   position: relative;
+  width: max-content;
 }
-.pricing-popular-abilities-ul .abilities-li::before {
+.pricing-popular-abilities ul li::before {
   content: "";
   position: absolute;
   background: url(../../images/main-page/arrow.svg);
@@ -2181,24 +2186,24 @@
   margin-top: 1rem;
 }
 
-.pricing-popular-column:nth-child(even) {
+.pricing-popular-column:has(.recommended) {
   background: linear-gradient(168deg, rgb(136, 40, 255) 0%, rgb(136, 40, 255) 36%, rgb(171, 124, 208) 80%);
   border-radius: 1.25rem;
 }
-.pricing-popular-column:nth-child(even) .price-column,
-.pricing-popular-column:nth-child(even) .pricing-popular-abilities {
+.pricing-popular-column:has(.recommended) .price-column,
+.pricing-popular-column:has(.recommended) .pricing-popular-abilities {
   background: none;
 }
-.pricing-popular-column:nth-child(even) .price-column .pricing-popular-abilities-ul .abilities-li,
-.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-popular-abilities-ul .abilities-li {
+.pricing-popular-column:has(.recommended) .price-column ul li,
+.pricing-popular-column:has(.recommended) .pricing-popular-abilities ul li {
   color: var(--text-white) !important;
 }
-.pricing-popular-column:nth-child(even) .price-column .pricing-popular-abilities-ul .abilities-li::before,
-.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-popular-abilities-ul .abilities-li::before {
+.pricing-popular-column:has(.recommended) .price-column ul li::before,
+.pricing-popular-column:has(.recommended) .pricing-popular-abilities ul li::before {
   background: url(../../images/main-page/arrow-white.svg);
 }
-.pricing-popular-column:nth-child(even) .price-column .pricing-abilities-btn,
-.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-abilities-btn {
+.pricing-popular-column:has(.recommended) .price-column .pricing-abilities-btn,
+.pricing-popular-column:has(.recommended) .pricing-popular-abilities .pricing-abilities-btn {
   transform: scale(0.9);
   margin-top: 1rem;
 }
@@ -2221,7 +2226,7 @@
     width: 96%;
     margin: 0 2%;
   }
-  .pricing-popular-column .pricing-popular-abilities-ul .abilities-li {
+  .pricing-popular-column ul li {
     font-size: 0.9rem !important;
   }
 }
@@ -2509,6 +2514,8 @@
 
 .pricing-categories-column {
   width: 24rem;
+  min-height: 28rem;
+  height: max-content;
 }
 
 .categorie-column {
@@ -2523,6 +2530,35 @@
 .categorie-column .pricing-popular-date {
   color: var(--text-white) !important;
 }
+.categorie-column .recommended {
+  position: absolute;
+  top: 0;
+  right: 1.5rem;
+  background: var(--recommended);
+  padding: 0.7rem 1.4rem;
+  border-radius: 0 0 1rem 1rem;
+}
+.pricing-categories-column:has(.recommended) {
+  background: linear-gradient(168deg, rgb(136, 40, 255) 0%, rgb(136, 40, 255) 36%, rgb(171, 124, 208) 80%);
+  border-radius: 1.25rem;
+}
+.pricing-categories-column:has(.recommended) .categorie-column,
+.pricing-categories-column:has(.recommended) .pricing-categories-abilities {
+  background: none;
+}
+.pricing-categories-column:has(.recommended) .categorie-column ul li,
+.pricing-categories-column:has(.recommended) .pricing-categories-abilities ul li {
+  color: var(--text-white) !important;
+}
+.pricing-categories-column:has(.recommended) .categorie-column ul li::before,
+.pricing-categories-column:has(.recommended) .pricing-categories-abilities ul li::before {
+  background: url(../../images/main-page/arrow-white.svg);
+}
+.pricing-categories-column:has(.recommended) .categorie-column .categories-abilities-btn,
+.pricing-categories-column:has(.recommended) .pricing-categories-abilities .categories-abilities-btn {
+  transform: scale(0.9);
+  margin-top: 1rem;
+}
 
 .pricing-categories-abilities {
   position: relative;
@@ -2530,14 +2566,14 @@
   border-radius: 0rem 0rem 1.25rem 1.25rem;
   padding: 2.5rem 5rem 2.5rem 2.5rem;
 }
-
-.pricing-categories-abilities-ul {
+.pricing-categories-abilities ul {
   gap: 0.6rem;
 }
-.pricing-categories-abilities-ul .categories-abilities-li {
+.pricing-categories-abilities ul li {
   position: relative;
+  width: max-content;
 }
-.pricing-categories-abilities-ul .categories-abilities-li::before {
+.pricing-categories-abilities ul li::before {
   content: "";
   position: absolute;
   background: url(../../images/main-page/arrow.svg);
@@ -2561,7 +2597,7 @@
     width: 96%;
     margin: 0 2%;
   }
-  .pricing-categories-column .pricing-categories-abilities-u .categories-abilities-li {
+  .pricing-categories-column ul li {
     font-size: 0.9rem !important;
   }
 }
@@ -5252,9 +5288,10 @@
   color: var(--text-purple);
 }
 
-.gray-button-purple-1rem-2rem, .task-content-column .task-button-a .task-button, .choices-column .abilities .abilities-btn, .choices-column:nth-child(even) .price-column .abilities-btn,
-.choices-column:nth-child(even) .abilities .abilities-btn, .pricing-abilities-btn, .pricing-popular-column:nth-child(even) .price-column .pricing-abilities-btn,
-.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-abilities-btn, .categories-abilities-btn, .toggle-button, .featured-categories-wrapper .featured-category-column button, .posts-tags-column a button {
+.gray-button-purple-1rem-2rem, .task-content-column .task-button-a .task-button, .choices-column .abilities .abilities-btn, .choices-column:has(.recommended) .price-column .abilities-btn,
+.choices-column:has(.recommended) .abilities .abilities-btn, .pricing-abilities-btn, .pricing-popular-column:has(.recommended) .price-column .pricing-abilities-btn,
+.pricing-popular-column:has(.recommended) .pricing-popular-abilities .pricing-abilities-btn, .pricing-categories-column:has(.recommended) .categorie-column .categories-abilities-btn,
+.pricing-categories-column:has(.recommended) .pricing-categories-abilities .categories-abilities-btn, .categories-abilities-btn, .toggle-button, .featured-categories-wrapper .featured-category-column button, .posts-tags-column a button {
   color: var(--text-purple);
   text-align: center;
   font-size: 1.125rem;
@@ -5267,9 +5304,9 @@
   transition: 0.5s;
   cursor: pointer;
 }
-.gray-button-purple-1rem-2rem:hover, .task-content-column .task-button-a .task-button:hover, .choices-column .abilities .abilities-btn:hover, .choices-column:nth-child(even) .price-column .abilities-btn:hover,
-.choices-column:nth-child(even) .abilities .abilities-btn:hover, .pricing-abilities-btn:hover, .pricing-popular-column:nth-child(even) .price-column .pricing-abilities-btn:hover,
-.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-abilities-btn:hover, .categories-abilities-btn:hover, .toggle-button:hover, .featured-categories-wrapper .featured-category-column button:hover, .posts-tags-column a button:hover {
+.gray-button-purple-1rem-2rem:hover, .task-content-column .task-button-a .task-button:hover, .choices-column .abilities .abilities-btn:hover, .choices-column:has(.recommended) .price-column .abilities-btn:hover, .pricing-abilities-btn:hover, .pricing-popular-column:has(.recommended) .price-column .pricing-abilities-btn:hover,
+.pricing-popular-column:has(.recommended) .pricing-popular-abilities .pricing-abilities-btn:hover, .pricing-categories-column:has(.recommended) .categorie-column .categories-abilities-btn:hover,
+.pricing-categories-column:has(.recommended) .pricing-categories-abilities .categories-abilities-btn:hover, .categories-abilities-btn:hover, .toggle-button:hover, .featured-categories-wrapper .featured-category-column button:hover, .posts-tags-column a button:hover {
   background: var(--background-purple);
   color: var(--gray-button);
 }
@@ -5305,7 +5342,7 @@
     padding: 0;
   }
 }
-.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .post-text-container .post-posted, .featured-posts-column .featured-post-column-posted, .messenger-your-message-user-profile .messenger-your-message-username,
+.dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .categorie-column .recommended h1, .post-text-container .post-posted, .featured-posts-column .featured-post-column-posted, .messenger-your-message-user-profile .messenger-your-message-username,
 .messenger-your-message-user-profile .messenger-others-message-username,
 .messenger-others-message-user-profile .messenger-your-message-username,
 .messenger-others-message-user-profile .messenger-others-message-username, .profile-edit-column label, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text, .sign-info-btn-container .sign-info-check-account, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .job-gradient-info-container .job-gradient-info-category, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-info-container .sign-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .documentation-content-title, .post-text-container .post-title, .featured-posts-column .featured-post-column-title, .detail-gradient-container .detail-gradient-username, .sign-image-container .sign-image-title, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .language-toggle-text-container .toggle-language-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
@@ -5331,16 +5368,17 @@
   font-size: 1.5rem;
 }
 
-.dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .post-text-container .post-posted, .featured-posts-column .featured-post-column-posted, .messenger-your-message-user-profile .messenger-your-message-username,
+.dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .categorie-column .recommended h1, .post-text-container .post-posted, .featured-posts-column .featured-post-column-posted, .messenger-your-message-user-profile .messenger-your-message-username,
 .messenger-your-message-user-profile .messenger-others-message-username,
 .messenger-others-message-user-profile .messenger-your-message-username,
 .messenger-others-message-user-profile .messenger-others-message-username, .profile-edit-column label, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text, .sign-info-btn-container .sign-info-check-account {
   font-size: 1rem;
 }
 
-.info-text-gray-1-125rem, .info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content, .faq-text, .price-column .pricing-popular-date, .pricing-list-text-container .pricing-list-text, .categorie-column .pricing-popular-date, .documentation-content-text, .documentation-content-wrapper .documentation-content-li, .messenger-header-user-info-container .messenger-header-user, .static-info .static-info-text, .choices-column .abilities .abilities-ul .abilities-li, .choices-column:nth-child(even) .price-column .abilities-ul .abilities-li,
-.choices-column:nth-child(even) .abilities .abilities-ul .abilities-li, .carousel-title-container .carousel-text, .feedback-user .feedback-username, .website-technologies-main-text, .website-technologies-column .website-technologies-type, .clients-column .client-text, .team-members-info-column .team-members-info-text, .system-info-container .system-info-text, .system-column .system-text, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-info, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info, .ready-to-try-info, .pricing-popular-abilities-ul .abilities-li, .pricing-popular-column:nth-child(even) .price-column .pricing-popular-abilities-ul .abilities-li,
-.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-popular-abilities-ul .abilities-li, .custom-build-column .custom-build-text, .services-text-container .services-text-text, .pricing-categories-abilities-ul .categories-abilities-li, .language-toggle-text-container .toggle-language-text, .post-text-container .post-text, .featured-posts-column .featured-post-column-text, .detail-content-wrapper pre,
+.info-text-gray-1-125rem, .info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content, .faq-text, .price-column .pricing-popular-date, .pricing-list-text-container .pricing-list-text, .categorie-column .pricing-popular-date, .documentation-content-text, .documentation-content-wrapper .documentation-content-li, .messenger-header-user-info-container .messenger-header-user, .static-info .static-info-text, .choices-column .abilities ul li, .choices-column:has(.recommended) .price-column ul li,
+.choices-column:has(.recommended) .abilities ul li, .carousel-title-container .carousel-text, .feedback-user .feedback-username, .website-technologies-main-text, .website-technologies-column .website-technologies-type, .clients-column .client-text, .team-members-info-column .team-members-info-text, .system-info-container .system-info-text, .system-column .system-text, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-info, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info, .ready-to-try-info, .pricing-popular-abilities ul li, .pricing-popular-column:has(.recommended) .price-column ul li,
+.pricing-popular-column:has(.recommended) .pricing-popular-abilities ul li, .custom-build-column .custom-build-text, .services-text-container .services-text-text, .pricing-categories-column:has(.recommended) .categorie-column ul li,
+.pricing-categories-column:has(.recommended) .pricing-categories-abilities ul li, .pricing-categories-abilities ul li, .language-toggle-text-container .toggle-language-text, .post-text-container .post-text, .featured-posts-column .featured-post-column-text, .detail-content-wrapper pre,
 .detail-content-wrapper li,
 .detail-content-wrapper span,
 .detail-content-wrapper p, .detail-link-text-container .detail-link-text, .detail-share-user-info-container .detail-share-posted, .detail-share-social-container .detail-share-social-text, .job-gradient-info-container .job-gradient-info-text, .job-info-container .job-info-text, .messenger-your-message .messenger-your-message-text,
@@ -5415,7 +5453,7 @@
   font-size: 1.125rem;
 }
 
-.flex-row-justify-align-start, .flex-column-justify-align-start, .choices-column .abilities .abilities-ul, .pricing-popular-abilities-ul, .pricing-categories-abilities-ul {
+.flex-row-justify-align-start, .flex-column-justify-align-start, .choices-column .abilities ul, .pricing-popular-abilities ul, .pricing-categories-abilities ul {
   display: flex;
   justify-content: flex-start;
   align-items: start;
@@ -5471,9 +5509,10 @@
   align-items: start;
 }
 
-.flex-row-align-center, .flex-column-align-center, .choices-column .abilities .abilities-ul .abilities-li, .choices-column:nth-child(even) .price-column .abilities-ul .abilities-li,
-.choices-column:nth-child(even) .abilities .abilities-ul .abilities-li, .feedback-user, .contact-us-hero-get-in-touch-container, .pricing-popular-abilities-ul .abilities-li, .pricing-popular-column:nth-child(even) .price-column .pricing-popular-abilities-ul .abilities-li,
-.pricing-popular-column:nth-child(even) .pricing-popular-abilities .pricing-popular-abilities-ul .abilities-li, .pricing-categories-abilities-ul .categories-abilities-li, .messenger-header-user-container, .messenger-your-message-user-profile,
+.flex-row-align-center, .flex-column-align-center, .choices-column .abilities ul li, .choices-column:has(.recommended) .price-column ul li,
+.choices-column:has(.recommended) .abilities ul li, .feedback-user, .contact-us-hero-get-in-touch-container, .pricing-popular-abilities ul li, .pricing-popular-column:has(.recommended) .price-column ul li,
+.pricing-popular-column:has(.recommended) .pricing-popular-abilities ul li, .pricing-categories-column:has(.recommended) .categorie-column ul li,
+.pricing-categories-column:has(.recommended) .pricing-categories-abilities ul li, .pricing-categories-abilities ul li, .messenger-header-user-container, .messenger-your-message-user-profile,
 .messenger-others-message-user-profile, .messenger-footer-type-container {
   display: flex;
   align-items: center;
@@ -5484,7 +5523,7 @@
   align-items: end;
 }
 
-.flex-column-justify-align-start, .choices-column .abilities .abilities-ul, .pricing-popular-abilities-ul, .pricing-categories-abilities-ul {
+.flex-column-justify-align-start, .choices-column .abilities ul, .pricing-popular-abilities ul, .pricing-categories-abilities ul {
   flex-flow: column;
 }
 

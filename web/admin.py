@@ -3,7 +3,7 @@
 from django.contrib import admin
 # --------------------------------------------------------------------------- #
 # Models and Forms
-from .models import UserModel, PostModel
+from .models import UserModel, PricingModel, PostModel
 # --------------------------------------------------------------------------- #
 # Translation
 from django.utils.translation import gettext_lazy as _
@@ -21,6 +21,12 @@ class UserAdmin(admin.ModelAdmin):
     list_display = ['id', 'username']
     list_display_links = ['id', 'username']
     search_fields = ['username']
+
+@admin.register(PricingModel)
+class PricingAdmin(admin.ModelAdmin):
+    list_display = ['id', 'type', 'price']
+    list_display_links = ['id', 'type', 'price']
+    search_fields = ['type', 'price']
 
 @admin.register(PostModel)
 class PostModelAdmin(admin.ModelAdmin):

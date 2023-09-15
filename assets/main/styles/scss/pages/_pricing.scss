@@ -42,6 +42,8 @@
 
 .pricing-popular-column {
     width: 24rem;
+    min-height: 28rem;
+    height: max-content;
 }
 
 .price-column {
@@ -83,26 +85,26 @@
     background: var(--background-white);
     border-radius: 0rem 0rem 1.25rem 1.25rem;
     padding: 2.5rem 5rem 2.5rem 2.5rem;
-}
-
-.pricing-popular-abilities-ul {
-    @extend .flex-column-justify-align-start;
-    gap: 0.6rem;
-
-    .abilities-li {
-        & {
-            position: relative;
-            @extend .flex-row-align-center;
-            @extend .info-text-gray-1-125rem;
-        }
-
-        &::before {
-            content: "";
-            position: absolute;
-            background: url(../../images/main-page/arrow.svg);
-            width: 20px;
-            height: 20px;
-            left: -1.25rem;
+    ul {
+        @extend .flex-column-justify-align-start;
+        gap: 0.6rem;
+    
+        li {
+            & {
+                position: relative;
+                @extend .flex-row-align-center;
+                @extend .info-text-gray-1-125rem;
+                width: max-content;
+            }
+    
+            &::before {
+                content: "";
+                position: absolute;
+                background: url(../../images/main-page/arrow.svg);
+                width: 20px;
+                height: 20px;
+                left: -1.25rem;
+            }
         }
     }
 }
@@ -113,7 +115,7 @@
     margin-top: 1rem;
 }
 
-.pricing-popular-column:nth-child(even) {
+.pricing-popular-column:has(.recommended) {
     background: linear-gradient(168deg, rgba(136, 40, 255, 1) 0%, rgba(136, 40, 255, 1) 36%, rgba(171, 124, 208, 1) 80%);
     border-radius: 1.25rem;
 
@@ -121,8 +123,8 @@
     .pricing-popular-abilities {
         background: none;
 
-        .pricing-popular-abilities-ul {
-            .abilities-li {
+        ul {
+            li {
                 & {
                     @extend .flex-row-align-center;
                     @extend .info-text-gray-1-125rem;
@@ -163,8 +165,8 @@
             width: 96%;
             margin: 0 2%;
 
-            .pricing-popular-abilities-ul {
-                .abilities-li {
+            ul {
+                li {
                     & {
                         font-size: 0.9rem !important;
                     }

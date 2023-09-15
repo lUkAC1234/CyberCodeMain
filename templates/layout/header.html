@@ -68,6 +68,7 @@
                 </div>
             </div>
             <div class="login-part-header">
+                {% if request.user.is_authenticated %}
                 <div class="dropdown-container" id="dropdown-content">
                     <button class="dropdown__button" id="dropdown-button">
                         <img class="dropdown__icon" id="dropdownProfileImage" src="{% static 'main/images/profile/profile.svg' %}" alt="">
@@ -121,12 +122,14 @@
                         </div>
                     </ul>
                 </div>
-                <!-- <a class="dekstop-login-part" href="{% url 'main:login' %}">
+                {% else %}
+                <a class="dekstop-login-part" href="{% url 'main:login' %}">
                     <button class="sign-button login">Login</button>
                 </a>
                 <a class="dekstop-login-part" href="">
                     <button class="sign-button get-started">Get started</button>
-                </a> -->
+                </a>
+                {% endif %}
             </div>
         </section>
     </nav>
