@@ -26,6 +26,9 @@ class PricingModel(models.Model):
         verbose_name_plural = 'Pricings'
         ordering = ('-id',)
 
+    def __str__(self):
+        return self.type
+
 class PostModel(models.Model):
     title = models.CharField(max_length=100)
     image = models.ImageField(upload_to='blog/posts/images/%Y/%m/%d/')
@@ -38,3 +41,6 @@ class PostModel(models.Model):
         verbose_name = 'Post'
         verbose_name_plural = 'Posts'
         ordering = ('-id',)
+
+    def __str__(self):
+        return self.title
