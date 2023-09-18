@@ -5375,7 +5375,7 @@
   font-size: 1rem;
 }
 
-.info-text-gray-1-125rem, .info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content, .faq-text, .price-column .pricing-popular-date, .pricing-list-text-container .pricing-list-text, .categorie-column .pricing-popular-date, .documentation-content-text, .documentation-content-wrapper .documentation-content-li, .messenger-header-user-info-container .messenger-header-user, .static-info .static-info-text, .choices-column .abilities ul li, .choices-column:has(.recommended) .price-column ul li,
+.info-text-gray-1-125rem, .info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content a, .faq-text, .price-column .pricing-popular-date, .pricing-list-text-container .pricing-list-text, .categorie-column .pricing-popular-date, .documentation-content-text, .documentation-content-wrapper .documentation-content-li, .messenger-header-user-info-container .messenger-header-user, .static-info .static-info-text, .choices-column .abilities ul li, .choices-column:has(.recommended) .price-column ul li,
 .choices-column:has(.recommended) .abilities ul li, .carousel-title-container .carousel-text, .feedback-user .feedback-username, .website-technologies-main-text, .website-technologies-column .website-technologies-type, .clients-column .client-text, .team-members-info-column .team-members-info-text, .system-info-container .system-info-text, .system-column .system-text, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-info, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info, .ready-to-try-info, .pricing-popular-abilities ul li, .pricing-popular-column:has(.recommended) .price-column ul li,
 .pricing-popular-column:has(.recommended) .pricing-popular-abilities ul li, .custom-build-column .custom-build-text, .services-text-container .services-text-text, .pricing-categories-column:has(.recommended) .categorie-column ul li,
 .pricing-categories-column:has(.recommended) .pricing-categories-abilities ul li, .pricing-categories-abilities ul li, .language-toggle-text-container .toggle-language-text, .post-text-container .post-text, .featured-posts-column .featured-post-column-text, .detail-content-wrapper pre,
@@ -5391,7 +5391,7 @@
   line-height: 160%;
 }
 
-.info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content, .faq-text, .price-column .pricing-popular-date, .pricing-list-text-container .pricing-list-text, .categorie-column .pricing-popular-date, .documentation-content-text, .documentation-content-wrapper .documentation-content-li, .messenger-header-user-info-container .messenger-header-user {
+.info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content a, .faq-text, .price-column .pricing-popular-date, .pricing-list-text-container .pricing-list-text, .categorie-column .pricing-popular-date, .documentation-content-text, .documentation-content-wrapper .documentation-content-li, .messenger-header-user-info-container .messenger-header-user {
   font-size: 1rem;
 }
 

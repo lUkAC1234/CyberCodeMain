@@ -1,6 +1,9 @@
-from django.shortcuts import render
-from django.views.generic import TemplateView, ListView, DetailView
-from .models import PostModel, PricingModel
+from django.shortcuts import render, redirect, get_object_or_404, reverse
+from django.urls import reverse_lazy
+from django.contrib.messages.views import SuccessMessageMixin
+from django.views.generic import TemplateView, ListView, DetailView, CreateView
+from .models import PostModel, PricingModel, FeedbackModel, ContactusModel
+from .forms import ContactusModelForm
 
 class index(TemplateView):
     template_name = "pages/index.html"
@@ -9,13 +12,27 @@ class index(TemplateView):
         data = super().get_context_data(**kwargs)
         data['pricing'] = PricingModel.objects.filter(popular=True).order_by('-popular', '-id')[:3]
         data['posts'] = PostModel.objects.all()
+        data['feedbacks'] = FeedbackModel.objects.all()
         return data
 
 class about(TemplateView):
     template_name = "pages/about.html"
 
-class contact(TemplateView):
+class contact(CreateView):
+    form_class = ContactusModelForm
     template_name = "pages/contact.html"
+    success_url = '/contact/us/#contact-form' 
+    success_message = "Your form has been submitted successfully."
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        self.successfully_submitted = True
+        return super(contact, self).form_valid(form)
+    
+    def form_invalid(self, form):
+        response = super().form_invalid(form)
+        self.success_url = self.success_url + '?error=true'
+        return response
 
 class pricing(TemplateView):
     template_name = "pages/pricing.html"

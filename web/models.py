@@ -44,3 +44,23 @@ class PostModel(models.Model):
 
     def __str__(self):
         return self.title
+    
+class FeedbackModel(models.Model):
+    text = models.TextField()
+    user = models.ForeignKey(UserModel, on_delete=models.RESTRICT, related_name='feedbackUser')
+
+    class Meta:
+        verbose_name = 'Feedback'
+        verbose_name_plural = 'Feedbacks'
+        ordering = ('-id',)
+
+    def __str__(self):
+        return self.text
+    
+class ContactusModel(models.Model):
+    fullname = models.CharField(max_length=50)
+    phone = models.CharField(max_length=13)
+    email = models.EmailField(max_length=50)
+    company = models.CharField(max_length=100)
+    text = models.TextField()
+    user = models.ForeignKey(UserModel, on_delete=models.RESTRICT, related_name='contactUser')

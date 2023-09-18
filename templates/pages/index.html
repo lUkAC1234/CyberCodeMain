@@ -175,7 +175,7 @@
                             <p class="carousel-date-posted">Posted on</p>
                             <span class="carousel-date">{{ object.posted_on|date:"F d, Y" }}</span>
                         </div>
-                    </div> 
+                    </div>
                     {% endfor %}
                 </div>
             </div>
@@ -270,48 +270,19 @@
                     using CyberCode and took back control of their day</p>
             </div>
             <div class="feedback-container owl-carousel">
+                {% for object in feedbacks %}
                 <div class="feedback-slide">
                     <div class="feedback-content">
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi id alias ratione.
-                            Obcaecati odit praesentium harum corrupti? Iusto, ducimus fugiat quas dicta
-                            reiciendis dolorem officia voluptate molestias, distinctio voluptas exercitationem?
-                        </p>
+                        <a href="">{{ object.text|slice:"100"|safe }}{% if object.text|length > 0 %}...{% endif %}</a>
                     </div>
                     <div class="feedback-user">
                         <div class="feedback-user-container">
-                            <img src="{% static 'main/images/main-page/avatar.svg' %}" alt="">
+                            <img src="{{ object.user.user_image.url }}" alt="">
                         </div>
-                        <h1 class="feedback-username">Vincen Mcmahoon</h1>
+                        <h1 class="feedback-username">{{ object.user }}</h1>
                     </div>
                 </div>
-                <div class="feedback-slide">
-                    <div class="feedback-content">
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi id alias ratione.
-                            Obcaecati odit praesentium harum corrupti? Iusto, ducimus fugiat quas dicta
-                            reiciendis dolorem officia voluptate molestias, distinctio voluptas exercitationem?
-                        </p>
-                    </div>
-                    <div class="feedback-user">
-                        <div class="feedback-user-container">
-                            <img src="{% static 'main/images/main-page/avatar.svg' %}" alt="">
-                        </div>
-                        <h1 class="feedback-username">Vincen Mcmahoon</h1>
-                    </div>
-                </div>
-                <div class="feedback-slide">
-                    <div class="feedback-content">
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi id alias ratione.
-                            Obcaecati odit praesentium harum corrupti? Iusto, ducimus fugiat quas dicta
-                            reiciendis dolorem officia voluptate molestias, distinctio voluptas exercitationem?
-                        </p>
-                    </div>
-                    <div class="feedback-user">
-                        <div class="feedback-user-container">
-                            <img src="{% static 'main/images/main-page/carousel1.png' %}" alt="">
-                        </div>
-                        <h1 class="feedback-username">Vincen Mcmahoon</h1>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>
@@ -321,7 +292,5 @@
 {% endblock %}
 
 {% block js_block %}
-<script>
-</script>
 <script src="{% static 'main/scripts/js/carousel.js' %}"></script>
 {% endblock %}

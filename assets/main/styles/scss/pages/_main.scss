@@ -982,7 +982,9 @@
     padding: 2rem 1rem 1rem;
 
     .feedback-content {
-        @extend .info-text-gray-1rem;
+        a {
+            @extend .info-text-gray-1rem;
+        }
     }
 }
 

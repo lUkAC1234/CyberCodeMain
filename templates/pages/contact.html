@@ -12,11 +12,13 @@
         <div class="contact-page-gradient-main-container">
             <article class="contact-page-gradient-text-container">
                 <h1 class="contact-page-gradient-title">Contact us</h1>
-                <p class="contact-page-gradient-text">Questions? Comments? Want to schedule a demo? We’d love to chat!</p>
+                <p class="contact-page-gradient-text">Questions? Comments? Want to schedule a demo? We’d love to chat!
+                </p>
             </article>
             <article class="contact-page-gradient-image-container">
                 <div class="contact-page-gradient-image-column">
-                    <img class="contact-page-gradient-image" src="{% static 'main/images/contactus/contactusmain.webp' %}" alt="">
+                    <img class="contact-page-gradient-image"
+                        src="{% static 'main/images/contactus/contactusmain.webp' %}" alt="">
                 </div>
             </article>
         </div>
@@ -61,30 +63,45 @@
     <section class="contact-form">
         <div class="contact-form__wrapper">
             <div class="contact-form-column">
-                <form class="contact-form-column-form" action="">
+                <form class="contact-form-column-form" action="" method="POST" id="contact-form">
+                    {% csrf_token %}
                     <div class="contact-form-column-input-container">
-                        <input type="text" class="contact-form-column-input" placeholder=" ">
+                        <input type="text" class="contact-form-column-input" placeholder=" " name="fullname" required>
                         <label class="placeholder">Full Name</label>
                     </div>
                     <div class="contact-form-column-input-container">
-                        <input type="email" class="contact-form-column-input" placeholder=" ">
+                        <input type="email" class="contact-form-column-input" placeholder=" " name="email"
+                            autocomplete="off" required>
                         <label class="placeholder">Email address</label>
                     </div>
 
                     <div class="contact-form-column-input-container">
-                        <input type="text" class="contact-form-column-input" placeholder=" ">
+                        <input type="text" class="contact-form-column-input" placeholder=" " name="phone"
+                            pattern="\+\d{12}" minlength="12" required>
                         <label class="placeholder">Phone number</label>
                     </div>
 
                     <div class="contact-form-column-input-container">
-                        <input type="text" class="contact-form-column-input" placeholder=" ">
+                        <input type="text" class="contact-form-column-input" placeholder=" " name="company" required>
                         <label class="placeholder">Company name</label>
                     </div>
 
                     <div class="contact-form-column-big-input-container">
-                        <input type="text" class="contact-form-column-input" placeholder=" ">
+                        <input type="text" class="contact-form-column-input" placeholder=" " name="text" required>
                         <label class="placeholder">Messages</label>
                     </div>
+                    {% if form.errors %}
+                    <div class="alert alert-danger">
+                        <ul>
+                            {% for field, errors in form.errors.items %}
+                            {% for error in errors %}
+                            <li>{{ error }}</li>
+                            {% endfor %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+
                     <div class="contact-form-column-btn-container">
                         <button type="submit" class="contact-form-column-btn">Send message</button>
                     </div>
@@ -208,4 +225,9 @@
 
 {% block js_block %}
 <script src="{% static 'main/scripts/js/faq.js' %}"></script>
+{% if request.GET.error %}
+<script>
+    document.getElementById('contact-form').scrollIntoView();
+</script>
+{% endif %}
 {% endblock %}

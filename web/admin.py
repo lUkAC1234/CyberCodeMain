@@ -3,7 +3,7 @@
 from django.contrib import admin
 # --------------------------------------------------------------------------- #
 # Models and Forms
-from .models import UserModel, PricingModel, PostModel
+from .models import UserModel, PricingModel, PostModel, FeedbackModel, ContactusModel
 from .forms import PostModelForm
 # --------------------------------------------------------------------------- #
 # Translation
@@ -51,5 +51,17 @@ class PostModelAdmin(admin.ModelAdmin):
             obj.user = request.user
         return obj
     
+@admin.register(FeedbackModel)
+class FeedbackAdmin(admin.ModelAdmin):
+    list_display = ['id', 'text']
+    list_display_links = ['id', 'text']
+    search_fields = ['text']
+
+@admin.register(ContactusModel)
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ['id', 'company']
+    list_display_links = ['id', 'company']
+    search_fields = ['company']
+
 admin.site.site_header = 'Cyber Code'
 admin.site.site_title = 'Cyber Code'
