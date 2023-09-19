@@ -66,45 +66,48 @@
                 <form class="contact-form-column-form" action="" method="POST" id="contact-form">
                     {% csrf_token %}
                     <div class="contact-form-column-input-container">
-                        <input type="text" class="contact-form-column-input" placeholder=" " name="fullname" required>
+                        <input type="text" class="contact-form-column-input" placeholder=" "
+                            value="{{ form.fullname.value|default_if_none:'' }}" name="fullname" required>
                         <label class="placeholder">Full Name</label>
+                        {{form.fullname.errors}}
                     </div>
                     <div class="contact-form-column-input-container">
                         <input type="email" class="contact-form-column-input" placeholder=" " name="email"
-                            autocomplete="off" required>
+                            value="{{ form.email.value|default_if_none:'' }}" required>
                         <label class="placeholder">Email address</label>
+                        {{form.email.errors}}
                     </div>
 
                     <div class="contact-form-column-input-container">
                         <input type="text" class="contact-form-column-input" placeholder=" " name="phone"
-                            pattern="\+\d{12}" minlength="12" required>
+                            pattern="\+\d{12}" minlength="12" value="{{ form.phone.value|default_if_none:'' }}"
+                            required>
                         <label class="placeholder">Phone number</label>
+                        {{form.phone.errors}}
                     </div>
 
                     <div class="contact-form-column-input-container">
-                        <input type="text" class="contact-form-column-input" placeholder=" " name="company" required>
+                        <input type="text" class="contact-form-column-input" placeholder=" " name="company"
+                            value="{{ form.company.value|default_if_none:'' }}" required>
                         <label class="placeholder">Company name</label>
+                        {{form.company.errors}}
                     </div>
 
                     <div class="contact-form-column-big-input-container">
-                        <input type="text" class="contact-form-column-input" placeholder=" " name="text" required>
+                        <input type="text" class="contact-form-column-input"
+                            value="{{ form.text.value|default_if_none:'' }}" placeholder=" " name="text" required>
                         <label class="placeholder">Messages</label>
+                        {{form.text.errors}}
                     </div>
-                    {% if form.errors %}
-                    <div class="alert alert-danger">
-                        <ul>
-                            {% for field, errors in form.errors.items %}
-                            {% for error in errors %}
-                            <li>{{ error }}</li>
-                            {% endfor %}
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    {% endif %}
 
                     <div class="contact-form-column-btn-container">
                         <button type="submit" class="contact-form-column-btn">Send message</button>
                     </div>
+                    {% for message in messages %}
+                    <div class="contact-form-success-message" id="success-message">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
                 </form>
             </div>
             <div class="contact-form-image-column">
@@ -121,75 +124,21 @@
         <h1 class="faq-main-title">Frequently Asked Questions</h1>
         <p class="faq-main-info">Fill out the form and our team will get back to you as quickly as we can.</p>
         <div class="faq-container">
-            <div class="faq active">
+            {% for object in faqs %}
+            <div class="faq {% if forloop.counter == 1 or forloop.counter == 3 %} active{% endif %}">
                 <button class="faq-toggle-btn">
                     <i class="fa-solid fa-plus faq-icon"></i>
                 </button>
                 <div class="faq-btn-container">
                     <h3 class="faq-card-title">
-                        What is Cyber Code
+                        {{ object.question }}
                     </h3>
                 </div>
                 <p class="faq-text">
-                    Cyber Code is a personal productivity assistant, remote task manager, and smart to do
-                    list. It helps you supercharge your productivity by aggregating all of your work in one place.
-                    Keep track of your Google Calendar meetings and appointments, Slack messages, Asana tasks, and more
-                    - all in one unified to do list..
+                    {{ object.answer }}
                 </p>
             </div>
-            <div class="faq">
-                <button class="faq-toggle-btn">
-                    <i class="fa-solid fa-plus faq-icon"></i>
-                </button>
-                <div class="faq-btn-container">
-                    <h3 class="faq-card-title">
-                        How do I use Cyber Code
-                    </h3>
-                </div>
-                <p class="faq-text">
-                    Cyber Code is a personal productivity assistant, remote task manager, and smart to do
-                    list. It helps you supercharge your productivity by aggregating all of your work in one place.
-                    Keep track of your Google Calendar meetings and appointments, Slack messages, Asana tasks, and more
-                    - all in one unified to do list..
-                </p>
-            </div>
-            <div class="faq active">
-                <button class="faq-toggle-btn">
-                    <i class="fa-solid fa-plus faq-icon"></i>
-                </button>
-                <div class="faq-btn-container">
-                    <h3 class="faq-card-title">
-                        How can Cyber Code help my productivity?
-                    </h3>
-                </div>
-                <p class="faq-text">
-                    Remote work can be a challenge. We can get easily distracted by the plethora of video calls,
-                    calendar apps, communications from team members, different slack channels, irrelevant emails, and
-                    more…
-                    <br><br>
-                    Notifications and switching between multiple different channels and applications leads to chaos,
-                    inefficiency, and distraction.
-                    <br><br>
-                    Cyber Code solves that problem by aggregating all of those communication channels and to-do items in
-                    one centralized, easy to follow place. Stop wasting your valuable work hours searching, and start
-                    spending your time on high-priority tasks that will move the needle most.
-                </p>
-            </div>
-            <div class="faq">
-                <button class="faq-toggle-btn">
-                    <i class="fa-solid fa-plus faq-icon"></i>
-                </button>
-                <div class="faq-btn-container">
-                    <h3 class="faq-card-title">
-                        How do your integrations work?
-                    </h3>
-                </div>
-                <p class="faq-text">
-                    Cyber Code is a personal productivity assistant, remote task manager, and smart to do
-                    list. It helps you supercharge your productivity by aggregating all of your work in one place.
-                    Keep track of your Google Calendar meetings and appointments, Slack messages, Asana tasks, and more
-                    - all in one unified to do list..
-                </p>
+            {% endfor %}
             </div>
         </div>
     </section>
@@ -227,7 +176,9 @@
 <script src="{% static 'main/scripts/js/faq.js' %}"></script>
 {% if request.GET.error %}
 <script>
-    document.getElementById('contact-form').scrollIntoView();
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });
+    });
 </script>
 {% endif %}
 {% endblock %}

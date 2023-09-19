@@ -1,8 +1,9 @@
+from typing import Any
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import TemplateView, ListView, DetailView, CreateView
-from .models import PostModel, PricingModel, FeedbackModel, ContactusModel
+from .models import PostModel, PricingModel, FeedbackModel, ContactusModel, FaqModel, JobModel
 from .forms import ContactusModelForm
 
 class index(TemplateView):
@@ -18,11 +19,16 @@ class index(TemplateView):
 class about(TemplateView):
     template_name = "pages/about.html"
 
-class contact(CreateView):
+class contact(SuccessMessageMixin, CreateView):
     form_class = ContactusModelForm
     template_name = "pages/contact.html"
     success_url = '/contact/us/#contact-form' 
     success_message = "Your form has been submitted successfully."
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['faqs'] = FaqModel.objects.all()
+        return data
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -72,10 +78,12 @@ class blogdetail(DetailView):
     model = PostModel
     template_name = "pages/blogdetail.html"    
 
-class job(TemplateView):
+class job(ListView):
+    model = JobModel
     template_name = "pages/job.html"    
 
-class jobdetail(TemplateView):
+class jobdetail(DetailView):
+    model = JobModel
     template_name = "pages/jobdetail.html"    
 
 class helpcenter(TemplateView):

@@ -3,7 +3,8 @@
 from django.contrib import admin
 # --------------------------------------------------------------------------- #
 # Models and Forms
-from .models import UserModel, PricingModel, PostModel, FeedbackModel, ContactusModel
+from .models import UserModel, PricingModel, PostModel, FeedbackModel, ContactusModel, \
+FaqModel, JobModel, JobCategoryModel
 from .forms import PostModelForm
 # --------------------------------------------------------------------------- #
 # Translation
@@ -31,7 +32,7 @@ class PricingAdmin(admin.ModelAdmin):
     search_fields = ['type', 'price']
 
 @admin.register(PostModel)
-class PostModelAdmin(admin.ModelAdmin):
+class PostAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'user']
     list_display_links = ['id', 'title']
     search_fields = ['title']
@@ -62,6 +63,24 @@ class ContactAdmin(admin.ModelAdmin):
     list_display = ['id', 'company']
     list_display_links = ['id', 'company']
     search_fields = ['company']
+
+@admin.register(FaqModel)
+class FAQAdmin(admin.ModelAdmin):
+    list_display = ['id', 'question']
+    list_display_links = ['id', 'question']
+    search_fields = ['question']
+
+@admin.register(JobModel)
+class JobAdmin(admin.ModelAdmin):
+    list_display = ['id', 'title']
+    list_display_links = ['id', 'title']
+    search_fields = ['title']
+
+@admin.register(JobCategoryModel)
+class JobCategoryAdmin(admin.ModelAdmin):
+    list_display = ['id', 'category']
+    list_display_links = ['id', 'category']
+    search_fields = ['category']
 
 admin.site.site_header = 'Cyber Code'
 admin.site.site_title = 'Cyber Code'

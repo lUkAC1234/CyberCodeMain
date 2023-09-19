@@ -16,10 +16,9 @@
                 <div class="job-gradient-info-image-container">
                     <i class="fa-solid fa-image"></i>
                 </div>
-                <h1 class="job-gradient-info-title">Lead UI Designer</h1>
-                <h2 class="job-gradient-info-category">Development</h2>
-                <p class="job-gradient-info-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit lobortis arcu
-                    enim urna adipiscing praesent velit viverra sit semper dat.</p>
+                <h1 class="job-gradient-info-title">{{ object.title }}</h1>
+                <h2 class="job-gradient-info-category">{{ object.category }}</h2>
+                <p class="job-gradient-info-text">{{ object.description }}</p>
                 <div class="job-gradient-info-btn-container">
                     <a href="">
                         <button class="job-gradient-info-btn">Apply now</button>
@@ -39,8 +38,7 @@
     <section class="job-info-section">
         <div class="job-info-container">
             <h1 class="job-info-title">About the job</h1>
-            <p class="job-info-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit lobortis arcu enim urna
-                adipiscing praesent velit </p>
+            <p class="job-info-text">{{ object.description }}</p>
             <div class="job-info-btn-container">
                 <button class="toggle-button active" id="about-the-jobBtn">About the job</button>
                 <button class="toggle-button" id="responsibilitiesBtn">Responsibilities</button>
@@ -56,117 +54,21 @@
     <section class="job-detail-text-section">
         <div class="job-detail-text-container">
             <div class="job-detail-text-column about-the-job-content active">
-                <h1 class="documentation-content-title">About Lead UI Designer</h1>
-                <p class="documentation-content-text">It’s easy to simply gather your group, state your problem, and ask
-                    for ideas. But is this the most efficient way to generate fresh, productive ideas? There are
-                    specialised methods for brainstorming that take idea generation seriously, and you may want to give
-                    some a try. They include:</p>
-                <div class="documentation-content-container">
-                    <ul class="documentation-content-wrapper">
-                        <li class="documentation-content-li">
-                            <h1 class="documentation-content-li-title">How to contact with us: </h1>
-                            It’s easy to simply gather your group, state your problem, and ask for ideas. But is this
-                            the most efficient way to generate fresh, productive ideas? There are specialised methods
-                            for brainstorming that take idea generation seriously, and you may want to give some a try.
-                            They include:
-
-                            Brainwriting: Everyone writes down three ideas and passes their ideas to the person on their
-                            left (or right), who builds off those ideas before passing them on again. This way, ideas
-                            can cross-pollinate, morph and build on top of each other from different perspectives. After
-                            all, two heads are better than one.
-                            Rapid ideation: Everyone writes down as many ideas as they can in a set amount of time
-                            before anything is discussed or critiqued. This is a fun way to get all the good (and bad)
-                            ideas out fast and bring a sense of fun urgency to the session.
-                            Figure storming: The group picks a well-known figure who is not in the room and asks how
-                            they would approach the problem. For example, “How would Barack Obama (or Harry Potter, or
-                            anyone else) approach this problem?” - prepare for some funny answers here, this method is a
-                            good ice-breaker for everyone involved.
-                            Change of scenery: Sometimes the conference room is not the best place for brainstorming.
-                            Try moving outside, heading for lunch, or playing a game to get the creative juices flowing.
-                            One tried and tested method we enjoy is walking in nature, find a park and sit under a tree
-                            - the change of context will inspire fresh perspectives from your team.
-
-                        </li>
-                    </ul>
-                </div>
-                <div class="documentation-image-container">
-                    <img class="documentation-image" src="{% static 'main/images/documentation/documents.png' %}" alt="">
+                <h1 class="documentation-content-title">About {{ object.title }}</h1>
+                <div class="documentation-content-container job-content">
+                    {{ object.aboutthejob|safe }}
                 </div>
             </div>
             <div class="job-detail-text-column responsibilities-content">
                 <h1 class="documentation-content-title">About Responsibilities</h1>
-                <p class="documentation-content-text">It’s easy to simply gather your group, state your problem, and ask
-                    for ideas. But is this the most efficient way to generate fresh, productive ideas? There are
-                    specialised methods for brainstorming that take idea generation seriously, and you may want to give
-                    some a try. They include:</p>
-                <div class="documentation-content-container">
-                    <ul class="documentation-content-wrapper">
-                        <li class="documentation-content-li">
-                            <h1 class="documentation-content-li-title">How to contact with us: </h1>
-                            It’s easy to simply gather your group, state your problem, and ask for ideas. But is this
-                            the most efficient way to generate fresh, productive ideas? There are specialised methods
-                            for brainstorming that take idea generation seriously, and you may want to give some a try.
-                            They include:
-
-                            Brainwriting: Everyone writes down three ideas and passes their ideas to the person on their
-                            left (or right), who builds off those ideas before passing them on again. This way, ideas
-                            can cross-pollinate, morph and build on top of each other from different perspectives. After
-                            all, two heads are better than one.
-                            Rapid ideation: Everyone writes down as many ideas as they can in a set amount of time
-                            before anything is discussed or critiqued. This is a fun way to get all the good (and bad)
-                            ideas out fast and bring a sense of fun urgency to the session.
-                            Figure storming: The group picks a well-known figure who is not in the room and asks how
-                            they would approach the problem. For example, “How would Barack Obama (or Harry Potter, or
-                            anyone else) approach this problem?” - prepare for some funny answers here, this method is a
-                            good ice-breaker for everyone involved.
-                            Change of scenery: Sometimes the conference room is not the best place for brainstorming.
-                            Try moving outside, heading for lunch, or playing a game to get the creative juices flowing.
-                            One tried and tested method we enjoy is walking in nature, find a park and sit under a tree
-                            - the change of context will inspire fresh perspectives from your team.
-
-                        </li>
-                    </ul>
-                </div>
-                <div class="documentation-image-container">
-                    <img class="documentation-image" src="{% static 'main/images/contactus/contactusmain.webp' %}" alt="">
+                <div class="documentation-content-container job-content">
+                    {{ object.responsibilities|safe }}
                 </div>
             </div>
             <div class="job-detail-text-column requirements-content">
                 <h1 class="documentation-content-title">About Requirements</h1>
-                <p class="documentation-content-text">It’s easy to simply gather your group, state your problem, and ask
-                    for ideas. But is this the most efficient way to generate fresh, productive ideas? There are
-                    specialised methods for brainstorming that take idea generation seriously, and you may want to give
-                    some a try. They include:</p>
-                <div class="documentation-content-container">
-                    <ul class="documentation-content-wrapper">
-                        <li class="documentation-content-li">
-                            <h1 class="documentation-content-li-title">How to contact with us: </h1>
-                            It’s easy to simply gather your group, state your problem, and ask for ideas. But is this
-                            the most efficient way to generate fresh, productive ideas? There are specialised methods
-                            for brainstorming that take idea generation seriously, and you may want to give some a try.
-                            They include:
-
-                            Brainwriting: Everyone writes down three ideas and passes their ideas to the person on their
-                            left (or right), who builds off those ideas before passing them on again. This way, ideas
-                            can cross-pollinate, morph and build on top of each other from different perspectives. After
-                            all, two heads are better than one.
-                            Rapid ideation: Everyone writes down as many ideas as they can in a set amount of time
-                            before anything is discussed or critiqued. This is a fun way to get all the good (and bad)
-                            ideas out fast and bring a sense of fun urgency to the session.
-                            Figure storming: The group picks a well-known figure who is not in the room and asks how
-                            they would approach the problem. For example, “How would Barack Obama (or Harry Potter, or
-                            anyone else) approach this problem?” - prepare for some funny answers here, this method is a
-                            good ice-breaker for everyone involved.
-                            Change of scenery: Sometimes the conference room is not the best place for brainstorming.
-                            Try moving outside, heading for lunch, or playing a game to get the creative juices flowing.
-                            One tried and tested method we enjoy is walking in nature, find a park and sit under a tree
-                            - the change of context will inspire fresh perspectives from your team.
-
-                        </li>
-                    </ul>
-                </div>
-                <div class="documentation-image-container">
-                    <img class="documentation-image" src="{% static 'main/images/jobdetail/jobdetailmain.png' %}" alt="">
+                <div class="documentation-content-container job-content">
+                    {{ object.requirements|safe }}
                 </div>
             </div>
         </div>
@@ -183,39 +85,15 @@
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit lobortis arcu enim urna adipiscing praesent velit viverra
             </p>
             <article class="website-technologies-container">
-                <div class="website-technologies-column">
-                    <div class="website-technologies-image-container">
-                        <img src="{% static 'main/images/technologies/djangoicon.svg' %}" alt="">
+                <a href="{% url 'main:jobdetail' pk=object.pk %}" class="job-column">
+                    <div>
+                        <div class="website-technologies-type-container">
+                            <h1 class="website-technologies-title">{{ object.title }}</h1>
+                            <h2 class="website-technologies-type">{{ object.category }}</h2>
+                        </div>
+                        <p class="website-technologies-text">{{ object.description }}</p>
                     </div>
-                    <div class="website-technologies-type-container">
-                        <h1 class="website-technologies-title">Frontend Developer</h1>
-                        <h2 class="website-technologies-type">Development</h2>
-                    </div>
-                    <p class="website-technologies-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Lobortis arcu enim urna adipiscing prae</p>
-                </div>
-                <div class="website-technologies-column">
-                    <div class="website-technologies-image-container">
-                        <img src="{% static 'main/images/technologies/python.webp' %}" alt="">
-                    </div>
-                    <div class="website-technologies-type-container">
-                        <h1 class="website-technologies-title">Backend Developer</h1>
-                        <h2 class="website-technologies-type">Development</h2>
-                    </div>
-                    <p class="website-technologies-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Lobortis arcu enim urna adipiscing prae</p>
-                </div>
-                <div class="website-technologies-column">
-                    <div class="website-technologies-image-container">
-                        <img src="{% static 'main/images/technologies/html.svg' %}" alt="">
-                    </div>
-                    <div class="website-technologies-type-container">
-                        <a href="{% url 'main:jobdetail' %}"><h1 class="website-technologies-title">FullStack Developer</h1></a>
-                        <h2 class="website-technologies-type">Development</h2>
-                    </div>
-                    <p class="website-technologies-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Lobortis arcu enim urna adipiscing prae</p>
-                </div>
+                </a>
             </article>
 
             <div class="more-job-openings-btn-container">

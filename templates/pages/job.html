@@ -90,61 +90,17 @@
                 velit viverra sit semper draconius lemper siat.
             </p>
             <article class="website-technologies-container">
-                <div class="website-technologies-column">
-                    <div class="website-technologies-image-container">
-                        <img src="{% static 'main/images/technologies/djangoicon.svg' %}" alt="">
+                {% for object in object_list %}
+                <a href="{% url 'main:jobdetail' pk=object.pk %}" class="job-column">
+                    <div>
+                        <div class="website-technologies-type-container">
+                            <h1 class="website-technologies-title">{{ object.title }}</h1>
+                            <h2 class="website-technologies-type">{{ object.category }}</h2>
+                        </div>
+                        <p class="website-technologies-text">{{ object.description }}</p>
                     </div>
-                    <div class="website-technologies-type-container">
-                        <h1 class="website-technologies-title">Frontend Developer</h1>
-                        <h2 class="website-technologies-type">Development</h2>
-                    </div>
-                    <p class="website-technologies-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Lobortis arcu enim urna adipiscing prae</p>
-                </div>
-                <div class="website-technologies-column">
-                    <div class="website-technologies-image-container">
-                        <img src="{% static 'main/images/technologies/python.webp' %}" alt="">
-                    </div>
-                    <div class="website-technologies-type-container">
-                        <h1 class="website-technologies-title">Backend Developer</h1>
-                        <h2 class="website-technologies-type">Development</h2>
-                    </div>
-                    <p class="website-technologies-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Lobortis arcu enim urna adipiscing prae</p>
-                </div>
-                <div class="website-technologies-column">
-                    <div class="website-technologies-image-container">
-                        <img src="{% static 'main/images/technologies/postgresql.svg' %}" alt="">
-                    </div>
-                    <div class="website-technologies-type-container">
-                        <h1 class="website-technologies-title">WordPress Developer</h1>
-                        <h2 class="website-technologies-type">Development</h2>
-                    </div>
-                    <p class="website-technologies-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Lobortis arcu enim urna adipiscing prae</p>
-                </div>
-                <div class="website-technologies-column">
-                    <div class="website-technologies-image-container">
-                        <img src="{% static 'main/images/technologies/react.svg' %}" alt="">
-                    </div>
-                    <div class="website-technologies-type-container">
-                        <h1 class="website-technologies-title">Designer</h1>
-                        <h2 class="website-technologies-type">Design</h2>
-                    </div>
-                    <p class="website-technologies-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Lobortis arcu enim urna adipiscing prae</p>
-                </div>
-                <div class="website-technologies-column">
-                    <div class="website-technologies-image-container">
-                        <img src="{% static 'main/images/technologies/html.svg' %}" alt="">
-                    </div>
-                    <div class="website-technologies-type-container">
-                        <a href="{% url 'main:jobdetail' %}"><h1 class="website-technologies-title">FullStack Developer</h1></a>
-                        <h2 class="website-technologies-type">Development</h2>
-                    </div>
-                    <p class="website-technologies-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Lobortis arcu enim urna adipiscing prae</p>
-                </div>
+                </a>
+                {% endfor %}
             </article>
         </div>
     </section>

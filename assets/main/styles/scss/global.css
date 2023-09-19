@@ -732,15 +732,51 @@
 }
 
 .feedback-slide {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
   width: 100%;
   max-width: 30rem;
+  height: 100%;
   background: var(--carousel-image-background);
   border-radius: 1.25rem;
+  border: 2px solid transparent;
   padding: 2rem 1rem 1rem;
+  min-height: 15rem;
+  max-height: 15rem;
+  transition: all 0.5s;
 }
+.feedback-slide:hover {
+  border-color: var(--background-purple);
+}
+.feedback-slide:hover .feedback-content .feedback-content-text {
+  color: var(--text-purple);
+  transition: all 0.5s;
+}
+@media screen and (max-width: 500px) {
+  .feedback-slide {
+    min-height: 20rem;
+    max-height: 20rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .feedback-slide {
+    min-height: 25rem;
+    max-height: 25rem;
+  }
+}
+
 .feedback-user {
+  position: absolute;
   gap: 0.5rem;
   margin-top: 1rem;
+  bottom: 0rem;
+  left: 0rem;
+  background: var(--carousel-image-background);
+  width: 100%;
+  border-radius: 0 0 1.25rem 1.25rem;
+  padding: 1.5rem 0.5rem 0.5rem;
 }
 .feedback-user .feedback-user-container {
   width: 3rem;
@@ -1053,7 +1089,8 @@
   margin-top: 10rem;
 }
 
-.website-technologies-column {
+.website-technologies-column,
+.job-column {
   display: grid;
   place-items: center;
   background: var(--background-white);
@@ -1062,23 +1099,33 @@
   padding: 2rem 1.5rem;
   box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.1);
   min-height: 20rem;
+  border: 2px solid transparent;
+  transition: all 0.5s;
 }
-.website-technologies-column .website-technologies-image-container img {
+.website-technologies-column .website-technologies-image-container img,
+.job-column .website-technologies-image-container img {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
   object-fit: cover;
 }
-.website-technologies-column .website-technologies-title {
+.website-technologies-column .website-technologies-title,
+.job-column .website-technologies-title {
   margin: 1rem 0 0.5rem;
 }
-.website-technologies-column .website-technologies-type {
+.website-technologies-column .website-technologies-type,
+.job-column .website-technologies-type {
   color: var(--text-purple) !important;
   text-align: center;
 }
-.website-technologies-column .website-technologies-text {
+.website-technologies-column .website-technologies-text,
+.job-column .website-technologies-text {
   text-align: center;
   margin-top: 1rem;
+}
+
+.job-column:hover {
+  border-color: var(--background-purple);
 }
 
 @media screen and (max-width: 600px) {
@@ -1086,7 +1133,8 @@
     gap: 2rem;
     margin-top: 5rem;
   }
-  .website-technologies-column {
+  .website-technologies-column,
+  .job-column {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -1094,36 +1142,46 @@
     width: 100%;
     min-height: 15rem;
   }
-  .website-technologies-column .website-technologies-image-container img {
+  .website-technologies-column .website-technologies-image-container img,
+  .job-column .website-technologies-image-container img {
     width: 4rem;
     height: 4rem;
     border-radius: 1rem;
   }
-  .website-technologies-column .website-technologies-title {
+  .website-technologies-column .website-technologies-title,
+  .job-column .website-technologies-title {
     margin: 0rem 0 0;
   }
   .website-technologies-column .website-technologies-type,
   .website-technologies-column .website-technologies-title,
-  .website-technologies-column .website-technologies-text {
+  .website-technologies-column .website-technologies-text,
+  .job-column .website-technologies-type,
+  .job-column .website-technologies-title,
+  .job-column .website-technologies-text {
     text-align: start !important;
     margin: 0rem 0 0;
   }
 }
 @media screen and (max-width: 450px) {
-  .website-technologies-column {
+  .website-technologies-column,
+  .job-column {
     min-height: auto;
     gap: 0.5rem 1rem;
   }
-  .website-technologies-column .website-technologies-image-container img {
+  .website-technologies-column .website-technologies-image-container img,
+  .job-column .website-technologies-image-container img {
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 0.5rem;
   }
-  .website-technologies-column .website-technologies-title {
+  .website-technologies-column .website-technologies-title,
+  .job-column .website-technologies-title {
     font-size: 1.125rem !important;
   }
   .website-technologies-column .website-technologies-type,
-  .website-technologies-column .website-technologies-text {
+  .website-technologies-column .website-technologies-text,
+  .job-column .website-technologies-type,
+  .job-column .website-technologies-text {
     font-size: 1rem !important;
   }
 }
@@ -1759,6 +1817,10 @@
     width: 100%;
   }
 }
+.contact-form .contact-form__wrapper {
+  position: relative;
+}
+
 .contact-form-image-column {
   width: 24rem;
   height: 24rem;
@@ -1835,6 +1897,14 @@
   top: -15px;
   background: var(--background-white);
 }
+.contact-form-column-input-container ul li,
+.contact-form-column-big-input-container ul li {
+  color: #fb4d4d !important;
+  font-size: 1rem;
+  font-family: var(--grotext-sans);
+  font-weight: 500;
+  margin: 0.25rem 0;
+}
 
 .contact-form-column-big-input-container {
   width: 100%;
@@ -1845,6 +1915,31 @@
 }
 .contact-form-column-big-input-container .placeholder {
   top: 2.6rem;
+}
+
+.contact-form-success-message {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background: var(--background-purple) !important;
+  padding: 0.5rem;
+  text-align: center;
+  bottom: -3rem;
+}
+@media screen and (max-width: 992px) {
+  .contact-form-success-message {
+    bottom: -4rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .contact-form-success-message {
+    font-size: 0.9rem !important;
+  }
+}
+
+.contact-form-success-message.active {
+  display: none;
 }
 
 .contact-form-column-btn-container {
@@ -3511,6 +3606,7 @@
 }
 .job-gradient-info-container .job-gradient-info-category {
   color: var(--text-purple) !important;
+  margin-top: 0.5rem;
 }
 .job-gradient-info-container .job-gradient-info-text {
   margin: 1rem 0 2.75rem;
@@ -3586,6 +3682,40 @@
     padding: 0.75rem 1.5rem !important;
     font-size: 1rem !important;
   }
+}
+
+.job-content h1,
+.job-content h2,
+.job-content h3,
+.job-content h4,
+.job-content h5,
+.job-content h6 {
+  margin-block: 1rem;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+}
+.job-content p,
+.job-content pre,
+.job-content li,
+.job-content ul,
+.job-content a,
+.job-content address,
+.job-content i,
+.job-content div,
+.job-content strong {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  word-break: break-all !important;
+}
+.job-content li {
+  margin: 0.5rem 0rem 0.5rem 1rem;
+}
+.job-content li::first-line {
+  color: var(--text-dark-blue) !important;
+}
+.job-content a {
+  color: var(--text-purple) !important;
+  text-decoration: underline;
 }
 
 .job-detail-text-container {
@@ -5342,10 +5472,30 @@
     padding: 0;
   }
 }
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  background: none !important;
+  -webkit-box-shadow: transparent !important;
+  -webkit-transition: color 9999999s ease-out, background-color 9999999s ease-out;
+}
+
 .dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .used-technologies-container .used-technologies-column .used-technologies-text, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .categorie-column .recommended h1, .post-text-container .post-posted, .featured-posts-column .featured-post-column-posted, .messenger-your-message-user-profile .messenger-your-message-username,
 .messenger-your-message-user-profile .messenger-others-message-username,
 .messenger-others-message-user-profile .messenger-your-message-username,
-.messenger-others-message-user-profile .messenger-others-message-username, .profile-edit-column label, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text, .sign-info-btn-container .sign-info-check-account, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .job-gradient-info-container .job-gradient-info-category, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-info-container .sign-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .documentation-content-title, .post-text-container .post-title, .featured-posts-column .featured-post-column-title, .detail-gradient-container .detail-gradient-username, .sign-image-container .sign-image-title, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .language-toggle-text-container .toggle-language-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
+.messenger-others-message-user-profile .messenger-others-message-username, .profile-edit-column label, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text, .sign-info-btn-container .sign-info-check-account, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title,
+.job-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .job-gradient-info-container .job-gradient-info-category, .job-content h1,
+.job-content h2,
+.job-content h3,
+.job-content h4,
+.job-content h5,
+.job-content h6, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-info-container .sign-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .documentation-content-title, .post-text-container .post-title, .featured-posts-column .featured-post-column-title, .detail-gradient-container .detail-gradient-username, .sign-image-container .sign-image-title, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .language-toggle-text-container .toggle-language-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
 .featured-posts-category-title, .posts-tags-title, .detail-gradient-container .detail-gradient-title, .detail-content-wrapper .detail-content-title, .detail-link-text-container .detail-link-title {
   color: var(--text-dark-blue);
   text-align: center;
@@ -5364,7 +5514,13 @@
   font-size: 2rem;
 }
 
-.dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .job-gradient-info-container .job-gradient-info-category, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-info-container .sign-info-title {
+.dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title,
+.job-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .job-gradient-info-container .job-gradient-info-category, .job-content h1,
+.job-content h2,
+.job-content h3,
+.job-content h4,
+.job-content h5,
+.job-content h6, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-info-container .sign-info-title {
   font-size: 1.5rem;
 }
 
@@ -5375,8 +5531,17 @@
   font-size: 1rem;
 }
 
-.info-text-gray-1-125rem, .info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content a, .faq-text, .price-column .pricing-popular-date, .pricing-list-text-container .pricing-list-text, .categorie-column .pricing-popular-date, .documentation-content-text, .documentation-content-wrapper .documentation-content-li, .messenger-header-user-info-container .messenger-header-user, .static-info .static-info-text, .choices-column .abilities ul li, .choices-column:has(.recommended) .price-column ul li,
-.choices-column:has(.recommended) .abilities ul li, .carousel-title-container .carousel-text, .feedback-user .feedback-username, .website-technologies-main-text, .website-technologies-column .website-technologies-type, .clients-column .client-text, .team-members-info-column .team-members-info-text, .system-info-container .system-info-text, .system-column .system-text, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-info, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info, .ready-to-try-info, .pricing-popular-abilities ul li, .pricing-popular-column:has(.recommended) .price-column ul li,
+.info-text-gray-1-125rem, .info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content .feedback-content-text, .faq-text, .price-column .pricing-popular-date, .pricing-list-text-container .pricing-list-text, .categorie-column .pricing-popular-date, .documentation-content-text, .documentation-content-wrapper .documentation-content-li, .job-content p,
+.job-content pre,
+.job-content li,
+.job-content ul,
+.job-content a,
+.job-content address,
+.job-content i,
+.job-content div,
+.job-content strong, .messenger-header-user-info-container .messenger-header-user, .static-info .static-info-text, .choices-column .abilities ul li, .choices-column:has(.recommended) .price-column ul li,
+.choices-column:has(.recommended) .abilities ul li, .carousel-title-container .carousel-text, .feedback-user .feedback-username, .website-technologies-main-text, .website-technologies-column .website-technologies-type,
+.job-column .website-technologies-type, .clients-column .client-text, .team-members-info-column .team-members-info-text, .system-info-container .system-info-text, .system-column .system-text, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-info, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info, .ready-to-try-info, .pricing-popular-abilities ul li, .pricing-popular-column:has(.recommended) .price-column ul li,
 .pricing-popular-column:has(.recommended) .pricing-popular-abilities ul li, .custom-build-column .custom-build-text, .services-text-container .services-text-text, .pricing-categories-column:has(.recommended) .categorie-column ul li,
 .pricing-categories-column:has(.recommended) .pricing-categories-abilities ul li, .pricing-categories-abilities ul li, .language-toggle-text-container .toggle-language-text, .post-text-container .post-text, .featured-posts-column .featured-post-column-text, .detail-content-wrapper pre,
 .detail-content-wrapper li,
@@ -5391,11 +5556,20 @@
   line-height: 160%;
 }
 
-.info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content a, .faq-text, .price-column .pricing-popular-date, .pricing-list-text-container .pricing-list-text, .categorie-column .pricing-popular-date, .documentation-content-text, .documentation-content-wrapper .documentation-content-li, .messenger-header-user-info-container .messenger-header-user {
+.info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content .feedback-content-text, .faq-text, .price-column .pricing-popular-date, .pricing-list-text-container .pricing-list-text, .categorie-column .pricing-popular-date, .documentation-content-text, .documentation-content-wrapper .documentation-content-li, .job-content p,
+.job-content pre,
+.job-content li,
+.job-content ul,
+.job-content a,
+.job-content address,
+.job-content i,
+.job-content div,
+.job-content strong, .messenger-header-user-info-container .messenger-header-user {
   font-size: 1rem;
 }
 
-.chat-text-gray, .chat-date-text, .chat-text-gray-1-125, .task-content-column .task-text, .package .package-info, .about-page-gradient-text-container .about-page-gradient-text, .website-technologies-column .website-technologies-text, .contact-us-hero-text-container .contact-us-hero-column-info, .services-info-column .services-info-text, .detail-gradient-container .detail-gradient-posted, .profile-user-info-container .profile-email, .chat-column .message-container .chat-message-text, .carousel-text-container .carousel-slide-text, .carousel-date-container .carousel-date-posted,
+.chat-text-gray, .chat-date-text, .chat-text-gray-1-125, .task-content-column .task-text, .package .package-info, .about-page-gradient-text-container .about-page-gradient-text, .website-technologies-column .website-technologies-text,
+.job-column .website-technologies-text, .contact-us-hero-text-container .contact-us-hero-column-info, .services-info-column .services-info-text, .detail-gradient-container .detail-gradient-posted, .profile-user-info-container .profile-email, .chat-column .message-container .chat-message-text, .carousel-text-container .carousel-slide-text, .carousel-date-container .carousel-date-posted,
 .carousel-date-container .carousel-date, .about-page-gradient-image-column-task-date, .messenger-your-message-user-profile .messenger-your-message-time,
 .messenger-your-message-user-profile .messenger-others-message-time,
 .messenger-others-message-user-profile .messenger-your-message-time,
@@ -5407,7 +5581,8 @@
   line-height: 140%;
 }
 
-.chat-text-gray-1-125, .task-content-column .task-text, .package .package-info, .about-page-gradient-text-container .about-page-gradient-text, .website-technologies-column .website-technologies-text, .contact-us-hero-text-container .contact-us-hero-column-info, .services-info-column .services-info-text, .detail-gradient-container .detail-gradient-posted, .profile-user-info-container .profile-email {
+.chat-text-gray-1-125, .task-content-column .task-text, .package .package-info, .about-page-gradient-text-container .about-page-gradient-text, .website-technologies-column .website-technologies-text,
+.job-column .website-technologies-text, .contact-us-hero-text-container .contact-us-hero-column-info, .services-info-column .services-info-text, .detail-gradient-container .detail-gradient-posted, .profile-user-info-container .profile-email {
   font-size: 1.125rem;
   line-height: 160%;
 }
@@ -5425,7 +5600,12 @@
 }
 
 .text-align-start, .task-content-column .task-title, .static-info .static-info-title, .carousel-title-container .carousel-title, .carousel-text-container .carousel-slide-title, .about-page-gradient-text-container .about-page-gradient-title, .about-page-gradient-image-column-task-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .faq-card-title, .ready-to-try-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .documentation-content-title, .blog-gradient-title, .post-text-container .post-title, .featured-search-title,
-.featured-posts-category-title, .featured-posts-column .featured-post-column-title, .posts-tags-title, .detail-content-wrapper .detail-content-title, .detail-link-text-container .detail-link-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-gradient-info-container .job-gradient-info-category, .messenger-header-user-info-container .messenger-header-username, .messenger-your-message-user-profile .messenger-your-message-username,
+.featured-posts-category-title, .featured-posts-column .featured-post-column-title, .posts-tags-title, .detail-content-wrapper .detail-content-title, .detail-link-text-container .detail-link-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-gradient-info-container .job-gradient-info-category, .job-content h1,
+.job-content h2,
+.job-content h3,
+.job-content h4,
+.job-content h5,
+.job-content h6, .messenger-header-user-info-container .messenger-header-username, .messenger-your-message-user-profile .messenger-your-message-username,
 .messenger-your-message-user-profile .messenger-others-message-username,
 .messenger-others-message-user-profile .messenger-your-message-username,
 .messenger-others-message-user-profile .messenger-others-message-username, .profile-main-edit-container .profile-edit-title, .profile-edit-column label, .profile-contact-edit-container .profile-edit-title, .sign-image-container .sign-image-title, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text {
@@ -5440,7 +5620,7 @@
   text-align: end;
 }
 
-.white-1rem-grotext, .white-1-125rem-grotext, .contact-page-gradient-text-container .contact-page-gradient-text, .pricing-popular-package-info, .btn-for-list-of-packages .click-title, .detail-gradient-container .detail-gradient-posted-date, .detail-share-user-info-container .detail-share-username, .join-our-team-text, .choices-column .price-column .choice-type, .feedback-list-text-column .feedback-list-text-column-title, .feedback-list-text-column .feedback-list-text-column-text, .client-sphere .client-sphere-info, .about-get-in-touch-text-column .about-get-in-touch-title, .about-get-in-touch-text-column .about-get-in-touch-text, .price-column .pricing-popular-type, .categorie-column .pricing-popular-type, .post-text-container .post-date, .featured-posts-column .featured-post-column-date {
+.white-1rem-grotext, .white-1-125rem-grotext, .contact-page-gradient-text-container .contact-page-gradient-text, .pricing-popular-package-info, .btn-for-list-of-packages .click-title, .detail-gradient-container .detail-gradient-posted-date, .detail-share-user-info-container .detail-share-username, .join-our-team-text, .choices-column .price-column .choice-type, .feedback-list-text-column .feedback-list-text-column-title, .feedback-list-text-column .feedback-list-text-column-text, .client-sphere .client-sphere-info, .about-get-in-touch-text-column .about-get-in-touch-title, .about-get-in-touch-text-column .about-get-in-touch-text, .contact-form-success-message, .price-column .pricing-popular-type, .categorie-column .pricing-popular-type, .post-text-container .post-date, .featured-posts-column .featured-post-column-date {
   color: var(--text-white);
   font-size: 1rem;
   font-family: var(--grotext-sans);

@@ -111,6 +111,7 @@
         @extend .dark-blue-text-center-grotext-family-1-5rem;
         @extend .text-align-start;
         color: var(--text-purple) !important;
+        margin-top: 0.5rem;
     }
 
     .job-gradient-info-text {
@@ -203,6 +204,50 @@
             padding: 0.75rem 1.5rem !important;
             font-size: 1rem !important;
         }
+    }
+}
+
+.job-content {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @extend .dark-blue-text-center-grotext-family-1-5rem;
+        @extend .text-align-start;
+        margin-block: 1rem;
+        white-space: normal !important;
+        word-wrap: break-word !important;
+    }
+
+    p,
+    pre,
+    li,
+    ul,
+    a,
+    address,
+    i,
+    div,
+    strong {
+        @extend .info-text-gray-1rem;
+        white-space: normal !important;
+        word-wrap: break-word !important;
+        word-break: break-all !important;
+    }
+
+    li {
+        margin: 0.5rem 0rem 0.5rem 1rem;
+    }
+
+    li::first-line {
+        color: var(--text-dark-blue) !important;
+    }
+
+    a {
+        color: var(--text-purple) !important;
+        text-decoration: underline;
     }
 }
 

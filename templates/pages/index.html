@@ -271,17 +271,19 @@
             </div>
             <div class="feedback-container owl-carousel">
                 {% for object in feedbacks %}
-                <div class="feedback-slide">
-                    <div class="feedback-content">
-                        <a href="">{{ object.text|slice:"100"|safe }}{% if object.text|length > 0 %}...{% endif %}</a>
-                    </div>
-                    <div class="feedback-user">
-                        <div class="feedback-user-container">
-                            <img src="{{ object.user.user_image.url }}" alt="">
+                <a href="">
+                    <div class="feedback-slide">
+                        <div class="feedback-content">
+                            <p class="feedback-content-text">{{ object.text|slice:"200"|safe }}{% if object.text|length > 0 %}...{% endif %}</p>
                         </div>
-                        <h1 class="feedback-username">{{ object.user }}</h1>
+                        <div class="feedback-user">
+                            <div class="feedback-user-container">
+                                <img src="{{ object.user.user_image.url }}" alt="">
+                            </div>
+                            <h1 class="feedback-username">{{ object.user }}</h1>
+                        </div>
                     </div>
-                </div>
+                </a>
                 {% endfor %}
             </div>
         </div>
