@@ -26,7 +26,9 @@
                     <img src="{{ object.image.url }}" alt="">
                 </div>
                 <div class="post-text-container">
-                    <a href="{% url 'main:blogdetail' pk=object.pk %}"><h1 class="post-title">{{ object.title }}</h1></a>
+                    <a href="{% url 'main:blogdetail' pk=object.pk %}">
+                        <h1 class="post-title">{{ object.title }}</h1>
+                    </a>
                     <p class="post-text">{{ object.short_description }}</p>
                     <span class="post-posted">Posted on</span>
                     <p class="post-date">{{ object.posted_on|date:"F d, Y" }}</p>
@@ -40,66 +42,74 @@
 
     <!-- START FEAUTURED POSTS SECTION -->
 
+    <!-- START POSTS TAGS SECTION -->
+
+    <section class="posts-tags-section">
+        <div class="posts-tags-container">
+            <h1 class="posts-tags-title">Search by tags</h1>
+            <div class="posts-tags-wrapper">
+                {% for tag in postTags %}
+                <div class="posts-tags-column">
+                    <a href="#" onclick="addParam('tag', {{ tag.id }})"><button>{{ tag.tag }}</button></a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- END POSTS TAGS SECTION -->
+
     <section class="featured-posts-section">
         <div class="featured-posts-container">
             <article class="featured-posts-search-container">
                 <div class="featured-search-wrapper">
                     <h1 class="featured-search-title">By keyword</h1>
-                    <label class="search-container" for="">
-                        <input class="featured-search-input" type="text" placeholder="Type keyword here">
-                        <button class="featured-search-btn"><i class="fa-sharp fa-solid fa-magnifying-glass"></i> Search</button>
-                    </label>
+                    <form action="" method="get">
+                        <label class="search-container" for="">
+                            <input class="featured-search-input" type="search" placeholder="Search by title"
+                                name="search" value="{{ request.GET.search }}">
+                            <button type="submit" class="featured-search-btn"><i
+                                    class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                                Search</button>
+                        </label>
+                    </form>
                 </div>
                 <div class="featured-posts-category">
                     <h1 class="featured-posts-category-title">By category</h1>
                     <div class="featured-categories-wrapper owl-carousel">
+                        {% for category in postCategories %}
                         <div class="featured-category-column">
-                            <a href=""><button>Finance</button></a>
+                            <a href="#" onclick="addParam('category', {{ category.id }})"><button>{{ category.category}}</button></a>
                         </div>
-                        <div class="featured-category-column">
-                            <a href=""><button>Marketing</button></a>
-                        </div>
-                        <div class="featured-category-column">
-                            <a href=""><button>Creativity</button></a>
-                        </div>
-                        <div class="featured-category-column">
-                            <a href=""><button>Programming</button></a>
-                        </div>
-                        <div class="featured-category-column">
-                            <a href=""><button>Designing</button></a>
-                        </div>
-                        <div class="featured-category-column">
-                            <a href=""><button>More</button></a>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </article>
             <article class="featured-posts-wrapper">
                 <div class="featured-posts-column-container">
-                    <div class="featured-posts-column">
-                        <a href="" class="featured-post-column-title">10 interesting apps to grow your audience on <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        <p class="featured-post-column-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lobortis arcu enim urna adipiscing prae</p>
-                        <span class="featured-post-column-posted">Posted on</span>
-                        <p class="featured-post-column-date">October 26, 2021</p>
-                    </div>
-                    <div class="featured-posts-column">
-                        <a href="" class="featured-post-column-title">8 great books to learn more about growth hacking <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        <p class="featured-post-column-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lobortis arcu enim urna adipiscing prae</p>
-                        <span class="featured-post-column-posted">Posted on</span>
-                        <p class="featured-post-column-date">October 26, 2021</p>
-                    </div>
-                    <div class="featured-posts-column">
-                        <a href="" class="featured-post-column-title">How To Create an Attention-Grabbing site <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        <p class="featured-post-column-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lobortis arcu enim urna adipiscing prae</p>
-                        <span class="featured-post-column-posted">Posted on</span>
-                        <p class="featured-post-column-date">October 26, 2021</p>
-                    </div>
-                    <div class="featured-posts-column">
-                        <a href="" class="featured-post-column-title">How To Create an Attention-Grabbing site <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        <p class="featured-post-column-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lobortis arcu enim urna adipiscing prae</p>
-                        <span class="featured-post-column-posted">Posted on</span>
-                        <p class="featured-post-column-date">October 26, 2021</p>
-                    </div>
+                    {% if object_list %}
+                        {% for object in object_list %}
+                        <div class="featured-posts-column">
+                            <a href="{% url 'main:blogdetail' pk=object.pk %}" class="featured-post-column-title">{{ object.title }} <i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            <p class="featured-post-column-text">{{ object.short_description }}</p>
+                            <span class="featured-post-column-posted">Posted on</span>
+                            <p class="featured-post-column-date">{{ object.posted_on|date:"F d, Y" }}</p>
+                        </div>
+                        {% endfor %}
+                        <div class="clear-posts-container">
+                            <a href="{% url 'main:blog' %}" class="clear-posts-clear">Clear all filters + Start Over</a>
+                        </div>
+                    {% else %}
+                        <div class="empty-posts-container">
+                            <div class="empty-posts-icon-container">
+                                <i class="fa-solid fa-xmark"></i>
+                            </div>
+                            <h1 class="empty-posts-title">No Posts Found</h1>
+                            <p class="empty-posts-text">There are no posts that match your current filters. Try removing some of them to get better results.</p>
+                            <a href="{% url 'main:blog' %}" class="empty-posts-clear">Clear all filters + Start Over</a>
+                        </div>
+                    {% endif %}
                 </div>
             </article>
         </div>
@@ -107,88 +117,9 @@
 
     <!-- END FEAUTURED POSTS SECTION -->
 
-    <!-- START POSTS TAGS SECTION -->
+    <!-- Start READY TO TRY SECTION -->
 
-    <section class="posts-tags-section">
-        <div class="posts-tags-container">
-            <h1 class="posts-tags-title">Search by tags</h1>
-            <div class="posts-tags-wrapper">
-                <div class="posts-tags-column">
-                    <a href=""><button>Finance</button></a>
-                </div>
-                <div class="posts-tags-column">
-                    <a href=""><button>Technology</button></a>
-                </div>
-                <div class="posts-tags-column">
-                    <a href=""><button>Creativity</button></a>
-                </div>
-                <div class="posts-tags-column">
-                    <a href=""><button>Employees</button></a>
-                </div>
-                <div class="posts-tags-column">
-                    <a href=""><button>Marketing</button></a>
-                </div>
-                <div class="posts-tags-column">
-                    <a href=""><button>Team work</button></a>
-                </div>
-                <div class="posts-tags-column">
-                    <a href=""><button>Management</button></a>
-                </div>
-                <div class="posts-tags-column">
-                    <a href=""><button>Development</button></a>
-                </div>
-                <div class="posts-tags-column">
-                    <a href=""><button>Growth</button></a>
-                </div>
-                <div class="posts-tags-column">
-                    <a href=""><button>Accounting</button></a>
-                </div>
-                <div class="posts-tags-column">
-                    <a href=""><button>Leadership</button></a>
-                </div>
-                <div class="posts-tags-column">
-                    <a href=""><button>Entrepreneur</button></a>
-                </div>
-                <div class="posts-tags-column">
-                    <a href=""><button>Business</button></a>
-                </div>
-                <div class="posts-tags-column">
-                    <a href=""><button>Investment</button></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- END POSTS TAGS SECTION -->
-
-    <!-- START SIMILAR POPULAR POSTS SECTION -->
-
-    <section class="similar-popular-posts">
-        <div class="similar-popular-container">
-            <article class="featured-posts-wrapper">
-                <div class="featured-posts-column-container">
-                    <div class="featured-posts-column">
-                        <a href="" class="featured-post-column-title">10 interesting apps to grow your audience on <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        <p class="featured-post-column-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lobortis arcu enim urna adipiscing prae</p>
-                        <span class="featured-post-column-posted">Posted on</span>
-                        <p class="featured-post-column-date">October 26, 2021</p>
-                    </div>
-                    <div class="featured-posts-column">
-                        <a href="" class="featured-post-column-title">8 great books to learn more about growth hacking <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        <p class="featured-post-column-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lobortis arcu enim urna adipiscing prae</p>
-                        <span class="featured-post-column-posted">Posted on</span>
-                        <p class="featured-post-column-date">October 26, 2021</p>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </section>
-
-    <!-- END SIMILAR POPULAR POSTS SECTION -->
-
-     <!-- Start READY TO TRY SECTION -->
-
-     <section class="ready-to-try-section">
+    <section class="ready-to-try-section">
         <div class="ready-to-try-container">
             <div class="ready-to-try-column">
                 <h1 class="ready-to-try-title">Ready to try <br> Cyber Code?</h1>
@@ -211,7 +142,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- End READY TO TRY SECTION -->
 
 </main>

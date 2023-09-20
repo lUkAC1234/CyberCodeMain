@@ -82,9 +82,10 @@
         <div class="website-technologies-title-container">
             <h1 class="website-technologies-main-title">More job openings</h1>
             <p class="website-technologies-main-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit lobortis arcu enim urna adipiscing praesent velit viverra
+                Find your future work and improve your skills with us
             </p>
             <article class="website-technologies-container">
+                {% for object in other_jobs %}
                 <a href="{% url 'main:jobdetail' pk=object.pk %}" class="job-column">
                     <div>
                         <div class="website-technologies-type-container">
@@ -94,10 +95,19 @@
                         <p class="website-technologies-text">{{ object.description }}</p>
                     </div>
                 </a>
+                {% empty %}
+                <div class="no-job-container">
+                    <div class="no-job-icon-container">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                    <h1 class="no-job-title">No Jobs</h1>
+                    <p class="no-job-text">No other jobs with the same type of work yet.</p>
+                </div>
+                {% endfor %}
             </article>
 
             <div class="more-job-openings-btn-container">
-                <a href="">
+                <a href="{% url 'main:job' %}">
                     <button class="more-job-openings-btn">See other jobs</button>
                 </a>
             </div>

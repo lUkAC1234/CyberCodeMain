@@ -341,6 +341,10 @@ body #container .shifted .messagelist .success a {
 .module .form-row .flex-container select option {
   background: var(--primary-color);
 }
+.module .form-row .flex-container select option:checked {
+  color: var(--purple);
+  background: var(--white);
+}
 .module .form-row .flex-container .readonly a {
   color: var(--purple);
 }

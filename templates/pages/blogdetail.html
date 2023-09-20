@@ -27,9 +27,6 @@
 
     <section class="detail-content-section">
         <div class="detail-content-container">
-            <div class="detail-content-image-container">
-                <img src="{{ object.image.url }}" alt="">
-            </div>
             <div class="detail-content-wrapper">
                 {{ object.post_text|safe }}
             </div>
@@ -74,18 +71,19 @@
         <div class="similar-popular-container">
             <article class="featured-posts-wrapper">
                 <div class="featured-posts-column-container">
+                    {% for object in similarPosts %}
                     <div class="featured-posts-column">
-                        <a href="" class="featured-post-column-title">10 interesting apps to grow your audience on <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        <p class="featured-post-column-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lobortis arcu enim urna adipiscing prae</p>
+                        <a href="{% url 'main:blogdetail' pk=object.pk %}" class="featured-post-column-title">{{ object.title }} <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <p class="featured-post-column-text">{{ object.short_description }}</p>
                         <span class="featured-post-column-posted">Posted on</span>
-                        <p class="featured-post-column-date">October 26, 2021</p>
+                        <p class="featured-post-column-date">{{ object.posted_on|date:"F d, Y" }}</p>
                     </div>
-                    <div class="featured-posts-column">
-                        <a href="" class="featured-post-column-title">8 great books to learn more about growth hacking <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        <p class="featured-post-column-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lobortis arcu enim urna adipiscing prae</p>
-                        <span class="featured-post-column-posted">Posted on</span>
-                        <p class="featured-post-column-date">October 26, 2021</p>
+                    {% empty %}
+                    <div class="no-posts-container">
+                        <h1 class="no-posts-title">There is no similar posts</h1>
+                        <a href="{% url 'main:blog' %}" class="no-posts-link">Click to see other blogs</a>
                     </div>
+                    {% endfor %}
                 </div>
             </article>
         </div>

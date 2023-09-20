@@ -169,7 +169,9 @@
                             <a href="{% url 'main:blogdetail' pk=object.pk %}">
                                 <h1 class="carousel-slide-title">{{ object.title }}</h1>
                             </a>
-                            <p class="carousel-slide-text">{{ object.short_description }}</p>
+                            <p class="carousel-slide-text">
+                                {{ object.short_description|slice:"100"|safe }}
+                            </p>
                         </div>
                         <div class="carousel-date-container">
                             <p class="carousel-date-posted">Posted on</p>

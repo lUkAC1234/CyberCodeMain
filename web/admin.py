@@ -4,7 +4,7 @@ from django.contrib import admin
 # --------------------------------------------------------------------------- #
 # Models and Forms
 from .models import UserModel, PricingModel, PostModel, FeedbackModel, ContactusModel, \
-FaqModel, JobModel, JobCategoryModel
+FaqModel, JobModel, JobCategoryModel, PostTagModel, PostCategoryModel
 from .forms import PostModelForm
 # --------------------------------------------------------------------------- #
 # Translation
@@ -43,7 +43,7 @@ class PostAdmin(admin.ModelAdmin):
             return super().get_fieldsets(request, obj)
         else:
             return (
-                (None, {'fields': ('title', 'image', 'short_description', 'post_text')}),
+                (None, {'fields': ('title', 'image', 'short_description', 'post_text', 'category', 'tags')}),
             )
 
     def save_form(self, request, form, change):
@@ -51,6 +51,18 @@ class PostAdmin(admin.ModelAdmin):
         if not obj.user_id:
             obj.user = request.user
         return obj
+    
+@admin.register(PostTagModel)
+class PostTagAdmin(admin.ModelAdmin):
+    list_display = ['id', 'tag']
+    list_display_links = ['id', 'tag']
+    search_fields = ['tag']
+
+@admin.register(PostCategoryModel)
+class PostCategoryAdmin(admin.ModelAdmin):
+    list_display = ['id', 'category']
+    list_display_links = ['id', 'category']
+    search_fields = ['category']
     
 @admin.register(FeedbackModel)
 class FeedbackAdmin(admin.ModelAdmin):

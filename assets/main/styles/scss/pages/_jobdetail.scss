@@ -32,16 +32,16 @@
             .job-gradient-info-title {
                 font-size: 2rem !important;
             }
-        
+
             .job-gradient-info-category {
                 font-size: 1.25rem !important
             }
-        
+
             .job-gradient-info-text {
                 font-size: 1rem !important;
             }
         }
-    } 
+    }
 
     @media screen and (max-width: 992px) {
         flex-flow: column;
@@ -53,15 +53,17 @@
         .job-gradient-image-container {
             margin: 0 0 0 auto;
             top: -5rem;
+
             img {
                 height: 25rem;
             }
         }
-        
+
     }
 
     @media screen and (max-width: 700px) {
         padding-inline: 0;
+
         .job-gradient-info-container {
             width: 96%;
             margin: 0 2%;
@@ -78,18 +80,18 @@
             .job-gradient-info-title {
                 font-size: 1.5rem !important
             }
-        
+
             .job-gradient-info-category {
                 font-size: 1.125rem !important;
                 margin-top: 0.5rem;
             }
-        
+
             .job-gradient-info-text {
                 margin-bottom: 1.5rem;
             }
         }
     }
-        
+
 }
 
 .job-gradient-info-container {
@@ -127,6 +129,7 @@
     left: 2rem;
     background: var(--background-white);
     border-radius: 50%;
+
     i {
         font-size: 3rem;
         color: var(--text-purple);
@@ -144,6 +147,7 @@
 .job-gradient-image-container {
     position: relative;
     width: min(100%, 35rem);
+
     img {
         position: absolute;
         width: 100%;
@@ -170,6 +174,7 @@
     display: grid;
     place-items: center;
     padding-inline: 1rem;
+
     .job-info-title {
         @extend .dark-blue-text-center-grotext-family-3rem;
     }
@@ -185,7 +190,7 @@
         .job-info-title {
             font-size: 1.75rem !important;
         }
-    
+
         .job-info-text {
             font-size: 1rem !important;
         }
@@ -200,6 +205,7 @@
 
     @media screen and (max-width: 500px) {
         gap: 1rem;
+
         button {
             padding: 0.75rem 1.5rem !important;
             font-size: 1rem !important;
@@ -220,6 +226,7 @@
         margin-block: 1rem;
         white-space: normal !important;
         word-wrap: break-word !important;
+        word-break: break-all !important;
     }
 
     p,
@@ -270,7 +277,7 @@
 }
 
 .about-the-job-content.active,
-.responsibilities-content.active ,
+.responsibilities-content.active,
 .requirements-content.active {
     display: block;
 }
@@ -282,6 +289,7 @@
 .more-job-openings-btn-container {
     margin: 3rem auto 0;
     width: fit-content;
+
     button {
         @extend .onerem-tworem-purple-button;
     }

@@ -472,6 +472,23 @@
     display: block;
 }
 
+.faq-other-list {
+    display: grid;
+    place-items: end;
+    width: 54rem;
+    margin: 2rem auto;
+    a {
+        color: var(--text-purple);
+        font-weight: 600;
+        font-family: var(--grotext-sans);
+        font-size: 1rem;
+    }
+
+    i {
+        margin-left: 0.5rem;
+    }
+}
+
 @media screen and (max-width: 1100px) {
     .faq-btn-container {
         width: 96%;
@@ -480,6 +497,11 @@
 
     .faq {
         width: 100%;
+    }
+
+    .faq-other-list {
+        width: 100%;
+        padding-inline: 1rem;
     }
 
     .faq-toggle-btn {

@@ -422,6 +422,11 @@ body {
 
                 option {
                     background: var(--primary-color);
+
+                    &:checked {
+                        color: var(--purple);
+                        background: var(--white);
+                    }
                 }
             }
 

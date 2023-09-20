@@ -1128,6 +1128,52 @@
   border-color: var(--background-purple);
 }
 
+.no-job-container {
+  display: grid;
+  place-items: center;
+  padding: 3rem 6rem;
+  box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+.no-job-container .no-job-icon-container i {
+  color: var(--background-purple);
+  font-size: 2.5rem;
+}
+.no-job-container .no-job-title {
+  margin-block: 0.5rem 1rem;
+}
+.no-job-container .no-job-text {
+  text-align: center;
+}
+@media screen and (max-width: 700px) {
+  .no-job-container {
+    padding: 1.5rem 3rem;
+  }
+  .no-job-container .no-job-icon-container i {
+    font-size: 2rem;
+  }
+  .no-job-container .no-job-title {
+    font-size: 1.25rem !important;
+  }
+  .no-job-container .no-job-text {
+    font-size: 1rem !important;
+  }
+}
+@media screen and (max-width: 500px) {
+  .no-job-container {
+    padding-inline: 1rem;
+  }
+  .no-job-container .no-job-icon-container i {
+    font-size: 1.5rem;
+  }
+  .no-job-container .no-job-title {
+    font-size: 1.125rem !important;
+  }
+  .no-job-container .no-job-text {
+    font-size: 0.9rem !important;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .website-technologies-container {
     gap: 2rem;
@@ -2038,6 +2084,22 @@
   display: block;
 }
 
+.faq-other-list {
+  display: grid;
+  place-items: end;
+  width: 54rem;
+  margin: 2rem auto;
+}
+.faq-other-list a {
+  color: var(--text-purple);
+  font-weight: 600;
+  font-family: var(--grotext-sans);
+  font-size: 1rem;
+}
+.faq-other-list i {
+  margin-left: 0.5rem;
+}
+
 @media screen and (max-width: 1100px) {
   .faq-btn-container {
     width: 96%;
@@ -2045,6 +2107,10 @@
   }
   .faq {
     width: 100%;
+  }
+  .faq-other-list {
+    width: 100%;
+    padding-inline: 1rem;
   }
   .faq-toggle-btn {
     left: 2rem;
@@ -3133,6 +3199,80 @@
     gap: 1rem;
   }
 }
+.featured-posts-column-container:has(.empty-posts-container) {
+  padding: 0;
+}
+
+.empty-posts-container {
+  display: grid;
+  place-items: center;
+  width: calc(100vw - 3rem);
+  max-width: 3500px;
+  margin: 0 auto;
+  background: var(--background-white);
+  border-radius: 0.5rem;
+  padding: 3rem 1rem;
+  box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.1);
+}
+.empty-posts-container .empty-posts-text {
+  text-align: center;
+  width: min(100%, 30rem);
+  margin-block: 1rem;
+}
+.empty-posts-icon-container i {
+  color: var(--background-purple);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.clear-posts-container {
+  display: grid;
+  place-items: center;
+  width: max-content;
+}
+.no-posts-container .no-posts-title {
+  margin-bottom: 2rem;
+}
+@media screen and (max-width: 800px) {
+  .no-posts-container {
+    display: grid;
+    place-items: center;
+  }
+  .no-posts-container .no-posts-title {
+    margin-bottom: 1rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .no-posts-container {
+    display: grid;
+    place-items: center;
+  }
+  .no-posts-container .no-posts-title {
+    font-size: 1.5rem !important;
+  }
+  .no-posts-container .no-posts-link {
+    font-size: 1rem !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .empty-posts-container .empty-posts-title {
+    font-size: 1.25rem !important;
+  }
+  .empty-posts-container .empty-posts-text,
+  .empty-posts-container .empty-posts-clear {
+    font-size: 1rem !important;
+  }
+  .empty-posts-icon-container i {
+    font-size: 2rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .empty-posts-container .empty-posts-text,
+  .empty-posts-container .empty-posts-clear {
+    font-size: 0.9rem !important;
+  }
+}
 .posts-tags-section {
   margin-bottom: 10rem;
 }
@@ -3193,7 +3333,7 @@
   background-image: url(../../images/layout/wave.svg);
   background: linear-gradient(168deg, rgb(170, 235, 255) 0%, rgb(255, 217, 221) 0%, rgb(222, 181, 255) 16%, rgb(193, 188, 255) 33%, rgb(193, 115, 255) 96%);
   background-position: center bottom;
-  padding: 10.5rem 0 25rem;
+  padding: 10.5rem 0 15rem;
 }
 .detail-gradient-section::after {
   content: "";
@@ -3268,20 +3408,6 @@
   position: relative;
 }
 
-.detail-content-image-container {
-  display: grid;
-  place-items: center;
-  width: 100%;
-  margin: -15rem auto 0rem;
-}
-.detail-content-image-container img {
-  width: 90%;
-  height: 100%;
-  max-height: 35rem;
-  object-fit: contain;
-  border-radius: 1.25rem;
-}
-
 .detail-content-wrapper {
   max-width: 100vw;
   padding-inline: 5rem;
@@ -3294,14 +3420,31 @@
   font-size: 2.25rem !important;
   margin: 1rem 0;
 }
+.detail-content-wrapper p,
+.detail-content-wrapper pre,
+.detail-content-wrapper li,
+.detail-content-wrapper ul,
+.detail-content-wrapper a,
+.detail-content-wrapper address,
+.detail-content-wrapper i,
+.detail-content-wrapper div,
+.detail-content-wrapper strong,
+.detail-content-wrapper h1,
+.detail-content-wrapper h2,
+.detail-content-wrapper h3,
+.detail-content-wrapper h4,
+.detail-content-wrapper h5,
+.detail-content-wrapper h6 {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  word-break: break-all !important;
+}
 .detail-content-wrapper pre,
 .detail-content-wrapper li,
 .detail-content-wrapper a,
 .detail-content-wrapper span,
 .detail-content-wrapper p,
 .detail-content-wrapper h1 {
-  white-space: normal !important;
-  word-wrap: break-word;
   margin: 0;
 }
 .detail-content-wrapper img {
@@ -3333,9 +3476,6 @@
 @media screen and (max-width: 750px) {
   .detail-content-wrapper .detail-content-title {
     font-size: 1.5rem !important;
-  }
-  .detail-content-image-container {
-    margin: -5rem auto 0rem;
   }
 }
 @media screen and (max-width: 600px) {
@@ -3434,7 +3574,8 @@
   color: var(--text-white);
   font-family: var(--grotext-sans);
 }
-.detail-share-social-container .shareAfterText p, .detail-share-social-container .shareAfterText i {
+.detail-share-social-container .shareAfterText p,
+.detail-share-social-container .shareAfterText i {
   font-size: 1rem;
 }
 .detail-share-social-container .shareAfterText i {
@@ -3467,7 +3608,8 @@
   .detail-share-social-container .detail-share-social-text {
     font-size: 0.8rem !important;
   }
-  .detail-share-social-container .shareAfterText p, .detail-share-social-container .shareAfterText i {
+  .detail-share-social-container .shareAfterText p,
+  .detail-share-social-container .shareAfterText i {
     font-size: 0.8rem;
   }
 }
@@ -3693,6 +3835,7 @@
   margin-block: 1rem;
   white-space: normal !important;
   word-wrap: break-word !important;
+  word-break: break-all !important;
 }
 .job-content p,
 .job-content pre,
@@ -5354,6 +5497,24 @@
   --poppins: Poppins, sans-serif;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre,
+li,
+ul,
+address,
+i,
+strong {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  word-break: break-all !important;
+}
+
 @media screen and (min-width: 2000px) {
   .main {
     max-width: 2000px;
@@ -5383,7 +5544,8 @@
 }
 /*=============== GOOGLE FONTS ===============*/
 /*=============== VARIABLES CSS ===============*/
-.onerem-tworem-purple-button, .gradient-buttons-container .gradient-btn-column a .gradient-button, .carousel-title-container .carousel-link-container .carousel-link, .about-page-gradient-btn-container a .about-page-gradient-btn, .team-members-btn-container a .team-members-btn, .system-info-btn-container a .system-info-btn, .contact-form-column-btn-container .contact-form-column-btn, .ready-to-try-button, .custom-build-btn-container button, .services-link-container button, .pricing-list-btn-container .pricing-list-btn, .toggle-button.active, .join-our-team-btn-container button, .job-gradient-info-btn-container button, .more-job-openings-btn-container button {
+.onerem-tworem-purple-button, .gradient-buttons-container .gradient-btn-column a .gradient-button, .carousel-title-container .carousel-link-container .carousel-link, .about-page-gradient-btn-container a .about-page-gradient-btn, .team-members-btn-container a .team-members-btn, .system-info-btn-container a .system-info-btn, .contact-form-column-btn-container .contact-form-column-btn, .ready-to-try-button, .custom-build-btn-container button, .services-link-container button, .pricing-list-btn-container .pricing-list-btn, .toggle-button.active, .empty-posts-container .empty-posts-clear,
+.empty-posts-container .clear-posts-clear, .clear-posts-container .clear-posts-clear, .no-posts-container .no-posts-link, .join-our-team-btn-container button, .job-gradient-info-btn-container button, .more-job-openings-btn-container button {
   padding: 1rem 2rem;
   color: var(--text-white);
   text-align: center;
@@ -5396,7 +5558,8 @@
   transition: all 0.5s;
   cursor: pointer;
 }
-.onerem-tworem-purple-button:hover, .gradient-buttons-container .gradient-btn-column a .gradient-button:hover, .carousel-title-container .carousel-link-container .carousel-link:hover, .about-page-gradient-btn-container a .about-page-gradient-btn:hover, .team-members-btn-container a .team-members-btn:hover, .system-info-btn-container a .system-info-btn:hover, .contact-form-column-btn-container .contact-form-column-btn:hover, .ready-to-try-button:hover, .custom-build-btn-container button:hover, .services-link-container button:hover, .pricing-list-btn-container .pricing-list-btn:hover, .toggle-button.active:hover, .join-our-team-btn-container button:hover, .job-gradient-info-btn-container button:hover, .more-job-openings-btn-container button:hover {
+.onerem-tworem-purple-button:hover, .gradient-buttons-container .gradient-btn-column a .gradient-button:hover, .carousel-title-container .carousel-link-container .carousel-link:hover, .about-page-gradient-btn-container a .about-page-gradient-btn:hover, .team-members-btn-container a .team-members-btn:hover, .system-info-btn-container a .system-info-btn:hover, .contact-form-column-btn-container .contact-form-column-btn:hover, .ready-to-try-button:hover, .custom-build-btn-container button:hover, .services-link-container button:hover, .pricing-list-btn-container .pricing-list-btn:hover, .toggle-button.active:hover, .empty-posts-container .empty-posts-clear:hover,
+.empty-posts-container .clear-posts-clear:hover, .clear-posts-container .clear-posts-clear:hover, .no-posts-container .no-posts-link:hover, .join-our-team-btn-container button:hover, .job-gradient-info-btn-container button:hover, .more-job-openings-btn-container button:hover {
   background: none;
   color: var(--text-purple);
 }
@@ -5490,12 +5653,12 @@ select:-webkit-autofill:focus {
 .messenger-your-message-user-profile .messenger-others-message-username,
 .messenger-others-message-user-profile .messenger-your-message-username,
 .messenger-others-message-user-profile .messenger-others-message-username, .profile-edit-column label, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text, .sign-info-btn-container .sign-info-check-account, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title,
-.job-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .job-gradient-info-container .job-gradient-info-category, .job-content h1,
+.job-column .website-technologies-title, .no-job-container .no-job-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .empty-posts-container .empty-posts-title, .job-gradient-info-container .job-gradient-info-category, .job-content h1,
 .job-content h2,
 .job-content h3,
 .job-content h4,
 .job-content h5,
-.job-content h6, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-info-container .sign-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .documentation-content-title, .post-text-container .post-title, .featured-posts-column .featured-post-column-title, .detail-gradient-container .detail-gradient-username, .sign-image-container .sign-image-title, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .language-toggle-text-container .toggle-language-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
+.job-content h6, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-info-container .sign-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .documentation-content-title, .post-text-container .post-title, .featured-posts-column .featured-post-column-title, .no-posts-container .no-posts-title, .detail-gradient-container .detail-gradient-username, .sign-image-container .sign-image-title, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .used-by-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .language-toggle-text-container .toggle-language-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
 .featured-posts-category-title, .posts-tags-title, .detail-gradient-container .detail-gradient-title, .detail-content-wrapper .detail-content-title, .detail-link-text-container .detail-link-title {
   color: var(--text-dark-blue);
   text-align: center;
@@ -5510,12 +5673,12 @@ select:-webkit-autofill:focus {
   font-size: 3rem;
 }
 
-.dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .documentation-content-title, .post-text-container .post-title, .featured-posts-column .featured-post-column-title, .detail-gradient-container .detail-gradient-username, .sign-image-container .sign-image-title {
+.dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .documentation-content-title, .post-text-container .post-title, .featured-posts-column .featured-post-column-title, .no-posts-container .no-posts-title, .detail-gradient-container .detail-gradient-username, .sign-image-container .sign-image-title {
   font-size: 2rem;
 }
 
 .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .website-technologies-column .website-technologies-title,
-.job-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .job-gradient-info-container .job-gradient-info-category, .job-content h1,
+.job-column .website-technologies-title, .no-job-container .no-job-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .empty-posts-container .empty-posts-title, .job-gradient-info-container .job-gradient-info-category, .job-content h1,
 .job-content h2,
 .job-content h3,
 .job-content h4,
@@ -5541,9 +5704,9 @@ select:-webkit-autofill:focus {
 .job-content div,
 .job-content strong, .messenger-header-user-info-container .messenger-header-user, .static-info .static-info-text, .choices-column .abilities ul li, .choices-column:has(.recommended) .price-column ul li,
 .choices-column:has(.recommended) .abilities ul li, .carousel-title-container .carousel-text, .feedback-user .feedback-username, .website-technologies-main-text, .website-technologies-column .website-technologies-type,
-.job-column .website-technologies-type, .clients-column .client-text, .team-members-info-column .team-members-info-text, .system-info-container .system-info-text, .system-column .system-text, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-info, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info, .ready-to-try-info, .pricing-popular-abilities ul li, .pricing-popular-column:has(.recommended) .price-column ul li,
+.job-column .website-technologies-type, .no-job-container .no-job-text, .clients-column .client-text, .team-members-info-column .team-members-info-text, .system-info-container .system-info-text, .system-column .system-text, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-info, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info, .ready-to-try-info, .pricing-popular-abilities ul li, .pricing-popular-column:has(.recommended) .price-column ul li,
 .pricing-popular-column:has(.recommended) .pricing-popular-abilities ul li, .custom-build-column .custom-build-text, .services-text-container .services-text-text, .pricing-categories-column:has(.recommended) .categorie-column ul li,
-.pricing-categories-column:has(.recommended) .pricing-categories-abilities ul li, .pricing-categories-abilities ul li, .language-toggle-text-container .toggle-language-text, .post-text-container .post-text, .featured-posts-column .featured-post-column-text, .detail-content-wrapper pre,
+.pricing-categories-column:has(.recommended) .pricing-categories-abilities ul li, .pricing-categories-abilities ul li, .language-toggle-text-container .toggle-language-text, .post-text-container .post-text, .featured-posts-column .featured-post-column-text, .empty-posts-container .empty-posts-text, .detail-content-wrapper pre,
 .detail-content-wrapper li,
 .detail-content-wrapper span,
 .detail-content-wrapper p, .detail-link-text-container .detail-link-text, .detail-share-user-info-container .detail-share-posted, .detail-share-social-container .detail-share-social-text, .job-gradient-info-container .job-gradient-info-text, .job-info-container .job-info-text, .messenger-your-message .messenger-your-message-text,
@@ -5600,7 +5763,7 @@ select:-webkit-autofill:focus {
 }
 
 .text-align-start, .task-content-column .task-title, .static-info .static-info-title, .carousel-title-container .carousel-title, .carousel-text-container .carousel-slide-title, .about-page-gradient-text-container .about-page-gradient-title, .about-page-gradient-image-column-task-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .faq-card-title, .ready-to-try-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .documentation-content-title, .blog-gradient-title, .post-text-container .post-title, .featured-search-title,
-.featured-posts-category-title, .featured-posts-column .featured-post-column-title, .posts-tags-title, .detail-content-wrapper .detail-content-title, .detail-link-text-container .detail-link-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-gradient-info-container .job-gradient-info-category, .job-content h1,
+.featured-posts-category-title, .featured-posts-column .featured-post-column-title, .no-posts-container .no-posts-title, .posts-tags-title, .detail-content-wrapper .detail-content-title, .detail-link-text-container .detail-link-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-gradient-info-container .job-gradient-info-category, .job-content h1,
 .job-content h2,
 .job-content h3,
 .job-content h4,

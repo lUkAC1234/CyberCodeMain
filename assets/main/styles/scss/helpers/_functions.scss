@@ -1,3 +1,21 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre,
+li,
+ul,
+address,
+i,
+strong {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  word-break: break-all !important;
+}
+
 @media screen and (min-width: 2000px) {
   .main {
     max-width: 2000px;

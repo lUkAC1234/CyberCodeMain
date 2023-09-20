@@ -30,12 +30,26 @@ class PricingModel(models.Model):
     def __str__(self):
         return self.type
 
+class PostCategoryModel(models.Model):
+    category = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.category
+    
+class PostTagModel(models.Model):
+    tag = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.tag
+
 class PostModel(models.Model):
     title = models.CharField(max_length=100)
     image = models.ImageField(upload_to='blog/posts/images/%Y/%m/%d/')
     short_description = models.TextField()
     post_text = RichTextField()
     posted_on = models.DateTimeField(auto_now_add=True)
+    category = models.ForeignKey(PostCategoryModel, on_delete=models.CASCADE)
+    tags = models.ManyToManyField(PostTagModel, related_name='postTags')
     user = models.ForeignKey(UserModel, on_delete=models.RESTRICT, related_name='postUser')
 
     class Meta:
@@ -107,7 +121,7 @@ class JobModel(models.Model):
     responsibilities = RichTextField()
     requirements = RichTextField()
 
-    category = models.ForeignKey(JobCategoryModel, on_delete=models.SET_NULL, null=True, blank=True)
+    category = models.ForeignKey(JobCategoryModel, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
