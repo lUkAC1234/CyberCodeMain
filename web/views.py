@@ -2,7 +2,9 @@ from typing import Any
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.urls import reverse_lazy
 from django.db.models import Q
+from django.http import JsonResponse
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from .models import PostModel, PricingModel, FeedbackModel, ContactusModel, FaqModel, JobModel, \
 PostCategoryModel, PostTagModel 
@@ -24,8 +26,7 @@ class about(TemplateView):
 class contact(SuccessMessageMixin, CreateView):
     form_class = ContactusModelForm
     template_name = "pages/contact.html"
-    success_url = '/contact/us/#contact-form' 
-    success_message = "Your form has been submitted successfully."
+    success_url = '/contact/us/' 
 
     def get_context_data(self, *, object_list=None, **kwargs):
         data = super().get_context_data(**kwargs)
@@ -34,13 +35,22 @@ class contact(SuccessMessageMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        self.successfully_submitted = True
-        return super(contact, self).form_valid(form)
-    
+        try:
+            form.save()
+            response_data = {'success': True}
+            if self.request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+                return JsonResponse(response_data)
+        except Exception as e:
+            response_data = {'success': False, 'error': str(e)}
+            if self.request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+                return JsonResponse(response_data)
+        return super().form_valid(form)
+
     def form_invalid(self, form):
-        response = super().form_invalid(form)
-        self.success_url = self.success_url + '?error=true'
-        return response
+        response_data = {'success': False}  # Если форма недействительна, передаем False
+        if self.request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+            return JsonResponse(response_data)
+        return super().form_invalid(form)
 
 class pricing(TemplateView):
     template_name = "pages/pricing.html"
@@ -68,7 +78,7 @@ class pricinglist(ListView):
 class documentation(TemplateView):
     template_name = "pages/documentation.html"    
 
-class blog(ListView):
+class BlogListView(ListView):
     template_name = "pages/blog.html"    
     def get_queryset(self):
         posts = PostModel.objects.all()

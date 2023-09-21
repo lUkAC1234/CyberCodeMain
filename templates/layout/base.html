@@ -66,6 +66,36 @@
     --------------------*/
 
     (function ($) {
+    // Обновленная функция для добавления параметров к URL
+    function addParam(name, value) {
+        var param = new URLSearchParams(window.location.search);
+        if (param.has(name) && param.get(name) == value) {
+            param.delete(name);
+        } else {
+            param.set(name, value);
+        }
+
+        // Отправьте асинхронный запрос на сервер
+        $.ajax({
+            url: '/website/blogs/list/',  // URL-путь для вашей страницы с постами
+            data: param.toString(),
+            success: function (data) {
+                // Обновите только содержимое <article id="featured-posts-wrapper">
+                $('#featured-posts-wrapper').html(data);
+            },
+        });
+    }
+
+    // Обработчик события для элементов, которые вызывают функцию addParam
+    $(document).on('click', '.posts-tags-column a', function (e) {
+        e.preventDefault();
+        var tagId = $(this).data('tag-id');  // Здесь используется data-атрибут для получения ID тега
+        addParam('tag', tagId);
+    });
+})(jQuery);
+
+
+    (function ($) {
         $(window).on('load', function () {
             $(".loader").fadeOut();
             $("#preloder").delay(200).fadeOut("slow");

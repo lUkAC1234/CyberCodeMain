@@ -63,23 +63,23 @@
     <section class="contact-form">
         <div class="contact-form__wrapper">
             <div class="contact-form-column">
-                <form class="contact-form-column-form" action="" method="POST" id="contact-form">
+                <form class="contact-form-column-form" id="contact-form">
                     {% csrf_token %}
                     <div class="contact-form-column-input-container">
-                        <input type="text" class="contact-form-column-input" placeholder=" "
+                        <input type="text" class="contact-form-column-input" placeholder=" " id="fullname"
                             value="{{ form.fullname.value|default_if_none:'' }}" name="fullname" required>
                         <label class="placeholder">Full Name</label>
                         {{form.fullname.errors}}
                     </div>
                     <div class="contact-form-column-input-container">
-                        <input type="email" class="contact-form-column-input" placeholder=" " name="email"
+                        <input type="email" class="contact-form-column-input" placeholder=" " name="email" id="email"
                             value="{{ form.email.value|default_if_none:'' }}" required>
                         <label class="placeholder">Email address</label>
                         {{form.email.errors}}
                     </div>
 
                     <div class="contact-form-column-input-container">
-                        <input type="text" class="contact-form-column-input" placeholder=" " name="phone"
+                        <input type="text" class="contact-form-column-input" placeholder=" " name="phone" id="phone"
                             pattern="\+\d{12}" minlength="12" value="{{ form.phone.value|default_if_none:'' }}"
                             required>
                         <label class="placeholder">Phone number</label>
@@ -87,14 +87,14 @@
                     </div>
 
                     <div class="contact-form-column-input-container">
-                        <input type="text" class="contact-form-column-input" placeholder=" " name="company"
+                        <input type="text" class="contact-form-column-input" placeholder=" " name="company" id="company"
                             value="{{ form.company.value|default_if_none:'' }}" required>
                         <label class="placeholder">Company name</label>
                         {{form.company.errors}}
                     </div>
 
                     <div class="contact-form-column-big-input-container">
-                        <input type="text" class="contact-form-column-input"
+                        <input type="text" class="contact-form-column-input" id="text"
                             value="{{ form.text.value|default_if_none:'' }}" placeholder=" " name="text" required>
                         <label class="placeholder">Messages</label>
                         {{form.text.errors}}
@@ -103,11 +103,12 @@
                     <div class="contact-form-column-btn-container">
                         <button type="submit" class="contact-form-column-btn">Send message</button>
                     </div>
-                    {% for message in messages %}
-                    <div class="contact-form-success-message" id="success-message">
-                        {{ message }}
+                    <div class="contact-form-success-message" id="success-message-container">
+                        <p>Your Form has been submitted successfully !</p>
                     </div>
-                    {% endfor %}
+                    <div class="contact-form-error-message" id="error-message-container">
+                        <p>Error submitting the form. Please try again.</p>
+                    </div>
                 </form>
             </div>
             <div class="contact-form-image-column">
@@ -139,10 +140,10 @@
                 </p>
             </div>
             {% endfor %}
-            </div>
-            <div class="faq-other-list">
-                <a href="">Click to view other FAQS <i class="fa-sharp fa-solid fa-circle-arrow-right"></i></a>
-            </div>
+        </div>
+        <div class="faq-other-list">
+            <a href="">Click to view other FAQS <i class="fa-sharp fa-solid fa-circle-arrow-right"></i></a>
+        </div>
         </div>
     </section>
     <!-- End FAQ SECTION -->
@@ -177,11 +178,31 @@
 
 {% block js_block %}
 <script src="{% static 'main/scripts/js/faq.js' %}"></script>
-{% if request.GET.error %}
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });
+<script type="text/javascript">
+    $(document).on('submit', '#contact-form', function (e) {
+        e.preventDefault();
+        const successMessage = document.getElementById('success-message-container');
+        const errorMessage = document.getElementById('error-message-container')
+        var form = $(this);
+        $.ajax({
+            type: 'POST',
+            url: window.location.href,
+            data: form.serialize(),
+            success: function (data) {
+                if (data.success) {
+                    form.trigger('reset');
+                    successMessage.classList.add('active');
+                    setTimeout(function () {
+                        successMessage.classList.remove('active');
+                    }, 5000);
+                } else {
+                    errorMessage.classList.add('error');
+                    setTimeout(function () {
+                        errorMessage.classList.remove('error');
+                    }, 5000);
+                }
+            }
+        });
     });
 </script>
-{% endif %}
 {% endblock %}

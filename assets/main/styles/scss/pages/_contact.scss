@@ -319,9 +319,10 @@
     }
 }
 
-.contact-form-success-message {
+.contact-form-success-message,
+.contact-form-error-message {
     @extend .white-1rem-grotext;
-    display: block;
+    display: none;
     position: absolute;
     left: 0;
     width: 100%;
@@ -340,7 +341,13 @@
 }
 
 .contact-form-success-message.active {
-    display: none;
+    display: block;
+    z-index: var(--z-index-2);
+}
+
+.contact-form-error-message.error {
+    display: block;
+    background: #F65160 !important;
 }
 
 .contact-form-column-btn-container {

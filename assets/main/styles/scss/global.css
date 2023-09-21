@@ -1963,8 +1963,9 @@
   top: 2.6rem;
 }
 
-.contact-form-success-message {
-  display: block;
+.contact-form-success-message,
+.contact-form-error-message {
+  display: none;
   position: absolute;
   left: 0;
   width: 100%;
@@ -1974,18 +1975,26 @@
   bottom: -3rem;
 }
 @media screen and (max-width: 992px) {
-  .contact-form-success-message {
+  .contact-form-success-message,
+  .contact-form-error-message {
     bottom: -4rem;
   }
 }
 @media screen and (max-width: 500px) {
-  .contact-form-success-message {
+  .contact-form-success-message,
+  .contact-form-error-message {
     font-size: 0.9rem !important;
   }
 }
 
 .contact-form-success-message.active {
-  display: none;
+  display: block;
+  z-index: var(--z-index-2);
+}
+
+.contact-form-error-message.error {
+  display: block;
+  background: #F65160 !important;
 }
 
 .contact-form-column-btn-container {
@@ -5783,7 +5792,8 @@ select:-webkit-autofill:focus {
   text-align: end;
 }
 
-.white-1rem-grotext, .white-1-125rem-grotext, .contact-page-gradient-text-container .contact-page-gradient-text, .pricing-popular-package-info, .btn-for-list-of-packages .click-title, .detail-gradient-container .detail-gradient-posted-date, .detail-share-user-info-container .detail-share-username, .join-our-team-text, .choices-column .price-column .choice-type, .feedback-list-text-column .feedback-list-text-column-title, .feedback-list-text-column .feedback-list-text-column-text, .client-sphere .client-sphere-info, .about-get-in-touch-text-column .about-get-in-touch-title, .about-get-in-touch-text-column .about-get-in-touch-text, .contact-form-success-message, .price-column .pricing-popular-type, .categorie-column .pricing-popular-type, .post-text-container .post-date, .featured-posts-column .featured-post-column-date {
+.white-1rem-grotext, .white-1-125rem-grotext, .contact-page-gradient-text-container .contact-page-gradient-text, .pricing-popular-package-info, .btn-for-list-of-packages .click-title, .detail-gradient-container .detail-gradient-posted-date, .detail-share-user-info-container .detail-share-username, .join-our-team-text, .choices-column .price-column .choice-type, .feedback-list-text-column .feedback-list-text-column-title, .feedback-list-text-column .feedback-list-text-column-text, .client-sphere .client-sphere-info, .about-get-in-touch-text-column .about-get-in-touch-title, .about-get-in-touch-text-column .about-get-in-touch-text, .contact-form-success-message,
+.contact-form-error-message, .price-column .pricing-popular-type, .categorie-column .pricing-popular-type, .post-text-container .post-date, .featured-posts-column .featured-post-column-date {
   color: var(--text-white);
   font-size: 1rem;
   font-family: var(--grotext-sans);
