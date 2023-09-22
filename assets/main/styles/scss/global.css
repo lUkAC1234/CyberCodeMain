@@ -4557,6 +4557,13 @@
 .sign-info-input-container .sign-info-input-column .sign-info-input:focus {
   border-color: var(--background-dark-blue);
 }
+.sign-info-input-container .sign-info-input-column ul li {
+  color: #fb4d4d !important;
+  font-size: 1rem;
+  font-family: var(--grotext-sans);
+  font-weight: 500;
+  margin: 0.25rem 0;
+}
 
 .sign-info-extra-wrapper {
   display: flex;
@@ -5521,7 +5528,7 @@ i,
 strong {
   white-space: normal !important;
   word-wrap: break-word !important;
-  word-break: break-all !important;
+  word-break: break-word !important;
 }
 
 @media screen and (min-width: 2000px) {

@@ -2,13 +2,17 @@ from typing import Any
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.urls import reverse_lazy
 from django.db.models import Q
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
-from django.views.generic import TemplateView, ListView, DetailView, CreateView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
 from .models import PostModel, PricingModel, FeedbackModel, ContactusModel, FaqModel, JobModel, \
-PostCategoryModel, PostTagModel 
-from .forms import ContactusModelForm
+PostCategoryModel, PostTagModel, UserModel
+from .forms import ContactusModelForm, AccountForm, LoginForm, RegistrationForm
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.hashers import make_password
+from django.core.exceptions import ValidationError
+from django.views.decorators.http import require_POST
 
 class index(TemplateView):
     template_name = "pages/index.html"
@@ -142,13 +146,59 @@ class jobdetail(DetailView):
         return data  
 
 class helpcenter(TemplateView):
-    template_name = "pages/helpcenter.html"    
+    template_name = "pages/helpcenter.html"       
 
-class profile(TemplateView):
-    template_name = "pages/profile.html"    
+class MyProfileEdit(UpdateView):
+    model = UserModel
+    form_class = AccountForm  # Specify your custom form class
+    template_name = "pages/profile.html"
+    success_url = reverse_lazy('main:profile')
 
-class login(TemplateView):
-    template_name = "pages/login.html"    
+    def get_object(self, queryset=None):
+        return self.request.user
+    
+def loginView(request):
+    if request.user.is_authenticated:
+        logout(request)
+        return redirect('main:login')
+    else:
+        template_name = 'pages/login.html'
+        form = LoginForm()
+        if request.method == 'POST':
+            form = LoginForm(data=request.POST)
+            if form.is_valid():
+                user = authenticate(
+                    username=form.cleaned_data['username'],
+                    password=form.cleaned_data['password']
+                )
+                if user is not None:
+                    login(request, user)
+                    return redirect('main:index')
+                form.add_error('password', 'Username or password is incorrect')
 
-class registration(TemplateView):
-    template_name = "pages/registration.html"    
+        return render(request, template_name, context={
+            'form': form
+        })
+
+class RegistrationView(CreateView):
+    model = UserModel
+    form_class = RegistrationForm
+    template_name = 'pages/registration.html'
+
+    def get_success_url(self):
+        return reverse_lazy('main:login')
+
+    def form_valid(self, form):
+        form.instance.password = make_password(form.cleaned_data['password'])
+        del form.cleaned_data['confirm_password']
+        response = super().form_valid(form)
+        return JsonResponse({'success': True, 'message': 'Registration successful. You can now log in.'})
+
+    def form_invalid(self, form):
+        response = super().form_invalid(form)
+        errors = form.errors.as_json()
+        return JsonResponse({'success': False, 'message': 'Invalid form data. Please check your inputs.', 'errors': errors})
+    
+def logoutView(request):
+    logout(request)
+    return redirect('main:index')

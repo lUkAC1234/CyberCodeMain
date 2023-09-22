@@ -2,16 +2,36 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
 from ckeditor.fields import RichTextField
-from django.core.validators import RegexValidator
+from django.core.validators import RegexValidator, ValidationError
 # --------------------------------------------------------------------------- #
+
+class EnglishLettersUsernameValidator(RegexValidator):
+    regex = r'^[a-zA-Z]{1,16}$'
+    message = _(
+        'Username can only contain English letters (a-zA-Z) and must be up to 16 characters long.'
+    )
+    flags = 0
+
 # Users
 class UserModel(AbstractUser):
     user_image = models.ImageField(upload_to=' users/profile/profile-image/%Y/%m/%d/', default='profile.svg')
     company = models.CharField(max_length=30, blank=True, null=True)
     location = models.CharField(max_length=50, blank=True, null=True)
     position = models.CharField(max_length=50, blank=True, null=True)
-    mobileNumber = models.CharField(max_length=16, blank=True, null=True)
+    mobileNumber = models.CharField(max_length=13, blank=True, null=True)
     socialMedia = models.URLField(blank=True, null=True)
+
+    username_validator = EnglishLettersUsernameValidator()
+    username = models.CharField(
+        _('username'),
+        max_length=16,
+        unique=True,
+        help_text=_('Required. Up to 16 characters. Only English letters (a-zA-Z).'),
+        validators=[username_validator],
+        error_messages={
+            'unique': _("A user with that username already exists."),
+        },
+    )
 # --------------------------------------------------------------------------- #
 
 

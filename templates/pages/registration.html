@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     {# ------------------------------------------------------------------------------------------- #}
     {# Links #}
@@ -25,79 +26,121 @@
     <link rel="stylesheet" type="text/css" href="{% static 'main/styles/scss/global.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8" defer></script>
     {# ------------------------------------------------------------------------------------------- #}
-    <title>Sign in - CyberCode</title>
+    <title>Sign up - CyberCode</title>
 </head>
+
 <body>
-{% include 'layout/preloader.html' %}
-<main class="main login-main">
-    <!-- START LOGIN CONTENT -->
+    {% include 'layout/preloader.html' %}
+    <main class="main login-main">
+        <!-- START LOGIN CONTENT -->
 
-    <section class="sign-section">
-        <div class="sign-container">
-            <div class="sign-image-container">
-                <div class="sign-image-logo-container">
-                    <img src="{% static 'main/images/layout/codecraftfooter.svg' %}" alt="">
-                    <h1 class="sign-image-logo-text">yber Code</h1>
+        <section class="sign-section">
+            <div class="sign-container">
+                <div class="sign-image-container">
+                    <div class="sign-image-logo-container">
+                        <img src="{% static 'main/images/layout/codecraftfooter.svg' %}" alt="">
+                        <h1 class="sign-image-logo-text">yber Code</h1>
+                    </div>
+                    <h1 class="sign-image-title">Your place to work Plan. Create. Control.</h1>
+                    <div class="sign-image-wrapper">
+                        <img src="{% static 'main/images/login/login.svg' %}" alt="">
+                    </div>
                 </div>
-                <h1 class="sign-image-title">Your place to work Plan. Create. Control.</h1>
-                <div class="sign-image-wrapper">
-                    <img src="{% static 'main/images/login/login.svg' %}" alt="">
+                <div class="sign-info-container">
+                    <h1 class="sign-info-title">Sign up to Website</h1>
+                    <form id="registration-form" method="POST">
+                        {% csrf_token %}
+                        <div class="sign-info-input-container">
+                            <div class="sign-info-input-column">
+                                <label class="sign-info-label">Username</label>
+                                <input class="sign-info-input" id="username" type="text" placeholder="myusername"
+                                    name="username" autocomplete="off"
+                                    value="{{ form.username.value|default_if_none:'' }}">
+                                {% for error in form.username.errors %}
+                                    <span class="error-message">{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            <div class="sign-info-input-column">
+                                <label class="sign-info-label">Email Address</label>
+                                <input class="sign-info-input" id="email" type="text" placeholder="youremail@gmail.com"
+                                    name="email" autocomplete="off" value="{{ form.email.value|default_if_none:'' }}">
+                                {{form.email.errors}}
+                            </div>
+                            <div class="sign-info-input-column">
+                                <label class="sign-info-label">Password</label>
+                                <input class="sign-info-input" id="password" type="password" placeholder="••••••••"
+                                    name="password" autocomplete="off"
+                                    value="{{ form.password.value|default_if_none:'' }}">
+                                {{ errors }}
+                            </div>
+                            <div class="sign-info-input-column">
+                                <label class="sign-info-label">Confirm Password</label>
+                                <input class="sign-info-input" id="confirm_password" type="password"
+                                    placeholder="••••••••" name="confirm_password" autocomplete="off"
+                                    value="{{ form.confirm_password.value|default_if_none:'' }}">
+                                {{ form.confirm_password.errors }}
+                            </div>
+                        </div>
+                        <div class="sign-info-extra-container">
+                            <div class="sign-info-btn-container">
+                                <button class="sign-info-btn" type="submit">Sign up <i
+                                        class="fa-solid fa-arrow-right"></i></button>
+                                <a href="{% url 'main:login' %}" class="sign-info-check-account">Already have an
+                                    account?</a>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div class="sign-info-container">
-                <h1 class="sign-info-title">Sign up to Website</h1>
-                <div class="sign-info-input-container">
-                    <div class="sign-info-input-column">
-                        <label class="sign-info-label">Username</label>
-                        <input class="sign-info-input" type="text" placeholder="myusername">
-                    </div>
-                    <div class="sign-info-input-column">
-                        <label class="sign-info-label">Email Address</label>
-                        <input class="sign-info-input" type="text" placeholder="youremail@gmail.com">
-                    </div>
-                    <div class="sign-info-input-column">
-                        <label class="sign-info-label">Password</label>
-                        <input class="sign-info-input" type="password" placeholder="••••••••">
-                    </div>
-                    <div class="sign-info-input-column">
-                        <label class="sign-info-label">Confirm Password</label>
-                        <input class="sign-info-input" type="password" placeholder="••••••••">
-                    </div>
-                </div>
-                <div class="sign-info-extra-container">
-                    <div class="sign-info-btn-container">
-                        <button class="sign-info-btn">Sign up <i class="fa-solid fa-arrow-right"></i></button>
-                        <a href="{% url 'main:login' %}" class="sign-info-check-account">Already have an account?</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- END LOGIN CONTENT -->
-    <script src="{% static 'main/scripts/js/notranslate.js' %}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        /*------------------
-                Preloader
-        --------------------*/
-        (function ($) {
-            $(window).on('load', function () {
-                $(".loader").fadeOut();
-                $("#preloder").delay(200).fadeOut("slow");
+        <!-- END LOGIN CONTENT -->
+        <script src="{% static 'main/scripts/js/notranslate.js' %}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            /*------------------
+                    Preloader
+            --------------------*/
+            (function ($) {
+                $(window).on('load', function () {
+                    $(".loader").fadeOut();
+                    $("#preloder").delay(200).fadeOut("slow");
+                });
+            })(jQuery);
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const hiddenText = document.querySelector(".hidden-preloader-text");
+
+                setTimeout(() => {
+                    hiddenText.style.opacity = "1";
+                    hiddenText.style.transform = "scaleX(1)";
+                }, 150);
             });
-        })(jQuery);
-    
-        document.addEventListener("DOMContentLoaded", function () {
-            const hiddenText = document.querySelector(".hidden-preloader-text");
-    
-            setTimeout(() => {
-                hiddenText.style.opacity = "1";
-                hiddenText.style.transform = "scaleX(1)";
-            }, 150);
-        });
-        /* END Preloader */
-    </script>
-</main>
+            /* END Preloader */
+
+            $(document).ready(function () {
+                $("#registration-form").submit(function (e) {
+                    e.preventDefault();
+
+                    $.ajax({
+                        type: "POST",
+                        url: "{% url 'main:registration' %}",  // Use the correct URL pattern
+                        data: $(this).serialize(),
+                        success: function (data) {
+                            if (data.success) {
+                                $("#registration-messages").html('<div class="success-message">' + data.message + '</div>');
+                                $("#registration-form").trigger("reset");
+                            } else {
+                                $("#registration-messages").html('<div class="error-message">' + data.message + '</div>');
+                            }
+                        },
+                    });
+                });
+            });
+
+
+        </script>
+    </main>
 </body>
+
 </html>

@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import index, about, contact, pricing, pricinglist, \
-documentation, BlogListView, blogdetail, job, jobdetail, helpcenter, profile, \
-login, registration
+documentation, BlogListView, blogdetail, job, jobdetail, helpcenter, \
+loginView, RegistrationView, MyProfileEdit, logoutView
 
 app_name = "main"
 
@@ -17,7 +17,8 @@ urlpatterns = [
     path('website/jobs/list/', job.as_view(), name="job"),
     path('website/job/detail/<int:pk>', jobdetail.as_view(), name="jobdetail"),
     path('help/center/', helpcenter.as_view(), name="helpcenter"),
-    path('user/profile/', profile.as_view(), name="profile"),
-    path('login/', login.as_view(), name="login"),
-    path('registration/', registration.as_view(), name="registration"),
+    path('user/profile/', MyProfileEdit.as_view(), name="profile"),
+    path('login/', loginView, name="login"),
+    path('registration/', RegistrationView.as_view(), name="registration"),
+    path('logout/account', logoutView, name="logout"),
 ]

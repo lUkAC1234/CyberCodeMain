@@ -71,7 +71,7 @@
                 {% if request.user.is_authenticated %}
                 <div class="dropdown-container" id="dropdown-content">
                     <button class="dropdown__button" id="dropdown-button">
-                        <img class="dropdown__icon" id="dropdownProfileImage" src="{% static 'main/images/profile/profile.svg' %}" alt="">
+                        <img class="dropdown__icon" id="dropdownProfileImage" src="{{ request.user.user_image.url }}" alt="">
                         <span class="dropdown__name"></span>
                     </button>
                     <ul class="dropdown__menu" id="dropdown__menu">
@@ -113,7 +113,7 @@
                         </div>
 
                         <div class="dropdown-item-container">
-                            <a href="">
+                            <a href="{% url 'main:logout' %}">
                                 <li class="dropdown__item">
                                     <i class="fa-solid fa-right-from-bracket dropdown__icon"></i>
                                     <span class="dropdown__name">Logout</span>
