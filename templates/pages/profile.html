@@ -24,7 +24,7 @@
                         </div>
                     </div>
                     <div class="profile-user-info-container">
-                        <h1 class="profile-username">{{ request.user.first_name|default_if_none:'Example'|default:'Example' }}</h1>
+                        <h1 class="profile-username">{{ request.user }}</h1>
                         <p class="profile-email">{{ request.user.email|default_if_none:'example@gmail.com'|default:'example@gmail.com' }}</p>
                     </div>
                 </article>

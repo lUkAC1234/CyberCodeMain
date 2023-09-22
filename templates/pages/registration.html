@@ -57,7 +57,7 @@
                                     name="username" autocomplete="off"
                                     value="{{ form.username.value|default_if_none:'' }}">
                                 {% for error in form.username.errors %}
-                                    <span class="error-message">{{ error }}</span>
+                                <span class="error-message">{{ error }}</span>
                                 {% endfor %}
                             </div>
                             <div class="sign-info-input-column">
@@ -88,6 +88,9 @@
                                 <a href="{% url 'main:login' %}" class="sign-info-check-account">Already have an
                                     account?</a>
                             </div>
+                        </div>
+                        <div class="contact-form-error-message" id="error-message-container">
+                            <p>Error submitting the form. Please try again.</p>
                         </div>
                     </form>
                 </div>
@@ -121,17 +124,16 @@
             $(document).ready(function () {
                 $("#registration-form").submit(function (e) {
                     e.preventDefault();
-
+                    const errorMessage = document.getElementById('error-message-container')
                     $.ajax({
                         type: "POST",
-                        url: "{% url 'main:registration' %}",  // Use the correct URL pattern
+                        url: window.location.href,  // Use the correct URL pattern
                         data: $(this).serialize(),
                         success: function (data) {
                             if (data.success) {
-                                $("#registration-messages").html('<div class="success-message">' + data.message + '</div>');
-                                $("#registration-form").trigger("reset");
+                                window.location.href = "{% url 'main:index' %}";  // Redirect to login page
                             } else {
-                                $("#registration-messages").html('<div class="error-message">' + data.message + '</div>');
+                                errorMessage.classList.add('error');
                             }
                         },
                     });

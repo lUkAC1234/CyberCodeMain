@@ -9,7 +9,7 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView,
 from .models import PostModel, PricingModel, FeedbackModel, ContactusModel, FaqModel, JobModel, \
 PostCategoryModel, PostTagModel, UserModel
 from .forms import ContactusModelForm, AccountForm, LoginForm, RegistrationForm
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, logout, authenticate, get_user_model
 from django.contrib.auth.hashers import make_password
 from django.core.exceptions import ValidationError
 from django.views.decorators.http import require_POST
@@ -159,8 +159,7 @@ class MyProfileEdit(UpdateView):
     
 def loginView(request):
     if request.user.is_authenticated:
-        logout(request)
-        return redirect('main:login')
+        return redirect('main:index')
     else:
         template_name = 'pages/login.html'
         form = LoginForm()
@@ -179,23 +178,24 @@ def loginView(request):
         return render(request, template_name, context={
             'form': form
         })
+    
+UserModel = get_user_model()
 
 class RegistrationView(CreateView):
     model = UserModel
     form_class = RegistrationForm
     template_name = 'pages/registration.html'
-
-    def get_success_url(self):
-        return reverse_lazy('main:login')
+    success_url = reverse_lazy('main:login')
 
     def form_valid(self, form):
         form.instance.password = make_password(form.cleaned_data['password'])
         del form.cleaned_data['confirm_password']
+
         response = super().form_valid(form)
-        return JsonResponse({'success': True, 'message': 'Registration successful. You can now log in.'})
+        login(self.request, self.object) 
+        return JsonResponse({'success': True})
 
     def form_invalid(self, form):
-        response = super().form_invalid(form)
         errors = form.errors.as_json()
         return JsonResponse({'success': False, 'message': 'Invalid form data. Please check your inputs.', 'errors': errors})
     
