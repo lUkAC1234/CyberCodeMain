@@ -44,72 +44,56 @@
 
     <!-- START POSTS TAGS SECTION -->
 
-    <section class="posts-tags-section">
-        <div class="posts-tags-container">
-            <h1 class="posts-tags-title">Search by tags</h1>
-            <div class="posts-tags-wrapper">
-                {% for tag in postTags %}
-                <div class="posts-tags-column">
-                    <a href="#" onclick="addParam('tag', {{ tag.id }})"><button>{{ tag.tag }}</button></a>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-
     <!-- END POSTS TAGS SECTION -->
 
     <section class="featured-posts-section">
         <div class="featured-posts-container">
-            <article class="featured-posts-search-container">
-                <div class="featured-search-wrapper">
-                    <h1 class="featured-search-title">By keyword</h1>
-                    <form action="" method="get">
-                        <label class="search-container" for="">
-                            <input class="featured-search-input" type="search" placeholder="Search by title"
-                                name="search" value="{{ request.GET.search }}">
-                            <button type="submit" class="featured-search-btn"><i
-                                    class="fa-sharp fa-solid fa-magnifying-glass"></i>
-                                Search</button>
-                        </label>
-                    </form>
-                </div>
-                <div class="featured-posts-category">
-                    <h1 class="featured-posts-category-title">By category</h1>
-                    <div class="featured-categories-wrapper owl-carousel">
-                        {% for category in postCategories %}
-                        <div class="featured-category-column">
-                            <a href="#" onclick="addParam('category', {{ category.id }})"><button>{{ category.category}}</button></a>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </article>
-            <article class="featured-posts-wrapper">
-                <div class="featured-posts-column-container">
-                    {% if object_list %}
-                        {% for object in object_list %}
-                        <div class="featured-posts-column">
-                            <a href="{% url 'main:blogdetail' pk=object.pk %}" class="featured-post-column-title">{{ object.title }} <i
-                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            <p class="featured-post-column-text">{{ object.short_description }}</p>
-                            <span class="featured-post-column-posted">Posted on</span>
-                            <p class="featured-post-column-date">{{ object.posted_on|date:"F d, Y" }}</p>
-                        </div>
-                        {% endfor %}
-                        <div class="clear-posts-container">
-                            <a href="{% url 'main:blog' %}" class="clear-posts-clear">Clear all filters + Start Over</a>
-                        </div>
-                    {% else %}
-                        <div class="empty-posts-container">
-                            <div class="empty-posts-icon-container">
-                                <i class="fa-solid fa-xmark"></i>
+            <form action="{% url 'main:blog' %}" method="GET" id="blog-form">
+                <section class="posts-tags-section">
+                    <div class="posts-tags-container">
+                        <h1 class="posts-tags-title">Search by tags</h1>
+                        <div class="posts-tags-wrapper">
+                            {% for tag in postTags %}
+                            <div class="posts-tags-column">
+                                <button class="post-tags-element" data-param-name="tag" data-param-value="{{ tag.id }}">
+                                    {{ tag.tag }}
+                                </button>
                             </div>
-                            <h1 class="empty-posts-title">No Posts Found</h1>
-                            <p class="empty-posts-text">There are no posts that match your current filters. Try removing some of them to get better results.</p>
-                            <a href="{% url 'main:blog' %}" class="empty-posts-clear">Clear all filters + Start Over</a>
+                            {% endfor %}
                         </div>
-                    {% endif %}
+                    </div>
+                </section>
+                <article class="featured-posts-search-container">
+                    <div class="featured-search-wrapper">
+                        <h1 class="featured-search-title">By keyword</h1>
+                        <form action="{% url 'main:blog' %}" method="get">
+                            <label class="search-container" for="">
+                                <input id="search-input" class="featured-search-input" type="search"
+                                    placeholder="Search by title" name="search" value="{{ request.GET.search }}">
+                                <button type="submit" class="featured-search-btn"><i
+                                        class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                                    Search</button>
+                            </label>
+                        </form>
+                    </div>
+                    <div class="featured-posts-category">
+                        <h1 class="featured-posts-category-title">By category</h1>
+                        <div class="featured-categories-wrapper owl-carousel">
+                            {% for category in postCategories %}
+                            <div class="featured-category-column">
+                                <button class="post-category-element" data-param-name="category"
+                                    data-param-value="{{ category.id }}">
+                                    {{category.category}}
+                                </button>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </article>
+            </form>
+            <article class="featured-posts-wrapper">
+                <div class="featured-posts-column-container" id="featured-posts-column-container">
+                    {% include 'pages/blog_result.html' %}
                 </div>
             </article>
         </div>
@@ -149,7 +133,6 @@
 {% endblock %}
 
 {% block js_block %}
-<script>
-</script>
 <script src="{% static 'main/scripts/js/carousel.js' %}"></script>
+<script src="{% static 'main/scripts/js/blogFilter.js' %}"></script>
 {% endblock %}

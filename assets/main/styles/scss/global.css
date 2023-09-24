@@ -3326,11 +3326,11 @@
   }
 }
 
-.posts-tags-column a button {
+.posts-tags-column .post-tags-element {
   font-size: 1rem !important;
 }
 @media screen and (max-width: 700px) {
-  .posts-tags-column a button {
+  .posts-tags-column .post-tags-element {
     padding: 0.5rem 1rem !important;
     font-size: 0.7rem !important;
   }
@@ -4487,15 +4487,36 @@
     font-size: 0.8rem;
   }
 }
+.sign-body {
+  background: var(--background-white) !important;
+}
+
 .sign-section {
   position: relative;
   height: 100vh;
+  overflow-y: hidden;
+}
+@media screen and (max-width: 1199px) {
+  .sign-section {
+    overflow-y: auto;
+  }
+}
+
+.sign-section::-webkit-scrollbar-track, .sign-section::-webkit-scrollbar,
+.sign-body::-webkit-scrollbar-track,
+.sign-body::-webkit-scrollbar {
+  background: var(--background-white);
+  margin-block: 0;
+  width: 0.2rem;
+}
+.sign-section::-webkit-scrollbar-thumb,
+.sign-body::-webkit-scrollbar-thumb {
+  background: #D8E0F0;
 }
 
 .sign-container {
   width: 100%;
   display: flex;
-  box-shadow: 0px 6px 58px 0px rgba(0, 0, 0, 0.1);
   height: 100%;
 }
 
@@ -4613,7 +4634,7 @@
   margin-top: 0.1rem;
 }
 .sign-info-btn-container .sign-info-check-account {
-  margin: 1rem 0;
+  margin: 2rem 0 1rem;
   color: var(--text-purple) !important;
 }
 
@@ -4635,7 +4656,7 @@
 @media screen and (max-width: 550px) {
   .sign-info-container {
     width: 100%;
-    padding: 15rem 2rem;
+    padding: 12.5rem 2rem;
   }
   .sign-info-container .sign-info-title {
     font-size: 1.25rem !important;
@@ -5620,7 +5641,7 @@ strong {
 .gray-button-purple-1rem-2rem, .task-content-column .task-button-a .task-button, .choices-column .abilities .abilities-btn, .choices-column:has(.recommended) .price-column .abilities-btn,
 .choices-column:has(.recommended) .abilities .abilities-btn, .pricing-abilities-btn, .pricing-popular-column:has(.recommended) .price-column .pricing-abilities-btn,
 .pricing-popular-column:has(.recommended) .pricing-popular-abilities .pricing-abilities-btn, .pricing-categories-column:has(.recommended) .categorie-column .categories-abilities-btn,
-.pricing-categories-column:has(.recommended) .pricing-categories-abilities .categories-abilities-btn, .categories-abilities-btn, .toggle-button, .featured-categories-wrapper .featured-category-column button, .posts-tags-column a button {
+.pricing-categories-column:has(.recommended) .pricing-categories-abilities .categories-abilities-btn, .categories-abilities-btn, .toggle-button, .featured-categories-wrapper .featured-category-column button, .posts-tags-column .post-tags-element {
   color: var(--text-purple);
   text-align: center;
   font-size: 1.125rem;
@@ -5635,7 +5656,7 @@ strong {
 }
 .gray-button-purple-1rem-2rem:hover, .task-content-column .task-button-a .task-button:hover, .choices-column .abilities .abilities-btn:hover, .choices-column:has(.recommended) .price-column .abilities-btn:hover, .pricing-abilities-btn:hover, .pricing-popular-column:has(.recommended) .price-column .pricing-abilities-btn:hover,
 .pricing-popular-column:has(.recommended) .pricing-popular-abilities .pricing-abilities-btn:hover, .pricing-categories-column:has(.recommended) .categorie-column .categories-abilities-btn:hover,
-.pricing-categories-column:has(.recommended) .pricing-categories-abilities .categories-abilities-btn:hover, .categories-abilities-btn:hover, .toggle-button:hover, .featured-categories-wrapper .featured-category-column button:hover, .posts-tags-column a button:hover {
+.pricing-categories-column:has(.recommended) .pricing-categories-abilities .categories-abilities-btn:hover, .categories-abilities-btn:hover, .toggle-button:hover, .featured-categories-wrapper .featured-category-column button:hover, .posts-tags-column .post-tags-element:hover {
   background: var(--background-purple);
   color: var(--gray-button);
 }

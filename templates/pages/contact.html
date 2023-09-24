@@ -78,9 +78,8 @@
                         <div class="error-message" id="email-error"></div>
                     </div>
                     <div class="contact-form-column-input-container">
-                        <input type="text" class="contact-form-column-input" placeholder=" " name="phone" id="phone"
-                            pattern="\+\d{12}" minlength="12" value="{% if form.phone.value %}{{ form.phone.value }}{% else %}{{ request.user.mobileNumber|default:'' }}{% endif %}"
-                            required>
+                        <input type="text" class="contact-form-column-input" placeholder=" " name="phone" id="phone" required
+                            value="{% if form.phone.value %}{{ form.phone.value }}{% else %}{{ request.user.mobileNumber|default:'' }}{% endif %}">
                         <label class="placeholder">Phone number</label>
                         <div class="error-message" id="phone-error"></div>
                     </div>
@@ -98,7 +97,7 @@
                         <label class="placeholder">Messages</label>
                         <div class="error-message" id="text-error"></div>
                     </div>
-
+ 
                     <div class="contact-form-column-btn-container">
                         {% if request.user.is_authenticated %}
                         <button type="submit" class="contact-form-column-btn">Send message</button>
@@ -194,6 +193,7 @@
             success: function (data) {
                 if (data.success) {
                     form.trigger('reset');
+                    $(".error-message").removeClass('active').empty();
                     successMessage.classList.add('active');
                     setTimeout(function () {
                         successMessage.classList.remove('active');

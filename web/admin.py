@@ -36,7 +36,7 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'user']
     list_display_links = ['id', 'title']
     search_fields = ['title']
-    readonly_fields = ('user',)
+    readonly_fields = ('user', 'posted_on')
 
     def get_fieldsets(self, request, obj=None):
         if obj:
@@ -75,6 +75,7 @@ class ContactAdmin(admin.ModelAdmin):
     list_display = ['id', 'company']
     list_display_links = ['id', 'company']
     search_fields = ['company']
+    readonly_fields = ['created_at']
 
 @admin.register(FaqModel)
 class FAQAdmin(admin.ModelAdmin):

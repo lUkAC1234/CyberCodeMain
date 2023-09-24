@@ -413,6 +413,7 @@
     display: grid;
     place-items: center;
     width: max-content;
+
     .clear-posts-clear {
         @extend .onerem-tworem-purple-button;
     }
@@ -424,6 +425,7 @@
         @extend .text-align-start;
         margin-bottom: 2rem;
     }
+
     .no-posts-link {
         @extend .onerem-tworem-purple-button;
     }
@@ -456,13 +458,13 @@
         .empty-posts-title {
             font-size: 1.25rem !important;
         }
-    
+
         .empty-posts-text,
         .empty-posts-clear {
             font-size: 1rem !important;
         }
     }
-    
+
     .empty-posts-icon-container {
         i {
             font-size: 2rem;
@@ -472,6 +474,7 @@
 
 @media screen and (max-width: 400px) {
     .empty-posts-container {
+
         .empty-posts-text,
         .empty-posts-clear {
             font-size: 0.9rem !important;
@@ -513,15 +516,13 @@
 }
 
 .posts-tags-column {
-    a {
-        button {
-            @extend .gray-button-purple-1rem-2rem;
-            font-size: 1rem !important;
+    .post-tags-element {
+        @extend .gray-button-purple-1rem-2rem;
+        font-size: 1rem !important;
 
-            @media screen and (max-width: 700px) {
-                padding: 0.5rem 1rem !important;
-                font-size: 0.7rem !important;
-            }
+        @media screen and (max-width: 700px) {
+            padding: 0.5rem 1rem !important;
+            font-size: 0.7rem !important;
         }
     }
 }

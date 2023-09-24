@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path,include
 from .views import index, about, contact, pricing, pricinglist, \
 documentation, BlogListView, blogdetail, job, jobdetail, helpcenter, \
 loginView, RegistrationView, MyProfileEdit, logoutView

@@ -13,6 +13,7 @@ from .forms import ContactusModelForm, AccountForm, LoginForm, RegistrationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.hashers import make_password
 from django.core.exceptions import ValidationError
+from django.template.loader import render_to_string
 
 class index(TemplateView):
     template_name = "pages/index.html"
@@ -27,7 +28,7 @@ class index(TemplateView):
 class about(TemplateView):
     template_name = "pages/about.html"
 
-class contact(SuccessMessageMixin, CreateView):
+class contact(CreateView):
     form_class = ContactusModelForm
     template_name = "pages/contact.html"
     success_url = '/contact/us/' 
@@ -83,16 +84,17 @@ class documentation(TemplateView):
     template_name = "pages/documentation.html"    
 
 class BlogListView(ListView):
-    template_name = "pages/blog.html"    
+    template_name = "pages/blog.html"
+    model = PostModel
+
     def get_queryset(self):
-        posts = PostModel.objects.all()
         search = self.request.GET.get('search', '')
         tag = self.request.GET.get("tag", '')
         category = self.request.GET.get("category", '')
 
         posts = PostModel.objects.all()
-
-        if search: 
+ 
+        if search:
             posts = posts.filter(title__icontains=search)
 
         if tag and tag.isdigit():
@@ -115,6 +117,13 @@ class BlogListView(ListView):
         context['postCategories'] = PostCategoryModel.objects.all()
         context['postTags'] = PostTagModel.objects.all()
         return context
+
+    def render_to_response(self, context, **response_kwargs):
+        if self.request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+            html = render_to_string('pages/blog_result.html', {'object_list': context['object_list']}, request=self.request)
+            return JsonResponse({'success': True, 'html': html})
+        return super().render_to_response(context, **response_kwargs)
+
 
 class blogdetail(DetailView):
     model = PostModel
@@ -179,7 +188,11 @@ def loginView(request):
             errors = {field: [error for error in form[field].errors] for field in form.fields}
             return JsonResponse({'success': False, 'errors': errors})
 
-        return render(request, template_name, {'form': LoginForm()})
+        return render(request, template_name, {
+            'form': LoginForm(),
+            # 'google_login_url': '/accounts/google/login/',
+            # 'facebook_login_url': '/accounts/facebook/login/',
+        })
 
     
 class RegistrationView(CreateView):

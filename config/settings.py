@@ -15,6 +15,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -22,6 +23,12 @@ INSTALLED_APPS = [
     'ckeditor',
 
     'fontawesomefree',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.facebook',
 
     'web'
 
@@ -92,6 +99,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Configure Google and Facebook authentication
+
+# Define URLs for login and logout
+LOGIN_URL = 'account_login'
+LOGOUT_URL = 'account_logout'
+LOGIN_REDIRECT_URL = 'main:index'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
@@ -132,3 +145,31 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'web.UserModel'
+
+# SOCIALACCOUNT_PROVIDERS = {
+#     'google': {
+#         'SCOPE': ['profile', 'email'],
+#         'AUTH_PARAMS': {'access_type': 'online'},
+#         'METHOD': 'oauth2',
+#         'VERIFIED_EMAIL': False,
+#         'KEY': 'your-google-client-id',
+#         'SECRET': 'your-google-client-secret',
+#     },
+#     'facebook': {
+#         'METHOD': 'oauth2',
+#         'SCOPE': ['email'],
+#         'VERIFIED_EMAIL': True,
+#         'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+#         'KEY': 'your-facebook-app-id',
+#         'SECRET': 'your-facebook-app-secret',
+#     },
+# }
+
+AUTHENTICATION_BACKENDS = (
+    # ...
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+    # ...
+)
+
+SITE_ID = 1

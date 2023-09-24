@@ -1,0 +1,24 @@
+{% if object_list %}
+{% for object in object_list %}
+<div class="featured-posts-column">
+    <a href="{% url 'main:blogdetail' pk=object.pk %}" class="featured-post-column-title">
+        {{object.title }} <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+    <p class="featured-post-column-text">{{ object.short_description }}</p>
+    <span class="featured-post-column-posted">Posted on</span>
+    <p class="featured-post-column-date">{{ object.posted_on|date:"F d, Y" }}</p>
+</div>
+{% endfor %}
+<div class="clear-posts-container">
+    <button class="clear-posts-clear" id="clearUrl">Clear all filters + Start Over</button>
+</div>
+{% else %}
+<div class="empty-posts-container">
+    <div class="empty-posts-icon-container">
+        <i class="fa-solid fa-xmark"></i>
+    </div>
+    <h1 class="empty-posts-title">No Posts Found</h1>
+    <p class="empty-posts-text">There are no posts that match your current filters. Try removing
+        some of them to get better results.</p>
+    <button class="empty-posts-clear" id="clearUrl2">Clear all filters + Start Over</button>
+</div>
+{% endif %}

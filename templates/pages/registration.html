@@ -29,7 +29,7 @@
     <title>Sign up - CyberCode</title>
 </head>
 
-<body>
+<body class="sign-body">
     {% include 'layout/preloader.html' %}
     <main class="main login-main">
         <!-- START LOGIN CONTENT -->
@@ -83,8 +83,7 @@
                             <div class="sign-info-btn-container">
                                 <button class="sign-info-btn" type="submit">Sign up <i
                                         class="fa-solid fa-arrow-right"></i></button>
-                                <a href="{% url 'main:login' %}" class="sign-info-check-account">Already have an
-                                    account?</a>
+                                <a href="{% url 'main:login' %}" class="sign-info-check-account">Already have an account?</a>
                             </div>
                         </div>
                     </form>
