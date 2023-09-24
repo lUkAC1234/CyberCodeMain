@@ -297,7 +297,7 @@
 
     ul {
         li {
-            color: #fb4d4d !important;
+            color: var(--error) !important;
             font-size: 1rem;
             font-family: var(--grotext-sans);
             font-weight: 500;

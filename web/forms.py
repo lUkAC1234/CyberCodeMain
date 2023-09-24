@@ -2,6 +2,7 @@
 # Django exceptions
 from django import forms
 from django.core.exceptions import ValidationError
+from django.contrib.auth import authenticate
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 # --------------------------------------------------------------------------- #
 # Models
@@ -9,7 +10,6 @@ from .models import UserModel, PostModel, ContactusModel
 # --------------------------------------------------------------------------- #
 # Translation
 from django.utils.translation import gettext_lazy as _
-from django import forms
 
 # --------------------------------------------------------------------------- #
 
@@ -51,6 +51,16 @@ class LoginForm(forms.Form):
         widgets = {
             'password': forms.PasswordInput()
         }
+
+    def clean_confirm_password(self):
+        cleaned_data = super().clean()
+        username = cleaned_data.get('username')
+        password = cleaned_data.get('password')
+
+        user = authenticate(username=username, password=password)
+        if user == None:
+            raise ValidationError(_('Username or password is incorrect'))
+        return cleaned_data
 
 class RegistrationForm(forms.ModelForm):
     confirm_password = forms.CharField(widget=forms.PasswordInput())

@@ -4,20 +4,14 @@
 }
 
 .sign-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 95%;
+    width: 100%;
     display: flex;
     box-shadow: 0px 6px 58px 0px rgba(0, 0, 0, 0.1);
-    border-radius: 1.5rem;
-    max-height: 98%;
+    height: min(100%, 100%);
 }
 
 .sign-image-container {
     width: 50%;
-    border-radius: 1.5rem 0 0 1.5rem;
     background: var(--background-white);
     background: linear-gradient(90deg, rgba(136, 40, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
 
@@ -66,7 +60,7 @@
 
 .sign-info-container {
     width: 50%;
-    padding: 10rem 5rem;
+    padding: 5rem;
 
     .sign-info-title {
         @extend .dark-blue-text-center-grotext-family-1-5rem;
@@ -179,7 +173,7 @@
     }
     .sign-info-container {
         width: 100%;
-        padding-inline: 10rem;
+        padding: 10rem;
     }
 }
 
@@ -191,12 +185,9 @@
 }
 
 @media screen and (max-width: 550px) {
-    .sign-container {
-        height: fit-content;
-    }
     .sign-info-container {
         width: 100%;
-        padding-inline: 2rem;
+        padding: 15rem 2rem;
         .sign-info-title {
             font-size: 1.25rem !important;
         }
@@ -238,4 +229,17 @@
             font-size: 0.9rem !important;
         }
     }
+}
+
+.error-message {
+    display: none;
+    color: var(--error);
+    font-family: var(--grotext-sans);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.error-message.active {
+    display: block;
+    margin-block: 0.25rem;
 }

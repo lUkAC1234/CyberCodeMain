@@ -4,15 +4,15 @@ from django.urls import reverse_lazy
 from django.db.models import Q
 from django.http import JsonResponse, HttpResponse
 from django.contrib.messages.views import SuccessMessageMixin
+from django.utils.translation import gettext as _
 from django.contrib import messages
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
 from .models import PostModel, PricingModel, FeedbackModel, ContactusModel, FaqModel, JobModel, \
 PostCategoryModel, PostTagModel, UserModel
 from .forms import ContactusModelForm, AccountForm, LoginForm, RegistrationForm
-from django.contrib.auth import login, logout, authenticate, get_user_model
+from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.hashers import make_password
 from django.core.exceptions import ValidationError
-from django.views.decorators.http import require_POST
 
 class index(TemplateView):
     template_name = "pages/index.html"
@@ -45,15 +45,15 @@ class contact(SuccessMessageMixin, CreateView):
             if self.request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
                 return JsonResponse(response_data)
         except Exception as e:
-            response_data = {'success': False, 'error': str(e)}
+            errors = {field: [error for error in form[field].errors] for field in form.fields}
             if self.request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
-                return JsonResponse(response_data)
+                return JsonResponse({'success': False, 'errors': errors})
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        response_data = {'success': False}  # Если форма недействительна, передаем False
+        errors = {field: [error for error in form[field].errors] for field in form.fields}
         if self.request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
-            return JsonResponse(response_data)
+            return JsonResponse({'success': False, 'errors': errors})
         return super().form_invalid(form)
 
 class pricing(TemplateView):
@@ -150,7 +150,7 @@ class helpcenter(TemplateView):
 
 class MyProfileEdit(UpdateView):
     model = UserModel
-    form_class = AccountForm  # Specify your custom form class
+    form_class = AccountForm 
     template_name = "pages/profile.html"
     success_url = reverse_lazy('main:profile')
 
@@ -159,33 +159,34 @@ class MyProfileEdit(UpdateView):
     
 def loginView(request):
     if request.user.is_authenticated:
-        return redirect('main:index')
+        logout(request)
+        return redirect('main:login')
     else:
         template_name = 'pages/login.html'
-        form = LoginForm()
         if request.method == 'POST':
             form = LoginForm(data=request.POST)
             if form.is_valid():
-                user = authenticate(
-                    username=form.cleaned_data['username'],
-                    password=form.cleaned_data['password']
-                )
+                username = form.cleaned_data['username']
+                password = form.cleaned_data['password']
+
+                user = authenticate(username=username, password=password)
+
                 if user is not None:
                     login(request, user)
-                    return redirect('main:index')
-                form.add_error('password', 'Username or password is incorrect')
+                    return JsonResponse({'success': True, 'redirect': reverse('main:index')})
+                form.add_error('password', f'Username or password is incorrect')
 
-        return render(request, template_name, context={
-            'form': form
-        })
+            errors = {field: [error for error in form[field].errors] for field in form.fields}
+            return JsonResponse({'success': False, 'errors': errors})
+
+        return render(request, template_name, {'form': LoginForm()})
+
     
-UserModel = get_user_model()
-
 class RegistrationView(CreateView):
     model = UserModel
     form_class = RegistrationForm
     template_name = 'pages/registration.html'
-    success_url = reverse_lazy('main:login')
+    success_url = reverse_lazy('main:index')
 
     def form_valid(self, form):
         form.instance.password = make_password(form.cleaned_data['password'])
@@ -196,8 +197,8 @@ class RegistrationView(CreateView):
         return JsonResponse({'success': True})
 
     def form_invalid(self, form):
-        errors = form.errors.as_json()
-        return JsonResponse({'success': False, 'message': 'Invalid form data. Please check your inputs.', 'errors': errors})
+        errors = {field: [error for error in form[field].errors] for field in form.fields}
+        return JsonResponse({'success': False, 'errors': errors})
     
 def logoutView(request):
     logout(request)

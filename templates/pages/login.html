@@ -41,27 +41,30 @@
                         <img src="{% static 'main/images/layout/codecraftfooter.svg' %}" alt="">
                         <h1 class="sign-image-logo-text">yber Code</h1>
                     </div>
-                    <h1 class="sign-image-title">Your place to work Plan. Create. Control.</h1>
+                    <h1 class="sign-image-title">Your place to work Plan and Create.</h1>
                     <div class="sign-image-wrapper">
                         <img src="{% static 'main/images/login/login.svg' %}" alt="">
                     </div>
                 </div>
                 <div class="sign-info-container">
                     <h1 class="sign-info-title">Sign In to Website</h1>
-                    <form action="{% url 'main:login' %}" method="POST" id="signForm">
+                    <form id="login-form">
                         {% csrf_token %}
                         <div class="sign-info-input-container">
                             <div class="sign-info-input-column">
                                 <label class="sign-info-label">Username</label>
-                                <input class="sign-info-input" type="text" placeholder="myusername" name="username" autocomplete="off" value="{{ form.username.value|default_if_none:'' }}">
-                                {{ form.username.errors }}
+                                <input class="sign-info-input" type="text" placeholder="myusername" name="username"
+                                    autocomplete="off" value="{{ form.username.value|default_if_none:'' }}">
+                                <div class="error-message" id="username-error"></div>
                             </div>
                             <div class="sign-info-input-column">
                                 <label class="sign-info-label">Password</label>
-                                <input class="sign-info-input" type="password" placeholder="••••••••" name="password" autocomplete="off" value="{{ form.password.value|default_if_none:'' }}">
-                                {{ form.password.errors }}
+                                <input class="sign-info-input" type="password" placeholder="••••••••" name="password"
+                                    autocomplete="off" value="{{ form.password.value|default_if_none:'' }}">
+                                <div class="error-message" id="password-error"></div>
                             </div>
                         </div>
+                        <div class="error-message">{{ error_message }}</div>
                         <div class="sign-info-extra-container">
                             <div class="sign-info-extra-wrapper">
                                 <div class="sign-info-extra-remember-container">
@@ -73,7 +76,8 @@
                                 </div>
                             </div>
                             <div class="sign-info-btn-container">
-                                <button class="sign-info-btn" type="submit">Sign in <i class="fa-solid fa-arrow-right"></i></button>
+                                <button class="sign-info-btn" type="submit">Sign in <i
+                                        class="fa-solid fa-arrow-right"></i></button>
                                 <a href="{% url 'main:registration' %}" class="sign-info-check-account">Don’t have an
                                     account?</a>
                             </div>
@@ -104,6 +108,30 @@
                     hiddenText.style.opacity = "1";
                     hiddenText.style.transform = "scaleX(1)";
                 }, 150);
+            });
+
+            $(document).ready(function () {
+                $("#login-form").submit(function (e) {
+                    e.preventDefault();
+                    $.ajax({
+                        type: "POST",
+                        url: window.location.href,  // Use the correct URL pattern
+                        data: $(this).serialize(),
+                        success: function (data) {
+                            if (data.success) {
+                                window.location.href = "{% url 'main:index' %}";
+                            } else {
+                                $(".error-message").removeClass('active').empty();
+                                for (var field in data.errors) {
+                                    if (data.errors.hasOwnProperty(field)) {
+                                        $("#" + field + "-error").addClass('active');
+                                        $("#" + field + "-error").text(data.errors[field][0]);
+                                    }
+                                }
+                            }
+                        },
+                    });
+                });
             });
             /* END Preloader */
         </script>

@@ -414,6 +414,7 @@
 }
 
 .choices-column {
+  position: relative;
   width: 24rem;
   min-height: 28rem;
   height: max-content;
@@ -443,6 +444,7 @@
   background: var(--background-white);
   border-radius: 0rem 0rem 1.25rem 1.25rem;
   padding: 2.5rem 5rem 2.5rem 2.5rem;
+  min-height: 20rem;
 }
 .choices-column .abilities ul {
   gap: 0.6rem;
@@ -460,6 +462,9 @@
   left: -1.25rem;
 }
 .choices-column .abilities .abilities-btn {
+  position: absolute;
+  bottom: 1rem;
+  left: 0.5rem;
   transform: scale(0.9);
   margin-top: 1rem;
 }
@@ -1945,7 +1950,7 @@
 }
 .contact-form-column-input-container ul li,
 .contact-form-column-big-input-container ul li {
-  color: #fb4d4d !important;
+  color: var(--error) !important;
   font-size: 1rem;
   font-family: var(--grotext-sans);
   font-weight: 500;
@@ -2304,6 +2309,7 @@
 }
 
 .pricing-popular-column {
+  position: relative;
   width: 24rem;
   min-height: 28rem;
   height: max-content;
@@ -2334,6 +2340,7 @@
   background: var(--background-white);
   border-radius: 0rem 0rem 1.25rem 1.25rem;
   padding: 2.5rem 5rem 2.5rem 2.5rem;
+  min-height: 20rem;
 }
 .pricing-popular-abilities ul {
   gap: 0.6rem;
@@ -2352,6 +2359,9 @@
 }
 
 .pricing-abilities-btn {
+  position: absolute;
+  bottom: 1rem;
+  left: 0.5rem;
   transform: scale(0.9);
   margin-top: 1rem;
 }
@@ -2683,6 +2693,7 @@
 }
 
 .pricing-categories-column {
+  position: relative;
   width: 24rem;
   min-height: 28rem;
   height: max-content;
@@ -2735,6 +2746,7 @@
   background: var(--background-white);
   border-radius: 0rem 0rem 1.25rem 1.25rem;
   padding: 2.5rem 5rem 2.5rem 2.5rem;
+  min-height: 20rem !important;
 }
 .pricing-categories-abilities ul {
   gap: 0.6rem;
@@ -2753,6 +2765,9 @@
 }
 
 .categories-abilities-btn {
+  position: absolute;
+  bottom: 1rem;
+  left: 0.5rem;
   transform: scale(0.9);
   margin-top: 1rem;
 }
@@ -4478,20 +4493,14 @@
 }
 
 .sign-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 95%;
+  width: 100%;
   display: flex;
   box-shadow: 0px 6px 58px 0px rgba(0, 0, 0, 0.1);
-  border-radius: 1.5rem;
-  max-height: 98%;
+  height: 100%;
 }
 
 .sign-image-container {
   width: 50%;
-  border-radius: 1.5rem 0 0 1.5rem;
   background: var(--background-white);
   background: linear-gradient(90deg, rgb(136, 40, 255) 0%, rgb(255, 255, 255) 100%);
 }
@@ -4532,7 +4541,7 @@
 
 .sign-info-container {
   width: 50%;
-  padding: 10rem 5rem;
+  padding: 5rem;
 }
 .sign-info-container .sign-info-title {
   margin-bottom: 1rem;
@@ -4614,7 +4623,7 @@
   }
   .sign-info-container {
     width: 100%;
-    padding-inline: 10rem;
+    padding: 10rem;
   }
 }
 @media screen and (max-width: 800px) {
@@ -4624,12 +4633,9 @@
   }
 }
 @media screen and (max-width: 550px) {
-  .sign-container {
-    height: fit-content;
-  }
   .sign-info-container {
     width: 100%;
-    padding-inline: 2rem;
+    padding: 15rem 2rem;
   }
   .sign-info-container .sign-info-title {
     font-size: 1.25rem !important;
@@ -4654,6 +4660,19 @@
     font-size: 0.9rem !important;
   }
 }
+.error-message {
+  display: none;
+  color: var(--error);
+  font-family: var(--grotext-sans);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.error-message.active {
+  display: block;
+  margin-block: 0.25rem;
+}
+
 #preloder {
   position: fixed;
   width: 100%;
@@ -5476,6 +5495,7 @@
   --text-light-gray: #ADABB7;
   --text-header-menu: #363636;
   --text-light-white: #DEDEDE;
+  --error: #fb4d4d;
 }
 
 :root {

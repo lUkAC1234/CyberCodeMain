@@ -127,6 +127,7 @@
 }
 
 .pricing-categories-column {
+    position: relative;
     width: 24rem;
     min-height: 28rem;
     height: max-content;
@@ -202,6 +203,7 @@
     background: var(--background-white);
     border-radius: 0rem 0rem 1.25rem 1.25rem;
     padding: 2.5rem 5rem 2.5rem 2.5rem;
+    min-height: 20rem !important;
     ul {
         @extend .flex-column-justify-align-start;
         gap: 0.6rem;
@@ -229,6 +231,9 @@
 
 .categories-abilities-btn {
     @extend .gray-button-purple-1rem-2rem;
+    position: absolute;
+    bottom: 1rem;
+    left: 0.5rem;
     transform: scale(0.9);
     margin-top: 1rem;
 }

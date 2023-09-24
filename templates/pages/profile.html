@@ -11,7 +11,7 @@
     <div class="profile-gradient-container"></div>
     <section class="profile-section">
         <div class="profile-container">
-            <form enctype="multipart/form-data" method="POST">
+            <form enctype="multipart/form-data" method="POST" id="profile-form">
                 {% csrf_token %}
                 <article class="profile-general-info-container">
                     <div class="profile-image-edit-container">
@@ -19,13 +19,16 @@
                             <img src="{{ request.user.user_image.url }}" alt="" class="profile-image">
                             <label class="file-upload-label">
                                 <i class="fa-sharp fa-solid fa-camera profile-add-icon"></i>
-                                <input class="profile-upload-input" type="file" name="user_image" id="" accept=".jpg, .png, .jpeg, .webp">
+                                <input class="profile-upload-input" type="file" name="user_image" id=""
+                                    accept=".jpg, .png, .jpeg, .webp">
                             </label>
                         </div>
                     </div>
                     <div class="profile-user-info-container">
                         <h1 class="profile-username">{{ request.user }}</h1>
-                        <p class="profile-email">{{ request.user.email|default_if_none:'example@gmail.com'|default:'example@gmail.com' }}</p>
+                        <p class="profile-email">
+                            {{ request.user.email|default_if_none:'example@gmail.com'|default:'example@gmail.com' }}
+                        </p>
                     </div>
                 </article>
                 <article class="profile-edit-container">
@@ -34,19 +37,23 @@
                         <div class="profile-main-edit-wrapper">
                             <div class="profile-edit-column">
                                 <label for="">First Name</label>
-                                <input class="profile-edit-input" type="text" placeholder="example" name="first_name" value="{{ request.user.first_name|default_if_none:'' }}">
+                                <input class="profile-edit-input" type="text" placeholder="example" name="first_name"
+                                    value="{{ request.user.first_name|default_if_none:'' }}">
                             </div>
                             <div class="profile-edit-column">
                                 <label for="">Company</label>
-                                <input class="profile-edit-input" type="text" placeholder="CyberCode" name="company" value="{{ request.user.company|default_if_none:'' }}">
+                                <input class="profile-edit-input" type="text" placeholder="CyberCode" name="company"
+                                    value="{{ request.user.company|default_if_none:'' }}">
                             </div>
                             <div class="profile-edit-column">
                                 <label for="">Location</label>
-                                <input class="profile-edit-input" type="text" placeholder="NYC, New York, USA" name="location" value="{{ request.user.location|default_if_none:'' }}">
+                                <input class="profile-edit-input" type="text" placeholder="NYC, New York, USA"
+                                    name="location" value="{{ request.user.location|default_if_none:'' }}">
                             </div>
                             <div class="profile-edit-column">
                                 <label for="">Position</label>
-                                <input class="profile-edit-input" type="text" placeholder="UI/UX Designer" name="position" value="{{ request.user.position|default_if_none:'' }}">
+                                <input class="profile-edit-input" type="text" placeholder="UI/UX Designer"
+                                    name="position" value="{{ request.user.position|default_if_none:'' }}">
                             </div>
                         </div>
                     </div>
@@ -55,19 +62,24 @@
                         <div class="profile-contact-edit-wrapper">
                             <div class="profile-edit-column">
                                 <label for="">Mobile Number</label>
-                                <input class="profile-edit-input" type="text" placeholder="+998331701706" pattern="\+\d{12}" minlength="12" name="mobileNumber" value="{{ request.user.mobileNumber|default_if_none:'' }}">
+                                <input class="profile-edit-input" type="text" placeholder="+998331701706"
+                                    pattern="\+\d{12}" minlength="12" name="mobileNumber"
+                                    value="{{ request.user.mobileNumber|default_if_none:'' }}">
                             </div>
                             <div class="profile-edit-column">
                                 <label for="">Email</label>
-                                <input class="profile-edit-input" type="email" placeholder="supportcybercode@gmail.com" name="email">
+                                <input class="profile-edit-input" type="email" placeholder="supportcybercode@gmail.com"
+                                    name="email" value="{{ request.user.email|default_if_none:'' }}">
                             </div>
                             <div class="profile-edit-column">
                                 <label for="">Social Media</label>
-                                <input class="profile-edit-input" type="url" placeholder="https://www.instagram.com/" name="socialMedia" value="{{ request.user.socialMedia|default_if_none:'' }}">
+                                <input class="profile-edit-input" type="url" placeholder="https://www.instagram.com/"
+                                    name="socialMedia" value="{{ request.user.socialMedia|default_if_none:'' }}">
                             </div>
                         </div>
                         <div class="profile-submit-btn-container">
-                            <button type="submit" class="profile-submit-btn"><i class="fa-solid fa-circle-check"></i> Submit</button>
+                            <button type="submit" class="profile-submit-btn"><i class="fa-solid fa-circle-check"></i>
+                                Submit</button>
                         </div>
                     </div>
                 </article>
@@ -81,31 +93,4 @@
 
 {% block js_block %}
 <script src="{% static 'main/scripts/js/profile.js' %}"></script>
-<script type="text/javascript">
-    $(document).on('submit', '#contact-form', function (e) {
-        e.preventDefault();
-        const successMessage = document.getElementById('success-message-container');
-        const errorMessage = document.getElementById('error-message-container')
-        var form = $(this);
-        $.ajax({
-            type: 'POST',
-            url: window.location.href,
-            data: form.serialize(),
-            success: function (data) {
-                if (data.success) {
-                    form.trigger('reset');
-                    successMessage.classList.add('active');
-                    setTimeout(function () {
-                        successMessage.classList.remove('active');
-                    }, 5000);
-                } else {
-                    errorMessage.classList.add('error');
-                    setTimeout(function () {
-                        errorMessage.classList.remove('error');
-                    }, 5000);
-                }
-            }
-        });
-    });
-</script>
 {% endblock %}

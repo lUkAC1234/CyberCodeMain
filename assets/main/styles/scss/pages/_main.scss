@@ -546,6 +546,7 @@
 }
 
 .choices-column {
+    position: relative;
     width: 24rem;
     min-height: 28rem;
     height: max-content;
@@ -589,6 +590,7 @@
         background: var(--background-white);
         border-radius: 0rem 0rem 1.25rem 1.25rem;
         padding: 2.5rem 5rem 2.5rem 2.5rem;
+        min-height: 20rem;
 
         ul {
             @extend .flex-column-justify-align-start;
@@ -615,6 +617,9 @@
 
         .abilities-btn {
             @extend .gray-button-purple-1rem-2rem;
+            position: absolute;
+            bottom: 1rem;
+            left: 0.5rem;
             transform: scale(0.9);
             margin-top: 1rem;
         }
@@ -994,6 +999,7 @@
     &:hover {
         border-color: var(--background-purple);
     }
+
     &:hover .feedback-content .feedback-content-text {
         color: var(--text-purple);
         transition: all 0.5s;

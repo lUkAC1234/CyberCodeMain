@@ -9,6 +9,7 @@ $text-light-purple: #C08DFF;
 $text-light-gray: #ADABB7;
 $text-header-menu: #363636;
 $text-light-white: #DEDEDE;
+$error: #fb4d4d;
 :root {
     --text-purple: #{$text-purple};
     --text-aqua: #{$text-aqua};
@@ -21,4 +22,5 @@ $text-light-white: #DEDEDE;
     --text-light-gray: #{$text-light-gray};
     --text-header-menu: #{$text-header-menu};
     --text-light-white: #{$text-light-white};
+    --error: #{$error};
 }

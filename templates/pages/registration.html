@@ -41,14 +41,14 @@
                         <img src="{% static 'main/images/layout/codecraftfooter.svg' %}" alt="">
                         <h1 class="sign-image-logo-text">yber Code</h1>
                     </div>
-                    <h1 class="sign-image-title">Your place to work Plan. Create. Control.</h1>
+                    <h1 class="sign-image-title">Your place to work Plan and Create.</h1>
                     <div class="sign-image-wrapper">
                         <img src="{% static 'main/images/login/login.svg' %}" alt="">
                     </div>
                 </div>
                 <div class="sign-info-container">
                     <h1 class="sign-info-title">Sign up to Website</h1>
-                    <form id="registration-form" method="POST">
+                    <form id="registration-form">
                         {% csrf_token %}
                         <div class="sign-info-input-container">
                             <div class="sign-info-input-column">
@@ -56,29 +56,27 @@
                                 <input class="sign-info-input" id="username" type="text" placeholder="myusername"
                                     name="username" autocomplete="off"
                                     value="{{ form.username.value|default_if_none:'' }}">
-                                {% for error in form.username.errors %}
-                                <span class="error-message">{{ error }}</span>
-                                {% endfor %}
+                                <div class="error-message" id="username-error"></div>
                             </div>
                             <div class="sign-info-input-column">
                                 <label class="sign-info-label">Email Address</label>
                                 <input class="sign-info-input" id="email" type="text" placeholder="youremail@gmail.com"
                                     name="email" autocomplete="off" value="{{ form.email.value|default_if_none:'' }}">
-                                {{form.email.errors}}
+                                <div class="error-message" id="email-error"></div>
                             </div>
                             <div class="sign-info-input-column">
                                 <label class="sign-info-label">Password</label>
                                 <input class="sign-info-input" id="password" type="password" placeholder="••••••••"
                                     name="password" autocomplete="off"
                                     value="{{ form.password.value|default_if_none:'' }}">
-                                {{ errors }}
+                                <div class="error-message" id="password-error"></div>
                             </div>
                             <div class="sign-info-input-column">
                                 <label class="sign-info-label">Confirm Password</label>
                                 <input class="sign-info-input" id="confirm_password" type="password"
                                     placeholder="••••••••" name="confirm_password" autocomplete="off"
                                     value="{{ form.confirm_password.value|default_if_none:'' }}">
-                                {{ form.confirm_password.errors }}
+                                <div class="error-message" id="confirm_password-error"></div>
                             </div>
                         </div>
                         <div class="sign-info-extra-container">
@@ -88,9 +86,6 @@
                                 <a href="{% url 'main:login' %}" class="sign-info-check-account">Already have an
                                     account?</a>
                             </div>
-                        </div>
-                        <div class="contact-form-error-message" id="error-message-container">
-                            <p>Error submitting the form. Please try again.</p>
                         </div>
                     </form>
                 </div>
@@ -124,16 +119,21 @@
             $(document).ready(function () {
                 $("#registration-form").submit(function (e) {
                     e.preventDefault();
-                    const errorMessage = document.getElementById('error-message-container')
                     $.ajax({
                         type: "POST",
                         url: window.location.href,  // Use the correct URL pattern
                         data: $(this).serialize(),
                         success: function (data) {
                             if (data.success) {
-                                window.location.href = "{% url 'main:index' %}";  // Redirect to login page
+                                window.location.href = "{% url 'main:index' %}";
                             } else {
-                                errorMessage.classList.add('error');
+                                $(".error-message").removeClass('active').empty();
+                                for (var field in data.errors) {
+                                    if (data.errors.hasOwnProperty(field)) {
+                                        $("#" + field + "-error").addClass('active');
+                                        $("#" + field + "-error").text(data.errors[field][0]);
+                                    }
+                                }
                             }
                         },
                     });
