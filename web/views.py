@@ -190,8 +190,7 @@ def loginView(request):
 
         return render(request, template_name, {
             'form': LoginForm(),
-            # 'google_login_url': '/accounts/google/login/',
-            # 'facebook_login_url': '/accounts/facebook/login/',
+            'googleLoginUrl': '/accounts/login/',
         })
 
     

@@ -146,24 +146,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'web.UserModel'
 
-# SOCIALACCOUNT_PROVIDERS = {
-#     'google': {
-#         'SCOPE': ['profile', 'email'],
-#         'AUTH_PARAMS': {'access_type': 'online'},
-#         'METHOD': 'oauth2',
-#         'VERIFIED_EMAIL': False,
-#         'KEY': 'your-google-client-id',
-#         'SECRET': 'your-google-client-secret',
-#     },
-#     'facebook': {
-#         'METHOD': 'oauth2',
-#         'SCOPE': ['email'],
-#         'VERIFIED_EMAIL': True,
-#         'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
-#         'KEY': 'your-facebook-app-id',
-#         'SECRET': 'your-facebook-app-secret',
-#     },
-# }
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': ['profile', 'email'],
+        'AUTH_PARAMS': {'access_type': 'online'},
+        'client_id': '1066745837791-rs1fl9pjqkeboc9j6037ptglhvoa8mnv.apps.googleusercontent.com',
+        'secret': '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',
+        'key': ''
+    }
+}
 
 AUTHENTICATION_BACKENDS = (
     # ...
@@ -171,5 +162,8 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
     # ...
 )
+
+LOGIN_REDIRECT_URL = '/'
+ACCOUNT_LOGOUT_REDIRECT = '/'
 
 SITE_ID = 1

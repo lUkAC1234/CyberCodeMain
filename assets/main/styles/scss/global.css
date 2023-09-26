@@ -1644,10 +1644,16 @@
 
 .about-get-in-touch-info-container {
   display: flex;
-  justify-content: end;
   flex-wrap: wrap;
   gap: 1rem;
   width: fit-content;
+}
+@media screen and (max-width: 1550px) {
+  .about-get-in-touch-info-container {
+    display: grid;
+    place-content: end;
+    grid-template-columns: repeat(auto auto);
+  }
 }
 
 .about-get-in-touch-info-column {
@@ -1670,7 +1676,7 @@
   color: var(--background-purple);
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1000px) {
   .about-get-in-touch-section {
     margin-top: 5rem;
     padding: 7.5rem 1rem;
@@ -1682,11 +1688,12 @@
     flex-flow: column;
   }
   .about-get-in-touch-info-container {
-    justify-content: center;
+    width: 100%;
+    place-content: start;
   }
   .about-get-in-touch-info-column,
   .about-get-in-touch-text-column {
-    width: 90%;
+    width: 100%;
   }
 }
 @media screen and (max-width: 500px) {
@@ -6026,7 +6033,8 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 1em;
+  width: 0.25rem;
+  height: 0.25rem;
   overflow-x: none;
   background: var(--scroolbar-dark);
 }
@@ -6034,7 +6042,7 @@ body {
 ::-webkit-scrollbar-track {
   border-radius: 0.3em;
   background: var(--scroolbar-dark);
-  margin-block: 0.25em;
+  width: 0.25rem;
 }
 
 ::-webkit-scrollbar-thumb {

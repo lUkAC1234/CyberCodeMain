@@ -31,7 +31,6 @@
 </head>
 
 <body class="sign-body">
-    {% include 'layout/preloader.html' %}
     <main class="main login-main">
         <!-- START LOGIN CONTENT -->
 
@@ -64,7 +63,6 @@
                                     autocomplete="off" value="{{ form.password.value|default_if_none:'' }}">
                                 <div class="error-message" id="password-error"></div>
                             </div>
-                   
                         </div>
                         <div class="error-message">{{ error_message }}</div>
                         <div class="sign-info-extra-container">
@@ -72,6 +70,9 @@
                                 <div class="sign-info-extra-remember-container">
                                     <input type="checkbox" name="" id="">
                                     <h1 class="sign-info-extra-remember-text">Remember me</h1>
+                                    <a href="{% provider_login_url 'google' method='oauth2' %}" class="custom-google-button" style="color: rebeccapurple;">
+                                        <i class="fab fa-google"></i>
+                                    </a>
                                 </div>
                                 <div class="sign-info-extra-password-container">
                                     <a href="" class="sign-info-extra-password-text">Forgot Password ?</a>
@@ -82,16 +83,21 @@
                                         class="fa-solid fa-arrow-right"></i></button>
                                 <a href="{% url 'main:registration' %}" class="sign-info-check-account">Don’t have an
                                     account?</a>
-                            </div>
+                            </div> 
                         </div>
                     </form>
                 </div>
             </div>
         </section>
-
         <!-- END LOGIN CONTENT -->
         <script src="{% static 'main/scripts/js/notranslate.js' %}"></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            document.getElementById('custom-google-signin-button').addEventListener('click', function () {
+                gapi.auth2.getAuthInstance().signIn();
+            });
+        </script>
         <script type="text/javascript">
             /*------------------
                     Preloader
