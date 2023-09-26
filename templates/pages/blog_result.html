@@ -1,6 +1,6 @@
 {% if object_list %}
 {% for object in object_list %}
-<div class="featured-posts-column">
+<div class="featured-posts-column" data-context="Feautured Posts">
     <a href="{% url 'main:blogdetail' pk=object.pk %}" class="featured-post-column-title">
         {{object.title }} <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
     <p class="featured-post-column-text">{{ object.short_description }}</p>

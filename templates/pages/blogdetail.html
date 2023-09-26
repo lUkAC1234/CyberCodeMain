@@ -72,7 +72,7 @@
             <article class="featured-posts-wrapper">
                 <div class="featured-posts-column-container">
                     {% for object in similarPosts %}
-                    <div class="featured-posts-column">
+                    <div class="featured-posts-column" data-context="Popular Similar Posts">
                         <a href="{% url 'main:blogdetail' pk=object.pk %}" class="featured-post-column-title">{{ object.title }} <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                         <p class="featured-post-column-text">{{ object.short_description }}</p>
                         <span class="featured-post-column-posted">Posted on</span>
