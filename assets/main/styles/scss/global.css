@@ -3143,7 +3143,6 @@
   place-items: center;
   place-content: center;
   font-size: 1rem !important;
-  width: 8rem;
 }
 
 .featured-posts-wrapper {
@@ -3232,6 +3231,10 @@
 }
 .featured-posts-column-container:has(.empty-posts-container) {
   padding: 0;
+}
+
+.featured-category-column .post-category-element {
+  width: 8rem;
 }
 
 .empty-posts-container {
