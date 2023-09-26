@@ -1,5 +1,22 @@
 {
-  "dependencies": {
-    "swiper": "^10.1.0"
-  }
+  "name": "codecraft",
+  "description": "<div>\r   <img src=\"https://mikond.com/media/logos/2023/07/17/mikond.jpg\" alt=\"Логотип CyberCode\" width=\"200\">\r </div>",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lUkAC1234/CodeCraftMain.git"
+  },
+  "keywords": [
+    "django"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lUkAC1234/CodeCraftMain/issues"
+  },
+  "homepage": "https://github.com/lUkAC1234/CodeCraftMain#readme"
 }
