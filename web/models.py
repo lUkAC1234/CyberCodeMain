@@ -81,7 +81,7 @@ class PostModel(models.Model):
         return self.title
     
 class FeedbackModel(models.Model):
-    text = models.TextField()
+    text = models.TextField(max_length=2500)
     user = models.ForeignKey(UserModel, on_delete=models.RESTRICT, related_name='feedbackUser')
     created_at = models.DateTimeField(auto_now_add=True)
 

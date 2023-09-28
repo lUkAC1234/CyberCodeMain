@@ -751,6 +751,7 @@
   min-height: 15rem;
   max-height: 15rem;
   transition: all 0.5s;
+  cursor: pointer;
 }
 .feedback-slide:hover {
   border-color: var(--background-purple);
@@ -843,6 +844,101 @@
   }
   .feedbackPrev {
     right: 4.5rem;
+  }
+}
+#myModal {
+  display: none;
+  place-items: center;
+  position: fixed;
+  z-index: var(--z-index-11);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  position: relative;
+  background-color: var(--background-white);
+  padding: 1rem 1.5rem;
+  width: 80%;
+  margin: 1rem auto;
+  border: 1px solid var(--profile-input-border);
+  border-radius: 0.5rem;
+  min-height: 20rem;
+  height: max-content;
+}
+
+.modal-close-container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.modal-close-container .modalCreatedAt {
+  color: var(--text-dark-blue) !important;
+}
+.modal-close-container .closeModal i {
+  font-size: 1rem;
+  color: var(--text-purple);
+}
+
+.modal-content-container .modalContent {
+  margin-bottom: 3rem;
+}
+
+.modal-user-container {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.modal-user-container .modalUserImage {
+  width: 3rem;
+  height: 3rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.modal-user-container .modalUser {
+  color: var(--text-purple) !important;
+}
+
+@media screen and (max-width: 600px) {
+  .modal-content {
+    padding: 0.5rem 1rem;
+    width: 98%;
+  }
+  .modal-user-container {
+    left: 1rem;
+  }
+  .modal-user-container .modalUserImage {
+    width: 2rem;
+    height: 2rem;
+  }
+  .modal-user-container .modalUser {
+    font-size: 1rem !important;
+  }
+}
+@media screen and (max-width: 450px) {
+  .modal-close-container {
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+  .modal-close-container .modalCreatedAt,
+  .modal-close-container .closeModal i {
+    font-size: 0.9rem !important;
+  }
+  .modal-content-container .modalContent {
+    font-size: 0.9rem !important;
+  }
+  .modal-user-container .modalUser {
+    font-size: 0.9rem !important;
   }
 }
 .about-page-gradient-section {
@@ -5751,7 +5847,7 @@ select:-webkit-autofill:focus {
   font-size: 1rem;
 }
 
-.info-text-gray-1-125rem, .info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content .feedback-content-text, .faq-text, .price-column .pricing-popular-date, .pricing-list-text-container .pricing-list-text, .categorie-column .pricing-popular-date, .documentation-content-text, .documentation-content-wrapper .documentation-content-li, .job-content p,
+.info-text-gray-1-125rem, .info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content .feedback-content-text, .modal-close-container .modalCreatedAt, .modal-content-container .modalContent, .faq-text, .price-column .pricing-popular-date, .pricing-list-text-container .pricing-list-text, .categorie-column .pricing-popular-date, .documentation-content-text, .documentation-content-wrapper .documentation-content-li, .job-content p,
 .job-content pre,
 .job-content li,
 .job-content ul,
@@ -5760,7 +5856,7 @@ select:-webkit-autofill:focus {
 .job-content i,
 .job-content div,
 .job-content strong, .messenger-header-user-info-container .messenger-header-user, .static-info .static-info-text, .choices-column .abilities ul li, .choices-column:has(.recommended) .price-column ul li,
-.choices-column:has(.recommended) .abilities ul li, .carousel-title-container .carousel-text, .feedback-user .feedback-username, .website-technologies-main-text, .website-technologies-column .website-technologies-type,
+.choices-column:has(.recommended) .abilities ul li, .carousel-title-container .carousel-text, .feedback-user .feedback-username, .modal-user-container .modalUser, .website-technologies-main-text, .website-technologies-column .website-technologies-type,
 .job-column .website-technologies-type, .no-job-container .no-job-text, .clients-column .client-text, .team-members-info-column .team-members-info-text, .system-info-container .system-info-text, .system-column .system-text, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-info, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info, .ready-to-try-info, .pricing-popular-abilities ul li, .pricing-popular-column:has(.recommended) .price-column ul li,
 .pricing-popular-column:has(.recommended) .pricing-popular-abilities ul li, .custom-build-column .custom-build-text, .services-text-container .services-text-text, .pricing-categories-column:has(.recommended) .categorie-column ul li,
 .pricing-categories-column:has(.recommended) .pricing-categories-abilities ul li, .pricing-categories-abilities ul li, .language-toggle-text-container .toggle-language-text, .post-text-container .post-text, .featured-posts-column .featured-post-column-text, .empty-posts-container .empty-posts-text, .detail-content-wrapper pre,
@@ -5776,7 +5872,7 @@ select:-webkit-autofill:focus {
   line-height: 160%;
 }
 
-.info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content .feedback-content-text, .faq-text, .price-column .pricing-popular-date, .pricing-list-text-container .pricing-list-text, .categorie-column .pricing-popular-date, .documentation-content-text, .documentation-content-wrapper .documentation-content-li, .job-content p,
+.info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content .feedback-content-text, .modal-close-container .modalCreatedAt, .modal-content-container .modalContent, .faq-text, .price-column .pricing-popular-date, .pricing-list-text-container .pricing-list-text, .categorie-column .pricing-popular-date, .documentation-content-text, .documentation-content-wrapper .documentation-content-li, .job-content p,
 .job-content pre,
 .job-content li,
 .job-content ul,

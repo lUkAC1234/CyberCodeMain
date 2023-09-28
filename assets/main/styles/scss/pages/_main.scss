@@ -995,6 +995,7 @@
     min-height: 15rem;
     max-height: 15rem;
     transition: all 0.5s;
+    cursor: pointer;
 
     &:hover {
         border-color: var(--background-purple);
@@ -1110,6 +1111,122 @@
             right: 4.5rem;
         }
     }
+}
+
+#myModal {
+    display: none;
+    place-items: center;
+    position: fixed;
+    z-index: var(--z-index-11);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    position: relative;
+    background-color: var(--background-white);
+    padding: 1rem 1.5rem;
+    width: 80%;
+    margin: 1rem auto;
+    border: 1px solid var(--profile-input-border);
+    border-radius: 0.5rem;
+    min-height: 20rem;
+    height: max-content;
+}
+
+.modal-close-container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    .modalCreatedAt {
+        @extend .info-text-gray-1rem;
+        color: var(--text-dark-blue) !important;
+    }
+
+    .closeModal {
+        i {
+            font-size: 1rem;
+            color: var(--text-purple);
+        }
+    }
+}
+
+.modal-content-container {
+    .modalContent {
+        @extend .info-text-gray-1rem;
+        margin-bottom: 3rem;
+    }
+}
+
+.modal-user-container {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    .modalUserImage {
+        width: 3rem;
+        height: 3rem;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    .modalUser {
+        @extend .info-text-gray-1-125rem;
+        color: var(--text-purple) !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .modal-content {
+        padding: 0.5rem 1rem;
+        width: 98%;
+    }
+    
+    .modal-user-container {
+        left: 1rem;
+        .modalUserImage {
+            width: 2rem;
+            height: 2rem;
+        }
+    
+        .modalUser {
+            font-size: 1rem !important;
+        }
+    }
+    
+}
+
+@media screen and (max-width: 450px) {
+    .modal-close-container {
+        gap: 0.5rem;
+        margin-bottom: 0.25rem;
+        .modalCreatedAt,
+        .closeModal i {
+            font-size: 0.9rem !important;
+        }
+    }
+
+    .modal-content-container {
+        .modalContent {
+            font-size: 0.9rem !important;
+        }
+    }
+
+    .modal-user-container {    
+        .modalUser {
+            font-size: 0.9rem !important;
+        }
+    }
+    
 }
 
 // FEEDBACK SECTION END

@@ -8,7 +8,7 @@
 {% endblock %}
 <main class="main index-main">
     {% include 'layout/preloader.html' %}
-    
+
     <!-- START GRADIENT CONTENT -->
     <section class="gradient-container" id="gradient-container">
         <article class="gradient-text-container">
@@ -275,21 +275,37 @@
             </div>
             <div class="feedback-container owl-carousel">
                 {% for object in feedbacks %}
-                <a href="">
-                    <div class="feedback-slide">
-                        <div class="feedback-content">
-                            <p class="feedback-content-text">{{ object.text|slice:"200"|safe }}{% if object.text|length > 0 %}...{% endif %}</p>
-                        </div>
-                        <div class="feedback-user">
-                            <div class="feedback-user-container">
-                                <img src="{{ object.user.user_image.url }}" alt="">
-                            </div>
-                            <h1 class="feedback-username">{{ object.user }}</h1>
-                        </div>
+                <div class="feedback-slide" data-created-at="{{ object.created_at|date:'F d, Y' }}">
+                    <div class="feedback-content">
+                        <p class="feedback-content-text" data-text="{{ object.text }}">
+                            {{ object.text|slice:"250"|safe }}{% if object.text|length > 0 %}...{% endif %}
+                        </p>
                     </div>
-                </a>
+                    <div class="feedback-user">
+                        <div class="feedback-user-container" data-image="{{ object.user.user_image.url }}">
+                            <img src="{{ object.user.user_image.url }}" alt="">
+                        </div>
+                        <h1 class="feedback-username">{{ object.user }}</h1>
+                    </div>
+                </div>
                 {% endfor %}
             </div>
+
+            <article id="myModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-close-container">
+                        <p id="modalCreatedAt" class="modalCreatedAt"></p>
+                        <span class="closeModal" id="closeModal"><i class="fa-solid fa-xmark"></i></span>
+                    </div>
+                    <div class="modal-content-container">
+                        <p id="modalContent" class="modalContent"></p>
+                        <div class="modal-user-container">
+                            <img id="modalUserImage" class="modalUserImage" src="" alt="">
+                            <p id="modalUser" class="modalUser"></p>
+                        </div>
+                    </div>
+                </div>
+            </article>
         </div>
     </section>
 
@@ -299,4 +315,5 @@
 
 {% block js_block %}
 <script src="{% static 'main/scripts/js/carousel.js' %}"></script>
+<script src="{% static 'main/scripts/js/feedback.js' %}"></script>
 {% endblock %}
