@@ -151,3 +151,15 @@ class JobModel(models.Model):
 
     def __str__(self):
         return self.title
+    
+class PartnersModel(models.Model):
+    title = models.CharField(max_length=50)
+    logo = models.ImageField(upload_to=f'partners/logos/%Y/%m/%d/')
+
+    class Meta:
+        verbose_name = 'PARTNER'
+        verbose_name_plural = 'PARTNERS'
+        ordering = ('-id',)
+
+    def __str__(self):
+        return self.title

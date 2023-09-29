@@ -4,7 +4,7 @@ from django.contrib import admin
 # --------------------------------------------------------------------------- #
 # Models and Forms
 from .models import UserModel, PricingModel, PostModel, FeedbackModel, ContactusModel, \
-FaqModel, JobModel, JobCategoryModel, PostTagModel, PostCategoryModel
+FaqModel, JobModel, JobCategoryModel, PostTagModel, PostCategoryModel, PartnersModel
 from .forms import PostModelForm
 # --------------------------------------------------------------------------- #
 # Translation
@@ -94,6 +94,12 @@ class JobCategoryAdmin(admin.ModelAdmin):
     list_display = ['id', 'category']
     list_display_links = ['id', 'category']
     search_fields = ['category']
+
+@admin.register(PartnersModel)
+class PartnersAdmin(admin.ModelAdmin):
+    list_display = ['id', 'title']
+    list_display_links = ['id', 'title']
+    search_fields = ['title']
 
 admin.site.site_header = 'Cyber Code'
 admin.site.site_title = 'Cyber Code'

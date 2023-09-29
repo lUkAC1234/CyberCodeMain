@@ -165,14 +165,17 @@
                     {% for object in posts %}
                     <div class="carousel-slide">
                         <div class="carousel-image-container">
-                            <img src="{{ object.image.url }}" alt="">
+                            <a href="{% url 'main:blogdetail' pk=object.pk %}">
+                                <img src="{{ object.image.url }}" alt="">
+                            </a>
                         </div>
                         <div class="carousel-text-container">
                             <a href="{% url 'main:blogdetail' pk=object.pk %}">
                                 <h1 class="carousel-slide-title">{{ object.title }}</h1>
                             </a>
                             <p class="carousel-slide-text">
-                                {{ object.short_description|slice:"100"|safe }}
+                                {{ object.short_description|slice:"75"|safe }}
+                                {% if object.short_description|length > 75%}...{% endif %}
                             </p>
                         </div>
                         <div class="carousel-date-container">
@@ -190,75 +193,29 @@
 
     <!-- START USED BY SECTION -->
 
-    <section class="used-by-section">
-        <h1 class="used-by-title">
-            Our Partners
-        </h1>
-        <div class="used-technologies-container">
-            <div class="used-technologies-column">
-                <div class="used-technologies-image-container">
-                    <img src="{% static 'main/images/main-page/technologies/react.svg' %}" alt="">
+    <section class="partners-section">
+        <div class="partners-container">
+            <h1 class="partners-title">
+                Our Partners
+            </h1>
+            {% if partners %}
+            <article class="partners-info-container">
+                {% for object in partners %}
+                <div class="partners-column">
+                    <img src="{{ object.logo.url }}" alt="">
+                    <h1 class="partners-info-title">{{ object.title }}</h1>
                 </div>
-                <p class="used-technologies-text">
-                    Example Example ExampleExampleExample
-                </p>
-            </div>
-            <div class="used-technologies-column">
-                <div class="used-technologies-image-container">
-                    <img src="{% static 'main/images/main-page/technologies/sass.svg' %}" alt="">
+                {% endfor %}
+            </article>
+            {% else %}
+            <article class="partners-empty-container">
+                <div class="partners-empty-icon-container">
+                    <i class="fa-solid fa-xmark"></i>
                 </div>
-                <p class="used-technologies-text">
-                    Example Example ExampleExampleExample
-                </p>
-            </div>
-            <div class="used-technologies-column">
-                <div class="used-technologies-image-container">
-                    <img src="{% static 'main/images/main-page/technologies/html.svg' %}" alt="">
-                </div>
-                <p class="used-technologies-text">
-                    Example Example ExampleExampleExample
-                </p>
-            </div>
-            <div class="used-technologies-column">
-                <div class="used-technologies-image-container">
-                    <img src="{% static 'main/images/main-page/technologies/css.svg' %}" alt="">
-                </div>
-                <p class="used-technologies-text">
-                    Example Example ExampleExampleExample
-                </p>
-            </div>
-            <div class="used-technologies-column">
-                <div class="used-technologies-image-container">
-                    <img src="{% static 'main/images/main-page/technologies/javascript.svg' %}" alt="">
-                </div>
-                <p class="used-technologies-text">
-                    Example Example ExampleExampleExample
-                </p>
-            </div>
-            <div class="used-technologies-column">
-                <div class="used-technologies-image-container">
-                    <img src="{% static 'main/images/main-page/technologies/python.webp' %}" alt="">
-                </div>
-                <p class="used-technologies-text">
-                    Example Example ExampleExampleExample
-                </p>
-            </div>
-            <div class="used-technologies-column">
-                <div class="used-technologies-image-container">
-                    <img src="{% static 'main/images/main-page/technologies/postgresql.svg' %}" alt="">
-                </div>
-                <p class="used-technologies-text">
-                    Example Example ExampleExampleExample
-                </p>
-            </div>
-            <div class="used-technologies-column">
-                <div class="used-technologies-image-container">
-                    <img src="{% static 'main/images/main-page/technologies/djangoicon.svg' %}" alt="">
-                </div>
-                <p class="used-technologies-text">
-                    Example Example ExampleExampleExample
-                </p>
-            </div>
+                <h1 class="partners-empty-title">No Partners</h1>
+                <p class="partners-empty-text">There are no partners yet</p>
+            </article>
+            {% endif %}
         </div>
     </section>
 

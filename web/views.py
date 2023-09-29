@@ -8,7 +8,7 @@ from django.utils.translation import gettext as _
 from django.contrib import messages
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
 from .models import PostModel, PricingModel, FeedbackModel, ContactusModel, FaqModel, JobModel, \
-PostCategoryModel, PostTagModel, UserModel
+PostCategoryModel, PostTagModel, UserModel, PartnersModel
 from .forms import ContactusModelForm, AccountForm, LoginForm, RegistrationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.hashers import make_password
@@ -23,6 +23,7 @@ class index(TemplateView):
         data['pricing'] = PricingModel.objects.filter(popular=True).order_by('-popular', '-id')[:3]
         data['posts'] = PostModel.objects.all()
         data['feedbacks'] = FeedbackModel.objects.all()
+        data['partners'] = PartnersModel.objects.all()
         return data
 
 class about(TemplateView):
