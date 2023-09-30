@@ -320,7 +320,8 @@
 }
 
 .contact-form-success-message,
-.contact-form-error-message {
+.contact-form-error-message,
+.contact-user-checker {
     @extend .white-1rem-grotext;
     display: none;
     position: absolute;
@@ -337,6 +338,19 @@
 
     @media screen and (max-width: 500px) {
         font-size: 0.9rem !important;
+    }
+}
+
+.contact-user-checker {
+    display: block;
+
+    a {
+        text-decoration: underline;
+    }
+
+    @media screen and (max-width: 600px) {
+        font-size: 0.9rem !important;
+        bottom: -5rem;
     }
 }
 
@@ -538,6 +552,7 @@
 
     .faq-main-title {
         font-size: 2rem !important;
+        margin-top: 7rem;
     }
 
     .faq-main-info {
@@ -551,6 +566,46 @@
     .faq-text {
         width: 90%;
         margin: 30px 5% 0;
+    }
+}
+
+.faq-section.faqList {
+    position: relative;
+    padding-block: 5rem;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 2rem;
+        left: 0;
+        width: 10rem;
+        height: 500px;
+        background-image: url('../../images/main-page/leftcircle.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 2rem;
+        right: 0;
+        width: 10rem;
+        height: 500px;
+        background-image: url('../../images/main-page/rightcircle.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+
+    @media screen and (max-width:1500px) {
+        &::before {
+            top: 0rem;
+            width: 8rem;
+            height: 300px;
+        }
+        &::after {
+            display: none;
+        }
     }
 }
 

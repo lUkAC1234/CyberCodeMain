@@ -20,16 +20,66 @@
                 <h2 class="job-gradient-info-category">{{ object.category }}</h2>
                 <p class="job-gradient-info-text">{{ object.description }}</p>
                 <div class="job-gradient-info-btn-container">
-                    <a href="">
-                        <button class="job-gradient-info-btn">Apply now</button>
-                    </a>
+                    <button id="applyNowBtn" class="job-gradient-info-btn">Apply now</button>
                 </div>
             </div>
             <div class="job-gradient-image-container">
                 <img src="{% static 'main/images/jobdetail/jobdetailmain.png' %}" alt="">
             </div>
         </div>
+        <div class="apply-success-message">
+            <p>You have successfully submitted an application to work with us <i class="fa-solid fa-circle-check"></i></p>
+        </div>
     </section>
+
+    <article id="applyModal" class="applyModal">
+        <div class="applyModalContent">
+            <div class="modal-close-container">
+                <p class="modalTitle">Apply for a {{ object.title }}</p>
+                <span class="closeModal" id="closeApplyModal">
+                    <i class="fa-solid fa-xmark"></i>
+                </span>
+            </div>
+            <div class="modal-content-container">
+                {% if request.user.is_authenticated %}
+                <form id="jobApplyForm" class="jobApplyForm">
+                    {% csrf_token %}
+                    {{ apply_form.category }}
+                    <div class="jobApply-group-double">
+                        <div class="jobApply-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" name="firstName" id="firstName" required
+                            value="{% if apply_form.firstName.value %}{{ apply_form.firstName.value }}{% else %}{{ request.user.first_name|default:'' }}{% endif %}">
+                            <div class="error-message" id="firstName-error"></div>
+                        </div>
+                        <div class="jobApply-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" required
+                            value="{% if apply_form.email.value %}{{ apply_form.email.value }}{% else %}{{ request.user.email|default:'' }}{% endif %}">
+                            <div class="error-message" id="email-error"></div>
+                        </div>
+                    </div>
+                    <div class="jobApply-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" name="phone" id="phone" required
+                        value="{% if apply_form.phone.value %}{{ apply_form.phone.value }}{% else %}{{ request.user.mobileNumber|default:'+998' }}{% endif %}">
+                        <div class="error-message" id="phone-error"></div>
+                    </div>
+                    <div class="jobApply-group">
+                        <label for="text">Message</label>
+                        <textarea name="text" id="text" rows="5" required></textarea>
+                        <div class="error-message" id="text-error"></div>
+                    </div>
+                    <button type="submit" class="apply-button">Submit</button>
+                </form>
+                {% else %}
+                    <article class="applyModelUserNotSigned-container">
+                        <p class="applyModelUserNotSigned-text">U have to Sign in/up to send us message there u can <a href="{% url 'main:login' %}">Sign In</a> / <a href="{% url 'main:registration' %}">Sign Up</a></p>
+                    </article>
+                {% endif %}
+            </div>
+        </div>
+    </article>
 
     <!-- END JOB DETAIL GRADIENT SECTION -->
 
@@ -138,7 +188,41 @@
 {% endblock %}
 
 {% block js_block %}
-<script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#jobApplyForm").submit(function (e) {
+            e.preventDefault();
+            let applyModal = document.getElementById("applyModal");
+            let successMessage = document.querySelector(".apply-success-message");
+            let body = document.body
+            $.ajax({
+                type: "POST",
+                url: window.location.href,  // Use the correct URL pattern
+                data: $(this).serialize(),
+                success: function (data) {
+                    if (data.success) {
+                        console.log(data);
+                        applyModal.style.display = "none";
+                        body.style.overflowY = "auto";
+                        $("#jobApplyForm")[0].reset();
+                        $(".error-message").removeClass('active').empty();
+                        successMessage.classList.add('active');
+                        setTimeout(function () {
+                            successMessage.classList.remove('active');
+                        }, 5000);
+                    } else {
+                        $(".error-message").removeClass('active').empty();
+                        for (var field in data.errors) {
+                            if (data.errors.hasOwnProperty(field)) {
+                                $("#" + field + "-error").addClass('active');
+                                $("#" + field + "-error").text(data.errors[field][0]);
+                            }
+                        }
+                    }
+                },
+            });
+        });
+    });
 </script>
 <script src="{% static 'main/scripts/js/jobdetailtoggle.js' %}"></script>
 {% endblock %}

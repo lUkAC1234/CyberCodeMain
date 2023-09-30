@@ -158,6 +158,218 @@
     }
 }
 
+
+#applyModal {
+    display: none;
+    place-content: center;
+    position: fixed;
+    z-index: var(--z-index-11);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.applyModalContent {
+    position: relative;
+    background-color: var(--background-white);
+    padding: 1rem 1.5rem;
+    width: min(100%, 30rem);
+    margin: 10rem auto;
+    border: 1px solid var(--profile-input-border);
+    border-radius: 0.5rem;
+    min-height: 20rem;
+    height: max-content;
+}
+
+.modal-close-container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    .modalTitle {
+        @extend .info-text-gray-1rem;
+        color: var(--text-dark-blue) !important;
+    }
+
+    .closeModal {
+        i {
+            font-size: 1rem;
+            color: var(--text-purple);
+        }
+    }
+}
+
+.jobApplyForm {
+    display: grid;
+    gap: 0.5rem;
+
+    select {
+        z-index: 0;
+        opacity: 0;
+    }
+
+    .jobApply-group {
+        display: flex;
+        flex-flow: column;
+        gap: 0.5rem;
+        input,
+        textarea {
+            border: 1px solid var(--profile-input-border);
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            color: var(--text-dark-blue);
+            font-size: 0.8rem;
+            font-family: var(--grotext-sans);
+            transition: 0.4s all;
+
+            &:focus {
+                border-color: var(--background-purple);
+            }
+        }
+
+        textarea {
+            width: 27rem;
+            min-width: 100%;
+            max-width: 27rem;
+            max-height: 10rem;
+            resize: none;
+        }
+
+        label {
+            @extend .dark-blue-text-center-grotext-family-1rem;
+            @extend .text-align-start;
+        }
+    }
+
+    .jobApply-group-double {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+    }
+
+    .apply-button {
+        @extend .onerem-tworem-purple-button;
+        padding: 0.5rem 1rem !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .applyModalContent {
+        padding: 0.5rem 1rem;
+        width: 98%;
+    }
+    .jobApplyForm {
+        .jobApply-group {
+    
+            textarea {
+                width: 100%;
+                min-width: 100%;
+                max-width: 27rem;
+                max-height: 10rem;
+                resize: none;
+            }
+        }
+    
+        .jobApply-group-double {
+            grid-template-columns: 1fr;
+        }
+    
+        .apply-button {
+            padding: 0.25rem 0.5rem !important;
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .modal-close-container {
+        gap: 0.5rem;
+        margin-bottom: 0.25rem;
+
+        .modalTitle,
+        .closeModal i {
+            font-size: 0.9rem !important;
+        }
+    }
+
+}
+
+.error-message.active {
+    display: block;
+}
+
+.apply-success-message {
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    top: 5rem;
+    right: 0;
+    padding: 1rem 1.5rem;
+    border-radius: 0.25rem 0 0 0.25rem;
+    background: var(--background-purple);
+    z-index: var(--z-index-3);
+
+    p {
+        @extend .white-1rem-grotext;
+        text-align: center;
+    }
+
+    i {
+        font-size: 0.75rem;
+    }
+
+    @media screen and (max-width: 700px) {
+        width: 100%;
+        border-radius: 0;
+        top: 4rem;
+    }
+
+    @media screen and (max-width: 500px) {
+        padding-inline: 0.5rem;
+        p {
+            font-size: 0.9rem !important;
+        }
+    
+        i {
+            font-size: 0.65rem;
+        }
+    }
+}
+
+.apply-success-message.active {
+    display: flex;
+}
+
+.applyModelUserNotSigned-container {
+    background: var(--background-purple);
+    border-radius: 0.25rem;
+    padding: 1rem 0.5rem;
+    margin-top: 5rem;
+
+    .applyModelUserNotSigned-text {
+        @extend .white-1rem-grotext;
+        text-align: center;
+
+        a {
+            text-decoration: underline;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        padding-inline: 0.5rem;
+        .applyModelUserNotSigned-text {
+            font-size: 0.9rem !important;
+        }
+    }
+}
+
 // END JOB DETAIL GRADIENT SECTION
 
 // START JOB INFORMATION SECTION

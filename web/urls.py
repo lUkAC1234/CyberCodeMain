@@ -1,7 +1,7 @@
 from django.urls import path,include
 from .views import index, about, contact, pricing, pricinglist, \
-documentation, BlogListView, blogdetail, job, jobdetail, helpcenter, \
-loginView, RegistrationView, MyProfileEdit, logoutView
+documentation, BlogListView, blogdetail, job, JobDetailView, helpcenter, \
+loginView, RegistrationView, MyProfileEdit, logoutView, FAQListView
 
 app_name = "main"
 
@@ -15,10 +15,12 @@ urlpatterns = [
     path('website/blogs/list', BlogListView.as_view(), name="blog"),
     path('website/blog/detail/<int:pk>', blogdetail.as_view(), name="blogdetail"),
     path('website/jobs/list/', job.as_view(), name="job"),
-    path('website/job/detail/<int:pk>', jobdetail.as_view(), name="jobdetail"),
+    path('website/job/detail/<int:pk>', JobDetailView.as_view(), name="jobdetail"),
     path('help/center/', helpcenter.as_view(), name="helpcenter"),
     path('user/profile/', MyProfileEdit.as_view(), name="profile"),
     path('login/', loginView, name="login"),
     path('registration/', RegistrationView.as_view(), name="registration"),
     path('logout/account', logoutView, name="logout"),
+    path('faq/list', FAQListView.as_view(), name="faqlist"),
+
 ]

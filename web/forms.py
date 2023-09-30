@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 # --------------------------------------------------------------------------- #
 # Models
-from .models import UserModel, PostModel, ContactusModel
+from .models import UserModel, PostModel, ContactusModel, JobApplyModel,PaymentModel
 # --------------------------------------------------------------------------- #
 # Translation
 from django.utils.translation import gettext_lazy as _
@@ -35,6 +35,19 @@ class ContactusModelForm(forms.ModelForm):
     class Meta:
         model = ContactusModel
         exclude = ('user',)
+
+class JobApplyForm(forms.ModelForm):
+    class Meta:
+        model = JobApplyModel
+        exclude = ('user',)
+
+class PaymentApplyForm(forms.ModelForm):
+    class Meta:
+        model = PaymentModel
+        exclude = ('user',)
+
+
+    # Ensure that the category field is not marked as required
 
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=16, widget=forms.TextInput(attrs={
@@ -84,4 +97,5 @@ class RegistrationForm(forms.ModelForm):
                 raise ValidationError('This username is already in use')
         except:
             return self.cleaned_data['username']
+        
 

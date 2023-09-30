@@ -2,14 +2,15 @@ from typing import Any
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.urls import reverse_lazy
 from django.db.models import Q
-from django.http import JsonResponse, HttpResponse
+from django.http import HttpRequest, JsonResponse, HttpResponse
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import gettext as _
 from django.contrib import messages
-from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, FormView
 from .models import PostModel, PricingModel, FeedbackModel, ContactusModel, FaqModel, JobModel, \
-PostCategoryModel, PostTagModel, UserModel, PartnersModel
-from .forms import ContactusModelForm, AccountForm, LoginForm, RegistrationForm
+PostCategoryModel, PostTagModel, UserModel, PartnersModel, JobApplyModel, PaymentModel
+from .forms import ContactusModelForm, AccountForm, LoginForm, RegistrationForm, JobApplyForm, \
+PaymentApplyForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.hashers import make_password
 from django.core.exceptions import ValidationError
@@ -57,13 +58,22 @@ class contact(CreateView):
         if self.request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
             return JsonResponse({'success': False, 'errors': errors})
         return super().form_invalid(form)
+    
+class FAQListView(ListView):
+    model = FaqModel
+    template_name = "pages/faqlist.html"
 
-class pricing(TemplateView):
+class pricing(CreateView):
     template_name = "pages/pricing.html"
+    form_class = PaymentApplyForm
     def get_context_data(self, *, object_list=None, **kwargs):
         data = super().get_context_data(**kwargs)
         data['pricing'] = PricingModel.objects.filter(popular=True).order_by('-popular', '-id')[:3]
         return data
+    
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 class pricinglist(ListView):
     model = PricingModel
@@ -75,7 +85,6 @@ class pricinglist(ListView):
         other_items = queryset.exclude(recommended=True, popular=True).order_by('-id')
         queryset = list(recommended_items) + list(popular_items) + list(other_items)
         
-        # Deleting duplicate elements
         queryset = list({item.id: item for item in queryset}.values())
 
         return queryset
@@ -145,15 +154,38 @@ class job(ListView):
     model = JobModel
     template_name = "pages/job.html"    
 
-class jobdetail(DetailView):
+class JobDetailView(DetailView):
     model = JobModel
-    template_name = "pages/jobdetail.html"   
+    template_name = "pages/jobdetail.html"
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        data = super().get_context_data(**kwargs)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        current_job = self.object
+        context['other_jobs'] = JobModel.objects.filter(category=current_job.category).exclude(pk=current_job.pk)[:3]
+        context['apply_form'] = JobApplyForm(initial={'category': current_job.category})
+        return context
+
+    def post(self, request, pk):
         current_job = self.get_object()
-        data['other_jobs'] = JobModel.objects.filter(category=current_job.category).exclude(id=current_job.id)[:3]
-        return data  
+        form = JobApplyForm(request.POST)
+        
+        if form.is_valid():
+            form.instance.user = request.user
+            form.instance.category = current_job.category
+            form.save()
+            response_data = {'success': True}
+            if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+                return JsonResponse(response_data) 
+            return redirect('main:jobdetail', pk=current_job.pk)
+        
+        errors = {field: [error for error in form[field].errors] for field in form.fields}
+        response_data = {'success': False, 'errors': errors}
+        if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+            return JsonResponse(response_data)
+        
+        context = self.get_context_data(object=current_job)
+        context['apply_form'] = form
+        return self.render_to_response(context)
 
 class helpcenter(TemplateView):
     template_name = "pages/helpcenter.html"       

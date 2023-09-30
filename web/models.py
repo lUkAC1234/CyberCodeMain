@@ -12,6 +12,12 @@ class EnglishLettersUsernameValidator(RegexValidator):
     )
     flags = 0
 
+class PhoneValidator(RegexValidator):
+    regex=r'^\+\d{12}$'
+    message =_("Phone number must be in the format: '+123456789012'.")
+
+    flags = 0
+
 # --------------------------------------------------------------------------- #
 # Users
 class UserModel(AbstractUser):
@@ -19,7 +25,7 @@ class UserModel(AbstractUser):
     company = models.CharField(max_length=30, blank=True, null=True)
     location = models.CharField(max_length=50, blank=True, null=True)
     position = models.CharField(max_length=50, blank=True, null=True)
-    mobileNumber = models.CharField(max_length=13, blank=True, null=True)
+    mobileNumber = models.CharField(max_length=13, blank=True, null=True, validators=[PhoneValidator()])
     socialMedia = models.URLField(blank=True, null=True)
 
     username = models.CharField(
@@ -95,11 +101,7 @@ class FeedbackModel(models.Model):
     
 class ContactusModel(models.Model):
     fullname = models.CharField(max_length=50)
-    phone_regex = RegexValidator(
-        regex=r'^\+\d{12}$',
-        message="Phone number must be in the format: '+123456789012'."
-    )
-    phone = models.CharField(max_length=13, validators=[phone_regex])
+    phone = models.CharField(max_length=13, validators=[PhoneValidator()])
     email = models.EmailField(max_length=50)
     company = models.CharField(max_length=100)
     text = models.TextField()
@@ -152,6 +154,15 @@ class JobModel(models.Model):
     def __str__(self):
         return self.title
     
+class JobApplyModel(models.Model):
+    firstName = models.CharField(max_length=50)
+    email = models.EmailField()
+    phone = models.CharField(max_length=13, validators=[PhoneValidator()])
+    text = models.TextField(max_length=1000)
+    category = models.ForeignKey(JobCategoryModel, on_delete=models.CASCADE)
+    user = models.ForeignKey(UserModel, on_delete=models.RESTRICT, related_name='jobApplyUser')
+    created_at = models.DateTimeField(auto_now_add=True)
+    
 class PartnersModel(models.Model):
     title = models.CharField(max_length=50)
     logo = models.ImageField(upload_to=f'partners/logos/%Y/%m/%d/')
@@ -163,3 +174,20 @@ class PartnersModel(models.Model):
 
     def __str__(self):
         return self.title
+    
+class PaymentModel(models.Model):
+    first_name = models.CharField(max_length=50)
+    email = models.EmailField()
+    phone = models.CharField(max_length=13, validators=[PhoneValidator()])
+    text = models.TextField(max_length=1000)
+    category = models.ForeignKey(PricingModel, on_delete=models.CASCADE)
+    user = models.ForeignKey(UserModel, on_delete=models.RESTRICT, related_name='pricingApplyUser')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'PAYMENT'
+        verbose_name_plural = 'PAYMENTS'
+        ordering = ('-id',)
+
+    def __str__(self):
+        return self.first_name   

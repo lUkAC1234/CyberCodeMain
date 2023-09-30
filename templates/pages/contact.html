@@ -79,7 +79,7 @@
                     </div>
                     <div class="contact-form-column-input-container">
                         <input type="text" class="contact-form-column-input" placeholder=" " name="phone" id="phone" required
-                            value="{% if form.phone.value %}{{ form.phone.value }}{% else %}{{ request.user.mobileNumber|default:'' }}{% endif %}">
+                            value="{% if form.phone.value %}{{ form.phone.value }}{% else %}{{ request.user.mobileNumber|default:'+998' }}{% endif %}">
                         <label class="placeholder">Phone number</label>
                         <div class="error-message" id="phone-error"></div>
                     </div>
@@ -105,6 +105,11 @@
                         <a href="{% url 'main:login' %}" class="contact-form-column-btn">Send message</a>
                         {% endif %}
                     </div>
+                    {% if not request.user.is_authenticated %}
+                    <div class="contact-user-checker">
+                        <p>U have to Sign in/up to send us message there u can <a href="{% url 'main:login' %}">Sign In</a> / <a href="{% url 'main:registration' %}">Sign Up</a></p>
+                    </div>
+                    {% endif %}
                     <div class="contact-form-success-message" id="success-message-container">
                         <p>Your Form has been submitted successfully !</p>
                     </div>
@@ -144,8 +149,7 @@
             {% endfor %}
         </div>
         <div class="faq-other-list">
-            <a href="">Click to view other FAQS <i class="fa-sharp fa-solid fa-circle-arrow-right"></i></a>
-        </div>
+            <a href="{% url 'main:faqlist' %}">Click to view other FAQS <i class="fa-sharp fa-solid fa-circle-arrow-right"></i></a>
         </div>
     </section>
     <!-- End FAQ SECTION -->

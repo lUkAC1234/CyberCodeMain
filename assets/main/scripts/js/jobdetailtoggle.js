@@ -32,3 +32,43 @@ if (activeTabId) {
         activeTab.btn.click(); // Вызываем клик, чтобы активировать сохраненную вкладку
     }
 }
+
+
+// JavaScript for handling the pop-up form
+let applyModal = document.getElementById("applyModal");
+let applyNowBtn = document.getElementById("applyNowBtn");
+let closeApplyModal = document.getElementById("closeApplyModal");
+let jobApplyForm = document.getElementById("jobApplyForm");
+let body = document.body
+
+applyNowBtn.addEventListener("click", function () {
+    applyModal.style.display = "block";
+    body.style.overflowY = "hidden";
+});
+
+closeApplyModal.addEventListener("click", function () {
+    applyModal.style.display = "none";
+    body.style.overflowY = "auto";
+});
+
+window.addEventListener("click", function (event) {
+    if (event.target == applyModal) {
+        applyModal.style.display = "none";
+        body.style.overflowY = "auto";
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    let categorySelect = document.querySelector("#applyModelCategorySelect"); // Use the correct ID
+    let currentJobCategory = "{{ object.category }}";
+
+    if (categorySelect) {
+        // Loop through the options and select the one that matches the currentJobCategory
+        for (let option of categorySelect.options) {
+            if (option.value === currentJobCategory) {
+                option.selected = true;
+                break;
+            }
+        }
+    }
+});

@@ -4,8 +4,8 @@ from django.contrib import admin
 # --------------------------------------------------------------------------- #
 # Models and Forms
 from .models import UserModel, PricingModel, PostModel, FeedbackModel, ContactusModel, \
-FaqModel, JobModel, JobCategoryModel, PostTagModel, PostCategoryModel, PartnersModel
-from .forms import PostModelForm
+FaqModel, JobModel, JobCategoryModel, PostTagModel, PostCategoryModel, PartnersModel, \
+JobApplyModel, PaymentModel
 # --------------------------------------------------------------------------- #
 # Translation
 from django.utils.translation import gettext_lazy as _
@@ -95,11 +95,24 @@ class JobCategoryAdmin(admin.ModelAdmin):
     list_display_links = ['id', 'category']
     search_fields = ['category']
 
+@admin.register(JobApplyModel)
+class JobApplyyAdmin(admin.ModelAdmin):
+    list_display = ['id', 'firstName']
+    list_display_links = ['id', 'firstName']
+    search_fields = ['firstName']
+    readonly_fields = ['created_at']
+
 @admin.register(PartnersModel)
 class PartnersAdmin(admin.ModelAdmin):
     list_display = ['id', 'title']
     list_display_links = ['id', 'title']
     search_fields = ['title']
+
+@admin.register(PaymentModel)
+class PaymentAdmin(admin.ModelAdmin):
+    list_display = ['id', 'first_name']
+    list_display_links = ['id', 'first_name']
+    search_fields = ['first_name']
 
 admin.site.site_header = 'Cyber Code'
 admin.site.site_title = 'Cyber Code'

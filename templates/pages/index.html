@@ -29,7 +29,7 @@
                 </div>
                 <div class="gradient-btn-column" id="gradient-btn-column-second">
                     <a href="">
-                        <button class="gradient-button-without-background">Try free trial</button>
+                        <button class="gradient-button-without-background">Pricing</button>
                     </a>
                 </div>
             </div>
@@ -230,6 +230,7 @@
                 <p class="feedback-list-text-column-text">Join the thousands of other people just like you who started
                     using CyberCode and took back control of their day</p>
             </div>
+            {% if feedbacks %}
             <div class="feedback-container owl-carousel">
                 {% for object in feedbacks %}
                 <div class="feedback-slide" data-created-at="{{ object.created_at|date:'F d, Y' }}">
@@ -247,6 +248,15 @@
                 </div>
                 {% endfor %}
             </div>
+            {% else %}
+            <article class="feedback-empty-container">
+                <div class="feedback-empty-icon-container">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+                <h1 class="feedback-empty-title">No feedbacks</h1>
+                <p class="feedback-empty-text">There are no feedbacks yet</p>
+            </article>
+            {% endif %}
 
             <article id="myModal" class="modal">
                 <div class="modal-content">
