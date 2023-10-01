@@ -51,7 +51,7 @@
                 </div>
                 <div class="pricing-categories-abilities">
                     {{ object.advantages|safe }}
-                    <a href=""><button class="categories-abilities-btn">Get started</button></a>
+                    <a href="{% url 'main:add_to_cart' object.id %}"><button class="categories-abilities-btn">Get started</button></a>
                 </div>
             </div>
             {% endfor %}
@@ -91,4 +91,5 @@
 {% block js_block %}
 <script>
 </script>
+<script src="{% static 'main/scripts/js/paymentReturnback.js' %}"></script>
 {% endblock %}

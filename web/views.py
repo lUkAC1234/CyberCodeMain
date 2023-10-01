@@ -8,7 +8,7 @@ from django.utils.translation import gettext as _
 from django.contrib import messages
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, FormView
 from .models import PostModel, PricingModel, FeedbackModel, ContactusModel, FaqModel, JobModel, \
-PostCategoryModel, PostTagModel, UserModel, PartnersModel, JobApplyModel, PaymentModel
+PostCategoryModel, PostTagModel, UserModel, PartnersModel, JobApplyModel, PaymentModel, ShoppingCartItem
 from .forms import ContactusModelForm, AccountForm, LoginForm, RegistrationForm, JobApplyForm, \
 PaymentApplyForm
 from django.contrib.auth import login, logout, authenticate
@@ -84,9 +84,34 @@ class pricinglist(ListView):
 
         return queryset
     
-class PaymentListView(ListView):
-    model = PricingModel
-    template_name = 'pages/paymentlist.html'
+def payment_list(request):
+    user = request.user
+    cart_items = ShoppingCartItem.objects.filter(user=user)
+    total_price = sum(item.product.price * item.quantity for item in cart_items)
+    
+    context = {
+        'cart_items': cart_items,
+        'total_cost': total_price,
+    }
+    
+    return render(request, 'pages/paymentlist.html', context)
+
+def AddToCart(request, product_id):
+    product = PricingModel.objects.get(pk=product_id)
+    user = request.user
+    existing_item = ShoppingCartItem.objects.filter(user=user, product=product).first()
+    
+    if existing_item:
+        existing_item.delete()
+    else:
+        ShoppingCartItem.objects.create(user=user, product=product, quantity=1)
+    
+    return redirect('main:payment')
+
+def RemoveFromCart(request, item_id):
+    item = get_object_or_404(ShoppingCartItem, pk=item_id, user=request.user)
+    item.delete()
+    return redirect('main:payment')
 
     
 class documentation(TemplateView):

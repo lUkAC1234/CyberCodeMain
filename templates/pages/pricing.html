@@ -29,7 +29,7 @@
                     </div>
                     <div class="pricing-popular-abilities">
                         {{ object.advantages|safe }}
-                        <a href="{% url 'main:payment' %}"><button class="pricing-abilities-btn">Get started</button></a>
+                        <a href="{% url 'main:add_to_cart' object.id %}"><button class="pricing-abilities-btn">Get started</button></a>
                     </div>
                 </div>
                 {% endfor %}

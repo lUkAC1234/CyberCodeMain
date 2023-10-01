@@ -139,7 +139,7 @@
                 </div>
                 <div class="abilities">
                     {{ object.advantages|safe }}
-                    <a href="">
+                    <a href="{% url 'main:add_to_cart' object.id %}">
                         <button class="abilities-btn">Get started</button>
                     </a>
                 </div>
@@ -283,4 +283,5 @@
 {% block js_block %}
 <script src="{% static 'main/scripts/js/carousel.js' %}"></script>
 <script src="{% static 'main/scripts/js/feedback.js' %}"></script>
+<script src="{% static 'main/scripts/js/paymentReturnback.js' %}"></script>
 {% endblock %}

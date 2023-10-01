@@ -191,3 +191,14 @@ class PaymentModel(models.Model):
 
     def __str__(self):
         return self.first_name   
+    
+class ShoppingCartItem(models.Model):
+    user = models.ForeignKey(UserModel, on_delete=models.CASCADE)
+    product = models.ForeignKey(PricingModel, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+
+    def __str__(self):
+        return f"{self.user.username}'s {self.product.type}"
+
+    def total_price(self):
+        return self.product.price * self.quantity

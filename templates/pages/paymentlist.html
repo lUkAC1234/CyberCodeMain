@@ -37,7 +37,7 @@
                 <article class="payment-info-container">
                     <div class="payment-info-title-container">
                         <h1 class="payment-info-title">shopping cart</h1>
-                        <p class="payment-info-count">13 items</p>
+                        <p class="payment-info-count">{{ cart_items.count }} items</p>
                     </div>
                     <div class="payment-products-container">
                         <div class="payment-product-detail-container">
@@ -46,118 +46,38 @@
                             <p class="payment-detail">Total</p>
                         </div>
                         <div class="payment-product-wrapper-column">
+                            {% for item in cart_items %}
                             <div class="payment-product-column">
                                 <div class="payment-product-info-container">
                                     <div class="payment-image-container">
                                         <img src="{% static 'main/images/main-page/carousel1.png' %}" alt="">
                                     </div>
                                     <div class="payment-type-container">
-                                        <h1 class="payment-product-type">Advanced Plus</h1>
+                                        <h1 class="payment-product-type">{{ item.product.type }}</h1>
+                                        {% if item.product.recommended %}
                                         <h1 class="payment-product-category">Recommended</h1>
-                                        <button class="payment-product-remove">Remove</button>
-                                    </div>
-                                </div>
-                                <div class="payment-price-container">
-                                    <h1 class="payment-price">$250</h1>
-                                </div>
-                                <div class="payment-total-price-container">
-                                    <p class="payment-total-price">$500</p>
-                                </div>
-                            </div>
-                            <div class="payment-product-column">
-                                <div class="payment-product-info-container">
-                                    <div class="payment-image-container">
-                                        <img src="{% static 'main/images/main-page/carousel1.png' %}" alt="">
-                                    </div>
-                                    <div class="payment-type-container">
-                                        <h1 class="payment-product-type">Advanced</h1>
+                                        {% elif item.product.popular %}
                                         <h1 class="payment-product-category">Popular</h1>
-                                        <button class="payment-product-remove">Remove</button>
+                                        {% else %}
+                                        <h1 class="payment-product-category">None</h1>
+                                        {% endif %}
+                                        <button class="payment-product-remove">
+                                            <a href="{% url 'main:removefromcart' item.id %}">Remove</a>
+                                        </button>
                                     </div>
                                 </div>
                                 <div class="payment-price-container">
-                                    <h1 class="payment-price">$1250</h1>
+                                    <h1 class="payment-price">${{ item.product.price }}</h1>
                                 </div>
                                 <div class="payment-total-price-container">
-                                    <p class="payment-total-price">$1500</p>
+                                    <p class="payment-total-price">${{ item.product.price }}</p>
                                 </div>
                             </div>
-                            <div class="payment-product-column">
-                                <div class="payment-product-info-container">
-                                    <div class="payment-image-container">
-                                        <img src="{% static 'main/images/main-page/carousel1.png' %}" alt="">
-                                    </div>
-                                    <div class="payment-type-container">
-                                        <h1 class="payment-product-type">Advanced</h1>
-                                        <h1 class="payment-product-category">Popular</h1>
-                                        <button class="payment-product-remove">Remove</button>
-                                    </div>
-                                </div>
-                                <div class="payment-price-container">
-                                    <h1 class="payment-price">$1250</h1>
-                                </div>
-                                <div class="payment-total-price-container">
-                                    <p class="payment-total-price">$1500</p>
-                                </div>
-                            </div>
-                            <div class="payment-product-column">
-                                <div class="payment-product-info-container">
-                                    <div class="payment-image-container">
-                                        <img src="{% static 'main/images/main-page/carousel1.png' %}" alt="">
-                                    </div>
-                                    <div class="payment-type-container">
-                                        <h1 class="payment-product-type">Advanced</h1>
-                                        <h1 class="payment-product-category">Popular</h1>
-                                        <button class="payment-product-remove">Remove</button>
-                                    </div>
-                                </div>
-                                <div class="payment-price-container">
-                                    <h1 class="payment-price">$1250</h1>
-                                </div>
-                                <div class="payment-total-price-container">
-                                    <p class="payment-total-price">$1500</p>
-                                </div>
-                            </div>
-                            <div class="payment-product-column">
-                                <div class="payment-product-info-container">
-                                    <div class="payment-image-container">
-                                        <img src="{% static 'main/images/main-page/carousel1.png' %}" alt="">
-                                    </div>
-                                    <div class="payment-type-container">
-                                        <h1 class="payment-product-type">Advanced</h1>
-                                        <h1 class="payment-product-category">Popular</h1>
-                                        <button class="payment-product-remove">Remove</button>
-                                    </div>
-                                </div>
-                                <div class="payment-price-container">
-                                    <h1 class="payment-price">$1250</h1>
-                                </div>
-                                <div class="payment-total-price-container">
-                                    <p class="payment-total-price">$1500</p>
-                                </div>
-                            </div>
-                            <div class="payment-product-column">
-                                <div class="payment-product-info-container">
-                                    <div class="payment-image-container">
-                                        <img src="{% static 'main/images/main-page/carousel1.png' %}" alt="">
-                                    </div>
-                                    <div class="payment-type-container">
-                                        <h1 class="payment-product-type">Advanced</h1>
-                                        <h1 class="payment-product-category">Popular</h1>
-                                        <button class="payment-product-remove">Remove</button>
-                                    </div>
-                                </div>
-                                <div class="payment-price-container">
-                                    <h1 class="payment-price">$1250</h1>
-                                </div>
-                                <div class="payment-total-price-container">
-                                    <p class="payment-total-price">$1500</p>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                     <div class="payment-return-back-container">
-                        <a href="" class="payment-return-back-link">
+                        <a href="" class="payment-return-back-link" id="continueShoppingLink">
                             <i class="fa-solid fa-arrow-left-long"></i>
                             Continue Shopping
                         </a>
@@ -168,13 +88,13 @@
                         <h1 class="payment-sidebar-title">Order Summary</h1>
                     </div>
                     <div class="payment-sidebar-items-count-container">
-                        <h1 class="payment-sidebar-items">Items 13</h1>
-                        <p class="payment-sidebar-items-price">$457.98</p>
+                        <h1 class="payment-sidebar-items">Items {{ cart_items.count }}</h1>
+                        <p class="payment-sidebar-items-price">${{ total_cost }}</p>
                     </div>
                     <div class="payment-sidebar-total-cost-container">
                         <div class="payment-sidebar-total-cost-info-container">
                             <h1 class="payment-sidebar-total-cost-title">Total Cost</h1>
-                            <p class="payment-sidebar-total-cost">$462</p>
+                            <p class="payment-sidebar-total-cost">${{ total_cost }}</p>
                         </div>
                         <div class="payment-sidebar-checkout-btn-container">
                             <button class="payment-sidebar-checkout-btn">Checkout</button>
@@ -185,6 +105,8 @@
         </section>
 
         <!-- END SECTION PAYMENT LIST -->
+
+        <script src="{% static 'main/scripts/js/paymentReturnback.js' %}"></script>
     </main>
 </body>
 
