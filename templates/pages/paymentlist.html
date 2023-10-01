@@ -1,0 +1,191 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {# ------------------------------------------------------------------------------------------- #}
+    {# Links #}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+
+    {# ------------------------------------------------------------------------------------------- #}
+    {# Font Awesome (Fas fa icons) #}
+
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    {# ------------------------------------------------------------------------------------------- #}
+    {# Swiper (Carousel) #}
+    <link href="{% static 'main/scripts/js/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    {# ------------------------------------------------------------------------------------------- #}
+    {# User css links #}
+    <link rel="stylesheet" type="text/css" href="{% static 'main/styles/scss/global.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8" defer></script>
+    {# ------------------------------------------------------------------------------------------- #}
+    <title>Payment List - CyberCode</title>
+</head>
+
+<body class="payment-list-body">
+    <main class="main payment-main">
+        <!-- START SECTION PAYMENT LIST -->
+        <section class="payment-section">
+            <div class="payment-container">
+                <article class="payment-info-container">
+                    <div class="payment-info-title-container">
+                        <h1 class="payment-info-title">shopping cart</h1>
+                        <p class="payment-info-count">13 items</p>
+                    </div>
+                    <div class="payment-products-container">
+                        <div class="payment-product-detail-container">
+                            <p class="payment-detail">product Details</p>
+                            <p class="payment-detail">Price</p>
+                            <p class="payment-detail">Total</p>
+                        </div>
+                        <div class="payment-product-wrapper-column">
+                            <div class="payment-product-column">
+                                <div class="payment-product-info-container">
+                                    <div class="payment-image-container">
+                                        <img src="{% static 'main/images/main-page/carousel1.png' %}" alt="">
+                                    </div>
+                                    <div class="payment-type-container">
+                                        <h1 class="payment-product-type">Advanced Plus</h1>
+                                        <h1 class="payment-product-category">Recommended</h1>
+                                        <button class="payment-product-remove">Remove</button>
+                                    </div>
+                                </div>
+                                <div class="payment-price-container">
+                                    <h1 class="payment-price">$250</h1>
+                                </div>
+                                <div class="payment-total-price-container">
+                                    <p class="payment-total-price">$500</p>
+                                </div>
+                            </div>
+                            <div class="payment-product-column">
+                                <div class="payment-product-info-container">
+                                    <div class="payment-image-container">
+                                        <img src="{% static 'main/images/main-page/carousel1.png' %}" alt="">
+                                    </div>
+                                    <div class="payment-type-container">
+                                        <h1 class="payment-product-type">Advanced</h1>
+                                        <h1 class="payment-product-category">Popular</h1>
+                                        <button class="payment-product-remove">Remove</button>
+                                    </div>
+                                </div>
+                                <div class="payment-price-container">
+                                    <h1 class="payment-price">$1250</h1>
+                                </div>
+                                <div class="payment-total-price-container">
+                                    <p class="payment-total-price">$1500</p>
+                                </div>
+                            </div>
+                            <div class="payment-product-column">
+                                <div class="payment-product-info-container">
+                                    <div class="payment-image-container">
+                                        <img src="{% static 'main/images/main-page/carousel1.png' %}" alt="">
+                                    </div>
+                                    <div class="payment-type-container">
+                                        <h1 class="payment-product-type">Advanced</h1>
+                                        <h1 class="payment-product-category">Popular</h1>
+                                        <button class="payment-product-remove">Remove</button>
+                                    </div>
+                                </div>
+                                <div class="payment-price-container">
+                                    <h1 class="payment-price">$1250</h1>
+                                </div>
+                                <div class="payment-total-price-container">
+                                    <p class="payment-total-price">$1500</p>
+                                </div>
+                            </div>
+                            <div class="payment-product-column">
+                                <div class="payment-product-info-container">
+                                    <div class="payment-image-container">
+                                        <img src="{% static 'main/images/main-page/carousel1.png' %}" alt="">
+                                    </div>
+                                    <div class="payment-type-container">
+                                        <h1 class="payment-product-type">Advanced</h1>
+                                        <h1 class="payment-product-category">Popular</h1>
+                                        <button class="payment-product-remove">Remove</button>
+                                    </div>
+                                </div>
+                                <div class="payment-price-container">
+                                    <h1 class="payment-price">$1250</h1>
+                                </div>
+                                <div class="payment-total-price-container">
+                                    <p class="payment-total-price">$1500</p>
+                                </div>
+                            </div>
+                            <div class="payment-product-column">
+                                <div class="payment-product-info-container">
+                                    <div class="payment-image-container">
+                                        <img src="{% static 'main/images/main-page/carousel1.png' %}" alt="">
+                                    </div>
+                                    <div class="payment-type-container">
+                                        <h1 class="payment-product-type">Advanced</h1>
+                                        <h1 class="payment-product-category">Popular</h1>
+                                        <button class="payment-product-remove">Remove</button>
+                                    </div>
+                                </div>
+                                <div class="payment-price-container">
+                                    <h1 class="payment-price">$1250</h1>
+                                </div>
+                                <div class="payment-total-price-container">
+                                    <p class="payment-total-price">$1500</p>
+                                </div>
+                            </div>
+                            <div class="payment-product-column">
+                                <div class="payment-product-info-container">
+                                    <div class="payment-image-container">
+                                        <img src="{% static 'main/images/main-page/carousel1.png' %}" alt="">
+                                    </div>
+                                    <div class="payment-type-container">
+                                        <h1 class="payment-product-type">Advanced</h1>
+                                        <h1 class="payment-product-category">Popular</h1>
+                                        <button class="payment-product-remove">Remove</button>
+                                    </div>
+                                </div>
+                                <div class="payment-price-container">
+                                    <h1 class="payment-price">$1250</h1>
+                                </div>
+                                <div class="payment-total-price-container">
+                                    <p class="payment-total-price">$1500</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="payment-return-back-container">
+                        <a href="" class="payment-return-back-link">
+                            <i class="fa-solid fa-arrow-left-long"></i>
+                            Continue Shopping
+                        </a>
+                    </div>
+                </article>
+                <article class="payment-sidebar-container" id="paymentSidebar">
+                    <div class="payment-sidebar-title-container">
+                        <h1 class="payment-sidebar-title">Order Summary</h1>
+                    </div>
+                    <div class="payment-sidebar-items-count-container">
+                        <h1 class="payment-sidebar-items">Items 13</h1>
+                        <p class="payment-sidebar-items-price">$457.98</p>
+                    </div>
+                    <div class="payment-sidebar-total-cost-container">
+                        <div class="payment-sidebar-total-cost-info-container">
+                            <h1 class="payment-sidebar-total-cost-title">Total Cost</h1>
+                            <p class="payment-sidebar-total-cost">$462</p>
+                        </div>
+                        <div class="payment-sidebar-checkout-btn-container">
+                            <button class="payment-sidebar-checkout-btn">Checkout</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- END SECTION PAYMENT LIST -->
+    </main>
+</body>
+
+</html>

@@ -5107,6 +5107,202 @@
   margin-block: 0.25rem;
 }
 
+.payment-container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  width: 100%;
+}
+
+.payment-info-container {
+  padding-inline: 1.5rem;
+}
+
+.payment-info-title-container {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1.5px solid var(--profile-input-border);
+  padding-block: 1rem;
+}
+.payment-info-title-container .payment-info-count {
+  color: var(--text-purple) !important;
+}
+
+.payment-products-container .payment-product-detail-container {
+  display: flex;
+  margin-block: 1rem;
+}
+.payment-product-column {
+  display: flex;
+  margin-block: 1.5rem;
+}
+
+.payment-product-info-container {
+  display: flex;
+  gap: 0.5rem;
+}
+.payment-product-info-container .payment-image-container {
+  width: 6rem;
+  height: 6rem;
+}
+.payment-product-info-container .payment-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+.payment-product-info-container .payment-type-container .payment-product-type {
+  color: var(--text-purple) !important;
+}
+.payment-product-info-container .payment-type-container .payment-product-category {
+  margin-block: 1rem;
+}
+.payment-product-info-container .payment-type-container .payment-product-remove {
+  padding: 0.25rem 0.5rem !important;
+  font-size: 0.75rem !important;
+}
+
+.payment-total-price-container .payment-total-price {
+  color: var(--text-purple) !important;
+}
+
+.payment-detail,
+.payment-product-info-container,
+.payment-total-price-container,
+.payment-price-container {
+  width: min(100%, 20rem);
+}
+
+.payment-return-back-container {
+  margin-block: 1rem;
+}
+.payment-return-back-container .payment-return-back-link {
+  color: var(--text-purple) !important;
+}
+.payment-return-back-container .payment-return-back-link i {
+  font-size: 0.85rem;
+}
+
+.payment-sidebar-container {
+  position: sticky;
+  top: 0;
+  right: 0;
+  background: var(--progress-background);
+  padding-inline: 1rem;
+  height: max-content;
+}
+.payment-sidebar-container .payment-sidebar-title-container {
+  border-bottom: 1.5px solid var(--profile-input-border);
+  padding-block: 1rem;
+}
+.payment-sidebar-container .payment-sidebar-items-count-container {
+  display: flex;
+  justify-content: space-between;
+  margin-block: 1rem;
+}
+.payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items-price {
+  color: var(--text-purple) !important;
+}
+
+.payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container {
+  display: flex;
+  justify-content: space-between;
+  margin-block: 1rem;
+}
+.payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost {
+  color: var(--text-purple) !important;
+}
+.payment-sidebar-total-cost-container .payment-sidebar-checkout-btn-container {
+  margin-block: 5rem 1rem;
+}
+.payment-sidebar-total-cost-container .payment-sidebar-checkout-btn-container .payment-sidebar-checkout-btn {
+  padding: 0.5rem 1rem !important;
+  width: 100%;
+}
+
+@media screen and (max-width: 1150px) {
+  .payment-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+  .payment-sidebar-container {
+    bottom: 0;
+  }
+}
+@media screen and (max-width: 850px) {
+  .payment-detail,
+  .payment-product-info-container,
+  .payment-total-price-container,
+  .payment-price-container {
+    width: max-content;
+  }
+  .payment-product-detail-container {
+    display: none !important;
+  }
+  .payment-product-column {
+    position: relative;
+    flex-flow: column;
+    box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin: 0;
+  }
+  .payment-product-wrapper-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-block: 1rem;
+  }
+  .payment-product-info-container {
+    width: 100%;
+    flex-flow: column;
+    margin-right: 1rem;
+    padding: 0.5rem;
+  }
+  .payment-product-info-container .payment-image-container {
+    width: 100%;
+    height: 8rem;
+  }
+  .payment-total-price-container {
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.5rem;
+  }
+  .payment-price,
+  .payment-total-price {
+    font-size: 0.8rem !important;
+    margin: 1rem 0 2rem;
+  }
+  .payment-type-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .payment-type-container .payment-product-category {
+    text-align: end !important;
+    margin-block: 0 1rem !important;
+  }
+  .payment-type-container .payment-product-type,
+  .payment-type-container .payment-product-category {
+    font-size: 0.8rem !important;
+  }
+  .payment-type-container .payment-product-remove {
+    width: 98%;
+    position: absolute;
+    left: 1%;
+    bottom: 0.5rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  .payment-product-wrapper-column {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .payment-product-column {
+    width: min(100%, 20rem);
+    margin: 0 auto;
+  }
+}
 #preloder {
   position: fixed;
   width: 100%;
@@ -6015,7 +6211,7 @@ strong {
 /*=============== GOOGLE FONTS ===============*/
 /*=============== VARIABLES CSS ===============*/
 .onerem-tworem-purple-button, .gradient-buttons-container .gradient-btn-column a .gradient-button, .carousel-title-container .carousel-link-container .carousel-link, .about-page-gradient-btn-container a .about-page-gradient-btn, .team-members-btn-container a .team-members-btn, .system-info-btn-container a .system-info-btn, .contact-form-column-btn-container .contact-form-column-btn, .ready-to-try-button, .custom-build-btn-container button, .services-link-container button, .pricing-list-btn-container .pricing-list-btn, .toggle-button.active, .empty-posts-container .empty-posts-clear,
-.empty-posts-container .clear-posts-clear, .clear-posts-container .clear-posts-clear, .no-posts-container .no-posts-link, .join-our-team-btn-container button, .job-gradient-info-btn-container button, .jobApplyForm .apply-button, .more-job-openings-btn-container button {
+.empty-posts-container .clear-posts-clear, .clear-posts-container .clear-posts-clear, .no-posts-container .no-posts-link, .join-our-team-btn-container button, .job-gradient-info-btn-container button, .jobApplyForm .apply-button, .more-job-openings-btn-container button, .payment-product-info-container .payment-type-container .payment-product-remove, .payment-sidebar-total-cost-container .payment-sidebar-checkout-btn-container .payment-sidebar-checkout-btn {
   padding: 1rem 2rem;
   color: var(--text-white);
   text-align: center;
@@ -6029,7 +6225,7 @@ strong {
   cursor: pointer;
 }
 .onerem-tworem-purple-button:hover, .gradient-buttons-container .gradient-btn-column a .gradient-button:hover, .carousel-title-container .carousel-link-container .carousel-link:hover, .about-page-gradient-btn-container a .about-page-gradient-btn:hover, .team-members-btn-container a .team-members-btn:hover, .system-info-btn-container a .system-info-btn:hover, .contact-form-column-btn-container .contact-form-column-btn:hover, .ready-to-try-button:hover, .custom-build-btn-container button:hover, .services-link-container button:hover, .pricing-list-btn-container .pricing-list-btn:hover, .toggle-button.active:hover, .empty-posts-container .empty-posts-clear:hover,
-.empty-posts-container .clear-posts-clear:hover, .clear-posts-container .clear-posts-clear:hover, .no-posts-container .no-posts-link:hover, .join-our-team-btn-container button:hover, .job-gradient-info-btn-container button:hover, .jobApplyForm .apply-button:hover, .more-job-openings-btn-container button:hover {
+.empty-posts-container .clear-posts-clear:hover, .clear-posts-container .clear-posts-clear:hover, .no-posts-container .no-posts-link:hover, .join-our-team-btn-container button:hover, .job-gradient-info-btn-container button:hover, .jobApplyForm .apply-button:hover, .more-job-openings-btn-container button:hover, .payment-product-info-container .payment-type-container .payment-product-remove:hover, .payment-sidebar-total-cost-container .payment-sidebar-checkout-btn-container .payment-sidebar-checkout-btn:hover {
   background: none;
   color: var(--text-purple);
 }
@@ -6122,13 +6318,15 @@ select:-webkit-autofill:focus {
 .dark-blue-text-center-grotext-family-4rem, .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .partners-info-container .partners-column .partners-info-title, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .categorie-column .recommended h1, .post-text-container .post-posted, .featured-posts-column .featured-post-column-posted, .jobApplyForm .jobApply-group label, .messenger-your-message-user-profile .messenger-your-message-username,
 .messenger-your-message-user-profile .messenger-others-message-username,
 .messenger-others-message-user-profile .messenger-your-message-username,
-.messenger-others-message-user-profile .messenger-others-message-username, .profile-edit-column label, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text, .sign-info-btn-container .sign-info-check-account, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .partners-empty-container .partners-empty-title, .feedback-empty-container .feedback-empty-title, .website-technologies-column .website-technologies-title,
+.messenger-others-message-user-profile .messenger-others-message-username, .profile-edit-column label, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text, .sign-info-btn-container .sign-info-check-account, .payment-products-container .payment-product-detail-container .payment-detail, .payment-product-info-container .payment-type-container .payment-product-type, .payment-product-info-container .payment-type-container .payment-product-category, .payment-price-container .payment-price, .payment-total-price-container .payment-total-price, .payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items,
+.payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items-price, .payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost-title,
+.payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .partners-empty-container .partners-empty-title, .feedback-empty-container .feedback-empty-title, .website-technologies-column .website-technologies-title,
 .job-column .website-technologies-title, .no-job-container .no-job-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .empty-posts-container .empty-posts-title, .job-gradient-info-container .job-gradient-info-category, .job-content h1,
 .job-content h2,
 .job-content h3,
 .job-content h4,
 .job-content h5,
-.job-content h6, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-info-container .sign-info-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .documentation-content-title, .post-text-container .post-title, .featured-posts-column .featured-post-column-title, .no-posts-container .no-posts-title, .detail-gradient-container .detail-gradient-username, .sign-image-container .sign-image-title, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .partners-container .partners-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .language-toggle-text-container .toggle-language-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
+.job-content h6, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-info-container .sign-info-title, .payment-info-title-container .payment-info-title, .payment-info-title-container .payment-info-count, .payment-sidebar-container .payment-sidebar-title-container .payment-sidebar-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .documentation-content-title, .post-text-container .post-title, .featured-posts-column .featured-post-column-title, .no-posts-container .no-posts-title, .detail-gradient-container .detail-gradient-username, .sign-image-container .sign-image-title, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .partners-container .partners-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .language-toggle-text-container .toggle-language-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
 .featured-posts-category-title, .posts-tags-title, .detail-gradient-container .detail-gradient-title, .detail-content-wrapper .detail-content-title, .detail-link-text-container .detail-link-title {
   color: var(--text-dark-blue);
   text-align: center;
@@ -6153,14 +6351,16 @@ select:-webkit-autofill:focus {
 .job-content h3,
 .job-content h4,
 .job-content h5,
-.job-content h6, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-info-container .sign-info-title {
+.job-content h6, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-info-container .sign-info-title, .payment-info-title-container .payment-info-title, .payment-info-title-container .payment-info-count, .payment-sidebar-container .payment-sidebar-title-container .payment-sidebar-title {
   font-size: 1.5rem;
 }
 
 .dark-blue-text-center-grotext-family-1rem, .choices-column .price-column .recommended h1, .partners-info-container .partners-column .partners-info-title, .about-page-gradient-image-column-info-container .about-page-gradient-image-column-title, .about-page-gradient-image-column-task-title, .team-members-info-container .team-members-count-text, .faq-card-title, .price-column .recommended h1, .categorie-column .recommended h1, .post-text-container .post-posted, .featured-posts-column .featured-post-column-posted, .jobApplyForm .jobApply-group label, .messenger-your-message-user-profile .messenger-your-message-username,
 .messenger-your-message-user-profile .messenger-others-message-username,
 .messenger-others-message-user-profile .messenger-your-message-username,
-.messenger-others-message-user-profile .messenger-others-message-username, .profile-edit-column label, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text, .sign-info-btn-container .sign-info-check-account {
+.messenger-others-message-user-profile .messenger-others-message-username, .profile-edit-column label, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text, .sign-info-btn-container .sign-info-check-account, .payment-products-container .payment-product-detail-container .payment-detail, .payment-product-info-container .payment-type-container .payment-product-type, .payment-product-info-container .payment-type-container .payment-product-category, .payment-price-container .payment-price, .payment-total-price-container .payment-total-price, .payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items,
+.payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items-price, .payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost-title,
+.payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost {
   font-size: 1rem;
 }
 
@@ -6241,7 +6441,9 @@ select:-webkit-autofill:focus {
 .job-content h6, .messenger-header-user-info-container .messenger-header-username, .messenger-your-message-user-profile .messenger-your-message-username,
 .messenger-your-message-user-profile .messenger-others-message-username,
 .messenger-others-message-user-profile .messenger-your-message-username,
-.messenger-others-message-user-profile .messenger-others-message-username, .profile-main-edit-container .profile-edit-title, .profile-edit-column label, .profile-contact-edit-container .profile-edit-title, .sign-image-container .sign-image-title, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text {
+.messenger-others-message-user-profile .messenger-others-message-username, .profile-main-edit-container .profile-edit-title, .profile-edit-column label, .profile-contact-edit-container .profile-edit-title, .sign-image-container .sign-image-title, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text, .payment-info-title-container .payment-info-title, .payment-info-title-container .payment-info-count, .payment-products-container .payment-product-detail-container .payment-detail, .payment-product-info-container .payment-type-container .payment-product-type, .payment-product-info-container .payment-type-container .payment-product-category, .payment-price-container .payment-price, .payment-total-price-container .payment-total-price, .payment-sidebar-container .payment-sidebar-title-container .payment-sidebar-title, .payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items,
+.payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items-price, .payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost-title,
+.payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost {
   text-align: start;
 }
 
@@ -6255,7 +6457,7 @@ select:-webkit-autofill:focus {
 
 .white-1rem-grotext, .white-1-125rem-grotext, .contact-page-gradient-text-container .contact-page-gradient-text, .pricing-popular-package-info, .btn-for-list-of-packages .click-title, .detail-gradient-container .detail-gradient-posted-date, .detail-share-user-info-container .detail-share-username, .join-our-team-text, .choices-column .price-column .choice-type, .feedback-list-text-column .feedback-list-text-column-title, .feedback-list-text-column .feedback-list-text-column-text, .client-sphere .client-sphere-info, .about-get-in-touch-text-column .about-get-in-touch-title, .about-get-in-touch-text-column .about-get-in-touch-text, .contact-form-success-message,
 .contact-form-error-message,
-.contact-user-checker, .price-column .pricing-popular-type, .categorie-column .pricing-popular-type, .post-text-container .post-date, .featured-posts-column .featured-post-column-date, .apply-success-message p, .applyModelUserNotSigned-container .applyModelUserNotSigned-text {
+.contact-user-checker, .price-column .pricing-popular-type, .categorie-column .pricing-popular-type, .post-text-container .post-date, .featured-posts-column .featured-post-column-date, .apply-success-message p, .applyModelUserNotSigned-container .applyModelUserNotSigned-text, .payment-return-back-container .payment-return-back-link {
   color: var(--text-white);
   font-size: 1rem;
   font-family: var(--grotext-sans);

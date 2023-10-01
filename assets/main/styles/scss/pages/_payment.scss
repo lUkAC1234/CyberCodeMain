@@ -1,0 +1,284 @@
+.payment-container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    width: 100%;
+}
+
+.payment-info-container {
+    padding-inline: 1.5rem;
+}
+
+.payment-info-title-container {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1.5px solid var(--profile-input-border);
+    padding-block: 1rem;
+
+    .payment-info-title {
+        @extend .dark-blue-text-center-grotext-family-1-5rem;
+        @extend .text-align-start;
+    }
+
+    .payment-info-count {
+        @extend .dark-blue-text-center-grotext-family-1-5rem;
+        @extend .text-align-start;
+        color: var(--text-purple) !important;
+    }
+}
+
+.payment-products-container {
+    .payment-product-detail-container {
+        display: flex;
+        margin-block: 1rem;
+
+        .payment-detail {
+            @extend .dark-blue-text-center-grotext-family-1rem;
+            @extend .text-align-start;
+        }
+    }
+}
+
+.payment-product-column {
+    display: flex;
+    margin-block: 1.5rem;
+}
+
+.payment-product-info-container {
+    display: flex;
+    gap: 0.5rem;
+
+    .payment-image-container {
+        width: 6rem;
+        height: 6rem;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0.25rem;
+        }
+    }
+
+    .payment-type-container {
+        .payment-product-type {
+            @extend .dark-blue-text-center-grotext-family-1rem;
+            @extend .text-align-start;
+            color: var(--text-purple) !important;
+        }
+
+        .payment-product-category {
+            @extend .dark-blue-text-center-grotext-family-1rem;
+            @extend .text-align-start;
+            margin-block: 1rem;
+        }
+
+        .payment-product-remove {
+            @extend .onerem-tworem-purple-button;
+            padding: 0.25rem 0.5rem !important;
+            font-size: 0.75rem !important;
+        }
+    }
+}
+
+.payment-price-container {
+    .payment-price {
+        @extend .dark-blue-text-center-grotext-family-1rem;
+        @extend .text-align-start;
+    }
+}
+
+.payment-total-price-container {
+    .payment-total-price {
+        @extend .dark-blue-text-center-grotext-family-1rem;
+        @extend .text-align-start;
+        color: var(--text-purple) !important;
+    }
+}
+
+.payment-detail,
+.payment-product-info-container,
+.payment-total-price-container,
+.payment-price-container {
+    width: min(100%, 20rem);
+}
+
+.payment-return-back-container {
+    margin-block: 1rem;
+
+    .payment-return-back-link {
+        @extend .white-1rem-grotext;
+        color: var(--text-purple) !important;
+
+        i {
+            font-size: 0.85rem;
+        }
+    }
+}
+
+.payment-sidebar-container {
+    position: sticky;
+    top: 0;
+    right: 0;
+    background: var(--progress-background);
+    padding-inline: 1rem;
+    height: max-content;
+
+    .payment-sidebar-title-container {
+        border-bottom: 1.5px solid var(--profile-input-border);
+        padding-block: 1rem;
+
+        .payment-sidebar-title {
+            @extend .dark-blue-text-center-grotext-family-1-5rem;
+            @extend .text-align-start;
+        }
+    }
+
+    .payment-sidebar-items-count-container {
+        display: flex;
+        justify-content: space-between;
+        margin-block: 1rem;
+
+        .payment-sidebar-items,
+        .payment-sidebar-items-price {
+            @extend .dark-blue-text-center-grotext-family-1rem;
+            @extend .text-align-start;
+        }
+
+        .payment-sidebar-items-price {
+            color: var(--text-purple) !important;
+        }
+    }
+}
+
+.payment-sidebar-total-cost-container {
+    .payment-sidebar-total-cost-info-container {
+        display: flex;
+        justify-content: space-between;
+        margin-block: 1rem;
+
+        .payment-sidebar-total-cost-title,
+        .payment-sidebar-total-cost {
+            @extend .dark-blue-text-center-grotext-family-1rem;
+            @extend .text-align-start;
+        }
+
+        .payment-sidebar-total-cost {
+            color: var(--text-purple) !important;
+        }
+    }
+
+    .payment-sidebar-checkout-btn-container {
+        margin-block: 5rem 1rem;
+
+        .payment-sidebar-checkout-btn {
+            @extend .onerem-tworem-purple-button;
+            padding: 0.5rem 1rem !important;
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .payment-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .payment-sidebar-container {
+        bottom: 0;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    // .payment-product-column,
+    // .payment-product-detail-container {
+    //     justify-content: space-between;
+    // }
+
+    .payment-detail,
+    .payment-product-info-container,
+    .payment-total-price-container,
+    .payment-price-container {
+        width: max-content;
+    }
+
+    .payment-product-detail-container {
+        display: none !important;
+    }
+
+    .payment-product-column {
+        position: relative;
+        flex-flow: column;
+        box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.1);
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        margin: 0;
+    }
+
+    .payment-product-wrapper-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        margin-block: 1rem;
+    }
+
+    .payment-product-info-container {
+        width: 100%;
+        flex-flow: column;
+        margin-right: 1rem;
+        padding: 0.5rem;
+
+        .payment-image-container {
+            width: 100%;
+            height: 8rem;
+        }
+    }
+
+    .payment-total-price-container {
+        position: absolute;
+        right: 0.5rem;
+        bottom: 0.5rem;
+    }
+
+    .payment-price,
+    .payment-total-price {
+        font-size: 0.8rem !important;
+        margin: 1rem 0 2rem;
+    }
+
+    .payment-type-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        .payment-product-category {
+            text-align: end !important;
+            margin-block: 0 1rem !important; 
+        }
+
+        .payment-product-type,
+        .payment-product-category {
+            font-size: 0.8rem !important;
+        }
+
+        .payment-product-remove {
+            width: 98%;
+            position: absolute;
+            left: 1%;
+            bottom: 0.5rem;
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .payment-product-wrapper-column {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .payment-product-column {
+        width: min(100%, 20rem);
+        margin: 0 auto;
+    }
+}

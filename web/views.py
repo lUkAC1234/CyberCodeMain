@@ -63,18 +63,13 @@ class FAQListView(ListView):
     model = FaqModel
     template_name = "pages/faqlist.html"
 
-class pricing(CreateView):
+class Pricing(TemplateView):
     template_name = "pages/pricing.html"
-    form_class = PaymentApplyForm
     def get_context_data(self, *, object_list=None, **kwargs):
         data = super().get_context_data(**kwargs)
         data['pricing'] = PricingModel.objects.filter(popular=True).order_by('-popular', '-id')[:3]
         return data
     
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
-
 class pricinglist(ListView):
     model = PricingModel
     template_name = "pages/pricinglist.html"
@@ -88,6 +83,10 @@ class pricinglist(ListView):
         queryset = list({item.id: item for item in queryset}.values())
 
         return queryset
+    
+class PaymentListView(ListView):
+    model = PricingModel
+    template_name = 'pages/paymentlist.html'
 
     
 class documentation(TemplateView):
