@@ -16,6 +16,10 @@ strong {
   word-break: break-word !important;
 }
 
+* {
+  scroll-behavior: smooth !important;
+}
+
 @media screen and (min-width: 2000px) {
   .main {
     max-width: 2000px;

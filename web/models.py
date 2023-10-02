@@ -180,23 +180,6 @@ class PartnersModel(models.Model):
     def __str__(self):
         return self.title
     
-class PaymentModel(models.Model):
-    first_name = models.CharField(max_length=50)
-    email = models.EmailField()
-    phone = models.CharField(max_length=13, validators=[PhoneValidator()])
-    text = models.TextField(max_length=1000)
-    category = models.ForeignKey(PricingModel, on_delete=models.CASCADE)
-    user = models.ForeignKey(UserModel, on_delete=models.RESTRICT, related_name='pricingApplyUser')
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        verbose_name = 'PAYMENT'
-        verbose_name_plural = 'PAYMENTS'
-        ordering = ('-id',)
-
-    def __str__(self):
-        return self.first_name   
-    
 
 class CheckOut(models.Model):
     first_name = models.CharField(max_length=50)
@@ -204,7 +187,7 @@ class CheckOut(models.Model):
     email = models.EmailField()
     item = models.ManyToManyField(PricingModel, related_name='checkout')
     total_price = models.FloatField()
-    socail_media = models.URLField(null=True)
+    socail_media = models.URLField()
     address = models.CharField(max_length=100)
     city = models.CharField(max_length=50)
     position = models.CharField(max_length=50, blank=True, null=True)
@@ -212,7 +195,7 @@ class CheckOut(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def str(self):
-        return f"{self.first_name} {self.email}"
+        return f"{self.first_name} {self.total_price}$"
 
     class Meta:
         verbose_name = 'CHECKOUT'

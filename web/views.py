@@ -9,7 +9,7 @@ from django.utils.translation import gettext as _
 from django.contrib import messages
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, FormView
 from .models import PostModel, PricingModel, FeedbackModel, ContactusModel, FaqModel, JobModel, \
-PostCategoryModel, PostTagModel, UserModel, PartnersModel, JobApplyModel, PaymentModel, CheckOut
+PostCategoryModel, PostTagModel, UserModel, PartnersModel, JobApplyModel, CheckOut
 from .forms import ContactusModelForm, AccountForm, LoginForm, RegistrationForm, JobApplyForm, \
 CheckOutForm
 from django.contrib.auth import login, logout, authenticate
@@ -17,6 +17,7 @@ from django.contrib.auth.hashers import make_password
 from django.core.exceptions import ValidationError
 from django.template.loader import render_to_string
 from django.db.models import Sum
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class index(TemplateView):
     template_name = "pages/index.html"
@@ -238,7 +239,7 @@ class JobDetailView(DetailView):
 class helpcenter(TemplateView):
     template_name = "pages/helpcenter.html"       
 
-class MyProfileEdit(UpdateView):
+class MyProfileEdit(LoginRequiredMixin, UpdateView):
     model = UserModel
     form_class = AccountForm 
     template_name = "pages/profile.html"

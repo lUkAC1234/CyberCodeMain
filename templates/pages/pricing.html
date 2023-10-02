@@ -9,7 +9,7 @@
 <main class="main pricing-main">
     <!-- START POPULAR PACKAGES SECTION -->
 
-    <section class="pricing-popular-packages-section">
+    <section class="pricing-popular-packages-section" id="pricingSection">
         <div class="pricing-popular-main-container">
             <h1 class="pricing-popular-package-title">Our 3 popular pricing models</h1>
             <p class="pricing-popular-package-info">Save 20% of your project costs with our Monthly Subscription plan
@@ -138,13 +138,13 @@
                 <p class="ready-to-try-info">Try Cyber Code and take back control of your day</p>
                 <div class="ready-to-try-buttons-container">
                     <div class="ready-to-try-btn-column">
-                        <a href="">
+                        <a href="#pricingSection">
                             <button class="ready-to-try-button">Get started</button>
                         </a>
                     </div>
                     <div class="ready-to-try-btn-column">
-                        <a href="">
-                            <button class="ready-to-try-button-without-background">Try free trial</button>
+                        <a href="{% url 'main:pricinglist' %}">
+                            <button class="ready-to-try-button-without-background">Pricing</button>
                         </a>
                     </div>
                 </div>

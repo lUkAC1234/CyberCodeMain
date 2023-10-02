@@ -6307,6 +6307,10 @@ strong {
   word-break: break-word !important;
 }
 
+* {
+  scroll-behavior: smooth !important;
+}
+
 @media screen and (min-width: 2000px) {
   .main {
     max-width: 2000px;
@@ -6741,7 +6745,6 @@ body {
   grid-template-areas: "header" "content" "footer";
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
-  scroll-behavior: smooth !important;
   margin: 0 auto;
   background: var(--body-background);
 }

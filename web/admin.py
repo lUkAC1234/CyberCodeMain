@@ -5,7 +5,7 @@ from django.contrib import admin
 # Models and Forms
 from .models import UserModel, PricingModel, PostModel, FeedbackModel, ContactusModel, \
 FaqModel, JobModel, JobCategoryModel, PostTagModel, PostCategoryModel, PartnersModel, \
-JobApplyModel, PaymentModel, CheckOut
+JobApplyModel, CheckOut
 # --------------------------------------------------------------------------- #
 # Translation
 from django.utils.translation import gettext_lazy as _
@@ -108,17 +108,12 @@ class PartnersAdmin(admin.ModelAdmin):
     list_display_links = ['id', 'title']
     search_fields = ['title']
 
-@admin.register(PaymentModel)
-class PaymentAdmin(admin.ModelAdmin):
-    list_display = ['id', 'first_name']
-    list_display_links = ['id', 'first_name']
-    search_fields = ['first_name']
-
 @admin.register(CheckOut)
 class CheckOutAdmin(admin.ModelAdmin):
-    list_display = ['id', 'first_name']
+    list_display = ['id', 'first_name', 'total_price']
     list_display_links = ['id', 'first_name']
     search_fields = ['first_name']
+    readonly_fields = ['created_at', 'item', 'user', 'total_price']
 
 
 admin.site.site_header = 'Cyber Code'

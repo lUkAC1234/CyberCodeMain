@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 # --------------------------------------------------------------------------- #
 # Models
-from .models import UserModel, PostModel, ContactusModel, JobApplyModel,PaymentModel, \
+from .models import UserModel, PostModel, ContactusModel, JobApplyModel, \
 CheckOut
 # --------------------------------------------------------------------------- #
 # Translation
@@ -40,11 +40,6 @@ class ContactusModelForm(forms.ModelForm):
 class JobApplyForm(forms.ModelForm):
     class Meta:
         model = JobApplyModel
-        exclude = ('user',)
-
-class PaymentApplyForm(forms.ModelForm):
-    class Meta:
-        model = PaymentModel
         exclude = ('user',)
 
 

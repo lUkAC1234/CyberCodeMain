@@ -10,7 +10,7 @@
 
     <!-- START JOB DETAIL GRADIENT SECTION -->
 
-    <section class="job-gradient-section">
+    <section class="job-gradient-section" id="jobApplySection">
         <div class="job-gradient-container">
             <div class="job-gradient-info-container">
                 <div class="job-gradient-info-image-container">
@@ -48,26 +48,26 @@
                     <div class="jobApply-group-double">
                         <div class="jobApply-group">
                             <label for="firstName">First Name</label>
-                            <input type="text" name="firstName" id="firstName" required
+                            <input type="text" name="firstName" id="firstName" required placeholder="Peter"
                             value="{% if apply_form.firstName.value %}{{ apply_form.firstName.value }}{% else %}{{ request.user.first_name|default:'' }}{% endif %}">
                             <div class="error-message" id="firstName-error"></div>
                         </div>
                         <div class="jobApply-group">
                             <label for="email">Email</label>
-                            <input type="email" name="email" id="email" required
+                            <input type="email" name="email" id="email" required placeholder="supportcybercode@gmail.com"
                             value="{% if apply_form.email.value %}{{ apply_form.email.value }}{% else %}{{ request.user.email|default:'' }}{% endif %}">
                             <div class="error-message" id="email-error"></div>
                         </div>
                     </div>
                     <div class="jobApply-group">
                         <label for="phone">Phone</label>
-                        <input type="text" name="phone" id="phone" required
+                        <input type="text" name="phone" id="phone" required 
                         value="{% if apply_form.phone.value %}{{ apply_form.phone.value }}{% else %}{{ request.user.mobileNumber|default:'+998' }}{% endif %}">
                         <div class="error-message" id="phone-error"></div>
                     </div>
                     <div class="jobApply-group">
                         <label for="text">Message</label>
-                        <textarea name="text" id="text" rows="5" required></textarea>
+                        <textarea name="text" id="text" rows="5" required placeholder="Hello, I want to..."></textarea>
                         <div class="error-message" id="text-error"></div>
                     </div>
                     <button type="submit" class="apply-button">Submit</button>
@@ -175,7 +175,7 @@
                 lets you block time for deep work by adding tasks to your calendar with one click, giving you control
                 back over your day.</p>
             <div class="join-our-team-btn-container">
-                <a href="">
+                <a href="#jobApplySection">
                     <button class="join-our-team-btn">Get started</button>
                 </a>
             </div>

@@ -9,7 +9,7 @@
 <main class="main pricing-list-main">
     <!-- START PRICING LISTS SECTION -->
 
-    <section class="pricing-list-section">
+    <section class="pricing-list-section" id="pricingListSection">
         <div class="pricing-list-container">
             <div class="pricing-list-text-container">
                 <h1 class="pricing-list-title">Here is a list of all possible categories of our services</h1>
@@ -68,13 +68,13 @@
                 <p class="ready-to-try-info">Try Cyber Code and take back control of your day</p>
                 <div class="ready-to-try-buttons-container">
                     <div class="ready-to-try-btn-column">
-                        <a href="">
+                        <a href="{% url 'main:pricing' %}">
                             <button class="ready-to-try-button">Get started</button>
                         </a>
                     </div>
                     <div class="ready-to-try-btn-column">
-                        <a href="">
-                            <button class="ready-to-try-button-without-background">Try free trial</button>
+                        <a href="#pricingListSection">
+                            <button class="ready-to-try-button-without-background">Pricing</button>
                         </a>
                     </div>
                 </div>

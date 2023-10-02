@@ -148,9 +148,11 @@
             </div>
             {% endfor %}
         </div>
+        {% if faqs.count >= 8 %}
         <div class="faq-other-list">
             <a href="{% url 'main:faqlist' %}">Click to view other FAQS <i class="fa-sharp fa-solid fa-circle-arrow-right"></i></a>
         </div>
+        {% endif %}
     </section>
     <!-- End FAQ SECTION -->
 
@@ -162,13 +164,13 @@
                 <p class="ready-to-try-info">Try Cyber Code and take back control of your day</p>
                 <div class="ready-to-try-buttons-container">
                     <div class="ready-to-try-btn-column">
-                        <a href="">
+                        <a href="{% url 'main:pricing' %}">
                             <button class="ready-to-try-button">Get started</button>
                         </a>
                     </div>
                     <div class="ready-to-try-btn-column">
-                        <a href="">
-                            <button class="ready-to-try-button-without-background">Try free trial</button>
+                        <a href="{% url 'main:pricinglist' %}">
+                            <button class="ready-to-try-button-without-background">Pricing</button>
                         </a>
                     </div>
                 </div>
