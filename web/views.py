@@ -1,4 +1,5 @@
 from typing import Any
+from django.forms.models import BaseModelForm
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.urls import reverse_lazy
 from django.db.models import Q
@@ -8,13 +9,14 @@ from django.utils.translation import gettext as _
 from django.contrib import messages
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, FormView
 from .models import PostModel, PricingModel, FeedbackModel, ContactusModel, FaqModel, JobModel, \
-PostCategoryModel, PostTagModel, UserModel, PartnersModel, JobApplyModel, PaymentModel, ShoppingCartItem
+PostCategoryModel, PostTagModel, UserModel, PartnersModel, JobApplyModel, PaymentModel, CheckOut
 from .forms import ContactusModelForm, AccountForm, LoginForm, RegistrationForm, JobApplyForm, \
-PaymentApplyForm
+CheckOutForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.hashers import make_password
 from django.core.exceptions import ValidationError
 from django.template.loader import render_to_string
+from django.db.models import Sum
 
 class index(TemplateView):
     template_name = "pages/index.html"
@@ -83,35 +85,57 @@ class pricinglist(ListView):
         queryset = list({item.id: item for item in queryset}.values())
 
         return queryset
-    
-def payment_list(request):
-    user = request.user
-    cart_items = ShoppingCartItem.objects.filter(user=user)
-    total_price = sum(item.product.price * item.quantity for item in cart_items)
-    
-    context = {
-        'cart_items': cart_items,
-        'total_cost': total_price,
-    }
-    
-    return render(request, 'pages/paymentlist.html', context)
 
-def AddToCart(request, product_id):
-    product = PricingModel.objects.get(pk=product_id)
-    user = request.user
-    existing_item = ShoppingCartItem.objects.filter(user=user, product=product).first()
-    
-    if existing_item:
-        existing_item.delete()
-    else:
-        ShoppingCartItem.objects.create(user=user, product=product, quantity=1)
-    
+def AddToCart(request, id):
+    cart = request.session.get('cart', [])
+
+    if not cart:
+        request.session['cart'] = []
+        cart = request.session.get('cart', [])
+    if id not in cart:
+        cart.append(id)
+
+    request.session['cart'] = cart
+
     return redirect('main:payment')
 
-def RemoveFromCart(request, item_id):
-    item = get_object_or_404(ShoppingCartItem, pk=item_id, user=request.user)
-    item.delete()
+def RemoveFromCart(request, id):
+    cart = request.session.get('cart', [])
+    if id in cart:
+        cart.remove(id)
+        request.session['cart'] = cart
     return redirect('main:payment')
+
+class payment_list(CreateView):
+    template_name = 'pages/paymentlist.html'
+    form_class = CheckOutForm
+
+    def get_success_url(self):
+        return reverse('main:thankyou')
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        cart = self.request.session.get('cart', [])
+        data['cart_items'] = PricingModel.get_cart_objects(cart)
+        return data
+
+    def form_valid(self, form):
+        cart = self.request.session.get('cart', [])
+        queryset = PricingModel.get_cart_objects(cart)
+        total_price = sum(item.price for item in queryset)
+        form.instance.total_price = total_price
+        form.instance.user = self.request.user
+        data = form.save()
+        data.item.set(queryset)
+        self.request.session['cart'] = []
+        return super(payment_list, self).form_valid(form)
+    
+    def form_invalid(self, form):
+        print(form.errors)
+        return super().form_invalid(form)
+    
+class SuccessPayment(TemplateView):
+    template_name = "pages/thankyou.html"
 
     
 class documentation(TemplateView):

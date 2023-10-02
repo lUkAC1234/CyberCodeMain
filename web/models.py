@@ -48,6 +48,11 @@ class PricingModel(models.Model):
     popular = models.BooleanField(null=True)
     recommended = models.BooleanField(null=True)
 
+    @staticmethod
+    def get_cart_objects(cart_list):
+        qs = PricingModel.objects.all().filter(id__in=cart_list)
+        return qs
+
     class Meta:
         verbose_name = 'Pricing'
         verbose_name_plural = 'Pricings'
@@ -192,13 +197,23 @@ class PaymentModel(models.Model):
     def __str__(self):
         return self.first_name   
     
-class ShoppingCartItem(models.Model):
-    user = models.ForeignKey(UserModel, on_delete=models.CASCADE)
-    product = models.ForeignKey(PricingModel, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField(default=1)
 
-    def __str__(self):
-        return f"{self.user.username}'s {self.product.type}"
+class CheckOut(models.Model):
+    first_name = models.CharField(max_length=50)
+    phone = models.CharField(max_length=13, validators=[PhoneValidator()])
+    email = models.EmailField()
+    item = models.ManyToManyField(PricingModel, related_name='checkout')
+    total_price = models.FloatField()
+    socail_media = models.URLField(null=True)
+    address = models.CharField(max_length=100)
+    city = models.CharField(max_length=50)
+    position = models.CharField(max_length=50, blank=True, null=True)
+    user = models.ForeignKey(UserModel, on_delete=models.RESTRICT, related_name='checkoutUser')
+    created_at = models.DateTimeField(auto_now_add=True)
 
-    def total_price(self):
-        return self.product.price * self.quantity
+    def str(self):
+        return f"{self.first_name} {self.email}"
+
+    class Meta:
+        verbose_name = 'CHECKOUT'
+        verbose_name_plural = 'CHECKOUT'

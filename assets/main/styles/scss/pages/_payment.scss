@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 3fr 1fr;
     width: 100%;
+    min-height: 100vh;
 }
 
 .payment-info-container {
@@ -48,14 +49,18 @@
     gap: 0.5rem;
 
     .payment-image-container {
+        display: grid;
+        place-items: center;
         width: 6rem;
         height: 6rem;
+        background: linear-gradient(145deg, var(--background-purple) 0%, var(--background-white) 100%);
+        border-radius: 0.25rem;
+        padding-inline: 0.15rem;
 
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 0.25rem;
+        .payment-image-type {
+            @extend .dark-blue-text-center-grotext-family-1rem;
+            font-size: 0.8rem !important;
+            color: var(--text-white) !important;
         }
     }
 
@@ -187,14 +192,11 @@
 
     .payment-sidebar-container {
         bottom: 0;
+        align-self: flex-end;
     }
 }
 
 @media screen and (max-width: 850px) {
-    // .payment-product-column,
-    // .payment-product-detail-container {
-    //     justify-content: space-between;
-    // }
 
     .payment-detail,
     .payment-product-info-container,
@@ -280,5 +282,57 @@
     .payment-product-column {
         width: min(100%, 20rem);
         margin: 0 auto;
+    }
+
+    .payment-info-title-container {
+        .payment-info-title,
+        .payment-info-count {
+            font-size: 1.25rem !important;
+        }
+    }
+}
+
+.paymentEmpty-container {
+    display: grid;
+    place-items: center;
+    padding: 3rem 0.5rem;
+    box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    margin-block: 1rem;
+
+    .payment-empty-icon-container {
+        i {
+            color: var(--text-purple);
+            font-size: 1.75rem;
+        }
+    }
+
+    .payment-empty-title {
+        @extend .dark-blue-text-center-grotext-family-1-5rem;
+        font-size: 1.25rem !important;
+    }
+
+    .payment-empty-text {
+        @extend .info-text-gray-1-125rem;
+        text-align: center;
+        margin-block: 0.5rem;
+    }
+
+    @media screen and (max-width: 600px) {
+        padding-block: 2rem;
+        .payment-empty-icon-container {
+            i {
+                color: var(--text-purple);
+                font-size: 1.5rem;
+            }
+        }
+    
+        .payment-empty-title {
+            font-size: 1.125rem !important;
+        }
+    
+        .payment-empty-text {
+            font-size: 1rem !important;
+        }
     }
 }

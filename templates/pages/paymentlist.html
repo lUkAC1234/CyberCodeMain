@@ -36,10 +36,18 @@
             <div class="payment-container">
                 <article class="payment-info-container">
                     <div class="payment-info-title-container">
-                        <h1 class="payment-info-title">shopping cart</h1>
-                        <p class="payment-info-count">{{ cart_items.count }} items</p>
+                        <h1 class="payment-info-title">Order cart</h1>
+                        <p class="payment-info-count">
+                            {{ cart_items.count }}
+                            {% if cart_items.count > 1 %}
+                            items
+                            {% else %}
+                            item
+                            {% endif %}
+                        </p>
                     </div>
                     <div class="payment-products-container">
+                        {% if cart_items %}
                         <div class="payment-product-detail-container">
                             <p class="payment-detail">product Details</p>
                             <p class="payment-detail">Price</p>
@@ -50,63 +58,193 @@
                             <div class="payment-product-column">
                                 <div class="payment-product-info-container">
                                     <div class="payment-image-container">
-                                        <img src="{% static 'main/images/main-page/carousel1.png' %}" alt="">
+                                        <span class="payment-image-type">{{ item.type }}</span>
                                     </div>
                                     <div class="payment-type-container">
-                                        <h1 class="payment-product-type">{{ item.product.type }}</h1>
+                                        <h1 class="payment-product-type">{{ item.type }}</h1>
                                         {% if item.product.recommended %}
                                         <h1 class="payment-product-category">Recommended</h1>
-                                        {% elif item.product.popular %}
+                                        {% elif item.popular %}
                                         <h1 class="payment-product-category">Popular</h1>
                                         {% else %}
                                         <h1 class="payment-product-category">None</h1>
                                         {% endif %}
-                                        <button class="payment-product-remove">
-                                            <a href="{% url 'main:removefromcart' item.id %}">Remove</a>
-                                        </button>
+                                        <form class="remove-from-cart-form"
+                                            action="{% url 'main:removefromcart' item.id %}" method="post">
+                                            {% csrf_token %}
+                                            <button type="submit" class="payment-product-remove">
+                                                Remove
+                                            </button>
+                                        </form>
+
+                                        <!-- Other HTML content -->
+
                                     </div>
                                 </div>
                                 <div class="payment-price-container">
-                                    <h1 class="payment-price">${{ item.product.price }}</h1>
+                                    <h1 class="payment-price">${{ item.price }}</h1>
                                 </div>
                                 <div class="payment-total-price-container">
-                                    <p class="payment-total-price">${{ item.product.price }}</p>
+                                    <p class="payment-total-price">${{ item.price }}</p>
                                 </div>
                             </div>
                             {% endfor %}
                         </div>
+                        {% else %}
+                        <article class="paymentEmpty-container">
+                            <div class="payment-empty-icon-container">
+                                <i class="fa-solid fa-xmark"></i>
+                            </div>
+                            <h1 class="payment-empty-title">No items</h1>
+                            <p class="payment-empty-text">You have not selected any products yet</p>
+                        </article>
+                        {% endif %}
                     </div>
                     <div class="payment-return-back-container">
                         <a href="" class="payment-return-back-link" id="continueShoppingLink">
                             <i class="fa-solid fa-arrow-left-long"></i>
-                            Continue Shopping
+                            Continue Ordering
                         </a>
                     </div>
                 </article>
+                {% if cart_items %}
+                {% load my_tags %}
                 <article class="payment-sidebar-container" id="paymentSidebar">
                     <div class="payment-sidebar-title-container">
                         <h1 class="payment-sidebar-title">Order Summary</h1>
                     </div>
                     <div class="payment-sidebar-items-count-container">
-                        <h1 class="payment-sidebar-items">Items {{ cart_items.count }}</h1>
-                        <p class="payment-sidebar-items-price">${{ total_cost }}</p>
+                        <h1 class="payment-sidebar-items">
+                            {{ cart_items.count }}
+                            {% if cart_items.count > 1 %}
+                            items
+                            {% else %}
+                            item
+                            {% endif %}
+                        </h1>
+                        <p class="payment-sidebar-items-price">
+                            ${{ request.session.cart|calculate_total_cost:request }}
+                        </p>
                     </div>
                     <div class="payment-sidebar-total-cost-container">
                         <div class="payment-sidebar-total-cost-info-container">
                             <h1 class="payment-sidebar-total-cost-title">Total Cost</h1>
-                            <p class="payment-sidebar-total-cost">${{ total_cost }}</p>
+                            <p class="payment-sidebar-total-cost">
+                                ${{ request.session.cart|calculate_total_cost:request}}</p>
                         </div>
                         <div class="payment-sidebar-checkout-btn-container">
-                            <button class="payment-sidebar-checkout-btn">Checkout</button>
+                            <button class="payment-sidebar-checkout-btn" id="applyNowBtn">Checkout</button>
                         </div>
                     </div>
                 </article>
+                {% endif %}
+
+                {% if cart_items %}
+                <article id="applyModal" class="applyModal">
+                    <div class="applyModalContent">
+                        <div class="modal-close-container">
+                            <p class="modalTitle">Checkout</p>
+                            <span class="closeModal" id="closeApplyModal">
+                                <i class="fa-solid fa-xmark"></i>
+                            </span>
+                        </div>
+                        <div class="modal-content-container">
+                            {% if request.user.is_authenticated %}
+                            <form id="jobApplyForm" class="jobApplyForm" method="POST" action="{% url 'main:payment' %}">
+                                {% csrf_token %}
+                                <div class="jobApply-group-double">
+                                    <div class="jobApply-group payment-group">
+                                        <label for="firstName">First Name</label>
+                                        <input type="text" name="first_name" id="first_name" required
+                                            value="{% if form.first_name.value %}{{ form.first_name.value }}{% else %}{{ request.user.first_name|default:'' }}{% endif %}">
+                                        {{ form.errors.first_name }}
+                                    </div>
+                                    <div class="jobApply-group payment-group">
+                                        <label for="email">Email</label>
+                                        <input type="email" name="email" id="email" required
+                                            value="{% if form.email.value %}{{ form.email.value }}{% else %}{{ request.user.email|default:'' }}{% endif %}">
+                                        {{ form.errors.email }}
+                                    </div>
+                                </div>
+                                <div class="jobApply-group-double">
+                                    <div class="jobApply-group payment-group">
+                                        <label for="firstName">City</label>
+                                        <input type="text" name="city" id="city" required
+                                            value="{% if form.city.value %}{{ form.city.value }}{% endif %}">
+                                        {{ form.errors.city }}
+                                    </div>
+                                    <div class="jobApply-group payment-group">
+                                        <label for="address">Address</label>
+                                        <input type="text" name="address" id="address" required
+                                            value="{% if form.address.value %}{{ form.address.value }}{% else %}{{ request.user.location|default:'' }}{% endif %}">
+                                        {{ form.errors.address }}
+                                    </div>
+                                </div>
+                                <div class="jobApply-group-double">
+                                    <div class="jobApply-group payment-group">
+                                        <label for="phone">Phone</label>
+                                        <input type="text" name="phone" id="phone" required
+                                            value="{% if form.phone.value %}{{ form.phone.value }}{% else %}{{ request.user.mobileNumber|default:'+998' }}{% endif %}">
+                                        {{ form.errors.phone }}
+                                    </div>
+                                    <div class="jobApply-group payment-group">
+                                        <label for="text">Social Media</label>
+                                        <input type="url" name="socail_media" id="socail_media"
+                                            value="{% if form.socail_media.value %}{{ form.socail_media.value }}{% else %}{{ request.user.socialMedia|default:'' }}{% endif %}">
+                                        {{ form.errors.socail_media }}
+                                    </div>
+                                </div>
+                                <div class="jobApply-group payment-group">
+                                    <label for="text">Position</label>
+                                    <input type="text" name="position" id="position"
+                                        value="{% if form.position.value %}{{ form.position.value }}{% else %}{{ request.user.position|default:'' }}{% endif %}">
+                                    {{ form.errors.position }}
+                                </div>
+                                
+                                <button type="submit" class="apply-button">Submit</button>
+                            </form>
+                            {% else %}
+                            <article class="applyModelUserNotSigned-container">
+                                <p class="applyModelUserNotSigned-text">U have to Sign in/up to send us message there u
+                                    can <a href="{% url 'main:login' %}">Sign In</a> / <a
+                                        href="{% url 'main:registration' %}">Sign Up</a></p>
+                            </article>
+                            {% endif %}
+                        </div>
+                    </div>
+                </article>
+                {% endif %}
+
             </div>
         </section>
 
         <!-- END SECTION PAYMENT LIST -->
 
         <script src="{% static 'main/scripts/js/paymentReturnback.js' %}"></script>
+        <script>
+            let applyModal = document.getElementById("applyModal");
+            let applyNowBtn = document.getElementById("applyNowBtn");
+            let closeApplyModal = document.getElementById("closeApplyModal");
+            let jobApplyForm = document.getElementById("jobApplyForm");
+            let body = document.body
+
+            applyNowBtn.addEventListener("click", function () {
+                applyModal.style.display = "block";
+                body.style.overflowY = "hidden";
+            });
+
+            closeApplyModal.addEventListener("click", function () {
+                applyModal.style.display = "none";
+                body.style.overflowY = "auto";
+            });
+
+            window.addEventListener("click", function (event) {
+                if (event.target == applyModal) {
+                    applyModal.style.display = "none";
+                    body.style.overflowY = "auto";
+                }
+            });
+        </script>
     </main>
 </body>
 

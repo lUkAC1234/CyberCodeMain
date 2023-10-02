@@ -6,7 +6,8 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 # --------------------------------------------------------------------------- #
 # Models
-from .models import UserModel, PostModel, ContactusModel, JobApplyModel,PaymentModel
+from .models import UserModel, PostModel, ContactusModel, JobApplyModel,PaymentModel, \
+CheckOut
 # --------------------------------------------------------------------------- #
 # Translation
 from django.utils.translation import gettext_lazy as _
@@ -97,5 +98,10 @@ class RegistrationForm(forms.ModelForm):
                 raise ValidationError('This username is already in use')
         except:
             return self.cleaned_data['username']
+        
+class CheckOutForm(forms.ModelForm):
+    class Meta:
+        model = CheckOut
+        exclude = ('item', 'total_price', 'user')
         
 
