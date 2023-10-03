@@ -246,7 +246,7 @@
                 <div class="feedback-slide" data-created-at="{{ object.created_at|date:'F d, Y' }}">
                     <div class="feedback-content">
                         <p class="feedback-content-text" data-text="{{ object.text }}">
-                            {{ object.text|slice:"250"|safe }}{% if object.text|length > 0 %}...{% endif %}
+                            {{ object.text|slice:"250"|safe }}{% if object.text|length > 250 %}...{% endif %}
                         </p>
                     </div>
                     <div class="feedback-user">

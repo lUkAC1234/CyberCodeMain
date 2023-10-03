@@ -18,6 +18,7 @@ from django.core.exceptions import ValidationError
 from django.template.loader import render_to_string
 from django.db.models import Sum
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponseNotFound
 
 class index(TemplateView):
     template_name = "pages/index.html"
@@ -155,13 +156,13 @@ class SuccessPayment(CreateView):
 
     def get(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
-            return redirect('main:login')
+            return redirect('main:page404')
         
         if self.request.session.get('success_checkout', False):
             self.request.session['success_checkout'] = False
             return super().get(request, *args, **kwargs)
         
-        return redirect('main:pricing')
+        return redirect('main:page404')
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
@@ -323,3 +324,8 @@ class RegistrationView(CreateView):
 def logoutView(request):
     logout(request)
     return redirect('main:index')
+
+def PageNotFound(request, *args, **kwargs):
+    text = render_to_string('pages/error404.html')
+    return HttpResponseNotFound(text)
+

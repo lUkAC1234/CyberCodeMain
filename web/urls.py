@@ -2,7 +2,7 @@ from django.urls import path,include
 from .views import index, about, contact, Pricing, pricinglist, \
 documentation, BlogListView, blogdetail, job, JobDetailView, helpcenter, \
 loginView, RegistrationView, MyProfileEdit, logoutView, FAQListView, \
-payment_list, AddToCart, RemoveFromCart, SuccessPayment
+payment_list, AddToCart, RemoveFromCart, SuccessPayment, PageNotFound
 
 
 app_name = "main"
@@ -28,5 +28,6 @@ urlpatterns = [
     path('registration/', RegistrationView.as_view(), name="registration"),
     path('logout/account', logoutView, name="logout"),
     path('faq/list', FAQListView.as_view(), name="faqlist"),
+    path('page/not/found/404/error', PageNotFound, name="page404"),
 
 ]

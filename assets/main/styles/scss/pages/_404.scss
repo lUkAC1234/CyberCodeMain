@@ -1,0 +1,101 @@
+.sign-404 {
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.section-404 {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.container-404 {
+    @extend .flex-row-justify-align-center;
+
+    @media screen and (max-width: 1100px) {
+        flex-flow: column;
+
+        svg {
+            width: 30rem;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        padding-inline: 1rem;
+
+        svg {
+            width: 25rem;
+        }
+    }
+
+    @media screen and (max-width: 450px) {
+        svg {
+            width: 20rem;
+        }
+
+        .content-container-404 {
+            width: 100%;
+            .title-404 {
+                font-size: 2.5rem !important;
+            }
+            
+            .title-second-404 {
+                font-size: 1.5rem !important;
+            }
+            
+            .text-404 {
+                width: 100%;
+                font-size: 1rem !important;
+            }
+            
+            .link-404 {
+            
+                button {
+                    width: 7rem;
+                    font-size: 0.9rem !important;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 360px) {
+        svg {
+            width: 18rem;
+        }
+    }
+}
+
+.content-container-404 {
+    width: min(100%, 30rem);
+    .title-404 {
+        @extend .dark-blue-text-center-grotext-family-3rem;
+        @extend .text-align-start;
+        color: var(--text-purple) !important;
+    }
+    
+    .title-second-404 {
+        @extend .dark-blue-text-center-grotext-family-2rem;
+        @extend .text-align-start;
+        margin-block: 0.5rem;
+    }
+    
+    .text-404 {
+        @extend .info-text-gray-1-125rem;
+        margin-bottom: 1rem;
+        width: min(100%, 30rem);
+    }
+    
+    .link-404 {
+    
+        button {
+            @extend .onerem-tworem-purple-button;
+            padding: 0.5rem 1rem !important;
+            width: 10rem;
+        }
+    }
+}
+
+svg {
+    width: 25rem;
+}
