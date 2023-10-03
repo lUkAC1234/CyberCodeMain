@@ -11,7 +11,7 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView,
 from .models import PostModel, PricingModel, FeedbackModel, ContactusModel, FaqModel, JobModel, \
 PostCategoryModel, PostTagModel, UserModel, PartnersModel, JobApplyModel, CheckOut
 from .forms import ContactusModelForm, AccountForm, LoginForm, RegistrationForm, JobApplyForm, \
-CheckOutForm
+CheckOutForm, FeedbackForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.hashers import make_password
 from django.core.exceptions import ValidationError
@@ -32,6 +32,11 @@ class index(TemplateView):
 
 class about(TemplateView):
     template_name = "pages/about.html"
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['users'] = CheckOut.objects.all()
+        return data
 
 class contact(CreateView):
     form_class = ContactusModelForm
@@ -126,17 +131,42 @@ class payment_list(CreateView):
         total_price = sum(item.price for item in queryset)
         form.instance.total_price = total_price
         form.instance.user = self.request.user
+        form.instance.success_checkout = 1
         data = form.save()
         data.item.set(queryset)
         self.request.session['cart'] = []
+        self.request.session['success_checkout'] = True
         return super(payment_list, self).form_valid(form)
     
     def form_invalid(self, form):
         print(form.errors)
         return super().form_invalid(form)
     
-class SuccessPayment(TemplateView):
+class SuccessPayment(CreateView):
+    form_class = FeedbackForm
     template_name = "pages/thankyou.html"
+
+    def get_success_url(self):
+        return reverse('main:pricing')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+    def get(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('main:login')
+        
+        if self.request.session.get('success_checkout', False):
+            self.request.session['success_checkout'] = False
+            return super().get(request, *args, **kwargs)
+        
+        return redirect('main:pricing')
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        CheckOut.objects.filter(user=self.request.user, success_checkout=True).update(success_checkout=True)
+        return data
 
     
 class documentation(TemplateView):
@@ -249,38 +279,34 @@ class MyProfileEdit(LoginRequiredMixin, UpdateView):
         return self.request.user
     
 def loginView(request):
+    template_name = 'pages/login.html'
     if request.user.is_authenticated:
         logout(request)
-        return redirect('main:login')
-    else:
-        template_name = 'pages/login.html'
-        if request.method == 'POST':
-            form = LoginForm(data=request.POST)
-            if form.is_valid():
-                username = form.cleaned_data['username']
-                password = form.cleaned_data['password']
-
-                user = authenticate(username=username, password=password)
-
-                if user is not None:
-                    login(request, user)
-                    return JsonResponse({'success': True, 'redirect': reverse('main:index')})
-                form.add_error('password', f'Username or password is incorrect')
-
-            errors = {field: [error for error in form[field].errors] for field in form.fields}
-            return JsonResponse({'success': False, 'errors': errors})
-
-        return render(request, template_name, {
-            'form': LoginForm(),
-            'googleLoginUrl': '/accounts/login/',
-        })
+        return redirect('main:index')
+    
+    if request.method == 'POST':
+        form = LoginForm(data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return JsonResponse({'success': True, 'redirect': reverse('main:index')})
+            form.add_error('password', f'Username or password is incorrect')
+        errors = {field: [error for error in form[field].errors] for field in form.fields}
+        return JsonResponse({'success': False, 'errors': errors})
+    return render(request, template_name, {
+        'form': LoginForm(),
+        'googleLoginUrl': '/accounts/login/',
+    })
 
     
 class RegistrationView(CreateView):
     model = UserModel
     form_class = RegistrationForm
     template_name = 'pages/registration.html'
-    success_url = reverse_lazy('main:index')
+    success_url = reverse_lazy('main:profile')
 
     def form_valid(self, form):
         form.instance.password = make_password(form.cleaned_data['password'])

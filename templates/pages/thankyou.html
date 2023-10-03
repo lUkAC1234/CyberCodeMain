@@ -39,12 +39,19 @@
                     <i class="fa-solid fa-circle-check"></i>
                 </div>
                 <h1 class="success-payment-title">Congratulations!</h1>
-                <p class="success-payment-description">You have successfully submitted an application to the website, our employees will contact you as soon as it is possible.</p>
+                <p class="success-payment-description">You have successfully submitted an application to the website,
+                    our employees will contact you as soon as it is possible.</p>
                 <a href="{% url 'main:pricing' %}" class="success-payment-go-back-link">
                     <i class="fa-solid fa-arrow-left-long"></i>
                     Continue Ordering
                 </a>
             </div>
+            <form class="success-payment-feedback-container" method="POST">
+                {% csrf_token %}
+                <label for="">Feedback</label>
+                <textarea type="text" name="text" class="success-payment-input" maxlength="2500" placeholder="If it is not difficult for you, describe your impressions of the service..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
         </section>
 
         <!-- END SUCCESS PAYMENT SECTION -->

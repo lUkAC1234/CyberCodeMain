@@ -206,6 +206,7 @@
                     }, 5000);
                 } else {
                     $(".error-message").removeClass('active').empty();
+                    $(".contact-form-column-input").removeClass('error');
                     for (var field in data.errors) {
                         if (data.errors.hasOwnProperty(field)) {
                             $("#" + field + "-error").addClass('active');

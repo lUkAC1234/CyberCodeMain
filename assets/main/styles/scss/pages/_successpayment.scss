@@ -52,18 +52,18 @@
                 font-size: 1.5rem;
             }
         }
-    
+
         .success-payment-title {
             font-size: 1.25rem !important;
         }
-    
+
         .success-payment-description {
             font-size: 1rem !important;
         }
-    
+
         .success-payment-go-back-link {
             font-size: 1rem !important;
-    
+
             i {
                 font-size: 0.8rem;
             }
@@ -77,21 +77,62 @@
                 font-size: 1.25rem;
             }
         }
-    
+
         .success-payment-title {
             font-size: 1.125rem !important;
         }
-    
+
         .success-payment-description {
             font-size: 0.9rem !important;
         }
-    
+
         .success-payment-go-back-link {
             font-size: 0.9rem !important;
-    
+
             i {
                 font-size: 0.7rem;
             }
         }
+    }
+}
+
+.success-payment-feedback-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: end;
+    background-color: var(--background-white);
+    box-shadow: 0px 6px 58px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    padding: 1rem 1rem 0;
+    width: min(100%, 35rem);
+    margin: 1rem auto;
+
+    label {
+        @extend .dark-blue-text-center-grotext-family-1rem;
+        @extend .text-align-start;
+        margin: 0.5rem 0;
+    }
+
+    .success-payment-input {
+        border: 1px solid var(--profile-input-border);
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        color: var(--text-dark-blue);
+        font-size: 0.8rem;
+        font-family: var(--grotext-sans);
+        transition: 0.4s all;
+        resize: none;
+        height: 5rem;
+
+        &:focus {
+            border-color: var(--background-purple);
+        }
+    }
+
+    button {
+        @extend .onerem-tworem-purple-button;
+        margin-block: 1rem;
+        font-size: 0.9rem !important;
+        padding: 0.5rem !important;
     }
 }

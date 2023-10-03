@@ -17,7 +17,7 @@
 }
 
 .profile-container {
-    form {
+    .profile-main-form {
         width: 100%;
         display: flex;
         justify-content: center;
@@ -144,7 +144,7 @@
         transition: 0.4s all;
 
         &:focus {
-            border-color: var(--background-dark-blue);
+            border-color: var(--background-purple);
         }
     }
 }
@@ -163,21 +163,15 @@
 .profile-submit-btn-container {
     margin-top: 1rem;
     .profile-submit-btn {
+        @extend .onerem-tworem-purple-button;
+        margin-block: 1rem;
+        font-size: 0.9rem !important;
+        padding: 0.5rem !important;
         width: 100%;
         display: flex;
         place-content: center;
         place-items: center;
         gap: 0.5rem;
-        padding: 0.25rem 0.5rem;
-        background: url(../../images/profile/background.svg) no-repeat center;
-        background-size: cover;
-        border: none;
-        outline: none;
-        font-size: 1rem;
-        font-family: var(--grotext-sans);
-        color: var(--text-white);
-        cursor: pointer;
-        border-radius: 0.25rem;
 
         i {
             font-size: 0.8rem;

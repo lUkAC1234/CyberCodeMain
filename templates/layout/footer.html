@@ -21,28 +21,36 @@
         <div class="footer-links-section">
             <h1 class="footer-link-title">Useful links</h1>
             <ul class="footer-links-container">
-                <li><a href="">Try free trial</a></li>
-                <li><a href="">Pricing plan</a></li>
-                <li><a href="">Features updates</a></li>
-                <li><a href="">Chrome extentions</a></li>
+                {% if request.user.is_authenticated %}
+                <li><a href="{% url 'main:profile' %}">Profile</a></li>
+                {% else %}
+                <li><a href="{% url 'main:login' %}">Profile</a></li>
+                {% endif %}
+                <li><a href="{% url 'main:job' %}">Job</a></li>
+                <li><a href="{% url 'main:contact' %}">Contact</a></li>
+                <li><a href="{% url 'main:documentation' %}">Documentation</a></li>
             </ul>
         </div>
         <div class="footer-links-section">
             <h1 class="footer-link-title">Our product</h1>
             <ul class="footer-links-container">
-                <li><a href="">Task management</a></li>
-                <li><a href="{% url 'main:documentation' %}">Documentation</a></li>
-                <li><a href="">Client management</a></li>
-                <li><a href="">Integration apps</a></li>
+                <li><a href="{% url 'main:pricing' %}">Pricing</a></li>
+                <li><a href="{% url 'main:pricinglist' %}">Pricing list</a></li>
+                <li><a href="{% url 'main:blog' %}">Blog</a></li>
+                <li><a href="{% url 'main:about' %}">About us</a></li>
             </ul>
         </div>
         <div class="footer-links-section">
             <h1 class="footer-link-title">Useful links</h1>
             <ul class="footer-links-container">
-                <li><a href="">Try free trial</a></li>
-                <li><a href="">Pricing plan</a></li>
-                <li><a href="">Features updates</a></li>
-                <li><a href="">Chrome extentions</a></li>
+                {% if request.user.is_authenticated %}
+                <li><a href="{% url 'main:logout' %}">Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'main:login' %}">Login</a></li>
+                {% endif %}
+                <li><a href="{% url 'main:job' %}">Job Application</a></li>
+                <li><a href="{% url 'main:faqlist' %}">Faq List</a></li>
+                <li><a href="mailto:supportcybercode@gmail.com">Our Email</a></li>
             </ul>
         </div>
     </section>
@@ -50,7 +58,7 @@
         <h1 class="footer-privacy-text">Made with ❤ by Cyber Code Team</h1>
         <h1 class="footer-privacy-text">Copyright © Cyber Code, 2023</h1>
         <h1 class="footer-privacy-text">
-            <a href="">Help center</a>
+            <a href="tel:+998950540790">Call us</a>
         </h1>
     </section>
 </footer>

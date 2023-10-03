@@ -123,7 +123,7 @@
                         data: $(this).serialize(),
                         success: function (data) {
                             if (data.success) {
-                                window.location.href = "{% url 'main:index' %}";
+                                window.location.href = "{% url 'main:profile' %}";
                             } else {
                                 $(".error-message").removeClass('active').empty();
                                 for (var field in data.errors) {

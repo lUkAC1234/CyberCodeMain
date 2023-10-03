@@ -234,7 +234,8 @@
         "message message"
         "button button";
     gap: 1rem 0.7rem;
-    width: 27rem;
+    width: 29rem;
+    grid-template-columns: 1fr 1fr;
 }
 
 .contact-form-column-input-container:nth-child(1) {
@@ -377,14 +378,13 @@
     }
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1050px) {
     .contact-form__wrapper {
         flex-flow: column-reverse;
-        ;
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
     .contact-form-column {
         width: 96%;
         margin: 0 2%;
@@ -400,6 +400,7 @@
             "button";
         gap: 1rem 0.7rem;
         width: 100%;
+        grid-template-columns: 1fr;
     }
 
     .contact-form-image-column {

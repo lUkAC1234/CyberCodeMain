@@ -193,6 +193,9 @@ class CheckOut(models.Model):
     position = models.CharField(max_length=50, blank=True, null=True)
     user = models.ForeignKey(UserModel, on_delete=models.RESTRICT, related_name='checkoutUser')
     created_at = models.DateTimeField(auto_now_add=True)
+    is_verified = models.BooleanField(default=0)
+    is_completed = models.BooleanField(default=0)
+    success_checkout = models.BooleanField(default=0)
 
     def str(self):
         return f"{self.first_name} {self.total_price}$"

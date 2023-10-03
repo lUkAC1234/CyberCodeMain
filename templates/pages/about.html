@@ -159,31 +159,31 @@
         <div class="clients-container">
             <div class="clients-column first">
                 <div class="client-sphere">
-                    <h1 class="client-sphere-info">250M</h1>
+                    <h1 class="client-sphere-info">{% if 50 >= users.count %}50{% else %}users.count{% endif %}</h1>
                 </div>
                 <h1 class="client-title">Tracked users</h1>
-                <p class="client-text">Lorem ipsum dolor sit amet consectetur adipiscing elit interdum</p>
+                <p class="client-text">All our clients are satisfied with our work!</p>
             </div>
             <div class="clients-column second">
                 <div class="client-sphere">
-                    <h1 class="client-sphere-info">+650M</h1>
+                    <h1 class="client-sphere-info">+10</h1>
                 </div>
                 <h1 class="client-title">Events per month</h1>
-                <p class="client-text">Lorem ipsum dolor sit amet consectetur adipiscing elit interdum</p>
+                <p class="client-text">Every month we get about this much work from clients</p>
             </div>
             <div class="clients-column third">
                 <div class="client-sphere">
-                    <h1 class="client-sphere-info">$100M</h1>
+                    <h1 class="client-sphere-info">$110K</h1>
                 </div>
                 <h1 class="client-title">Capital raised</h1>
-                <p class="client-text">Lorem ipsum dolor sit amet consectetur adipiscing elit interdum</p>
+                <p class="client-text">Until today we have earned exactly this amount, and this is just the beginning!</p>
             </div>
             <div class="clients-column fourth">
                 <div class="client-sphere">
-                    <h1 class="client-sphere-info">320+</h1>
+                    <h1 class="client-sphere-info">25</h1>
                 </div>
                 <h1 class="client-title">Team members</h1>
-                <p class="client-text">Lorem ipsum dolor sit amet consectetur adipiscing elit interdum</p>
+                <p class="client-text">All of our employees is important to us, join us!</p>
             </div>
         </div>
     </section>
@@ -198,7 +198,7 @@
                 <img src="{% static 'main/images/about-us/team-members.svg' %}" alt="">
                 <div class="team-members-info-container">
                     <i class="team-members-icon"><i class="fa-solid fa-users"></i></i>
-                    <h1 class="team-members-count">45</h1>
+                    <h1 class="team-members-count">25</h1>
                     <h2 class="team-members-count-text">Team <br> member</h2>
                 </div>
             </div>
@@ -235,28 +235,28 @@
                         <i class="system-icon fa-sharp fa-solid fa-lightbulb"></i>
                     </div>
                     <h1 class="system-title">Innovation</h1>
-                    <p class="system-text">Lorem ipsum dolor sit amet consectetur adipiscing elit interdum</p>
+                    <p class="system-text">Every month we introduce innovation to our agency</p>
                 </div>
                 <div class="system-column second">
                     <div class="system-icon-container">
                         <i class="system-icon fas fa-award"></i>
                     </div>
                     <h1 class="system-title">Accountability</h1>
-                    <p class="system-text">Lorem ipsum dolor sit amet consectetur adipiscing elit interdum</p>
+                    <p class="system-text">Our responsibility is to provide quality work to our clients.</p>
                 </div>
                 <div class="system-column third">
                     <div class="system-icon-container">
                         <i class="system-icon fa-solid fa-business-time"></i>
                     </div>
                     <h1 class="system-title">Commitment</h1>
-                    <p class="system-text">Lorem ipsum dolor sit amet consectetur adipiscing elit interdum</p>
+                    <p class="system-text">Make each of our clients happy and satisfied</p>
                 </div>
                 <div class="system-column fourth">
                     <div class="system-icon-container">
                         <i class="system-icon fa-solid fa-users"></i>
                     </div>
                     <h1 class="system-title">Team Work</h1>
-                    <p class="system-text">Lorem ipsum dolor sit amet consectetur adipiscing elit interdum</p>
+                    <p class="system-text">Working with a team is much better than working alone</p>
                 </div>
             </div>
         </div>

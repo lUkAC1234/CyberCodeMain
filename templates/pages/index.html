@@ -52,8 +52,8 @@
                 your tasks, files and communications in one place so <br>
                 you always know what to do next.
             </p>
-            <a href="" class="task-button-a">
-                <button class="task-button">Browse integrations</button>
+            <a href="{% url 'main:blog' %}" class="task-button-a">
+                <button class="task-button">Browse posts</button>
             </a>
         </div>
     </section>
@@ -64,13 +64,13 @@
         <div class="static-info">
             <h1 class="static-info-title">
                 Easy and familiar <br>
-                Real-time-chat <br>
+                Real-time-posts <br>
                 Features
             </h1>
             <p class="static-info-text">
-                Add unlimited people. Easy and familiar to use. Productive <br>
-                and focused chat related to a task and/or a document. <br>
-                Searchable content by keyword.
+                Easy to use, apply for a job, order websites, <br>
+                see our daily posts, and relax with time <br>
+                quality is the most needful thing everywhere!
             </p>
         </div>
         <div class="chats">
@@ -160,6 +160,7 @@
                     <a href="{% url 'main:blog' %}" class="carousel-link">See more articeles</a>
                 </div>
             </div>
+            {% if posts %}
             <div class="carousel__wrapper">
                 <div class="owl-carousel carousel-slide-container">
                     {% for object in posts %}
@@ -186,6 +187,15 @@
                     {% endfor %}
                 </div>
             </div>
+            {% else %}
+            <article class="partners-empty-container">
+                <div class="partners-empty-icon-container">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+                <h1 class="partners-empty-title">No Posts</h1>
+                <p class="partners-empty-text">There is no any posts yet</p>
+            </article>
+            {% endif %}
         </div>
     </section>
 
@@ -213,7 +223,7 @@
                     <i class="fa-solid fa-xmark"></i>
                 </div>
                 <h1 class="partners-empty-title">No Partners</h1>
-                <p class="partners-empty-text">There are no partners yet</p>
+                <p class="partners-empty-text">There is no any partners yet</p>
             </article>
             {% endif %}
         </div>

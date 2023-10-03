@@ -7,7 +7,7 @@ from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 # --------------------------------------------------------------------------- #
 # Models
 from .models import UserModel, PostModel, ContactusModel, JobApplyModel, \
-CheckOut
+CheckOut, FeedbackModel
 # --------------------------------------------------------------------------- #
 # Translation
 from django.utils.translation import gettext_lazy as _
@@ -36,6 +36,11 @@ class ContactusModelForm(forms.ModelForm):
     class Meta:
         model = ContactusModel
         exclude = ('user',)
+
+class FeedbackForm(forms.ModelForm):
+    class Meta:
+        model = FeedbackModel
+        fields = ['text',]
 
 class JobApplyForm(forms.ModelForm):
     class Meta:
