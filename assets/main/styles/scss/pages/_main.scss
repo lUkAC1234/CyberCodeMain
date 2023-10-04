@@ -890,7 +890,7 @@
         img {
             width: 15rem;
             height: 15rem;
-            object-fit: cover;
+            object-fit: contain;
             filter: grayscale(1);
             transition: all 0.3s;
 
