@@ -16,7 +16,7 @@
                 <article class="profile-general-info-container">
                     <div class="profile-image-edit-container">
                         <div class="profile-image-container">
-                            <img src="{{ request.user.user_image.url }}" alt="" class="profile-image">
+                            <img class="profile-image" src="{{ request.user.user_image.url }}" alt="">
                             <label class="file-upload-label">
                                 <i class="fa-sharp fa-solid fa-camera profile-add-icon"></i>
                                 <input class="profile-upload-input" type="file" name="user_image" id=""
@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <div class="profile-user-info-container">
-                        <h1 class="profile-username">{{ request.user }}</h1>
+                        <h1 class="profile-username" style="text-transform: lowercase;">{{ request.user }}</h1>
                         <p class="profile-email">
                             {{ request.user.email|default_if_none:'example@gmail.com'|default:'example@gmail.com' }}
                         </p>

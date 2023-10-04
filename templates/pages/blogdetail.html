@@ -50,7 +50,8 @@
                 </div>
                 <div class="detail-share-social-container">
                     <p class="detail-share-social-text">Share this article</p>
-                    <button class="shareBtn" id="shareBtn"><i class="fa-sharp fa-solid fa-link detail-share-link-icon"></i></button>
+                    <button class="shareBtn" id="shareBtn"><i
+                            class="fa-sharp fa-solid fa-link detail-share-link-icon"></i></button>
                     <a href=""><i class="fab fa-telegram detail-share-social-icon"></i></a>
                     <a href=""><i class="fab fa-instagram detail-share-social-icon"></i></a>
                     <a href=""><i class="fab fa-discord detail-share-social-icon"></i></a>
@@ -65,15 +66,16 @@
 
     <!-- END DETAIL LINK SECTION -->
 
-     <!-- START SIMILAR POPULAR POSTS SECTION -->
+    <!-- START SIMILAR POPULAR POSTS SECTION -->
 
-     <section class="similar-popular-posts">
+    <section class="similar-popular-posts">
         <div class="similar-popular-container">
             <article class="featured-posts-wrapper">
                 <div class="featured-posts-column-container">
                     {% for object in similarPosts %}
                     <div class="featured-posts-column" data-context="Popular Similar Posts">
-                        <a href="{% url 'main:blogdetail' pk=object.pk %}" class="featured-post-column-title">{{ object.title }} <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <a href="{% url 'main:blogdetail' pk=object.pk %}" class="featured-post-column-title">{{
+                            object.title }} <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                         <p class="featured-post-column-text">{{ object.short_description }}</p>
                         <span class="featured-post-column-posted">Posted on</span>
                         <p class="featured-post-column-date">{{ object.posted_on|date:"F d, Y" }}</p>
@@ -124,17 +126,17 @@
 
 {% block js_block %}
 <script>
-document.getElementById('shareBtn').addEventListener('click', function() {
-    var customTextElement = document.getElementById('shareAfterText');
-    customTextElement.style.display = 'flex'; 
+    document.getElementById('shareBtn').addEventListener('click', function () {
+        var customTextElement = document.getElementById('shareAfterText');
+        customTextElement.style.display = 'flex';
 
-    var urlToCopy = window.location.href;
-    navigator.clipboard.writeText(urlToCopy);
+        var urlToCopy = window.location.href;
+        navigator.clipboard.writeText(urlToCopy);
 
-    setTimeout(function() {
-        customTextElement.style.display = 'none';
-    }, 2500);
-});
+        setTimeout(function () {
+            customTextElement.style.display = 'none';
+        }, 2500);
+    });
 </script>
 
 {% endblock %}
