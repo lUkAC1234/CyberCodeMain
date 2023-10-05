@@ -1,10 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Roboto");
-@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Open+Sans:wght@300&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Open+Sans:wght@300&family=Poppins:wght@400;500;600;700;800;900&display=swap");
 .progress {
   position: fixed;
   top: 0;
@@ -1827,7 +1820,7 @@
   gap: 1rem;
   width: fit-content;
 }
-@media screen and (max-width: 1550px) {
+@media screen and (max-width: 1660px) {
   .about-get-in-touch-info-container {
     display: grid;
     place-content: end;
@@ -1840,6 +1833,15 @@
   padding: 2rem;
   background: var(--background-white);
   border-radius: 1.25rem;
+}
+@media screen and (max-width: 400px) {
+  .about-get-in-touch-info-column {
+    flex-flow: column;
+  }
+  .about-get-in-touch-info-column .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title,
+  .about-get-in-touch-info-column .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-info {
+    text-align: center;
+  }
 }
 
 .about-get-in-touch-icon-container {
@@ -1896,6 +1898,15 @@
   }
   .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-info {
     font-size: 1rem !important;
+  }
+}
+@media screen and (max-width: 400px) {
+  .about-get-in-touch-info-container {
+    grid-template-columns: 1fr;
+  }
+  .about-get-in-touch-info-column {
+    gap: 0.25rem;
+    padding-block: 0.5rem;
   }
 }
 .contact-page-gradient-section {
@@ -2297,7 +2308,6 @@
   margin: 30px 1.5rem 0;
   display: none;
 }
-
 .faq.active .faq-text {
   display: block;
 }
@@ -3696,7 +3706,9 @@
 .detail-content-wrapper h6 {
   white-space: normal !important;
   word-wrap: break-word !important;
-  word-break: break-all !important;
+  word-break: break-word !important;
+  font-family: var(--grotext-sans);
+  font-weight: 500;
 }
 .detail-content-wrapper pre,
 .detail-content-wrapper li,
@@ -3705,6 +3717,30 @@
 .detail-content-wrapper p,
 .detail-content-wrapper h1 {
   margin: 0;
+}
+.detail-content-wrapper h1,
+.detail-content-wrapper h2,
+.detail-content-wrapper h3,
+.detail-content-wrapper h4,
+.detail-content-wrapper h5,
+.detail-content-wrapper h6,
+.detail-content-wrapper p > span {
+  color: var(--text-purple) !important;
+}
+.detail-content-wrapper div {
+  box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 0.5rem !important;
+  padding: 2rem 1rem !important;
+  margin-block: 1rem !important;
+}
+.detail-content-wrapper div > span,
+.detail-content-wrapper div > h1,
+.detail-content-wrapper div > h2,
+.detail-content-wrapper div > h3,
+.detail-content-wrapper div > h4,
+.detail-content-wrapper div > h5,
+.detail-content-wrapper div > h6 {
+  color: var(--text-purple) !important;
 }
 .detail-content-wrapper img {
   width: 100%;
@@ -6389,11 +6425,251 @@ svg {
   --light-gray-background: #F4F9FD;
 }
 
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/static/main/fonts/poppins/poppins1.woff2") format("woff2");
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FF;
+}
+/* latin-ext */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/static/main/fonts/poppins/poppins2.woff2") format("woff2");
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/static/main/fonts/poppins/poppins3.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/static/main/fonts/poppins/poppins4.woff2") format("woff2");
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FF;
+}
+/* latin-ext */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/static/main/fonts/poppins/poppins5.woff2") format("woff2");
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/static/main/fonts/poppins/poppins6.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* devanagari */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/static/main/fonts/poppins/poppins7.woff2") format("woff2");
+  unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FF;
+}
+/* latin-ext */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/static/main/fonts/poppins/poppins8.woff2") format("woff2");
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/static/main/fonts/poppins/poppins9.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/static/main/fonts/poppins/poppins10.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/static/main/fonts/nunito/nunito1.woff2") format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/static/main/fonts/nunito/nunito2.woff2") format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/static/main/fonts/nunito/nunito3.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/static/main/fonts/nunito/nunito4.woff2") format("woff2");
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/static/main/fonts/nunito/nunito5.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/static/main/fonts/grotext/grotext1.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/static/main/fonts/grotext/grotext2.woff2") format("woff2");
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/static/main/fonts/grotext/grotext3.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("/static/main/fonts/sans/sans1.woff2") format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("/static/main/fonts/sans/sans2.woff2") format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("/static/main/fonts/sans/sans3.woff2") format("woff2");
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("/static/main/fonts/sans/sans4.woff2") format("woff2");
+  unicode-range: U+0370-03FF;
+}
+/* hebrew */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("/static/main/fonts/sans/sans5.woff2") format("woff2");
+  unicode-range: U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
+}
+/* vietnamese */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("/static/main/fonts/sans/sans6.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("/static/main/fonts/sans/sans7.woff2") format("woff2");
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("/static/main/fonts/sans/sans8.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 :root {
-  --grotext-sans: Space Grotesk, sans-serif;
-  --sans: sans-serif;
-  --nunito: Nunito, sans-serif;
-  --poppins: Poppins, sans-serif;
+  --grotext-sans: Space Grotesk, sans-serif !important;
+  --sans: sans-serif !important;
+  --nunito: Nunito, sans-serif !important;
+  --poppins: Poppins !important;
 }
 
 h1,
@@ -6445,8 +6721,6 @@ strong {
     max-width: 4000px;
   }
 }
-/*=============== GOOGLE FONTS ===============*/
-/*=============== VARIABLES CSS ===============*/
 .onerem-tworem-purple-button, .gradient-buttons-container .gradient-btn-column a .gradient-button, .carousel-title-container .carousel-link-container .carousel-link, .about-page-gradient-btn-container a .about-page-gradient-btn, .team-members-btn-container a .team-members-btn, .system-info-btn-container a .system-info-btn, .contact-form-column-btn-container .contact-form-column-btn, .ready-to-try-button, .custom-build-btn-container button, .services-link-container button, .pricing-list-btn-container .pricing-list-btn, .toggle-button.active, .empty-posts-container .empty-posts-clear,
 .empty-posts-container .clear-posts-clear, .clear-posts-container .clear-posts-clear, .no-posts-container .no-posts-link, .join-our-team-btn-container button, .job-gradient-info-btn-container button, .jobApplyForm .apply-button, .more-job-openings-btn-container button, .profile-submit-btn-container .profile-submit-btn, .payment-product-info-container .payment-type-container .payment-product-remove, .payment-sidebar-total-cost-container .payment-sidebar-checkout-btn-container .payment-sidebar-checkout-btn, .success-payment-feedback-container button, .content-container-404 .link-404 button {
   padding: 1rem 2rem;
@@ -6601,7 +6875,7 @@ select:-webkit-autofill:focus {
   font-size: 1rem;
 }
 
-.info-text-gray-1-125rem, .info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content .feedback-content-text, .modal-close-container .modalCreatedAt, .modal-content-container .modalContent, .faq-text, .price-column .pricing-popular-date, .pricing-list-text-container .pricing-list-text, .categorie-column .pricing-popular-date, .documentation-content-text, .documentation-content-wrapper .documentation-content-li, .modal-close-container .modalTitle, .job-content p,
+.info-text-gray-1-125rem, .info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content .feedback-content-text, .modal-close-container .modalCreatedAt, .modal-content-container .modalContent, .faq-text, .faq-text > * > p, .price-column .pricing-popular-date, .pricing-list-text-container .pricing-list-text, .categorie-column .pricing-popular-date, .documentation-content-text, .documentation-content-wrapper .documentation-content-li, .modal-close-container .modalTitle, .job-content p,
 .job-content pre,
 .job-content li,
 .job-content ul,
@@ -6616,7 +6890,8 @@ select:-webkit-autofill:focus {
 .pricing-categories-column:has(.recommended) .pricing-categories-abilities ul li, .pricing-categories-abilities ul li, .language-toggle-text-container .toggle-language-text, .post-text-container .post-text, .featured-posts-column .featured-post-column-text, .empty-posts-container .empty-posts-text, .detail-content-wrapper pre,
 .detail-content-wrapper li,
 .detail-content-wrapper span,
-.detail-content-wrapper p, .detail-link-text-container .detail-link-text, .detail-share-user-info-container .detail-share-posted, .detail-share-social-container .detail-share-social-text, .job-gradient-info-container .job-gradient-info-text, .job-info-container .job-info-text, .messenger-your-message .messenger-your-message-text,
+.detail-content-wrapper p,
+.detail-content-wrapper div, .detail-link-text-container .detail-link-text, .detail-share-user-info-container .detail-share-posted, .detail-share-social-container .detail-share-social-text, .job-gradient-info-container .job-gradient-info-text, .job-info-container .job-info-text, .messenger-your-message .messenger-your-message-text,
 .messenger-your-message .messenger-others-message-text,
 .messenger-others-message .messenger-your-message-text,
 .messenger-others-message .messenger-others-message-text, .paymentEmpty-container .payment-empty-text, .content-container-404 .text-404 {
@@ -6626,7 +6901,7 @@ select:-webkit-autofill:focus {
   line-height: 160%;
 }
 
-.info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content .feedback-content-text, .modal-close-container .modalCreatedAt, .modal-content-container .modalContent, .faq-text, .price-column .pricing-popular-date, .pricing-list-text-container .pricing-list-text, .categorie-column .pricing-popular-date, .documentation-content-text, .documentation-content-wrapper .documentation-content-li, .modal-close-container .modalTitle, .job-content p,
+.info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content .feedback-content-text, .modal-close-container .modalCreatedAt, .modal-content-container .modalContent, .faq-text, .faq-text > * > p, .price-column .pricing-popular-date, .pricing-list-text-container .pricing-list-text, .categorie-column .pricing-popular-date, .documentation-content-text, .documentation-content-wrapper .documentation-content-li, .modal-close-container .modalTitle, .job-content p,
 .job-content pre,
 .job-content li,
 .job-content ul,

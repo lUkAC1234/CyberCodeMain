@@ -1,11 +1,17 @@
+@import './poppins';
+@import './nunito';
+@import './grotext';
+@import './sans_serif';
+
+
 $sans: sans-serif;
 $grotext-sans: 'Space Grotesk',
 sans-serif;
 $nunito: 'Nunito', sans-serif;
-$poppins: 'Poppins', sans-serif;
+$poppins: 'Poppins';
 :root {
-    --grotext-sans: #{$grotext-sans};
-    --sans: #{$sans};
-    --nunito: #{$nunito};
-    --poppins: #{$poppins};
+    --grotext-sans: #{$grotext-sans} !important;
+    --sans: #{$sans} !important;
+    --nunito: #{$nunito} !important;
+    --poppins: #{$poppins} !important;
 }
