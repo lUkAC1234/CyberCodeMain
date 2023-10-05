@@ -123,7 +123,7 @@ class ContactusModel(models.Model):
     
 class FaqModel(models.Model):
     question = models.CharField()
-    answer = models.TextField()
+    answer = RichTextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

@@ -488,6 +488,11 @@
     width: 47rem;
     margin: 30px 1.5rem 0;
     display: none;
+
+    > *
+    > p {
+        @extend .info-text-gray-1rem;
+    }
 }
 
 .faq.active .faq-text {

@@ -132,3 +132,5 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'web.UserModel'
+
+DATA_UPLOAD_MAX_MEMORY_SIZE = 20 * 1024 * 1024

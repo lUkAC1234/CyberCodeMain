@@ -90,28 +90,19 @@
                                     <span class="dropdown__name">Profile</span>
                                 </li>
                             </a>
-                            <a href="">
+                            <a href="{% url 'main:page404' %}">
                                 <li class="dropdown__item">
                                     <i class="fa-solid fa-comments dropdown__icon"></i>
                                     <span class="dropdown__name">Messages</span>
                                 </li>
                             </a>
-                        </div>
-                        <div class="dropdown-item-container">
-                            <a href="{% url 'main:documentation' %}">
-                                <li class="dropdown__item {% if request.path == '/website/documentation/' %}active{% endif %}">
-                                    <i class="fa-sharp fa-solid fa-pencil dropdown__icon"></i>
-                                    <span class="dropdown__name">Instruction</span>
-                                </li>
-                            </a>
-                            <a href="{% url 'main:helpcenter' %}">
+                            <a href="{% url 'main:page404' %}">
                                 <li class="dropdown__item {% if request.path == '/help/center/' %}active{% endif %}">
                                     <i class="fa-solid fa-handshake-angle dropdown__icon"></i>
                                     <span class="dropdown__name">Help Center</span>
                                 </li>
                             </a>
                         </div>
-
                         <div class="dropdown-item-container">
                             <a href="{% url 'main:logout' %}">
                                 <li class="dropdown__item">

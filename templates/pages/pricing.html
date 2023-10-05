@@ -20,7 +20,7 @@
                     <div class="price-column">
                         <h1 class="pricing-popular-type">{{ object.type }}</h1>
                         <span class="pricing-popular-price">${{ object.price }}</span>
-                        <span class="pricing-popular-date">/ Life time</span>
+                        <span class="pricing-popular-date">/ from</span>
                         {% if object.recommended %}
                         <div class="recommended">
                             <h1>Recommended</h1>
@@ -71,7 +71,7 @@
                 <p class="custom-build-text">Follow this link to find out the instruction how to order and order
                     requirements</p>
                 <div class="custom-build-btn-container">
-                    <a href="{% url 'main:documentation' %}">
+                    <a href="{% url 'main:faqlist' %}">
                         <button class="custom-build-btn">Get instruction</button>
                     </a>
                 </div>
