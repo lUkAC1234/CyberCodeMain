@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    var timer;
+
     function updateFilters() {
         var param = new URLSearchParams(window.location.search);
         var params = {};
@@ -7,7 +9,7 @@ $(document).ready(function () {
             params[key] = val;
         });
 
-        var activeCategory = null; 
+        var activeCategory = null;
         var activeTags = [];
 
         $(".post-category-element.active").each(function () {
@@ -26,6 +28,8 @@ $(document).ready(function () {
         } else {
             delete params['category'];
         }
+
+        clearTimeout(timer); // Clear the previous timer
 
         var searchInput = $('#search-input').val();
         if (searchInput) {
@@ -50,50 +54,51 @@ $(document).ready(function () {
         });
     }
 
-    // Handle the click event for clearing filters
     $(document).on('click', '#clearUrl, #clearUrl2', function (e) {
         e.preventDefault();
-
         $(".post-category-element.active").removeClass('active');
         $(".post-tags-element.active").removeClass('active');
-        $('#search-input').val('');
-        updateFilters(); 
+        $('#search-input').val(''); // Clear input immediately
+        updateFilters();
     });
 
-    // Handle the click event for category buttons
     $(".post-category-element").on('click', function () {
         var isActive = $(this).hasClass('active');
-        
         $(".post-category-element").removeClass('active');
-
         if (!isActive) {
             $(this).addClass('active');
         }
-
-        updateFilters(); 
+        updateFilters();
     });
 
-    // Handle the click event for tag buttons
     $(".post-tags-element").on('click', function () {
         var isActive = $(this).hasClass('active');
-
         if (!isActive) {
             $(".post-tags-element").removeClass('active');
             $(this).addClass('active');
         } else {
             $(this).removeClass('active');
         }
-
-        updateFilters(); 
+        updateFilters();
     });
 
     $('#search-input').on('input', function () {
-        updateFilters(); 
+        clearTimeout(timer); // Clear the previous timer
+
+        // Check if the input is empty immediately
+        if ($(this).val() === '') {
+            updateFilters();
+        } else {
+            // Set a new timer to update filters after 2 seconds
+            timer = setTimeout(function () {
+                updateFilters();
+            }, 500); // 2000 milliseconds (2 seconds) delay
+        }
     });
 
     $("#blog-form").on('submit', function (e) {
-        e.preventDefault(); 
-        updateFilters(); 
+        e.preventDefault();
+        updateFilters();
     });
 
     updateFilters();

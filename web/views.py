@@ -225,8 +225,8 @@ class blogdetail(DetailView):
 
         similar_posts = PostModel.objects.filter(
             Q(category=current_post.category) | Q(tags__in=current_post.tags.all())
-        ).exclude(id=current_post.id)[:2]
-
+        ).exclude(id=current_post.id).distinct()[:2]
+        
         context['similarPosts'] = similar_posts
         return context 
 

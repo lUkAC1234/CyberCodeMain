@@ -101,7 +101,7 @@
                         {% endif %}
                     </div>
                     <div class="payment-return-back-container">
-                        <a href="" class="payment-return-back-link" id="continueShoppingLink">
+                        <a href="{% url 'main:pricing' %}" class="payment-return-back-link">
                             <i class="fa-solid fa-arrow-left-long"></i>
                             Continue Ordering
                         </a>
@@ -219,8 +219,6 @@
         </section>
 
         <!-- END SECTION PAYMENT LIST -->
-
-        <script src="{% static 'main/scripts/js/paymentReturnback.js' %}"></script>
         <script>
             let applyModal = document.getElementById("applyModal");
             let applyNowBtn = document.getElementById("applyNowBtn");

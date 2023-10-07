@@ -276,7 +276,7 @@
     &:first-child::before {
         content: attr(data-context);
         position: absolute;
-        top: -5rem;
+        top: -6rem;
         left: 0;
         font-size: 2.25rem;
         font-family: var(--grotext-sans);
@@ -284,6 +284,14 @@
         line-height: 120%;
         text-transform: capitalize;
         color: var(--text-purple);
+
+        @media screen and (max-width: 992px) {
+            font-size: 2rem;
+        }
+
+        @media screen and (max-width: 600px) {
+            font-size: 1.5rem;
+        }
     }
 
     .featured-post-column-title {

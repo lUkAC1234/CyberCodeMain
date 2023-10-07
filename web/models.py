@@ -2,13 +2,21 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
 from ckeditor.fields import RichTextField
-from django.core.validators import RegexValidator
+from django.core.validators import RegexValidator, MinLengthValidator
 from django.core.exceptions import ValidationError
+import re
 
 class EnglishLettersUsernameValidator(RegexValidator):
     regex = r'^[a-z0-9]{8,16}$'
     message = _(
         'Username can only contain lowercase English letters (a-z) and numbers (0-9), and must be between 8 and 16 characters long.'
+    )
+    flags = 0
+
+class PasswordValidator(RegexValidator):
+    regex = r'^[a-zA-Z0-9]{8,32}$'
+    message = _(
+        'Password must be at least 8 characters and at most 32 characters long, and can only contain English letters and numbers.'
     )
     flags = 0
 
@@ -38,6 +46,14 @@ class UserModel(AbstractUser):
             'unique': _("A user with that username already exists."),
         },
     )
+
+    password = models.CharField(
+        _('password'),
+        max_length=128, 
+        validators=[PasswordValidator()],
+        help_text=_("Password must be at least 8 characters and at most 32 characters long, and can only contain English letters and numbers."),
+    )
+    
 # --------------------------------------------------------------------------- #
 
 

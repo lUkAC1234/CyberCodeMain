@@ -216,6 +216,7 @@
         border-radius: 0.5rem;
         padding: 0.5rem;
         margin: 0;
+        max-width: 20rem;
     }
 
     .payment-product-wrapper-column {
@@ -264,10 +265,11 @@
         }
 
         .payment-product-remove {
-            width: 98%;
+            width: min(100%, 10rem);
             position: absolute;
-            left: 1%;
+            left: 50%;
             bottom: 0.5rem;
+            transform: translate(-50%);
         }
     }
 }
@@ -280,7 +282,7 @@
     }
 
     .payment-product-column {
-        width: min(100%, 20rem);
+        width: min(100%, 15rem);
         margin: 0 auto;
     }
 
