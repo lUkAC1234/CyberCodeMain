@@ -9,7 +9,7 @@ from django.utils.translation import gettext as _
 from django.contrib import messages
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, FormView
 from .models import PostModel, PricingModel, FeedbackModel, ContactusModel, FaqModel, JobModel, \
-PostCategoryModel, PostTagModel, UserModel, PartnersModel, JobApplyModel, CheckOut
+PostCategoryModel, PostTagModel, UserModel, PartnersModel, JobApplyModel, CheckOut, JobCategoryModel
 from .forms import ContactusModelForm, AccountForm, LoginForm, RegistrationForm, JobApplyForm, \
 CheckOutForm, FeedbackForm
 from django.contrib.auth import login, logout, authenticate
@@ -140,12 +140,13 @@ class payment_list(CreateView):
         return super(payment_list, self).form_valid(form)
     
     def form_invalid(self, form):
-        print(form.errors)
         return super().form_invalid(form)
     
 class SuccessPayment(CreateView):
     form_class = FeedbackForm
     template_name = "pages/thankyou.html"
+
+    
 
     def get_success_url(self):
         return reverse('main:pricing')
@@ -175,14 +176,14 @@ class documentation(TemplateView):
 
 class BlogListView(ListView):
     template_name = "pages/blog.html"
-    model = PostModel
+    model = PostModel.objects.all()
 
     def get_queryset(self):
         search = self.request.GET.get('search', '')
         tag = self.request.GET.get("tag", '')
         category = self.request.GET.get("category", '')
 
-        posts = PostModel.objects.all()
+        posts = PostModel.objects.all().select_related('category')
  
         if search:
             posts = posts.filter(title__icontains=search)
@@ -190,15 +191,10 @@ class BlogListView(ListView):
         if tag and tag.isdigit():
             if PostTagModel.objects.filter(id=tag).exists():
                 posts = posts.filter(tags=tag)
-            else:
-                posts = PostModel.objects.none()
 
         if category and category.isdigit():
             if PostCategoryModel.objects.filter(id=category).exists():
                 posts = posts.filter(category=category)
-            else:
-                posts = PostModel.objects.none()
-
         return posts
 
     def get_context_data(self, **kwargs):
@@ -217,7 +213,10 @@ class BlogListView(ListView):
 
 class blogdetail(DetailView):
     model = PostModel
-    template_name = "pages/blogdetail.html"   
+    template_name = "pages/blogdetail.html"  
+    
+    def get_queryset(self):
+        return PostModel.objects.select_related('category') 
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -234,14 +233,20 @@ class job(ListView):
     model = JobModel
     template_name = "pages/job.html"    
 
+    def get_queryset(self):
+        return JobModel.objects.select_related('category')
+
 class JobDetailView(DetailView):
     model = JobModel
     template_name = "pages/jobdetail.html"
 
+    def get_queryset(self):
+        return JobModel.objects.select_related('category')
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         current_job = self.object
-        context['other_jobs'] = JobModel.objects.filter(category=current_job.category).exclude(pk=current_job.pk)[:3]
+        context['other_jobs'] = JobModel.objects.filter(category=current_job.category).exclude(pk=current_job.pk).select_related('category')[:3]
         context['apply_form'] = JobApplyForm(initial={'category': current_job.category})
         return context
 

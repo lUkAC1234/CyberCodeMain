@@ -35,56 +35,54 @@
 </head>
 
 <body>
-{# ------------------------------------------------------------------------------------------- #}
-{# Body #}
+    {# ------------------------------------------------------------------------------------------- #}
+    {# Body #}
 
-{% include 'layout/header.html' %}
+    {% include 'layout/header.html' %}
 
-{% block content %}
+    {% block content %}
 
-{% endblock %}
+    {% endblock %}
 
-{% include 'layout/top.html' %}
+    {% include 'layout/top.html' %}
 
-{% include 'layout/footer.html' %}
+    {% include 'layout/footer.html' %}
 
-{# ------------------------------------------------------------------------------------------- #}
-{# Scripts #}
-<script src="{% static 'main/scripts/js/progressbar.js' %}"></script>
-<script src="{% static 'main/scripts/js/header.js' %}"></script>
-<script src="{% static 'main/scripts/js/notranslate.js' %}"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<!-- (Carousel) -->
-<script src="{% static 'main/scripts/js/owlcarousel/owl.carousel.min.js' %}"></script>
-<!-- (Carousel) -->
-<script type="text/javascript">
-    // ------------------------------------------------------------------------------------------- //
-    /*------------------
-            Preloader
-    --------------------*/
+    {# ------------------------------------------------------------------------------------------- #}
+    {# Scripts #}
+    <script src="{% static 'main/scripts/js/progressbar.js' %}"></script>
+    <script src="{% static 'main/scripts/js/header.js' %}"></script>
+    <script src="{% static 'main/scripts/js/notranslate.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- (Carousel) -->
+    <script src="{% static 'main/scripts/js/owlcarousel/owl.carousel.min.js' %}"></script>
+    <!-- (Carousel) -->
+    <script type="text/javascript">
+        // ------------------------------------------------------------------------------------------- //
+        /*------------------
+                Preloader
+        --------------------*/
 
-    (function ($) {
-        $(window).on('load', function () {
-            $(".loader").fadeOut();
-            $("#preloder").delay(200).fadeOut("slow");
-        });
-    })(jQuery);
+        (function ($) {
+            $(window).on('load', function () {
+                $(".loader").fadeOut();
+                $("#preloder").fadeOut("slow");
+            });
+        })(jQuery);
 
-    document.addEventListener("DOMContentLoaded", function () {
-        const hiddenText = document.querySelector(".hidden-preloader-text");
+        document.addEventListener("DOMContentLoaded", function () {
+            const hiddenText = document.querySelector(".hidden-preloader-text");
 
-        setTimeout(() => {
             hiddenText.style.opacity = "1";
             hiddenText.style.transform = "scaleX(1)";
-        }, 200);
-    });
-    /* END Preloader */
+        });
+        /* END Preloader */
 
-</script>
+    </script>
 
-{% block js_block %}
+    {% block js_block %}
 
-{% endblock %}
+    {% endblock %}
 </body>
 
 </html>

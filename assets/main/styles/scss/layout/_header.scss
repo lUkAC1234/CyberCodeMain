@@ -213,13 +213,13 @@
             position: absolute;
             display: none;
             top: 0;
-            background: linear-gradient(to left, var(--linear-gray-background) 0%, var(--background-white) 100%);
+            background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(192,141,255,1) 100%, rgba(136,40,255,1) 100%);
             min-height: 100vh;
             gap: 1.25rem;
             justify-content: start;
             align-items: start;
             flex-flow: column;
-            transition: all 0.5s ease;
+            transition: all 0.4s ease;
             right: -100%;
         }
     }
@@ -344,8 +344,8 @@
             color: var(--text-header-menu);
 
             &:hover {
-                color: var(--text-purple);
-                transition: all 0.5s;
+                color: var(--text-white);
+                transition: all 0.3s;
             }
 
             i {
