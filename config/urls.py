@@ -9,7 +9,6 @@ handler404 = views.PageNotFound
 urlpatterns = [
     path('cybercode/admin/panel', admin.site.urls),
     path('', include('web.urls')),
-    path("__debug__/", include("debug_toolbar.urls")),
 
 ]
 
