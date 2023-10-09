@@ -1,32 +1,26 @@
-from typing import Any
-from django.forms.models import BaseModelForm
-from django.shortcuts import render, redirect, get_object_or_404, reverse
+from django.shortcuts import render, redirect, reverse
 from django.urls import reverse_lazy
 from django.db.models import Q
-from django.http import HttpRequest, JsonResponse, HttpResponse
-from django.contrib.messages.views import SuccessMessageMixin
+from django.http import JsonResponse
 from django.utils.translation import gettext as _
-from django.contrib import messages
-from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, FormView
-from .models import PostModel, PricingModel, FeedbackModel, ContactusModel, FaqModel, JobModel, \
-PostCategoryModel, PostTagModel, UserModel, PartnersModel, JobApplyModel, CheckOut, JobCategoryModel
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
+from .models import PostModel, PricingModel, FeedbackModel, FaqModel, JobModel, \
+PostCategoryModel, PostTagModel, UserModel, PartnersModel, CheckOut
 from .forms import ContactusModelForm, AccountForm, LoginForm, RegistrationForm, JobApplyForm, \
 CheckOutForm, FeedbackForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.hashers import make_password
-from django.core.exceptions import ValidationError
 from django.template.loader import render_to_string
-from django.db.models import Sum
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseNotFound
 
 class index(TemplateView):
     template_name = "pages/index.html"
 
-    def get_context_data(self, *, object_list=None, **kwargs):
+    def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
         data['pricing'] = PricingModel.objects.filter(popular=True).order_by('-popular', '-id')[:3]
-        data['posts'] = PostModel.objects.all()
+        data['posts'] = PostModel.objects.only('title', 'image', 'posted_on', 'short_description').all()
         data['feedbacks'] = FeedbackModel.objects.all()
         data['partners'] = PartnersModel.objects.all()
         return data
@@ -36,7 +30,7 @@ class about(TemplateView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         data = super().get_context_data(**kwargs)
-        data['users'] = CheckOut.objects.all()
+        data['users'] = CheckOut.objects.only('user').all()
         return data
 
 class contact(CreateView):
@@ -129,8 +123,7 @@ class payment_list(CreateView):
     def form_valid(self, form):
         cart = self.request.session.get('cart', [])
         queryset = PricingModel.get_cart_objects(cart)
-        total_price = sum(item.price for item in queryset)
-        form.instance.total_price = total_price
+        form.instance.total_price = sum(item.price for item in queryset)
         form.instance.user = self.request.user
         form.instance.success_checkout = 1
         data = form.save()
@@ -145,8 +138,6 @@ class payment_list(CreateView):
 class SuccessPayment(CreateView):
     form_class = FeedbackForm
     template_name = "pages/thankyou.html"
-
-    
 
     def get_success_url(self):
         return reverse('main:pricing')
@@ -176,7 +167,7 @@ class documentation(TemplateView):
 
 class BlogListView(ListView):
     template_name = "pages/blog.html"
-    model = PostModel.objects.all()
+    model = PostModel
 
     def get_queryset(self):
         search = self.request.GET.get('search', '')
@@ -195,6 +186,7 @@ class BlogListView(ListView):
         if category and category.isdigit():
             if PostCategoryModel.objects.filter(id=category).exists():
                 posts = posts.filter(category=category)
+
         return posts
 
     def get_context_data(self, **kwargs):

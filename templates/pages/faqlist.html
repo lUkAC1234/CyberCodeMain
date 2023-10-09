@@ -14,14 +14,12 @@
         <p class="faq-main-info">There is the list of every FAQs.</p>
         <div class="faq-container">
             {% for object in object_list %}
-            <div class="faq {% if forloop.counter == 1 or forloop.counter == 3 %}active{% endif %}">
-                <button class="faq-toggle-btn">
-                    <i class="fa-solid fa-plus faq-icon"></i>
-                </button>
+            <div class="faq {% if forloop.counter == 1 or forloop.counter == 3 %} active{% endif %}">
                 <div class="faq-btn-container">
-                    <h3 class="faq-card-title">
-                        {{ object.question }}
-                    </h3>
+                    <button class="faq-card-title">
+                        <i class="fa-solid fa-plus faq-icon"></i>
+                        <p class="faq-card-title-text">{{ object.question }}</p>
+                    </button>
                 </div>
                 <div class="faq-text">
                     {{ object.answer|safe }}

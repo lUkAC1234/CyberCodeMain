@@ -23,7 +23,9 @@
             <div class="latest-post-wrapper">
                 {% for object in latestPost %}
                 <div class="post-image-container">
-                    <img src="{{ object.image.url }}" alt="">
+                    <a href="{% url 'main:blogdetail' pk=object.pk %}">
+                        <img src="{{ object.image.url }}" alt="">
+                    </a>
                 </div>
                 <div class="post-text-container">
                     <a href="{% url 'main:blogdetail' pk=object.pk %}">

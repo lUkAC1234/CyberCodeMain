@@ -66,8 +66,15 @@ class PricingModel(models.Model):
 
     @staticmethod
     def get_cart_objects(cart_list):
-        qs = PricingModel.objects.all().filter(id__in=cart_list)
-        return qs
+        unique_cart_list = list(set(cart_list))
+
+        qs = PricingModel.objects.filter(id__in=unique_cart_list)
+
+        pricing_dict = {pricing.id: pricing for pricing in qs}
+
+        cart_objects = [pricing_dict[cart_id] for cart_id in unique_cart_list if cart_id in pricing_dict]
+
+        return cart_objects
 
     class Meta:
         verbose_name = 'Pricing'
@@ -95,7 +102,7 @@ class PostModel(models.Model):
     short_description = models.TextField()
     post_text = RichTextField()
     posted_on = models.DateTimeField(auto_now_add=True)
-    category = models.ForeignKey(PostCategoryModel, on_delete=models.CASCADE)
+    category = models.ForeignKey(PostCategoryModel, on_delete=models.CASCADE, related_name='postCategories')
     tags = models.ManyToManyField(PostTagModel, related_name='postTags')
     user = models.ForeignKey(UserModel, on_delete=models.RESTRICT, related_name='postUser')
 

@@ -214,7 +214,8 @@
             display: none;
             top: 0;
             background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(192,141,255,1) 100%, rgba(136,40,255,1) 100%);
-            min-height: 100vh;
+            height: 100vh;
+            overflow-y: auto;
             gap: 1.25rem;
             justify-content: start;
             align-items: start;
@@ -461,6 +462,7 @@
     object-fit: cover;
     border: 1px solid transparent;
     padding: 2px;
+    background-color: var(--background-white);
 }
 
 #dropdownProfileImage.active {
