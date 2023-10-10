@@ -1,42 +1,25 @@
-{# ------------------------------------------------------------------------------------------- #}
-{# Loading Static Files #}
 {% load static %}
-{# ------------------------------------------------------------------------------------------- #}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    {# ------------------------------------------------------------------------------------------- #}
-    {# Links #}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google" content="notranslate">
-
-    {# ------------------------------------------------------------------------------------------- #}
-    {# Font Awesome (Fas fa icons) #}
-
+    <meta name="description" content="Websites development and design for your business in the best quality, we are waiting for you!">
     <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
 
-    {# ------------------------------------------------------------------------------------------- #}
-    {# Swiper (Carousel) #}
     <link href="{% static 'main/scripts/js/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
-    {# ------------------------------------------------------------------------------------------- #}
-    {# User css links #}
+
     <link rel="stylesheet" type="text/css" href="{% static 'main/styles/scss/global.css' %}">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8" defer></script>
-    {# ------------------------------------------------------------------------------------------- #}
-    {# Website title #}
+
     {% block title %}{% endblock %}
-    {# ------------------------------------------------------------------------------------------- #}
 </head>
 
 <body>
-    {# ------------------------------------------------------------------------------------------- #}
-    {# Body #}
 
     {% include 'layout/header.html' %}
 
@@ -53,33 +36,8 @@
     <script src="{% static 'main/scripts/js/progressbar.js' %}"></script>
     <script src="{% static 'main/scripts/js/header.js' %}"></script>
     <script src="{% static 'main/scripts/js/notranslate.js' %}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- (Carousel) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
     <script src="{% static 'main/scripts/js/owlcarousel/owl.carousel.min.js' %}"></script>
-    <!-- (Carousel) -->
-    <script type="text/javascript">
-        // ------------------------------------------------------------------------------------------- //
-        /*------------------
-                Preloader
-        --------------------*/
-
-        (function ($) {
-            $(window).on('load', function () {
-                $(".loader").fadeOut();
-                $("#preloder").fadeOut("slow");
-            });
-        })(jQuery);
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const hiddenText = document.querySelector(".hidden-preloader-text");
-
-            hiddenText.style.opacity = "1";
-            hiddenText.style.transform = "scaleX(1)";
-        });
-        /* END Preloader */
-
-    </script>
-
     {% block js_block %}
 
     {% endblock %}

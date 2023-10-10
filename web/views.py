@@ -24,6 +24,8 @@ class index(TemplateView):
         data['feedbacks'] = FeedbackModel.objects.all()
         data['partners'] = PartnersModel.objects.all()
         return data
+    
+
 
 class about(TemplateView):
     template_name = "pages/about.html"
@@ -159,11 +161,7 @@ class SuccessPayment(CreateView):
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
         CheckOut.objects.filter(user=self.request.user, success_checkout=True).update(success_checkout=True)
-        return data
-
-    
-class documentation(TemplateView):
-    template_name = "pages/documentation.html"    
+        return data  
 
 class BlogListView(ListView):
     template_name = "pages/blog.html"

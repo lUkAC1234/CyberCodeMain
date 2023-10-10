@@ -25,141 +25,100 @@
     }
 }
 
-.gradient-text-container {
-    padding-left: 5rem;
-
+.gradient-artice-main {
+    display: grid;
+    place-items: center;
+    padding-inline: 1rem;
     .gradient-title {
-        color: var(--text-white);
-        font-size: 3.5rem;
         font-family: var(--grotext-sans);
-        font-weight: 700;
-        line-height: 120%;
-        text-transform: capitalize;
-
-        &::first-line {
-            color: var(--text-purple);
-        }
-    }
-
-    .gradient-text {
+        font-size: 4rem;
         color: var(--text-white);
-        font-size: 1.05rem;
-        font-family: var(--grotext-sans);
-        line-height: 160%;
-        margin: 0.5rem 0 0 0.3rem;
-    }
-
-}
-
-.gradient-image-container {
-    width: 40%;
-    margin-right: 1rem;
-
-    img {
-        width: 100%;
-        max-width: 37.5rem;
-        object-fit: cover;
+        text-align: center
     }
 }
 
-.gradient-buttons-container {
+.gradient-artice-btn-container {
+    .gradient-artice-btn {
+        @extend .onerem-tworem-purple-button;
+        margin-top: 1rem;
+    }
+}
+
+.gradient-website-information {
     display: flex;
-    margin-top: 1rem;
-
-    .gradient-btn-column {
-        a {
-            .gradient-button {
-                @extend .onerem-tworem-purple-button;
-            }
-
-            .gradient-button-without-background {
-                @extend .onerem-tworem-purple-button-without-background;
-            }
-        }
-    }
+    justify-content: space-between;
+    margin-top: 5rem;
+    background: var(--background-white);
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.75rem;
 }
 
-@media screen and (max-width: 1100px) {
-    .gradient-text-container {
-        padding-left: 1rem;
+.gradient-website-information-column {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 
-        .gradient-title {
-            font-size: 2.5rem;
+    .gradient-website-information-icon-container {
+        i {
+            color: var(--text-purple);
+            font-size: 1.25rem;
+            margin-top: 0.25rem;
         }
     }
 
-    .gradient-image-container {
-        width: 50%;
+    .gradient-website-information-text-container {
+        .gradient-website-information-type {
+            @extend .chat-text-gray;
+        }
+        .gradient-website-information-text {
+            @extend .dark-blue-text-center-grotext-family-1rem;
+        }
     }
 }
 
 @media screen and (max-width: 992px) {
-    .gradient-container {
-        flex-wrap: wrap;
-    }
-
-    .gradient-text-container {
-        width: 100%;
-
+    .gradient-artice-main {
         .gradient-title {
             font-size: 3rem;
         }
-
-        .gradient-text {
-            font-size: 1rem;
-            line-height: 2rem;
+    }
+    
+    .gradient-website-information-column {
+        .gradient-website-information-icon-container {
+            i {
+                font-size: 1.125rem;
+            }
         }
-    }
-
-    .gradient-image-container {
-        width: 80%;
-        margin: 3rem 0;
-    }
-}
-
-@media screen and (max-width: 760px) {
-    .gradient-image-container {
-        width: 90%;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .gradient-text-container {
-        .gradient-title {
-            font-size: 2.5rem;
-        }
-
-        .gradient-text {
-            font-size: 0.9rem;
-            line-height: 1.5rem;
-        }
-    }
-
-    .gradient-buttons-container {
-        .gradient-btn-column {
-            a {
-
-                .gradient-button,
-                .gradient-button-without-background {
-                    padding: 0.5rem 1rem !important;
-                    font-size: 1rem !important;
-                }
+    
+        .gradient-website-information-text-container {
+            .gradient-website-information-type {
+                font-size: 0.9rem !important;
             }
         }
     }
 }
 
-@media screen and (max-width: 400px) {
-    .gradient-text-container {
+@media screen and (max-width: 600px) {
+    .gradient-artice-main  {
+        padding-inline: 0.5rem;
+    }
+    
+    .gradient-artice-main {
         .gradient-title {
-            font-size: 2rem;
+            font-size: 2.5rem;
         }
+    }
+    .gradient-website-information {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
 
+        @media screen and (max-width: 450px) {
+            grid-template-columns: auto auto;
+        }
     }
 }
-
-
-// GRADIENT CONTENT END
 
 // TASKS START
 
@@ -550,12 +509,16 @@
     width: 24rem;
     min-height: 28rem;
     height: max-content;
+    border-radius: 1.25rem;
+    &:not(:has(.recommended)) {
+        background: var(--background-white);
+    }
 
     .price-column {
         position: relative;
         background: linear-gradient(168deg, rgba(136, 40, 255, 1) 0%, rgba(136, 40, 255, 1) 36%, rgba(171, 124, 208, 1) 80%);
         padding: 2rem 2.5rem 3rem;
-        border-radius: 1.25rem 1.25rem 0rem 0rem;
+        border-radius: 1.25rem 1.25rem 0.5rem 0.5rem;
 
         .choice-type {
             @extend .white-1rem-grotext;

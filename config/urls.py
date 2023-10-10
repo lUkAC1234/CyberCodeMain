@@ -9,7 +9,6 @@ handler404 = views.PageNotFound
 urlpatterns = [
     path('cybercode/admin/panel', admin.site.urls),
     path('', include('web.urls')),
-
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

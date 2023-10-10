@@ -27,7 +27,7 @@
                     <div class="profile-user-info-container">
                         <h1 class="profile-username" style="text-transform: lowercase;">{{ request.user }}</h1>
                         <p class="profile-email">
-                            {{ request.user.email|default_if_none:'example@gmail.com'|default:'example@gmail.com' }}
+                            {{ request.user.email|default_if_none:'cybercodesp@gmail.com'|default:'cybercodesp@gmail.com' }}
                         </p>
                     </div>
                 </article>
@@ -68,7 +68,7 @@
                             </div>
                             <div class="profile-edit-column">
                                 <label for="">Email</label>
-                                <input class="profile-edit-input" type="email" placeholder="supportcybercode@gmail.com"
+                                <input class="profile-edit-input" type="email" placeholder="cybercodesp@gmail.com"
                                     name="email" value="{{ request.user.email|default_if_none:'' }}">
                             </div>
                             <div class="profile-edit-column">

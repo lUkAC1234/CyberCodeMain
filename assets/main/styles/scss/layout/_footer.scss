@@ -3,6 +3,12 @@
     background: var(--footer-background);
     padding: 6rem 0 4rem;
     z-index: var(--z-index-9);
+
+    .icons {
+        i {
+            color: var(--text-dark-blue);
+        }
+    }
 }
 
 .footer .footer-links {
@@ -18,7 +24,7 @@
         }
 
         h1 {
-            color: var(--text-white);
+            color: var(--text-purple);
             font-family: var(--grotext-sans);
             font-weight: 900;
             font-size: 2rem;
@@ -26,14 +32,14 @@
             letter-spacing: 0.375rem;
 
             span {
-                color: var(--text-purple);
+                color: var(--text-dark-blue);
             }
         }
     }
 
     .footer-info-section {
         .footer-info {
-            color: var(--text-light-gray);
+            color: var(--text-dark-blue);
             font-size: 1.125rem;
             font-family: var(--grotext-sans);
             line-height: 160%;
@@ -58,7 +64,7 @@
         font-family: var(--grotext-sans);
         font-weight: 700;
         line-height: 160%;
-        color: var(--text-white);
+        color: var(--text-purple);
     }
 
     .footer-links-container {
@@ -66,15 +72,15 @@
             margin-top: 0.6rem;
 
             a {
-                color: var(--text-light-gray);
+                color: var(--text-text-dark-blue);
                 font-size: 1rem;
                 font-family: var(--grotext-sans);
                 line-height: 160%;
                 font-weight: 500;
+                transition: color 0.3s;
 
                 &:hover {
-                    color: var(--text-white);
-                    transition: color 0.3s;
+                    color: var(--text-purple);
                 }
             }
         }
@@ -87,16 +93,16 @@
     margin-top: 5rem;
 
     .footer-privacy-text {
-        color: var(--text-light-gray);
+        color: var(--text-dark-blue);
         font-size: 1rem;
         font-family: var(--grotext-sans);
         line-height: 160%;
         font-weight: 400;
         a {
-            color: var(--text-light-gray);
+            color: var(--text-dark-blue);
 
             &:hover {
-                color: var(--text-white);
+                color: var(--text-purple);
                 transition: color 0.3s;
             }
         }

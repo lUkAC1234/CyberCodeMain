@@ -34,26 +34,26 @@
                 </p>
             </div>
             <div class="contact-us-hero-get-in-touch-main-container">
-                <div class="contact-us-hero-get-in-touch-container">
+                <a href="mailto:cybercodesp@gmail.com" class="contact-us-hero-get-in-touch-container">
                     <div class="contact-us-hero-logo-image-container">
                         <i class="fa-solid fa-envelope" style="color: var(--background-purple);"></i>
                     </div>
                     <div class="contact-us-hero-info-container">
                         <h1 class="contact-us-hero-info-title">Email us</h1>
-                        <a href="mailto:cybercodesp@gmail.com"
-                            class="contact-us-hero-info-detail">cybercodesp@gmail.com</a>
+                        <p class="contact-us-hero-info-detail">cybercodesp@gmail.com</p>
                     </div>
-                </div>
-                <div class="contact-us-hero-get-in-touch-container">
+                </a>
+                <a href="tel:+998950540790" class="contact-us-hero-get-in-touch-container">
                     <div class="contact-us-hero-logo-image-container">
                         <i class="fa-sharp fa-solid fa-phone" style="color: var(--background-purple);"></i>
                     </div>
                     <div class="contact-us-hero-info-container">
                         <h1 class="contact-us-hero-info-title">Phone number</h1>
-                        <a href="tel:+998950540790" class="contact-us-hero-info-detail">+998 95 054 07 90</a>
+                        <p class="contact-us-hero-info-detail">+998 95 054 07 90</p>
                     </div>
-                </div>
+                </a>
             </div>
+        </div>
         </div>
     </section>
     <!-- End Hero Section -->
@@ -67,18 +67,21 @@
                     {% csrf_token %}
                     <div class="contact-form-column-input-container">
                         <input type="text" class="contact-form-column-input" placeholder=" " id="fullname"
-                        value="{% if form.fullname.value %}{{ form.fullname.value }}{% else %}{{ request.user.first_name|default:'' }}{% endif %}" name="fullname" required>
+                            value="{% if form.fullname.value %}{{ form.fullname.value }}{% else %}{{ request.user.first_name|default:'' }}{% endif %}"
+                            name="fullname" required>
                         <label class="placeholder">Full Name</label>
                         <div class="error-message" id="fullname-error"></div>
                     </div>
                     <div class="contact-form-column-input-container">
                         <input type="email" class="contact-form-column-input" placeholder=" " name="email" id="email"
-                        value="{% if form.email.value %}{{ form.email.value }}{% else %}{{ request.user.email|default:'' }}{% endif %}" required>
+                            value="{% if form.email.value %}{{ form.email.value }}{% else %}{{ request.user.email|default:'' }}{% endif %}"
+                            required>
                         <label class="placeholder">Email address</label>
                         <div class="error-message" id="email-error"></div>
                     </div>
                     <div class="contact-form-column-input-container">
-                        <input type="text" class="contact-form-column-input" placeholder=" " name="phone" id="phone" required
+                        <input type="text" class="contact-form-column-input" placeholder=" " name="phone" id="phone"
+                            required
                             value="{% if form.phone.value %}{{ form.phone.value }}{% else %}{{ request.user.mobileNumber|default:'+998' }}{% endif %}">
                         <label class="placeholder">Phone number</label>
                         <div class="error-message" id="phone-error"></div>
@@ -86,7 +89,8 @@
 
                     <div class="contact-form-column-input-container">
                         <input type="text" class="contact-form-column-input" placeholder=" " name="company" id="company"
-                        value="{% if form.company.value %}{{ form.company.value }}{% else %}{{ request.user.company|default:'' }}{% endif %}" required>
+                            value="{% if form.company.value %}{{ form.company.value }}{% else %}{{ request.user.company|default:'' }}{% endif %}"
+                            required>
                         <label class="placeholder">Company name</label>
                         <div class="error-message" id="company-error"></div>
                     </div>
@@ -97,7 +101,7 @@
                         <label class="placeholder">Messages</label>
                         <div class="error-message" id="text-error"></div>
                     </div>
- 
+
                     <div class="contact-form-column-btn-container">
                         {% if request.user.is_authenticated %}
                         <button type="submit" class="contact-form-column-btn">Send message</button>
@@ -107,7 +111,8 @@
                     </div>
                     {% if not request.user.is_authenticated %}
                     <div class="contact-user-checker">
-                        <p>U have to Sign in/up to send us message there u can <a href="{% url 'main:login' %}">Sign In</a> / <a href="{% url 'main:registration' %}">Sign Up</a></p>
+                        <p>U have to Sign in/up to send us message there u can <a href="{% url 'main:login' %}">Sign
+                                In</a> / <a href="{% url 'main:registration' %}">Sign Up</a></p>
                     </div>
                     {% endif %}
                     <div class="contact-form-success-message" id="success-message-container">
@@ -119,7 +124,7 @@
                 </form>
             </div>
             <div class="contact-form-image-column">
-                <img src="{% static 'main/images/contactus/contactus.svg' %}" alt="">
+                <img src="{% static 'main/images/contactus/contactus.webp' %}" alt="">
             </div>
         </div>
     </section>
@@ -148,7 +153,8 @@
         </div>
         {% if faqs.count >= 8 %}
         <div class="faq-other-list">
-            <a href="{% url 'main:faqlist' %}">Click to view other FAQS <i class="fa-sharp fa-solid fa-circle-arrow-right"></i></a>
+            <a href="{% url 'main:faqlist' %}">Click to view other FAQS <i
+                    class="fa-sharp fa-solid fa-circle-arrow-right"></i></a>
         </div>
         {% endif %}
     </section>

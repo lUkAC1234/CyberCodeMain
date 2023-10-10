@@ -3,29 +3,14 @@
 <html lang="en">
 
 <head>
-    {# ------------------------------------------------------------------------------------------- #}
-    {# Links #}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google" content="notranslate">
-
-    {# ------------------------------------------------------------------------------------------- #}
-    {# Font Awesome (Fas fa icons) #}
-
+    <meta name="description" content="Website development and designs for your business in the best quality, we are waiting for you!">
     <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
-    {# ------------------------------------------------------------------------------------------- #}
-    {# Swiper (Carousel) #}
-    <link href="{% static 'main/scripts/js/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
-    {# ------------------------------------------------------------------------------------------- #}
-    {# User css links #}
     <link rel="stylesheet" type="text/css" href="{% static 'main/styles/scss/global.css' %}">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8" defer></script>
-    {# ------------------------------------------------------------------------------------------- #}
     <title>Payment List - CyberCode</title>
 </head>
 
@@ -161,7 +146,7 @@
                                     </div>
                                     <div class="jobApply-group payment-group">
                                         <label for="email">Email</label>
-                                        <input type="email" name="email" id="email" required placeholder="supportcybercode@gmail.com"
+                                        <input type="email" name="email" id="email" required placeholder="cybercodesp@gmail.com"
                                             value="{% if form.email.value %}{{ form.email.value }}{% else %}{{ request.user.email|default:'' }}{% endif %}">
                                         {{ form.errors.email }}
                                     </div>
@@ -243,6 +228,7 @@
                 }
             });
         </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
     </main>
 </body>
 

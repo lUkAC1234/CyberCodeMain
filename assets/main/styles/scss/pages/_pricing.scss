@@ -45,13 +45,18 @@
     width: 24rem;
     min-height: 28rem;
     height: max-content;
+    border-radius: 1.25rem;
+
+    &:not(:has(.recommended)) {
+        background: var(--background-white);
+    }
 }
 
 .price-column {
     position: relative;
     background: linear-gradient(168deg, rgba(136, 40, 255, 1) 0%, rgba(136, 40, 255, 1) 36%, rgba(171, 124, 208, 1) 80%);
     padding: 2rem 2.5rem 3rem;
-    border-radius: 1.25rem 1.25rem 0rem 0rem;
+    border-radius: 1.25rem 1.25rem 0.5rem 0.5rem;
 
     .pricing-popular-type {
         @extend .white-1rem-grotext;

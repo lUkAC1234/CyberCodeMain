@@ -1,49 +1,71 @@
 {% extends 'layout/base.html' %}
 {% load static %}
 
-{% block content %}
-
 {% block title %}
 <title>Home - CyberCode</title>
 {% endblock %}
-<main class="main index-main">
-    {% include 'layout/preloader.html' %}
 
+{% block content %}
+<main class="main index-main">
     <!-- START GRADIENT CONTENT -->
     <section class="gradient-container" id="gradient-container">
-        <article class="gradient-text-container">
-            <h1 class="gradient-title">
-                One place to organise, <br>
-                communicate and <br>
-                store work
-            </h1>
-            <p class="gradient-text">
-                For businesses who need clarity, productive <br>
-                communication, prioritisation and accountability.
-            </p>
-            <div class="gradient-buttons-container">
-                <div class="gradient-btn-column">
-                    <a href="#packageSection">
-                        <button class="gradient-button">Get started</button>
-                    </a>
-                </div>
-                <div class="gradient-btn-column" id="gradient-btn-column-second">
-                    <a href="{% url 'main:pricing' %}">
-                        <button class="gradient-button-without-background">Pricing</button>
-                    </a>
-                </div>
+        <article class="gradient-artice-main">
+            <h1 class="gradient-title">Build your business with us</h1>
+
+            <div class="gradient-artice-btn-container">
+                <a href="{% url 'main:pricing' %}">
+                    <button class="gradient-artice-btn">Get started</button>
+                </a>
             </div>
-        </article>
-        <article class="gradient-image-container">
-            <img src="{% static 'main/images/main-page/people.svg' %}" alt="">
+
+            <article class="gradient-website-information">
+                <div class="gradient-website-information-column">
+                    <div class="gradient-website-information-icon-container">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div class="gradient-website-information-text-container">
+                        <p class="gradient-website-information-type">Location</p>
+                        <h1 class="gradient-website-information-text">Tashkent</h1>
+                    </div>
+                </div>
+                <div class="gradient-website-information-column">
+                    <div class="gradient-website-information-icon-container">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div class="gradient-website-information-text-container">
+                        <p class="gradient-website-information-type">Phone</p>
+                        <a href="tel:+998950540790" class="gradient-website-information-text">+998 95 054 07 90</a>
+                    </div>
+                </div>
+                <div class="gradient-website-information-column">
+                    <div class="gradient-website-information-icon-container">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <div class="gradient-website-information-text-container">
+                        <p class="gradient-website-information-type">Activity</p>
+                        <h1 class="gradient-website-information-text">24 / 7</h1>
+                    </div>
+                </div>
+                <div class="gradient-website-information-column">
+                    <div class="gradient-website-information-icon-container">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div class="gradient-website-information-text-container">
+                        <p class="gradient-website-information-type">Clients</p>
+                        <h1 class="gradient-website-information-text">50+</h1>
+                    </div>
+                </div>
+            </article>
         </article>
     </section>
     <!-- END GRADIENT CONTENT -->
 
     <!-- START TASKS CONTENT -->
     <section class="tasks">
-        <div class="task-image-column"> 
-            <video src="{% static 'main/images/main-page/tasks.webm' %}" loop muted autoplay></video>
+        <div class="task-image-column">
+            <video autoplay muted loop playsinline>
+                <source src="{% static 'main/images/main-page/tasks.webm' %}">
+            </video>
         </div>
         <div class="task-content-column">
             <h1 class="task-title">Connect With Apps <br> You Use for Work</h1>
@@ -90,7 +112,7 @@
             </div>
             <div class="chat-column">
                 <div class="profile">
-                    <img src="{% static 'main/images/main-page/people.svg' %}" alt="">
+                    <img src="{% static 'main/images/main-page/feedback.svg' %}" alt="">
                 </div>
                 <div class="message-container">
                     <p class="chat-message-text">
@@ -104,7 +126,7 @@
             </div>
             <div class="chat-column">
                 <div class="profile">
-                    <img src="{% static 'main/images/main-page/tasks.svg' %}" alt="">
+                    <img src="{% static 'main/images/profile/profile.svg' %}" alt="">
                 </div>
                 <div class="message-container">
                     <p class="chat-message-text">
@@ -293,5 +315,4 @@
 {% block js_block %}
 <script src="{% static 'main/scripts/js/carousel.js' %}"></script>
 <script src="{% static 'main/scripts/js/feedback.js' %}"></script>
-<script src="{% static 'main/scripts/js/paymentReturnback.js' %}"></script>
 {% endblock %}

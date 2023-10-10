@@ -59,11 +59,13 @@
 
 .about-page-gradient-image-container {
     width: min(50%, 32rem);
+    min-height: 15rem;
     position: relative;
 }
 
-.about-page-gradient-image-column {
+.about-page-gradient-image-column, .loading-image-container {
     width: 100%;
+    height: 100%;
 
     .about-page-gradient-image {
         width: 100%;
@@ -389,7 +391,7 @@
                 font-size: 2rem;
             }
         }
-    
+
 
         .no-job-title {
             font-size: 1.25rem !important;
@@ -402,11 +404,13 @@
 
     @media screen and (max-width: 500px) {
         padding-inline: 1rem;
+
         .no-job-icon-container {
             i {
                 font-size: 1.5rem;
             }
         }
+
         .no-job-title {
             font-size: 1.125rem !important;
         }
@@ -1015,10 +1019,11 @@
         flex-flow: column;
 
         .about-get-in-touch-email-phone-container {
+
             .about-get-in-touch-email-phone-title,
             .about-get-in-touch-email-phone-info {
                 text-align: center
-            }             
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 from django.urls import path,include
 from .views import index, about, contact, Pricing, pricinglist, \
-documentation, BlogListView, blogdetail, job, JobDetailView, helpcenter, \
+BlogListView, blogdetail, job, JobDetailView, helpcenter, \
 loginView, RegistrationView, MyProfileEdit, logoutView, FAQListView, \
 payment_list, AddToCart, RemoveFromCart, SuccessPayment, PageNotFound
 
@@ -17,7 +17,6 @@ urlpatterns = [
     path('remove_from_cart/<int:id>/', RemoveFromCart, name="removefromcart"),
     path('package/prices/list', pricinglist.as_view(), name="pricinglist"),
     path('success/checkout/', SuccessPayment.as_view(), name="thankyou"),
-    path('website/documentation/', documentation.as_view(), name="documentation"),
     path('website/blogs/list', BlogListView.as_view(), name="blog"),
     path('website/blog/detail/<int:pk>', blogdetail.as_view(), name="blogdetail"),
     path('website/jobs/list/', job.as_view(), name="job"),
