@@ -85,5 +85,3 @@ const showDropdown = (content, button) =>{
 }
 
 showDropdown('dropdown-content','dropdown-button')
-
-/*  HEADER ACTIVE CLASS FUNCTION END */

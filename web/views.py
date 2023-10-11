@@ -16,7 +16,7 @@ from django.http import HttpResponseNotFound
 
 class index(TemplateView):
     template_name = "pages/index.html"
-
+    
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
         data['pricing'] = PricingModel.objects.filter(popular=True).order_by('-popular', '-id')[:3]
@@ -25,6 +25,7 @@ class index(TemplateView):
         data['partners'] = PartnersModel.objects.all()
         return data
     
+
 
 
 class about(TemplateView):

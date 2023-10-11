@@ -199,8 +199,11 @@
     }
 
     i {
-        font-size: 2rem;
+        position: absolute;
+        font-size: 1.75rem;
         color: var(--gray-button);
+        left: 50%;
+        transform: translate(-50%)
     }
 
     .click-title {
