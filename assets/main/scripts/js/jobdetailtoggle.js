@@ -41,21 +41,23 @@ let closeApplyModal = document.getElementById("closeApplyModal");
 let jobApplyForm = document.getElementById("jobApplyForm");
 let body = document.body
 
+function closeModal() {
+    applyModal.style.transform = "scaleY(0)";
+    body.style.overflowY = "auto";
+}
+
 applyNowBtn.addEventListener("click", function () {
-    applyModal.style.display = "block";
+    applyModal.style.transform = "scaleY(1)";
     body.style.overflowY = "hidden";
 });
 
-closeApplyModal.addEventListener("click", function () {
-    applyModal.style.display = "none";
-    body.style.overflowY = "auto";
-});
+closeApplyModal.addEventListener("click", closeModal);
 
 window.addEventListener("click", function (event) {
-    if (event.target == applyModal) {
-        applyModal.style.display = "none";
-        body.style.overflowY = "auto";
-    }
+    if (event.target == applyModal) { closeModal(); }
+});
+window.addEventListener("touchstart", function (event) {
+    if (event.target == applyModal) { closeModal(); }
 });
 
 document.addEventListener("DOMContentLoaded", function () {

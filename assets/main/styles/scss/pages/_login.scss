@@ -39,24 +39,11 @@
 
     .sign-image-logo-container {
         width: 100%;
-        position: relative;
-        display: inline-flex;
-        align-items: end;
-
-        img {
-            width: 4rem;
-            height: 4rem;
-            object-fit: cover;
-            margin: 1rem 0 0 1rem;
-        }
-
         .sign-image-logo-text {
-            position: absolute;
-            left: 4.75rem;
-            bottom: 0.5rem;
             font-size: 2rem;
             color: var(--text-white);
             font-family: var(--grotext-sans);
+            margin: 1rem 0 0 1rem;
         }
     }
 

@@ -16,18 +16,15 @@ from django.http import HttpResponseNotFound
 
 class index(TemplateView):
     template_name = "pages/index.html"
-    
+
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
         data['pricing'] = PricingModel.objects.filter(popular=True).order_by('-popular', '-id')[:3]
         data['posts'] = PostModel.objects.only('title', 'image', 'posted_on', 'short_description').all()
-        data['feedbacks'] = FeedbackModel.objects.all()
+        data['feedbacks'] = FeedbackModel.objects.select_related('user').all()
         data['partners'] = PartnersModel.objects.all()
         return data
     
-
-
-
 class about(TemplateView):
     template_name = "pages/about.html"
 

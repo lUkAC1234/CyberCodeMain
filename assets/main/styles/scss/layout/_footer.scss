@@ -3,12 +3,6 @@
     background: var(--footer-background);
     padding: 6rem 0 4rem;
     z-index: var(--z-index-9);
-
-    .icons {
-        i {
-            color: var(--text-dark-blue);
-        }
-    }
 }
 
 .footer .footer-links {
@@ -48,11 +42,12 @@
         }
 
         .icons {
-            margin-left: 0.6rem;
+            display: flex;
+            gap: 1.25rem;
 
             i {
-                width: 2.5rem;
-                transform: scale(1.3);
+                font-size: 1.25rem;
+                color: var(--text-dark-blue);
             }
         }
     }

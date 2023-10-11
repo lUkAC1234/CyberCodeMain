@@ -40,6 +40,10 @@ MIDDLEWARE = [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
+SESSION_COOKIE_AGE = 8 * 24 * 60 * 60
+
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
@@ -119,7 +123,7 @@ STATICFILES_DIRS = BASE_DIR / 'assets',
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 
 CKEDITOR_CONFIGS = {
     'default': {

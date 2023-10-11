@@ -1,7 +1,7 @@
 let modal = document.getElementById("myModal");
 let modalContent = document.getElementById("modalContent");
 let modalUser = document.getElementById("modalUser");
-let closeModal = document.getElementById("closeModal");
+let closeModalBtn = document.getElementById("closeModal");
 let body = document.body;
 
 var slides = document.querySelectorAll(".feedback-slide");
@@ -17,20 +17,21 @@ slides.forEach(function (slide) {
         modalUser.textContent = user
         modalCreatedAt.textContent = createdAt;
 
-        modal.style.display = "grid";
+        modal.style.transform = "scaleY(1)";
         body.style.overflowY = "hidden";
     });
 });
 
-closeModal.addEventListener("click", function () {
-    modal.style.display = "none";
+function closeModal() {
+    modal.style.transform = "scaleY(0)";
     body.style.overflowY = "auto";
-});
+}
 
-// Close the modal window when clicking outside the window
+closeModalBtn.addEventListener("click", closeModal);
+
 window.addEventListener("click", function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-        body.style.overflowY = "auto";
-    }
+    if (event.target == modal) { closeModal(); }
+});
+window.addEventListener("touchstart", function (event) {
+    if (event.target == modal) { closeModal(); }
 });

@@ -160,7 +160,7 @@
 
 
 #applyModal {
-    display: none;
+    display: block;
     place-content: center;
     position: fixed;
     z-index: var(--z-index-11);
@@ -171,6 +171,8 @@
     overflow: auto;
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
+    transform: scaleY(0);
+    transition: all 0.3s ease;
 }
 
 .applyModalContent {

@@ -7,10 +7,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google" content="notranslate">
-    <meta name="description" content="Website development and designs for your business in the best quality, we are waiting for you!">
-    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+    <meta name="description"
+        content="Websites development and design for your business in the best quality, we are waiting for you!">
+    <meta property="og:description"
+        content="Websites development and design for your business in the best quality, we are waiting for you!">
+    <meta name="og:image" content="{% static 'main/images/layout/codecraftheader.svg' %}">
+    <meta name="keywords"
+        content="Разработка веб-сайтов в Ташкенте CyberCode cybercode сайты в Ташкенте сайты Ташкент websites web development Дизайн веб-сайтов в Ташкенте Создание сайтов в Ташкенте Графический дизайн в Ташкенте Логотипы и брендинг Оптимизация веб-сайтов Разработка корпоративных сайтов Дизайн лендингов Web Development in Tashkent Website Design in Tashkent Website Creation in Tashkent Graphic Design in Tashkent Logos and Branding Website Optimization Corporate Website Development Landing Page Design Разработка веб-сайтов в Европе Дизайн веб-сайтов в Европе Графический дизайн Логотипы и брендинг Оптимизация веб-сайтов Разработка корпоративных сайтов Дизайн лендингов Web Development in Europe Website Design in Europe Graphic Design Logos and Branding Website Optimization Corporate Website Development Landing Page Design">
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'main/scripts/js/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="{% static 'main/styles/scss/global.css' %}">
+
+    <link rel="shortcut icon" href="{% static 'main/images/layout/codecraftheader.svg' %}" type="image/svg+xml" />
     <title>Payment List - CyberCode</title>
 </head>
 
@@ -135,18 +144,21 @@
                         </div>
                         <div class="modal-content-container">
                             {% if request.user.is_authenticated %}
-                            <form id="jobApplyForm" class="jobApplyForm" method="POST" action="{% url 'main:payment' %}">
+                            <form id="jobApplyForm" class="jobApplyForm" method="POST"
+                                action="{% url 'main:payment' %}">
                                 {% csrf_token %}
                                 <div class="jobApply-group-double">
                                     <div class="jobApply-group payment-group">
                                         <label for="firstName">First Name</label>
-                                        <input type="text" name="first_name" id="first_name" required placeholder="Peter"
+                                        <input type="text" name="first_name" id="first_name" required
+                                            placeholder="Peter"
                                             value="{% if form.first_name.value %}{{ form.first_name.value }}{% else %}{{ request.user.first_name|default:'' }}{% endif %}">
                                         {{ form.errors.first_name }}
                                     </div>
                                     <div class="jobApply-group payment-group">
                                         <label for="email">Email</label>
-                                        <input type="email" name="email" id="email" required placeholder="cybercodesp@gmail.com"
+                                        <input type="email" name="email" id="email" required
+                                            placeholder="cybercodesp@gmail.com"
                                             value="{% if form.email.value %}{{ form.email.value }}{% else %}{{ request.user.email|default:'' }}{% endif %}">
                                         {{ form.errors.email }}
                                     </div>
@@ -159,8 +171,9 @@
                                         {{ form.errors.city }}
                                     </div>
                                     <div class="jobApply-group payment-group">
-                                        <label for="address">Address</label> 
-                                        <input type="text" name="address" id="address" required placeholder="New York 51 street"
+                                        <label for="address">Address</label>
+                                        <input type="text" name="address" id="address" required
+                                            placeholder="New York 51 street"
                                             value="{% if form.address.value %}{{ form.address.value }}{% else %}{{ request.user.location|default:'' }}{% endif %}">
                                         {{ form.errors.address }}
                                     </div>
@@ -174,7 +187,8 @@
                                     </div>
                                     <div class="jobApply-group payment-group">
                                         <label for="text">Social Media</label>
-                                        <input type="url" name="socail_media" id="socail_media" placeholder="URL Telegram, Instagram, etc."
+                                        <input type="url" name="socail_media" id="socail_media"
+                                            placeholder="URL Telegram, Instagram, etc."
                                             value="{% if form.socail_media.value %}{{ form.socail_media.value }}{% else %}{{ request.user.socialMedia|default:'' }}{% endif %}">
                                         {{ form.errors.socail_media }}
                                     </div>
@@ -185,7 +199,7 @@
                                         value="{% if form.position.value %}{{ form.position.value }}{% else %}{{ request.user.position|default:'' }}{% endif %}">
                                     {{ form.errors.position }}
                                 </div>
-                                
+
                                 <button type="submit" class="apply-button">Submit</button>
                             </form>
                             {% else %}
@@ -211,21 +225,23 @@
             let jobApplyForm = document.getElementById("jobApplyForm");
             let body = document.body
 
+            function closeModal() {
+                applyModal.style.transform = "scaleY(0)";
+                body.style.overflowY = "auto";
+            }
+
             applyNowBtn.addEventListener("click", function () {
-                applyModal.style.display = "block";
+                applyModal.style.transform = "scaleY(1)";
                 body.style.overflowY = "hidden";
             });
 
-            closeApplyModal.addEventListener("click", function () {
-                applyModal.style.display = "none";
-                body.style.overflowY = "auto";
-            });
+            closeApplyModal.addEventListener("click", closeModal);
 
             window.addEventListener("click", function (event) {
-                if (event.target == applyModal) {
-                    applyModal.style.display = "none";
-                    body.style.overflowY = "auto";
-                }
+                if (event.target == applyModal) { closeModal(); }
+            });
+            window.addEventListener("touchstart", function (event) {
+                if (event.target == applyModal) { closeModal(); }
             });
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
