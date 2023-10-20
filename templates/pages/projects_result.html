@@ -1,0 +1,17 @@
+{% if projects %}
+    <div class="projects-wrapper">
+        {% for object in projects %}
+        <div class="projects-column">
+            <a href="{{ object.link }}" class="projects-column-link">View <i class="fa-solid fa-arrow-right-long"></i></a>
+            <img src="{{ object.image.url }}" alt="">
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="projects-empty">
+        <div class="projects-empty-icon-container">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <h1 class="projects-empty-title">There are no any projects yet</h1>
+    </div>
+{% endif %}

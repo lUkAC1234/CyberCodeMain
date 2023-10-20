@@ -2,9 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
 from ckeditor.fields import RichTextField
-from django.core.validators import RegexValidator, MinLengthValidator
-from django.core.exceptions import ValidationError
-import re
+from django.core.validators import RegexValidator
 
 class EnglishLettersUsernameValidator(RegexValidator):
     regex = r'^[a-z0-9]{8,16}$'
@@ -14,9 +12,9 @@ class EnglishLettersUsernameValidator(RegexValidator):
     flags = 0
 
 class PasswordValidator(RegexValidator):
-    regex = r'^[a-zA-Z0-9]{8,32}$'
+    regex = r'^[a-zA-Z0-9]{8,128}$'
     message = _(
-        'Password must be at least 8 characters and at most 32 characters long, and can only contain English letters and numbers.'
+        'Password must be at least 8 characters and at most 128 characters long, and can only contain English letters and numbers.'
     )
     flags = 0
 
@@ -175,8 +173,8 @@ class JobModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        verbose_name = 'JOB OPENINGS'
-        verbose_name_plural = 'JOBS OPENINGS'
+        verbose_name = 'Jobs Openings'
+        verbose_name_plural = 'Jobs Openings'
         ordering = ('-id',)
 
     def __str__(self):
@@ -190,14 +188,40 @@ class JobApplyModel(models.Model):
     category = models.ForeignKey(JobCategoryModel, on_delete=models.CASCADE)
     user = models.ForeignKey(UserModel, on_delete=models.RESTRICT, related_name='jobApplyUser')
     created_at = models.DateTimeField(auto_now_add=True)
+
+class ProjectCategory(models.Model):
+    category = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.category
+    
+    class Meta:
+        verbose_name = 'Projects Categories'
+        verbose_name_plural = 'Projects Categories'
+        ordering = ('-id',)
+
+class ProjectModel(models.Model):
+    title = models.CharField(max_length=100)
+    description = RichTextField()
+    image = models.ImageField(upload_to='projects/images/%Y/%m/%d/')
+    link = models.URLField()
+    category = models.ForeignKey(ProjectCategory, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = 'Projects'
+        verbose_name_plural = 'Projects'
+        ordering = ('-id',)
     
 class PartnersModel(models.Model):
     title = models.CharField(max_length=50)
     logo = models.ImageField(upload_to=f'partners/logos/%Y/%m/%d/')
 
     class Meta:
-        verbose_name = 'PARTNER'
-        verbose_name_plural = 'PARTNERS'
+        verbose_name = 'Partners'
+        verbose_name_plural = 'Partners'
         ordering = ('-id',)
 
     def __str__(self):
@@ -224,5 +248,5 @@ class CheckOut(models.Model):
         return f"{self.first_name} {self.total_price}$"
 
     class Meta:
-        verbose_name = 'CHECKOUT'
-        verbose_name_plural = 'CHECKOUT'
+        verbose_name = 'Checkout'
+        verbose_name_plural = 'Checkout'

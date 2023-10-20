@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from django.utils.translation import gettext as _
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
 from .models import PostModel, PricingModel, FeedbackModel, FaqModel, JobModel, \
-PostCategoryModel, PostTagModel, UserModel, PartnersModel, CheckOut
+PostCategoryModel, PostTagModel, UserModel, PartnersModel, CheckOut, ProjectModel, ProjectCategory
 from .forms import ContactusModelForm, AccountForm, LoginForm, RegistrationForm, JobApplyForm, \
 CheckOutForm, FeedbackForm
 from django.contrib.auth import login, logout, authenticate
@@ -17,20 +17,27 @@ from django.http import HttpResponseNotFound
 class index(TemplateView):
     template_name = "pages/index.html"
 
+    pricing = PricingModel.objects.filter(popular=True).order_by('-popular', '-id')[:3]
+    posts = PostModel.objects.only('title', 'image', 'posted_on', 'short_description').all()
+    feedbacks = FeedbackModel.objects.select_related('user').all()
+    partners = PartnersModel.objects.all()
+
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
-        data['pricing'] = PricingModel.objects.filter(popular=True).order_by('-popular', '-id')[:3]
-        data['posts'] = PostModel.objects.only('title', 'image', 'posted_on', 'short_description').all()
-        data['feedbacks'] = FeedbackModel.objects.select_related('user').all()
-        data['partners'] = PartnersModel.objects.all()
+        data['pricing'] = self.pricing
+        data['posts'] = self.posts
+        data['feedbacks'] = self.feedbacks
+        data['partners'] = self.partners
         return data
     
 class about(TemplateView):
     template_name = "pages/about.html"
 
-    def get_context_data(self, *, object_list=None, **kwargs):
+    users = CheckOut.objects.only('user').all()
+
+    def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
-        data['users'] = CheckOut.objects.only('user').all()
+        data['users'] = self.users
         return data
 
 class contact(CreateView):
@@ -38,9 +45,11 @@ class contact(CreateView):
     template_name = "pages/contact.html"
     success_url = '/contact/us/' 
 
-    def get_context_data(self, *, object_list=None, **kwargs):
+    faqs = FaqModel.objects.all()[:8]
+
+    def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
-        data['faqs'] = FaqModel.objects.all()[:8]
+        data['faqs'] = self.faqs
         return data
 
     def form_valid(self, form):
@@ -68,9 +77,11 @@ class FAQListView(ListView):
 
 class Pricing(TemplateView):
     template_name = "pages/pricing.html"
-    def get_context_data(self, *, object_list=None, **kwargs):
+
+    pricing = PricingModel.objects.filter(popular=True).order_by('-popular', '-id')[:3]
+    def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
-        data['pricing'] = PricingModel.objects.filter(popular=True).order_by('-popular', '-id')[:3]
+        data['pricing'] = self.pricing
         return data
     
 class pricinglist(ListView):
@@ -185,11 +196,15 @@ class BlogListView(ListView):
 
         return posts
 
+    latestPost = PostModel.objects.all().order_by('-id')[:1]
+    postCategories = PostCategoryModel.objects.all()
+    postTags = PostTagModel.objects.all()
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['latestPost'] = PostModel.objects.all().order_by('-id')[:1]
-        context['postCategories'] = PostCategoryModel.objects.all()
-        context['postTags'] = PostTagModel.objects.all()
+        context['latestPost'] = self.latestPost
+        context['postCategories'] = self.postCategories
+        context['postTags'] = self.postTags
         return context
 
     def render_to_response(self, context, **response_kwargs):
@@ -212,7 +227,7 @@ class blogdetail(DetailView):
 
         similar_posts = PostModel.objects.filter(
             Q(category=current_post.category) | Q(tags__in=current_post.tags.all())
-        ).exclude(id=current_post.id).distinct()[:2]
+        ).exclude(id=current_post.id).distinct()[:2].select_related('category')
         
         context['similarPosts'] = similar_posts
         return context 
@@ -260,8 +275,35 @@ class JobDetailView(DetailView):
         context['apply_form'] = form
         return self.render_to_response(context)
 
-class helpcenter(TemplateView):
-    template_name = "pages/helpcenter.html"       
+
+class ProjectsView(TemplateView):
+    template_name = 'pages/projects.html'
+
+    categories = ProjectCategory.objects.all()
+
+    def get_queryset(self):
+        category = self.request.GET.get("category", '')
+        projects = ProjectModel.objects.all().select_related('category')
+
+        if category and category.isdigit():
+            if ProjectCategory.objects.filter(id=category).exists():
+                projects = projects.filter(category=category)
+
+        return projects
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['projects'] = self.get_queryset()
+        context['categories'] = self.categories
+        return context
+
+    def render_to_response(self, context, **response_kwargs):
+        if self.request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+            projects = self.get_queryset()
+            html = render_to_string('pages/projects_result.html', {'projects': projects})
+            return JsonResponse({'success': True, 'html': html})
+
+        return super().render_to_response(context, **response_kwargs)     
 
 class MyProfileEdit(LoginRequiredMixin, UpdateView):
     model = UserModel

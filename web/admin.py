@@ -1,21 +1,11 @@
-# --------------------------------------------------------------------------- #
-# Django exceptions
 from django.contrib import admin
-# --------------------------------------------------------------------------- #
-# Models and Forms
 from .models import UserModel, PricingModel, PostModel, FeedbackModel, ContactusModel, \
-FaqModel, JobModel, JobCategoryModel, PostTagModel, PostCategoryModel, PartnersModel, \
+FaqModel, JobModel, JobCategoryModel, ProjectModel, ProjectCategory, PostTagModel, PostCategoryModel, PartnersModel, \
 JobApplyModel, CheckOut
-# --------------------------------------------------------------------------- #
-# Translation
 from django.utils.translation import gettext_lazy as _
-# --------------------------------------------------------------------------- #
 # For saving html code
 from django.utils.safestring import mark_safe
-from django import forms
 
-
-# --------------------------------------------------------------------------- #
 
 # --------------------------------------------------------------------------- #
 # User Model Admin
@@ -101,6 +91,18 @@ class JobApplyyAdmin(admin.ModelAdmin):
     list_display_links = ['id', 'firstName']
     search_fields = ['firstName']
     readonly_fields = ['created_at']
+
+@admin.register(ProjectCategory)
+class ProjectsCategoryAdmin(admin.ModelAdmin):
+    list_display = ['id', 'category']
+    list_display_links = ['id', 'category']
+    search_fields = ['category']
+
+@admin.register(ProjectModel)
+class ProjectsAdmin(admin.ModelAdmin):
+    list_display = ['id', 'title']
+    list_display_links = ['id', 'title']
+    search_fields = ['title']
 
 @admin.register(PartnersModel)
 class PartnersAdmin(admin.ModelAdmin):

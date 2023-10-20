@@ -1,0 +1,95 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Projects - CyberCode</title>
+{% endblock %}
+
+{% block content %}
+<main class="main projects-main">
+    <section class="projects-section">
+        <div class="projects-container">
+            <article class="projects-article">
+                <h1 class="projects-article-title">Here the projects list that we did</h1>
+            </article>
+            <section class="projects-category-section">
+                {% for category in categories %}
+                <div class="projects-category">
+                    <button class="projects-category-text" data-param-name="category"
+                        data-param-value="{{ category.id }}">
+                        {{ category.category }}
+                    </button>
+                </div>
+                {% endfor %}
+            </section>
+            <section class="projects-wrapper-section">
+                {% include 'pages/projects_result.html' %}
+            </section>
+        </div>
+    </section>
+
+    <!-- Start READY TO TRY SECTION -->
+    <section class="ready-to-try-section">
+        <div class="ready-to-try-container">
+            <div class="ready-to-try-column">
+                <h1 class="ready-to-try-title">Ready to try <br> Cyber Code?</h1>
+                <p class="ready-to-try-info">Try Cyber Code and take back control of your day</p>
+                <div class="ready-to-try-buttons-container">
+                    <div class="ready-to-try-btn-column">
+                        <a href="{% url 'main:pricing' %}">
+                            <button class="ready-to-try-button">Get started</button>
+                        </a>
+                    </div>
+                    <div class="ready-to-try-btn-column">
+                        <a href="#pricingListSection">
+                            <button class="ready-to-try-button-without-background">Pricing</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="ready-to-try-image-column">
+                <img src="{% static 'main/images/contactus/readytotry.svg' %}" alt="">
+            </div>
+        </div>
+    </section>
+    <!-- End READY TO TRY SECTION -->
+</main>
+{% endblock %}
+
+{% block js_block %}
+<script type="text/javascript">
+    $(document).ready(function () {
+    var activeCategory = null;
+
+    function updateFilters() {
+        var queryString = "category=" + (activeCategory || '');
+        $.ajax({
+            type: "GET",
+            url: window.location.pathname + '?' + queryString,
+            success: function (data) {
+                $(".projects-wrapper-section").html(data.html);
+            },
+        });
+    }
+
+    updateFilters();
+
+    $(document).on('click', '.projects-category-text', function () {
+        var clickedCategory = $(this).data('param-value');
+
+        if (activeCategory === clickedCategory) {
+            activeCategory = null; 
+            $(this).removeClass('active');
+        } else {
+            activeCategory = clickedCategory;
+            $('.projects-category-text').removeClass('active');
+            $(this).addClass('active');
+        }
+
+        updateFilters();
+    });
+});
+
+
+</script>
+{% endblock %}

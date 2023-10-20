@@ -1,0 +1,188 @@
+.projects-container {
+    padding: 5rem 1rem;
+}
+
+.projects-article {
+    margin-block: 2rem;
+
+    .projects-article-title {
+        @extend .dark-blue-text-center-grotext-family-4rem;
+
+        @media screen and (max-width: 992px) {
+            font-size: 3rem !important;
+        }
+
+        @media screen and (max-width: 550px) {
+            font-size: 2.25rem !important;
+        }
+    }
+}
+
+.projects-category-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+
+    .projects-category-text {
+        @extend .gray-button-purple-1rem-2rem;
+        transition: all 0.4s ease;
+
+        &.active {
+            background: var(--background-purple);
+            color: var(--text-white);
+        }
+    }
+
+    @media screen and (max-width: 850px) {
+        gap: 0.5rem;
+
+        .projects-category-text {
+            padding: 0.75rem 1.5rem !important;
+            font-size: 1rem !important;
+        }
+    }
+
+    @media screen and (max-width: 550px) {
+        justify-content: start;
+        .projects-category-text {
+            padding-inline: 1rem !important;
+            font-size: 0.8rem !important;
+        }
+    }
+}
+
+.projects-wrapper {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 5rem auto 1rem;
+    width: 98%;
+
+    @media screen and (max-width: 992px) {
+        grid-template-columns: repeat(4, 1fr);
+
+        .projects-column {
+            width: 100%;
+            height: 100%;
+
+            &:nth-child(4n) {
+                grid-column: span 1 !important;
+                grid-row: span 1 !important;
+            }
+
+            &:nth-child(7n) {
+                grid-column: span 2;
+                grid-row: span 2;
+            }
+        }
+    }
+
+    @media screen and (max-width: 750px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (max-width: 550px) {
+        grid-template-columns: repeat(2, 1fr);
+
+        .projects-column {
+            width: 100%;
+            height: 100%;
+
+            &:nth-child(7n) {
+                grid-column: span 1 !important;
+                grid-row: span 1 !important;
+            }
+
+            &:nth-child(3n) {
+                grid-column: span 2;
+            }
+        }
+    }
+
+    .projects-column {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: all 0.4s ease;
+
+        &:nth-child(4n) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        &:hover .projects-column-link  {
+            opacity: 1;
+            background: linear-gradient(0deg, rgba(136,40,255,1) 0%, rgba(255,217,221,1) 100%);
+
+        }
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+
+    .projects-column-link {
+        @extend .dark-blue-text-center-grotext-family-1rem;
+        @extend .flex-row-justify-align-center;
+        gap: 0.25rem;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: all 0.4s ease;
+        color: var(--text-white) !important;
+        border-radius: 0.5rem;
+
+        i {
+            font-size: 0.8rem;
+        }
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 0.5rem;
+        min-height: 15rem;
+        object-fit: cover;
+    }
+}
+
+.projects-empty {
+    display: grid;
+    place-items: center;
+    padding: 4rem 2rem;
+    box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    margin: 3rem auto 1rem;
+    width: 70%;
+    border-radius: 0.25rem;
+
+    i {
+        font-size: 2rem;
+        color: var(--text-purple);
+    }
+
+    .projects-empty-title {
+        @extend .dark-blue-text-center-grotext-family-1-5rem;
+        margin-top: 0.5rem;
+    }
+
+    @media screen and (max-width: 992px) {
+        i {
+            font-size: 1.5rem;
+            color: var(--text-purple);
+        }
+    
+        .projects-empty-title {
+            font-size: 1.125rem !important;
+        }
+    }
+
+    @media screen and (max-width: 550px) {
+        width: 100%;
+        padding-block: 2rem;
+        .projects-empty-title {
+            font-size: 1rem !important;
+        }
+    }
+}
