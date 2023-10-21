@@ -2,7 +2,7 @@
     <div class="projects-wrapper">
         {% for object in projects %}
         <div class="projects-column">
-            <a href="{{ object.link }}" class="projects-column-link">View <i class="fa-solid fa-arrow-right-long"></i></a>
+            <a href="{% url 'main:projectdetail' pk=object.pk %}" class="projects-column-link">View <i class="fa-solid fa-arrow-right-long"></i></a>
             <img src="{{ object.image.url }}" alt="">
         </div>
         {% endfor %}

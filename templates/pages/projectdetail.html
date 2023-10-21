@@ -1,0 +1,51 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Project Detail - CyberCode</title>
+{% endblock %}
+
+{% block content %}
+<main class="main project-detail-main">
+    <section class="project-detail-section">
+        <div class="project-detail-container">
+            <div class="project-detail-image-container">
+                <img src="{{ object.image.url }}" alt="">
+            </div>
+
+            <section class="project-detail-content">
+                <article class="project-detail-article">
+                    <h1 class="project-detail-title">{{ object.title }}</h1>
+                    <div class="project-detail-creaters">
+                        <a href="{% url 'main:projects' %}" class="project-detail-category"><i class="fa-solid fa-circle-left"></i> Go back</a>
+                        <button class="project-detail-category"><i class="fa-solid fa-star-half-stroke"></i> {{ object.category }}</button>
+                        <a href="{{ object.link }}" class="project-detail-category"><i class="fa-solid fa-link"></i> Link</a>
+                        <div class="project-detail-devs">
+                            {% if not object.users.count >= 3 %}
+                                {% for user in object.users.all %}
+                                    <img src="{{ user.user_image.url }}" alt="">
+                                {% endfor %}
+                                <img src="{% static 'main/images/profile/profile.svg' %}" alt="">
+                            {% else %}
+                                {% for user in object.users.all %}
+                                <img src="{{ user.user_image.url }}" alt="">
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </article>
+
+                <div class="project-detail-description-container">
+                    <p class="project-detail-description">
+                        {{ object.description|safe }}
+                    </p>
+                </div>
+            </section>
+        </div>
+    </section>
+</main>
+{% endblock %}
+
+{% block js_block %}
+
+{% endblock %}

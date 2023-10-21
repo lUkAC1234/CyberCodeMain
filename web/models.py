@@ -206,6 +206,7 @@ class ProjectModel(models.Model):
     image = models.ImageField(upload_to='projects/images/%Y/%m/%d/')
     link = models.URLField()
     category = models.ForeignKey(ProjectCategory, on_delete=models.CASCADE)
+    users = models.ManyToManyField(UserModel)
 
     def __str__(self):
         return self.title

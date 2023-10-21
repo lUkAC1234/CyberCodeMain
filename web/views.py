@@ -17,27 +17,20 @@ from django.http import HttpResponseNotFound
 class index(TemplateView):
     template_name = "pages/index.html"
 
-    pricing = PricingModel.objects.filter(popular=True).order_by('-popular', '-id')[:3]
-    posts = PostModel.objects.only('title', 'image', 'posted_on', 'short_description').all()
-    feedbacks = FeedbackModel.objects.select_related('user').all()
-    partners = PartnersModel.objects.all()
-
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
-        data['pricing'] = self.pricing
-        data['posts'] = self.posts
-        data['feedbacks'] = self.feedbacks
-        data['partners'] = self.partners
+        data['pricing'] = PricingModel.objects.filter(popular=True).order_by('-popular', '-id')[:3]
+        data['posts'] = PostModel.objects.only('title', 'image', 'posted_on', 'short_description').all()
+        data['feedbacks'] = FeedbackModel.objects.select_related('user').all()
+        data['partners'] = PartnersModel.objects.all()
         return data
     
 class about(TemplateView):
     template_name = "pages/about.html"
 
-    users = CheckOut.objects.only('user').all()
-
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
-        data['users'] = self.users
+        data['users'] = CheckOut.objects.only('user').all()
         return data
 
 class contact(CreateView):
@@ -45,11 +38,9 @@ class contact(CreateView):
     template_name = "pages/contact.html"
     success_url = '/contact/us/' 
 
-    faqs = FaqModel.objects.all()[:8]
-
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
-        data['faqs'] = self.faqs
+        data['faqs'] = FaqModel.objects.all()[:8]
         return data
 
     def form_valid(self, form):
@@ -78,10 +69,9 @@ class FAQListView(ListView):
 class Pricing(TemplateView):
     template_name = "pages/pricing.html"
 
-    pricing = PricingModel.objects.filter(popular=True).order_by('-popular', '-id')[:3]
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
-        data['pricing'] = self.pricing
+        data['pricing'] = PricingModel.objects.filter(popular=True).order_by('-popular', '-id')[:3]
         return data
     
 class pricinglist(ListView):
@@ -195,16 +185,13 @@ class BlogListView(ListView):
                 posts = posts.filter(category=category)
 
         return posts
-
-    latestPost = PostModel.objects.all().order_by('-id')[:1]
-    postCategories = PostCategoryModel.objects.all()
-    postTags = PostTagModel.objects.all()
-
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['latestPost'] = self.latestPost
-        context['postCategories'] = self.postCategories
-        context['postTags'] = self.postTags
+        context['latestPost'] = PostModel.objects.all().order_by('-id')[:1]
+        context['postCategories'] = PostCategoryModel.objects.all()
+        context['postTags'] = PostTagModel.objects.all()
+
         return context
 
     def render_to_response(self, context, **response_kwargs):
@@ -279,8 +266,6 @@ class JobDetailView(DetailView):
 class ProjectsView(TemplateView):
     template_name = 'pages/projects.html'
 
-    categories = ProjectCategory.objects.all()
-
     def get_queryset(self):
         category = self.request.GET.get("category", '')
         projects = ProjectModel.objects.all().select_related('category')
@@ -294,7 +279,7 @@ class ProjectsView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['projects'] = self.get_queryset()
-        context['categories'] = self.categories
+        context['categories'] = ProjectCategory.objects.all()
         return context
 
     def render_to_response(self, context, **response_kwargs):
@@ -304,6 +289,10 @@ class ProjectsView(TemplateView):
             return JsonResponse({'success': True, 'html': html})
 
         return super().render_to_response(context, **response_kwargs)     
+    
+class ProjectDetailView(DetailView):
+    model = ProjectModel
+    template_name = 'pages/projectdetail.html'
 
 class MyProfileEdit(LoginRequiredMixin, UpdateView):
     model = UserModel
