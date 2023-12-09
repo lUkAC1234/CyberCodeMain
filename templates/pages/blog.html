@@ -16,7 +16,7 @@
     <!-- END GRADIENT CONTENT -->
 
     <!-- START LATEST POST SECTION -->
-
+    {% if latestPost %}
     <section class="latest-posts-section">
         <div class="latest-posts-container">
             <h1 class="latest-posts-title">Latest posts</h1>
@@ -39,6 +39,7 @@
             </div>
         </div>
     </section>
+    {% endif %}
 
     <!-- END LATEST POST SECTION -->
 
@@ -49,43 +50,37 @@
     <!-- END POSTS TAGS SECTION -->
 
     <section class="featured-posts-section">
+        <div class="featured-search-wrapper">
+            <label class="search-container" for="">
+                <input id="search-input" class="featured-search-input" type="search"
+                    placeholder="Search by title" name="search" value="{{ request.GET.search }}">
+            </label>
+        </div>
         <div class="featured-posts-container">
-            <form action="{% url 'main:blog' %}" method="GET" id="blog-form">
-                <section class="posts-tags-section">
-                    <div class="posts-tags-container">
-                        <h1 class="posts-tags-title">Search by tags</h1>
-                        <div class="posts-tags-wrapper">
-                            {% for tag in postTags %}
-                            <div class="posts-tags-column">
-                                <button class="post-tags-element" data-param-name="tag" data-param-value="{{ tag.id }}">
-                                    {{ tag.tag }}
-                                </button>
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </section>
+            <form action="{% url 'main:blog' %}" method="GET" id="blog-form" class="blog-form">
                 <article class="featured-posts-search-container">
-                    <div class="featured-search-wrapper">
-                        <h1 class="featured-search-title">By keyword</h1>
-                        <form action="{% url 'main:blog' %}" method="get">
-                            <label class="search-container" for="">
-                                <input id="search-input" class="featured-search-input" type="search"
-                                    placeholder="Search by title" name="search" value="{{ request.GET.search }}">
-                                <button type="submit" class="featured-search-btn"><i
-                                        class="fa-sharp fa-solid fa-magnifying-glass"></i>
-                                    Search</button>
-                            </label>
-                        </form>
-                    </div>
                     <div class="featured-posts-category">
                         <h1 class="featured-posts-category-title">By category</h1>
-                        <div class="featured-categories-wrapper owl-carousel">
+                        <div class="featured-categories-wrapper">
                             {% for category in postCategories %}
                             <div class="featured-category-column">
                                 <button class="post-category-element" data-param-name="category"
                                     data-param-value="{{ category.id }}">
                                     {{category.category}}
+                                    <span class="category-blog-count">{{ category.post_count }}</span>
+                                </button>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="featured-posts-category">
+                        <h1 class="featured-posts-category-title">By tags</h1>
+                        <div class="featured-categories-wrapper">
+                            {% for tag in postTags %}
+                            <div class="featured-category-column posts-tags-column">
+                                <button class="post-tags-element" data-param-name="tag" data-param-value="{{ tag.id }}">
+                                    {{ tag.tag }}
+                                    <span class="tag-blog-count">{{ tag.post_count }}</span>
                                 </button>
                             </div>
                             {% endfor %}

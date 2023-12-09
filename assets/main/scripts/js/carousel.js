@@ -75,36 +75,6 @@
             }
         }
     });
-
-    $(".featured-categories-wrapper").owlCarousel({
-        smartSpeed: 1000,
-        loop: false,
-        center: false,
-        dots: false,
-        nav: true,
-        margin: 10,
-        navText : [
-            '<i class="fa-sharp fa-solid fa-circle-chevron-left feedbackPrev"></i>',
-            '<i class="fa-sharp fa-solid fa-circle-chevron-right feedbackNext"></i>'
-        ],
-        responsive: {
-            0:{
-                items: 2,
-            },
-
-            425:{
-                items: 3,
-            },
-
-            801: {
-                items: 5
-            },
-
-            1301:{
-                items: 3,
-            }
-        }
-    });
     
 })(jQuery);
 

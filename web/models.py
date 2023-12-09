@@ -83,16 +83,22 @@ class PricingModel(models.Model):
         return self.type
 
 class PostCategoryModel(models.Model):
-    category = models.CharField(max_length=100)
+    category = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
         return self.category
     
+    def post_count(self):
+        return PostModel.objects.filter(category=self).count()
+    
 class PostTagModel(models.Model):
-    tag = models.CharField(max_length=100)
+    tag = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
         return self.tag
+    
+    def post_count(self):
+        return PostModel.objects.filter(tags=self).count()
 
 class PostModel(models.Model):
     title = models.CharField(max_length=100)
@@ -156,7 +162,7 @@ class FaqModel(models.Model):
         return self.question
     
 class JobCategoryModel(models.Model):
-    category = models.CharField(max_length=100)
+    category = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
         return self.category
@@ -190,7 +196,7 @@ class JobApplyModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
 class ProjectCategory(models.Model):
-    category = models.CharField(max_length=100)
+    category = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
         return self.category

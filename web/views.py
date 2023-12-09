@@ -13,6 +13,7 @@ from django.contrib.auth.hashers import make_password
 from django.template.loader import render_to_string
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseNotFound
+from django.db.models import Count
 
 class index(TemplateView):
     template_name = "pages/index.html"

@@ -70,21 +70,25 @@
 
     <section class="similar-popular-posts">
         <div class="similar-popular-container">
-            <article class="featured-posts-wrapper">
-                <div class="featured-posts-column-container">
+            <article class="similar-popular-posts-wrapper">
+                <div class="similar-popular-posts-column-container">
                     {% for object in similarPosts %}
-                    <div class="featured-posts-column" data-context="Popular Similar Posts">
-                        <a href="{% url 'main:blogdetail' pk=object.pk %}" class="featured-post-column-title">
-                            {{ object.title }} <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        <p class="featured-post-column-text">{{ object.short_description }}</p>
-                        <span class="featured-post-column-posted">Posted on</span>
-                        <p class="featured-post-column-date">{{ object.posted_on|date:"F d, Y" }}</p>
+                    <div class="similar-popular-posts-column" data-context="Popular Similar Posts">
+                        <a href="{% url 'main:blogdetail' pk=object.pk %}" class="similar-popular-post-column-title">
+                            {{ object.title }}</a>
+                        <p class="similar-popular-post-column-text">{{ object.short_description }}</p>
+                        <span class="similar-popular-post-column-posted">Posted on</span>
+                        <p class="similar-popular-post-column-date">{{ object.posted_on|date:"F d, Y" }}</p>
                     </div>
                     {% empty %}
-                    <div class="no-posts-container">
-                        <h1 class="no-posts-title">There is no similar posts</h1>
-                        <a href="{% url 'main:blog' %}" class="no-posts-link">Click to see other blogs</a>
-                    </div>
+                    <article class="partners-empty-container" style="margin-top: 0;">
+                        <div class="partners-empty-icon-container">
+                            <img src="{% static 'main/images/errors/error.svg' %}" alt="">
+                        </div>
+                        <h1 class="partners-empty-title">No matching results</h1>
+                        <p class="partners-empty-text">There is no any similar blogs yet</p>
+                        <a href="{% url 'main:blog' %}" class="partners-empty-clear">Go to blog <i class="fa-solid fa-rotate"></i></a>
+                    </article>
                     {% endfor %}
                 </div>
             </article>
