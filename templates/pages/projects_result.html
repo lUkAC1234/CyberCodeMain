@@ -1,3 +1,4 @@
+{% load static %}
 {% if projects %}
     <div class="projects-wrapper">
         {% for object in projects %}
@@ -10,8 +11,10 @@
 {% else %}
     <div class="projects-empty">
         <div class="projects-empty-icon-container">
-            <i class="fa-solid fa-xmark"></i>
+            <img src="{% static 'main/images/errors/noresult.svg' %}" alt="">
         </div>
-        <h1 class="projects-empty-title">There are no any projects yet</h1>
+        <h1 class="projects-empty-title">No matching search results</h1>
+        <p class="projects-empty-description">Try again using more general search items</p>
+        <button class="projects-empty-clear" id="projects-empty-clear">Clear All Filters <i class="fa-solid fa-rotate"></i></button>
     </div>
 {% endif %}

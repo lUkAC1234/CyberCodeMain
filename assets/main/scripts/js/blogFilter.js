@@ -47,9 +47,11 @@ $(document).ready(function () {
         $.ajax({
             type: "GET",
             url: window.location.pathname + '?' + queryString,
+            cache: false,
             success: function (data) {
+                $("#featured-posts-column-container").empty();
                 $("#featured-posts-column-container").html(data.html);
-                history.pushState(null, '', window.location.pathname + '?' + queryString);
+                window.history.pushState(null, null, window.location.pathname + '?' + queryString);
             },
         });
     }

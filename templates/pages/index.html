@@ -168,6 +168,15 @@
                     </a>
                 </div>
             </div>
+            {% empty %}
+            <article class="partners-empty-container">
+                <div class="partners-empty-icon-container">
+                    <img src="{% static 'main/images/errors/error.svg' %}" alt="">
+                </div>
+                <h1 class="partners-empty-title">No matching results</h1>
+                <p class="partners-empty-text">There is no any pricings yet</p>
+                <a href="{% url 'main:pricinglist' %}" class="partners-empty-clear">Go to pricing <i class="fa-solid fa-rotate"></i></a>
+            </article>
             {% endfor %}
         </div>
     </section>
@@ -214,10 +223,11 @@
             {% else %}
             <article class="partners-empty-container">
                 <div class="partners-empty-icon-container">
-                    <i class="fa-solid fa-xmark"></i>
+                    <img src="{% static 'main/images/errors/error.svg' %}" alt="">
                 </div>
-                <h1 class="partners-empty-title">No Posts</h1>
+                <h1 class="partners-empty-title">No matching results</h1>
                 <p class="partners-empty-text">There is no any posts yet</p>
+                <a href="{% url 'main:blog' %}" class="partners-empty-clear">Go to blog <i class="fa-solid fa-rotate"></i></a>
             </article>
             {% endif %}
         </div>
@@ -244,9 +254,9 @@
             {% else %}
             <article class="partners-empty-container">
                 <div class="partners-empty-icon-container">
-                    <i class="fa-solid fa-xmark"></i>
+                    <img src="{% static 'main/images/errors/error.svg' %}" alt="">
                 </div>
-                <h1 class="partners-empty-title">No Partners</h1>
+                <h1 class="partners-empty-title">No matching results</h1>
                 <p class="partners-empty-text">There is no any partners yet</p>
             </article>
             {% endif %}
@@ -283,12 +293,12 @@
                 {% endfor %}
             </div>
             {% else %}
-            <article class="feedback-empty-container">
-                <div class="feedback-empty-icon-container">
-                    <i class="fa-solid fa-xmark"></i>
+            <article class="partners-empty-container">
+                <div class="partners-empty-icon-container">
+                    <img src="{% static 'main/images/errors/error.svg' %}" alt="">
                 </div>
-                <h1 class="feedback-empty-title">No feedbacks</h1>
-                <p class="feedback-empty-text">There are no feedbacks yet</p>
+                <h1 class="partners-empty-title purple">No matching results</h1>
+                <p class="partners-empty-text white">There is no any feedbacks yet</p>
             </article>
             {% endif %}
 

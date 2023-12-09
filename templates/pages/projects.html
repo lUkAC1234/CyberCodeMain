@@ -59,37 +59,46 @@
 {% block js_block %}
 <script type="text/javascript">
     $(document).ready(function () {
-    var activeCategory = null;
+        var activeCategory = null;
 
-    function updateFilters() {
-        var queryString = "category=" + (activeCategory || '');
-        $.ajax({
-            type: "GET",
-            url: window.location.pathname + '?' + queryString,
-            success: function (data) {
-                $(".projects-wrapper-section").html(data.html);
-            },
-        });
-    }
-
-    updateFilters();
-
-    $(document).on('click', '.projects-category-text', function () {
-        var clickedCategory = $(this).data('param-value');
-
-        if (activeCategory === clickedCategory) {
-            activeCategory = null; 
-            $(this).removeClass('active');
-        } else {
-            activeCategory = clickedCategory;
-            $('.projects-category-text').removeClass('active');
-            $(this).addClass('active');
+        function updateFilters() {
+            var queryString = "category=" + (activeCategory || '');
+            $.ajax({
+                type: "GET",
+                url: window.location.pathname + '?' + queryString,
+                success: function (data) {
+                    $(".projects-wrapper-section").html(data.html);
+                },
+            });
         }
 
+        // Click event for Clear All Filters button
+        $(document).on('click', '#projects-empty-clear', function (e) {
+            e.preventDefault();
+            $('.projects-category-text').removeClass('active');
+            activeCategory = null;  // Reset active category to null
+            updateFilters();
+        });
+
+        // Click event for category text
+        $(document).on('click', '.projects-category-text', function () {
+            var clickedCategory = $(this).data('param-value');
+
+            if (activeCategory === clickedCategory) {
+                activeCategory = null;
+                $(this).removeClass('active');
+            } else {
+                activeCategory = clickedCategory;
+                $('.projects-category-text').removeClass('active');
+                $(this).addClass('active');
+            }
+
+            updateFilters();
+        });
+
+        // Initial update
         updateFilters();
     });
-});
-
-
 </script>
+
 {% endblock %}

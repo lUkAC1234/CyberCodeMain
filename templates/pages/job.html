@@ -89,7 +89,7 @@
                 We are looking for the most professional specialists in their field who will help us develop together, if you are one of them, join us!
             </p>
             <article class="website-technologies-container">
-                {% for object in object_list %}
+                {% for object in object_wlist %}
                 <a href="{% url 'main:jobdetail' pk=object.pk %}" class="job-column">
                     <div>
                         <div class="website-technologies-type-container">
@@ -99,6 +99,15 @@
                         <p class="website-technologies-text">{{ object.description }}</p>
                     </div>
                 </a>
+
+                {% empty %}
+                <article class="partners-empty-container" style="margin-top: 0;">
+                    <div class="partners-empty-icon-container">
+                        <img src="{% static 'main/images/errors/error.svg' %}" alt="">
+                    </div>
+                    <h1 class="partners-empty-title">No matching results</h1>
+                    <p class="partners-empty-text">There is no any job vacancies yet</p>
+                </article>
                 {% endfor %}
             </article>
         </div>

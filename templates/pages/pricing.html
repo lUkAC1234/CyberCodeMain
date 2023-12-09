@@ -32,6 +32,14 @@
                         <a href="{% url 'main:add_to_cart' id=object.id %}"><button class="pricing-abilities-btn">Get started</button></a>
                     </div>
                 </div>
+                {% empty %}
+                <article class="partners-empty-container">
+                    <div class="partners-empty-icon-container">
+                        <img src="{% static 'main/images/errors/error.svg' %}" alt="">
+                    </div>
+                    <h1 class="partners-empty-title purple">No matching results</h1>
+                    <p class="partners-empty-text white">There is no any pricings yet</p>
+                </article>
                 {% endfor %}
             </div>
 
