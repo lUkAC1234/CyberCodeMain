@@ -74,7 +74,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'webordermain',
-        'USER': 'postgres',
+        'USER': 'root',
         'PASSWORD': 'dimatop12',
         'HOST': 'localhost',
         'PORT': '5432'
