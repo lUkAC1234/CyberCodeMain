@@ -1,7 +1,7 @@
 # Добро пожаловать в репозиторий CyberCode!
 
 <div>
-  <img src="https://mikond.com/media/logos/2023/07/17/mikond.jpg" alt="Логотип CyberCode" width="200">
+  <img src="https://devcybercode.com/static/main/images/layout/codecraftheader.svg" alt="Логотип CyberCode" width="200">
 </div>
 
 <h1>О нас</h1>
@@ -59,13 +59,6 @@
     <p><img src="https://www.linode.com/wp-content/uploads/2020/09/postgres-featured-image.png" alt="PostgreSQL"></p>
     <p>PostgreSQL</p>
   </div>
-</div>
-
-## Примеры наших работ
-
-<div align="center">
-  <img src="https://example.com/path/to/example1.png" alt="Пример 1" width="300">
-  <img src="https://example.com/path/to/example2.png" alt="Пример 2" width="300">
 </div>
 
 Если у вас есть вопросы или вы хотите сотрудничать с нами, свяжитесь с нами по адресу [supportcybercode@gmail.com](mailto:supportcybercode@gmail.com).
