@@ -53,6 +53,9 @@ $(document).ready(function () {
                 $("#featured-posts-column-container").html(data.html);
                 window.history.pushState(null, null, window.location.pathname + '?' + queryString);
             },
+            error: function (xhr, status, error) {
+                console.error('AJAX request failed:', status, error);
+            }
         });
     }
 

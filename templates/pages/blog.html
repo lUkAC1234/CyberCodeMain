@@ -53,8 +53,8 @@
         <div class="featured-search-wrapper">
             <label class="search-container" for="">
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                <input id="search-input" class="featured-search-input" type="search"
-                    placeholder="Search by title" name="search" value="{{ request.GET.search }}">
+                <input id="search-input" class="featured-search-input" type="search" placeholder="Search by title"
+                    name="search" value="{{ request.GET.search }}">
             </label>
         </div>
         <div class="featured-posts-container">
@@ -87,12 +87,38 @@
                             {% endfor %}
                         </div>
                     </div>
+                    <div class="clear-posts-container">
+                        <button class="clear-posts-clear" id="clearUrl">Clear all filters + Start Over</button>
+                    </div>
                 </article>
             </form>
             <article class="featured-posts-wrapper">
                 <div class="featured-posts-column-container" id="featured-posts-column-container">
                     {% include 'pages/blog_result.html' %}
                 </div>
+                {% if page_obj.has_other_pages%}
+                <div class="website-pagination-container">
+                    <ul class="website-pagination">
+                        {% if page_obj.has_previous %}
+                        <li class="website-pagination-item">
+                            <a class="website-pagination-link" href="?page={{ page_obj.previous_page_number }}#featured-posts-column-container"><i class="fa-solid fa-chevron-left"></i></a>
+                        </li>
+                        {% endif %}
+                        {% for page in paginator.page_range %}
+                            {% if page >= page_obj.number|add:-2 and page_obj.number|add:2 >= page %}
+                            <li class="website-pagination-item">
+                                <a class="website-pagination-link {% if page_obj.number == page %}active{% endif %}" href="?page={{ page }}#featured-posts-column-container">{{ page }}</a>
+                            </li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if page_obj.has_next %}
+                        <li class="website-pagination-item">
+                            <a class="website-pagination-link" href="?page={{ page_obj.next_page_number }}#featured-posts-column-container"><i class="fa-solid fa-chevron-right"></i></a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+                {% endif %}
             </article>
         </div>
     </section>

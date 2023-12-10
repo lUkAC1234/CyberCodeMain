@@ -165,6 +165,7 @@ class SuccessPayment(CreateView):
 
 class BlogListView(ListView):
     template_name = "pages/blog.html"
+    paginate_by = 5
     model = PostModel
 
     def get_queryset(self):
@@ -192,13 +193,12 @@ class BlogListView(ListView):
         context['latestPost'] = PostModel.objects.all().order_by('-id')[:1]
         context['postCategories'] = PostCategoryModel.objects.all()
         context['postTags'] = PostTagModel.objects.all()
-
         return context
 
     def render_to_response(self, context, **response_kwargs):
         if self.request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
             html = render_to_string('pages/blog_result.html', {'object_list': context['object_list']}, request=self.request)
-            return JsonResponse({'success': True, 'html': html})
+            return JsonResponse({'success': True, 'html': html, 'paginator': context['paginator'].num_pages, 'page': context['page_obj'].number})
         return super().render_to_response(context, **response_kwargs)
 
 

@@ -3189,6 +3189,7 @@
     border-bottom: 0.125rem solid var(--background-purple);
     border-right: none;
     padding-right: 0;
+    padding-bottom: 1rem;
   }
 }
 
@@ -3389,10 +3390,54 @@
   }
 }
 
+.clear-posts-container {
+  margin-top: 2rem;
+}
+@media screen and (max-width: 700px) {
+  .clear-posts-container .clear-posts-clear {
+    width: 100%;
+  }
+}
 @media screen and (max-width: 500px) {
   .clear-posts-container {
     margin-inline: auto;
   }
+}
+
+.website-pagination-container {
+  margin-block: 2rem;
+}
+
+.website-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.website-pagination-item a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-dark-blue);
+  background: var(--gray-button);
+  border-radius: 50%;
+  font-family: var(--grotext-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  width: 3rem;
+  height: 3rem;
+  transition: all 0.3s ease;
+}
+.website-pagination-item a:hover, .website-pagination-item a.active {
+  color: var(--text-white);
+  background: var(--background-purple);
+}
+.website-pagination-item a:hover i {
+  color: var(--text-white);
+}
+.website-pagination-item a i {
+  color: var(--text-dark-blue);
+  transition: all 0.3s ease;
 }
 
 .detail-gradient-section {

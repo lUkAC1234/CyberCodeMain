@@ -221,9 +221,11 @@
         color: var(--text-purple);
         font-size: 1rem;
         caret-color: var(--background-purple);
+
         &::placeholder {
             color: var(--text-light-gray);
         }
+
         &::selection {
             color: var(--text-white);
             background: var(--background-purple)
@@ -244,7 +246,9 @@
         border-bottom: 0.125rem solid var(--background-purple);
         border-right: none;
         padding-right: 0;
+        padding-bottom: 1rem;
     }
+
     border-right: 0.125rem solid var(--background-purple);
     padding-right: 1rem
 }
@@ -498,8 +502,14 @@
 }
 
 .clear-posts-container {
+    margin-top: 2rem;
+
     .clear-posts-clear {
         @extend .onerem-tworem-purple-button;
+
+        @media screen and (max-width: 700px) {
+            width: 100%;
+        }
     }
 
     @media screen and (max-width: 500px) {
@@ -508,3 +518,46 @@
 }
 
 // END POSTS TAGS SECTION
+
+.website-pagination-container {
+    margin-block: 2rem;
+}
+
+.website-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.website-pagination-item {
+    a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--text-dark-blue);
+        background: var(--gray-button);
+        border-radius: 50%;
+        font-family: var(--grotext-sans);
+        font-size: 1rem;
+        font-weight: 500;
+        width: 3rem;
+        height: 3rem;
+        transition: all 0.3s ease;
+        &:hover,
+        &.active {
+            color: var(--text-white);
+            background: var(--background-purple);
+        }
+
+        &:hover {
+            i {
+                color: var(--text-white);
+            }
+        }
+
+        i {
+            color: var(--text-dark-blue);
+            transition: all 0.3s ease;
+        }
+    }
+}
