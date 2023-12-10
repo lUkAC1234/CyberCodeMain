@@ -85,13 +85,13 @@
                             {% endfor %}
                         </div>
                         {% else %}
-                        <article class="paymentEmpty-container">
-                            <div class="payment-empty-icon-container">
-                                <i class="fa-solid fa-xmark"></i>
+                        <div class="projects-empty">
+                            <div class="projects-empty-icon-container">
+                                <img src="{% static 'main/images/errors/noresult.svg' %}" alt="">
                             </div>
-                            <h1 class="payment-empty-title">No items</h1>
-                            <p class="payment-empty-text">You have not selected any products yet</p>
-                        </article>
+                            <h1 class="projects-empty-title">No matching results</h1>
+                            <p class="projects-empty-description">You have not selected any items</p>
+                        </div>
                         {% endif %}
                     </div>
                     <div class="payment-return-back-container">

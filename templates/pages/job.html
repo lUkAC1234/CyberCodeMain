@@ -51,21 +51,24 @@
                         <i class="fas fa-wrench fa-rotate-270"></i>
                     </div>
                     <h1 class="services-info-title">Gain full control</h1>
-                    <p class="services-info-text">After we transfer the site to you, you will be able to manage your site yourself</p>
+                    <p class="services-info-text">After we transfer the site to you, you will be able to manage your
+                        site yourself</p>
                 </div>
                 <div class="services-info-column">
                     <div class="services-icon">
                         <i class="fas fa-question-circle"></i>
                     </div>
                     <h1 class="services-info-title">Dedicated support</h1>
-                    <p class="services-info-text">Free support for a month after transfer of the site, as well as fixing it only 1 time</p>
+                    <p class="services-info-text">Free support for a month after transfer of the site, as well as fixing
+                        it only 1 time</p>
                 </div>
                 <div class="services-info-column">
                     <div class="services-icon">
                         <i class="fa-solid fa-users-gear"></i>
                     </div>
                     <h1 class="services-info-title">Order is deliveres on time</h1>
-                    <p class="services-info-text">You will receive your website on time or even earlier, we guarantee it!</p>
+                    <p class="services-info-text">You will receive your website on time or even earlier, we guarantee
+                        it!</p>
                 </div>
                 <div class="services-info-column">
                     <div class="services-icon">
@@ -82,23 +85,43 @@
 
     <!-- START JOB OPENINGS SECTION -->
 
-    <section class="website-technologies-section" id="jobList">
-        <div class="website-technologies-title-container">
-            <h1 class="website-technologies-main-title">What job profiles are we currently looking for?</h1>
-            <p class="website-technologies-main-text">
-                We are looking for the most professional specialists in their field who will help us develop together, if you are one of them, join us!
+    <section class="job-openings-list-section" id="jobList">
+        <div class="job-openings-list-title-container">
+            <h1 class="job-openings-list-main-title">What job profiles are we currently looking for?</h1>
+            <p class="job-openings-list-main-text">
+                We are looking for the most professional specialists in their field who will help us develop together,
+                if you are one of them, join us!
             </p>
-            <article class="website-technologies-container">
-                {% for object in object_wlist %}
-                <a href="{% url 'main:jobdetail' pk=object.pk %}" class="job-column">
-                    <div>
-                        <div class="website-technologies-type-container">
-                            <h1 class="website-technologies-title">{{ object.title }}</h1>
-                            <h2 class="website-technologies-type">{{ object.category }}</h2>
+            <article class="job-openings-list-container">
+                {% for object in object_list %}
+                <div class="job-openings-list-column">
+                    <a href="{% url 'main:jobdetail' pk=object.pk %}">
+                        <div class="job-openings-list-type-container">
+                            <h1 class="job-openings-list-title">{{ object.title }}</h1>
+                            <h2 class="job-openings-list-type">{{ object.category }}</h2>
                         </div>
-                        <p class="website-technologies-text">{{ object.description }}</p>
-                    </div>
-                </a>
+                        {% load my_tags %}
+                        <div class="job-date-place-container">
+                            <h2 class="job-date">
+                                <i class="fa-solid fa-fire"></i> 
+                                {{ object.created_at|custom_timesince }}
+                            </h2>
+                            <h2 class="job-place">
+                                <i class="fa-solid fa-location-dot"></i> 
+                                {{ object.location }}
+                            </h2>
+                        </div>
+                        <p class="job-openings-list-text">{{ object.description|truncatechars:150 }}</p>
+
+                        <div class="knowledges-you-need-to-know-container">
+                            {% for object in object.knowledge.all %}
+                            <div class="knowledges-you-need-to-know-column">
+                                <h1 class="knowledges-you-need-to-know-text">{{ object.knowledge }}</h1>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </a>
+                </div>
 
                 {% empty %}
                 <article class="partners-empty-container" style="margin-top: 0;">
@@ -137,6 +160,4 @@
 {% endblock %}
 
 {% block js_block %}
-<script>
-</script>
 {% endblock %}

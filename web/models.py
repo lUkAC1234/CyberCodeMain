@@ -167,6 +167,12 @@ class JobCategoryModel(models.Model):
     def __str__(self):
         return self.category
     
+class JobKnowledgesModel(models.Model):
+    knowledge = models.CharField(max_length=100, unique=True)
+
+    def __str__(self):
+        return self.knowledge 
+
 class JobModel(models.Model):
     title = models.CharField()
     description = models.TextField()
@@ -176,7 +182,9 @@ class JobModel(models.Model):
     requirements = RichTextField()
 
     category = models.ForeignKey(JobCategoryModel, on_delete=models.CASCADE)
+    knowledge = models.ManyToManyField(JobKnowledgesModel, related_name='jobKnowledges')
     created_at = models.DateTimeField(auto_now_add=True)
+    location = models.CharField(default='Uzbekistan, Tashkent')
 
     class Meta:
         verbose_name = 'Jobs Openings'

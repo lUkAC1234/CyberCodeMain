@@ -104,20 +104,20 @@
     <section class="job-detail-text-section">
         <div class="job-detail-text-container">
             <div class="job-detail-text-column about-the-job-content active">
-                <h1 class="documentation-content-title">About {{ object.title }}</h1>
-                <div class="documentation-content-container job-content">
+                <h1 class="job-content-title">About {{ object.title }}</h1>
+                <div class="job-content">
                     {{ object.aboutthejob|safe }}
                 </div>
             </div>
             <div class="job-detail-text-column responsibilities-content">
-                <h1 class="documentation-content-title">About Responsibilities</h1>
-                <div class="documentation-content-container job-content">
+                <h1 class="job-content-title">About Responsibilities</h1>
+                <div class="job-content">
                     {{ object.responsibilities|safe }}
                 </div>
             </div>
             <div class="job-detail-text-column requirements-content">
-                <h1 class="documentation-content-title">About Requirements</h1>
-                <div class="documentation-content-container job-content">
+                <h1 class="job-content-title">About Requirements</h1>
+                <div class="job-content">
                     {{ object.requirements|safe }}
                 </div>
             </div>
@@ -126,45 +126,59 @@
 
     <!-- END JOB DETAIL TEXT SECTION -->
 
-    <!-- START MORE JOB OPENINGS -->
+    <!-- START JOB OPENINGS SECTION -->
 
-    <section class="website-technologies-section">
-        <div class="website-technologies-title-container">
-            <h1 class="website-technologies-main-title">More job openings</h1>
-            <p class="website-technologies-main-text">
+    <section class="job-openings-list-section" id="jobList">
+        <div class="job-openings-list-title-container">
+            <h1 class="job-openings-list-main-title">More job openings</h1>
+            <p class="job-openings-list-main-text">
                 Find your future work and improve your skills with us
             </p>
-            <article class="website-technologies-container">
+            <article class="job-openings-list-container">
                 {% for object in other_jobs %}
-                <a href="{% url 'main:jobdetail' pk=object.pk %}" class="job-column">
-                    <div>
-                        <div class="website-technologies-type-container">
-                            <h1 class="website-technologies-title">{{ object.title }}</h1>
-                            <h2 class="website-technologies-type">{{ object.category }}</h2>
+                <div class="job-openings-list-column">
+                    <a href="{% url 'main:jobdetail' pk=object.pk %}">
+                        <div class="job-openings-list-type-container">
+                            <h1 class="job-openings-list-title">{{ object.title }}</h1>
+                            <h2 class="job-openings-list-type">{{ object.category }}</h2>
                         </div>
-                        <p class="website-technologies-text">{{ object.description }}</p>
-                    </div>
-                </a>
-                {% empty %}
-                <div class="no-job-container">
-                    <div class="no-job-icon-container">
-                        <i class="fa-solid fa-xmark"></i>
-                    </div>
-                    <h1 class="no-job-title">No Jobs</h1>
-                    <p class="no-job-text">No other jobs with the same type of work yet.</p>
+                        {% load my_tags %}
+                        <div class="job-date-place-container">
+                            <h2 class="job-date">
+                                <i class="fa-solid fa-fire"></i> 
+                                {{ object.created_at|custom_timesince }}
+                            </h2>
+                            <h2 class="job-place">
+                                <i class="fa-solid fa-location-dot"></i> 
+                                {{ object.location }}
+                            </h2>
+                        </div>
+                        <p class="job-openings-list-text">{{ object.description|truncatechars:150 }}</p>
+
+                        <div class="knowledges-you-need-to-know-container">
+                            {% for object in object.knowledge.all %}
+                            <div class="knowledges-you-need-to-know-column">
+                                <h1 class="knowledges-you-need-to-know-text">{{ object.knowledge }}</h1>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </a>
                 </div>
+
+                {% empty %}
+                <article class="partners-empty-container" style="margin-top: 0;">
+                    <div class="partners-empty-icon-container">
+                        <img src="{% static 'main/images/errors/error.svg' %}" alt="">
+                    </div>
+                    <h1 class="partners-empty-title">No matching results</h1>
+                    <p class="partners-empty-text">There is no any job vacancies yet</p>
+                </article>
                 {% endfor %}
             </article>
-
-            <div class="more-job-openings-btn-container">
-                <a href="{% url 'main:job' %}">
-                    <button class="more-job-openings-btn">See other jobs</button>
-                </a>
-            </div>
         </div>
     </section>
 
-    <!-- END MORE JOB OPENINGS -->
+    <!-- END JOB OPENINGS SECTION -->
 
     <!-- START JOIN OUR TEAM SECTION -->
 

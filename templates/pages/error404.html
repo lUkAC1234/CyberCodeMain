@@ -7,28 +7,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google" content="notranslate">
-    <meta name="description" content="Websites development and design for your business in the best quality, we are waiting for you!">
-    <meta property="og:description" content="Websites development and design for your business in the best quality, we are waiting for you!">
+    <meta name="description"
+        content="Websites development and design for your business in the best quality, we are waiting for you!">
+    <meta property="og:description"
+        content="Websites development and design for your business in the best quality, we are waiting for you!">
     <meta name="og:image" content="{% static 'main/images/layout/codecraftheader.svg' %}">
-    <meta name="keywords" content="Разработка веб-сайтов в Ташкенте CyberCode cybercode сайты в Ташкенте сайты Ташкент websites web development Дизайн веб-сайтов в Ташкенте Создание сайтов в Ташкенте Графический дизайн в Ташкенте Логотипы и брендинг Оптимизация веб-сайтов Разработка корпоративных сайтов Дизайн лендингов Web Development in Tashkent Website Design in Tashkent Website Creation in Tashkent Graphic Design in Tashkent Logos and Branding Website Optimization Corporate Website Development Landing Page Design Разработка веб-сайтов в Европе Дизайн веб-сайтов в Европе Графический дизайн Логотипы и брендинг Оптимизация веб-сайтов Разработка корпоративных сайтов Дизайн лендингов Web Development in Europe Website Design in Europe Graphic Design Logos and Branding Website Optimization Corporate Website Development Landing Page Design">
+    <meta name="keywords"
+        content="Разработка веб-сайтов в Ташкенте CyberCode cybercode сайты в Ташкенте сайты Ташкент websites web development Дизайн веб-сайтов в Ташкенте Создание сайтов в Ташкенте Графический дизайн в Ташкенте Логотипы и брендинг Оптимизация веб-сайтов Разработка корпоративных сайтов Дизайн лендингов Web Development in Tashkent Website Design in Tashkent Website Creation in Tashkent Graphic Design in Tashkent Logos and Branding Website Optimization Corporate Website Development Landing Page Design Разработка веб-сайтов в Европе Дизайн веб-сайтов в Европе Графический дизайн Логотипы и брендинг Оптимизация веб-сайтов Разработка корпоративных сайтов Дизайн лендингов Web Development in Europe Website Design in Europe Graphic Design Logos and Branding Website Optimization Corporate Website Development Landing Page Design">
     <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'main/scripts/js/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="{% static 'main/styles/scss/global.css' %}">
 
-    <link rel="shortcut icon" href="{% static 'main/images/layout/codecraftheader.svg' %}" type="image/svg+xml"/>
+    <link rel="shortcut icon" href="{% static 'main/images/layout/codecraftheader.svg' %}" type="image/svg+xml" />
     <title>404 Page Not Found - CyberCode</title>
 
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap");
+
         :root {
             --grotext-sans: 'Space Grotesk';
         }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         .sign-404 {
             height: 100vh;
             overflow-y: hidden;
@@ -90,11 +96,6 @@
                 width: 100%;
                 font-size: 1rem !important;
             }
-
-            .link-404 button {
-                width: 7rem;
-                font-size: 0.9rem !important;
-            }
         }
 
         @media screen and (max-width: 450px) {
@@ -142,24 +143,40 @@
         }
 
         .link-404 button {
-
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             color: #fff;
             text-align: center;
             font-size: 1.25rem;
-            font-family: var(--grotext-sans);
-            font-weight: 500;
+            font-family: var(--nunito);
+            font-weight: 400;
             background: #8828FF;
             border-radius: 40px;
             border: 1px solid #8828FF;
             transition: all 0.5s;
             cursor: pointer;
-            padding: 0.5rem 1rem;
-            width: 12rem;
+            padding: 0.5rem 2rem;
+        }
+
+        .link-404 button i {
+            font-size: 1rem;
+            margin-top: 0.25rem;
         }
 
         .link-404 button:hover {
             background: none;
             color: var(--text-purple);
+        }
+
+        @media screen and (max-width: 500px) {
+            .link-404 button {
+                font-size: 1.125rem;
+            }
+
+            .link-404 button i {
+                font-size: 0.9rem;
+            }
         }
 
         svg {
@@ -189,21 +206,21 @@
                             </defs>
 
                             <g id="planet">
-                                <circle fill="none" stroke="#8828FF" stroke-width="3"
-                                    stroke-miterlimit="10" cx="572.859" cy="108.803" r="90.788" />
+                                <circle fill="none" stroke="#8828FF" stroke-width="3" stroke-miterlimit="10"
+                                    cx="572.859" cy="108.803" r="90.788" />
 
                                 <circle id="craterBig" fill="none" stroke="#8828FF" stroke-width="3"
                                     stroke-miterlimit="10" cx="548.891" cy="62.319" r="13.074" />
 
                                 <circle id="craterSmall" fill="none" stroke="#8828FF" stroke-width="3"
                                     stroke-miterlimit="10" cx="591.743" cy="158.918" r="7.989" />
-                                <path id="ring" fill="none" stroke="#8828FF" stroke-width="3"
-                                    stroke-linecap="round" stroke-miterlimit="10" d="
+                                <path id="ring" fill="none" stroke="#8828FF" stroke-width="3" stroke-linecap="round"
+                                    stroke-miterlimit="10" d="
                               M476.562,101.461c-30.404,2.164-49.691,4.221-49.691,8.007c0,6.853,63.166,12.408,141.085,12.408s141.085-5.555,141.085-12.408
                               c0-3.378-15.347-4.988-40.243-7.225" />
 
-                                <path id="ringShadow" opacity="0.5" fill="none" stroke="#8828FF"
-                                    stroke-width="3" stroke-linecap="round" stroke-miterlimit="10"
+                                <path id="ringShadow" opacity="0.5" fill="none" stroke="#8828FF" stroke-width="3"
+                                    stroke-linecap="round" stroke-miterlimit="10"
                                     d="
                               M483.985,127.43c23.462,1.531,52.515,2.436,83.972,2.436c36.069,0,68.978-1.19,93.922-3.149" />
                             </g>
@@ -454,7 +471,7 @@
                         to go back to the homepage.
                     </p>
                     <a href="{% url 'main:index' %}" class="link-404">
-                        <button>Home</button>
+                        <button>Go to home <i class="fa-solid fa-arrow-right"></i></button>
                     </a>
                 </div>
             </div>

@@ -862,6 +862,7 @@
   backdrop-filter: blur(5px);
   transform: scaleY(0);
   transition: all 0.3s ease;
+  transform-origin: top;
 }
 
 .modal-content {
@@ -1288,52 +1289,6 @@
 
 .job-column:hover {
   border-color: var(--background-purple);
-}
-
-.no-job-container {
-  display: grid;
-  place-items: center;
-  padding: 3rem 6rem;
-  box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.1);
-  border-radius: 0.5rem;
-}
-.no-job-container .no-job-icon-container i {
-  color: var(--background-purple);
-  font-size: 2.5rem;
-}
-.no-job-container .no-job-title {
-  margin-block: 0.5rem 1rem;
-}
-.no-job-container .no-job-text {
-  text-align: center;
-}
-@media screen and (max-width: 700px) {
-  .no-job-container {
-    padding: 1.5rem 3rem;
-  }
-  .no-job-container .no-job-icon-container i {
-    font-size: 2rem;
-  }
-  .no-job-container .no-job-title {
-    font-size: 1.25rem !important;
-  }
-  .no-job-container .no-job-text {
-    font-size: 1rem !important;
-  }
-}
-@media screen and (max-width: 500px) {
-  .no-job-container {
-    padding-inline: 1rem;
-  }
-  .no-job-container .no-job-icon-container i {
-    font-size: 1.5rem;
-  }
-  .no-job-container .no-job-title {
-    font-size: 1.125rem !important;
-  }
-  .no-job-container .no-job-text {
-    font-size: 0.9rem !important;
-  }
 }
 
 @media screen and (max-width: 600px) {
@@ -3179,11 +3134,12 @@
 }
 
 .search-container {
-  border: 1px solid var(--background-header-menu);
+  gap: 1rem;
   border-radius: 0.5rem;
-  padding: 0.85rem 0.5rem 0.85rem 1rem;
+  padding: 0.7rem 0.5rem 0.7rem 1rem;
   width: 90%;
   margin-inline: auto;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
 }
 .search-container:has(.featured-search-input:focus) {
   border-color: var(--background-purple);
@@ -3193,6 +3149,13 @@
     width: 20rem;
   }
 }
+.search-container:has(.featured-search-input:focus) .search-icon {
+  color: var(--text-purple);
+}
+.search-container .search-icon {
+  color: var(--text-light-gray);
+  transition: all 0.2s;
+}
 .search-container .featured-search-input {
   border: none;
   outline: none;
@@ -3200,9 +3163,15 @@
   font-family: var(--grotext-sans);
   width: 100%;
   color: var(--text-purple);
+  font-size: 1rem;
+  caret-color: var(--background-purple);
 }
 .search-container .featured-search-input::placeholder {
-  font-size: 0.7rem;
+  color: var(--text-light-gray);
+}
+.search-container .featured-search-input::selection {
+  color: var(--text-white);
+  background: var(--background-purple);
 }
 
 .featured-search-title,
@@ -3211,17 +3180,16 @@
   margin: 1rem 0;
 }
 
-.featured-posts-category {
-  position: relative;
-  padding-bottom: 1rem;
+.blog-form {
+  border-right: 0.125rem solid var(--background-purple);
+  padding-right: 1rem;
 }
-.featured-posts-category::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  background: var(--text-dark-blue);
-  bottom: 0;
+@media screen and (max-width: 1250px) {
+  .blog-form {
+    border-bottom: 0.125rem solid var(--background-purple);
+    border-right: none;
+    padding-right: 0;
+  }
 }
 
 .featured-categories-wrapper {
@@ -3242,6 +3210,10 @@
   color: var(--text-dark-blue);
   transition: all 0.4s ease;
   gap: 2rem;
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-word;
+  text-align: start;
 }
 .featured-categories-wrapper .featured-category-column button:hover {
   background: var(--background-purple);
@@ -3263,7 +3235,7 @@
   border-radius: 0.25rem;
 }
 .featured-posts-column:hover {
-  background: #f3f3f3;
+  background-color: #f8f8f8;
 }
 
 .featured-posts-column {
@@ -3271,7 +3243,18 @@
   gap: 2rem;
   position: relative;
 }
-.featured-posts-column:first-child::before {
+.featured-posts-column .featured-post-column-text {
+  margin: 1rem 0 1.5rem;
+}
+.featured-posts-column .featured-post-column-date {
+  color: var(--text-purple) !important;
+  margin-top: 0.3rem;
+}
+
+.similar-popular-posts-column {
+  position: relative;
+}
+.similar-popular-posts-column:first-child::before {
   content: attr(data-context);
   position: absolute;
   top: -6rem;
@@ -3284,21 +3267,14 @@
   color: var(--text-purple);
 }
 @media screen and (max-width: 992px) {
-  .featured-posts-column:first-child::before {
+  .similar-popular-posts-column:first-child::before {
     font-size: 2rem;
   }
 }
 @media screen and (max-width: 600px) {
-  .featured-posts-column:first-child::before {
+  .similar-popular-posts-column:first-child::before {
     font-size: 1.5rem;
   }
-}
-.featured-posts-column .featured-post-column-text {
-  margin: 1rem 0 1.5rem;
-}
-.featured-posts-column .featured-post-column-date {
-  color: var(--text-purple) !important;
-  margin-top: 0.3rem;
 }
 
 .feautered-posts-image-container img {
@@ -3410,6 +3386,12 @@
   .posts-tags-column .post-tags-element {
     padding: 0.5rem 1rem !important;
     font-size: 0.7rem !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .clear-posts-container {
+    margin-inline: auto;
   }
 }
 
@@ -3785,7 +3767,7 @@
   grid-template-columns: 1fr 1fr;
   place-items: center;
   gap: 2rem;
-  margin-top: 10rem;
+  margin-top: 15rem;
   width: 100%;
 }
 @media screen and (max-width: 800px) {
@@ -3811,6 +3793,191 @@
   margin-top: 0.3rem;
 }
 
+.job-openings-list-section {
+  position: relative;
+  margin-top: 10rem;
+}
+.job-openings-list-section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -5rem;
+  width: 10rem;
+  height: 500px;
+  background-image: url("../../images/about-us/leftcircle.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+@media screen and (max-width: 600px) {
+  .job-openings-list-section::before {
+    width: 8rem;
+    height: 300px;
+    top: -3rem;
+  }
+}
+
+.job-openings-list-title-container .job-openings-list-main-text {
+  text-align: center;
+  margin-block: 1rem 3rem;
+}
+.job-openings-list-title-container .job-openings-list-main-title,
+.job-openings-list-title-container .job-openings-list-main-text {
+  width: min(100%, 45rem);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+@media screen and (max-width: 600px) {
+  .job-openings-list-title-container .job-openings-list-main-title {
+    font-size: 2rem !important;
+  }
+  .job-openings-list-title-container .job-openings-list-main-text {
+    font-size: 1rem !important;
+  }
+}
+
+.job-openings-list-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin: 7rem 1rem 3rem;
+}
+.job-openings-list-container a {
+  color: unset;
+}
+
+.job-openings-list-column {
+  display: grid;
+  background-color: #f8f8f8;
+  width: min(100%, 70rem);
+  height: 100%;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in;
+  min-height: 10rem;
+  margin-inline: auto;
+}
+.job-openings-list-column:hover {
+  background-color: var(--background-purple);
+}
+.job-openings-list-column:hover .job-openings-list-title,
+.job-openings-list-column:hover .job-openings-list-text {
+  color: var(--text-white);
+}
+.job-openings-list-column:hover .knowledges-you-need-to-know-column {
+  background: var(--gray-button);
+}
+.job-openings-list-column:hover .knowledges-you-need-to-know-column .knowledges-you-need-to-know-text {
+  color: var(--text-dark-blue);
+}
+.job-openings-list-column:hover .job-date-place-container i {
+  color: var(--text-light-purple);
+}
+.job-openings-list-column:hover .job-date-place-container .job-date,
+.job-openings-list-column:hover .job-date-place-container .job-place {
+  color: var(--text-white);
+}
+
+.job-openings-list-type-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding-inline: 1rem 0;
+  margin-bottom: 1.25rem;
+}
+.job-openings-list-type-container .job-openings-list-title {
+  margin-top: 2rem;
+  transition: all 0.3s ease-in;
+}
+.job-openings-list-type-container .job-openings-list-type {
+  background: var(--background-purple);
+  padding: 0.5rem 1rem;
+  border-radius: 1rem 1rem 1rem 2rem;
+  color: var(--text-white);
+  font-family: var(--poppins);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: -3rem;
+  min-width: 10rem;
+  border: 0.25rem solid var(--text-white);
+}
+
+.job-openings-list-text {
+  padding-inline: 1rem;
+  transition: all 0.3s ease-in;
+}
+
+.job-date-place-container {
+  display: flex;
+  gap: 1rem;
+  padding-inline: 1rem;
+  margin-bottom: 1rem;
+}
+.job-date-place-container i {
+  color: var(--text-purple);
+  transition: all 0.3s ease-in;
+}
+.job-date-place-container .job-date,
+.job-date-place-container .job-place {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  line-height: 140%;
+  font-size: 1rem;
+  color: var(--text-dark-blue);
+  font-family: var(--poppins);
+  font-weight: 600;
+  transition: all 0.3s ease-in;
+}
+@media screen and (max-width: 600px) {
+  .job-date-place-container {
+    flex-wrap: wrap;
+  }
+  .job-date-place-container .job-date,
+  .job-date-place-container .job-place {
+    font-size: 0.9rem;
+  }
+}
+
+.knowledges-you-need-to-know-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.5rem;
+  margin-top: 2rem;
+  padding: 0 1rem 1rem;
+  overflow: hidden;
+}
+
+.knowledges-you-need-to-know-column {
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  background: var(--background-purple);
+  transition: all 0.3s ease-in;
+  width: fit-content;
+}
+.knowledges-you-need-to-know-column .knowledges-you-need-to-know-text {
+  color: var(--text-white);
+  font-size: 0.9rem;
+  font-family: var(--nunito);
+  font-weight: 500;
+  transition: all 0.3s ease-in;
+}
+
+@media screen and (max-width: 500px) {
+  .knowledges-you-need-to-know-column {
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    background: var(--background-purple);
+    transition: all 0.3s ease-in;
+    width: fit-content;
+  }
+  .knowledges-you-need-to-know-column .knowledges-you-need-to-know-text {
+    color: var(--text-white);
+    font-size: 0.8rem;
+    font-family: var(--nunito);
+    font-weight: 500;
+    transition: all 0.3s ease-in;
+  }
+}
 .join-our-team-section {
   margin: 0 0 5rem;
 }
@@ -3983,17 +4150,18 @@
 #applyModal {
   display: block;
   place-content: center;
-  position: fixed;
+  position: absolute;
   z-index: var(--z-index-11);
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
+  overflow-y: auto;
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   transform: scaleY(0);
   transition: all 0.3s ease;
+  transform-origin: top;
 }
 
 .applyModalContent {
@@ -4196,6 +4364,10 @@
   flex-wrap: wrap;
   gap: 1rem 2rem;
 }
+.job-info-btn-container .toggle-button.active {
+  background: var(--background-purple);
+  color: var(--text-white);
+}
 @media screen and (max-width: 500px) {
   .job-info-btn-container {
     gap: 1rem;
@@ -4262,10 +4434,6 @@
   display: block;
 }
 
-.more-job-openings-btn-container {
-  margin: 3rem auto 0;
-  width: fit-content;
-}
 .messenger-section {
   padding: 0rem 1rem;
 }
@@ -4813,7 +4981,8 @@
     grid-template-columns: auto;
   }
   .profile-contact-edit-container .profile-edit-title {
-    font-size: 1.125rem !important;
+    font-size: 1.25rem !important;
+    margin-bottom: 0.5rem;
   }
   .profile-edit-column label {
     font-size: 1.1rem !important;
@@ -5240,41 +5409,6 @@
     font-size: 1.25rem !important;
   }
 }
-.paymentEmpty-container {
-  display: grid;
-  place-items: center;
-  padding: 3rem 0.5rem;
-  box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.1);
-  border-radius: 0.5rem;
-  margin-block: 1rem;
-}
-.paymentEmpty-container .payment-empty-icon-container i {
-  color: var(--text-purple);
-  font-size: 1.75rem;
-}
-.paymentEmpty-container .payment-empty-title {
-  font-size: 1.25rem !important;
-}
-.paymentEmpty-container .payment-empty-text {
-  text-align: center;
-  margin-block: 0.5rem;
-}
-@media screen and (max-width: 600px) {
-  .paymentEmpty-container {
-    padding-block: 2rem;
-  }
-  .paymentEmpty-container .payment-empty-icon-container i {
-    color: var(--text-purple);
-    font-size: 1.5rem;
-  }
-  .paymentEmpty-container .payment-empty-title {
-    font-size: 1.125rem !important;
-  }
-  .paymentEmpty-container .payment-empty-text {
-    font-size: 1rem !important;
-  }
-}
-
 .payment-group ul li {
   color: var(--error);
   font-family: var(--grotext-sans);
@@ -6649,7 +6783,7 @@ strong {
     max-width: 4000px;
   }
 }
-.onerem-tworem-purple-button, .gradient-artice-btn-container .gradient-artice-btn, .carousel-title-container .carousel-link-container .carousel-link, .about-page-gradient-btn-container a .about-page-gradient-btn, .team-members-btn-container a .team-members-btn, .system-info-btn-container a .system-info-btn, .contact-form-column-btn-container .contact-form-column-btn, .ready-to-try-button, .custom-build-btn-container button, .services-link-container button, .pricing-list-btn-container .pricing-list-btn, .clear-posts-container .clear-posts-clear, .join-our-team-btn-container button, .job-gradient-info-btn-container button, .jobApplyForm .apply-button, .more-job-openings-btn-container button, .profile-submit-btn-container .profile-submit-btn, .payment-product-info-container .payment-type-container .payment-product-remove, .payment-sidebar-total-cost-container .payment-sidebar-checkout-btn-container .payment-sidebar-checkout-btn, .success-payment-feedback-container button {
+.onerem-tworem-purple-button, .gradient-artice-btn-container .gradient-artice-btn, .carousel-title-container .carousel-link-container .carousel-link, .about-page-gradient-btn-container a .about-page-gradient-btn, .team-members-btn-container a .team-members-btn, .system-info-btn-container a .system-info-btn, .contact-form-column-btn-container .contact-form-column-btn, .ready-to-try-button, .custom-build-btn-container button, .services-link-container button, .pricing-list-btn-container .pricing-list-btn, .clear-posts-container .clear-posts-clear, .join-our-team-btn-container button, .job-gradient-info-btn-container button, .jobApplyForm .apply-button, .profile-submit-btn-container .profile-submit-btn, .payment-product-info-container .payment-type-container .payment-product-remove, .payment-sidebar-total-cost-container .payment-sidebar-checkout-btn-container .payment-sidebar-checkout-btn, .success-payment-feedback-container button {
   padding: 1rem 2rem;
   color: var(--text-white);
   text-align: center;
@@ -6662,7 +6796,7 @@ strong {
   transition: all 0.5s;
   cursor: pointer;
 }
-.onerem-tworem-purple-button:hover, .gradient-artice-btn-container .gradient-artice-btn:hover, .carousel-title-container .carousel-link-container .carousel-link:hover, .about-page-gradient-btn-container a .about-page-gradient-btn:hover, .team-members-btn-container a .team-members-btn:hover, .system-info-btn-container a .system-info-btn:hover, .contact-form-column-btn-container .contact-form-column-btn:hover, .ready-to-try-button:hover, .custom-build-btn-container button:hover, .services-link-container button:hover, .pricing-list-btn-container .pricing-list-btn:hover, .clear-posts-container .clear-posts-clear:hover, .join-our-team-btn-container button:hover, .job-gradient-info-btn-container button:hover, .jobApplyForm .apply-button:hover, .more-job-openings-btn-container button:hover, .profile-submit-btn-container .profile-submit-btn:hover, .payment-product-info-container .payment-type-container .payment-product-remove:hover, .payment-sidebar-total-cost-container .payment-sidebar-checkout-btn-container .payment-sidebar-checkout-btn:hover, .success-payment-feedback-container button:hover {
+.onerem-tworem-purple-button:hover, .gradient-artice-btn-container .gradient-artice-btn:hover, .carousel-title-container .carousel-link-container .carousel-link:hover, .about-page-gradient-btn-container a .about-page-gradient-btn:hover, .team-members-btn-container a .team-members-btn:hover, .system-info-btn-container a .system-info-btn:hover, .contact-form-column-btn-container .contact-form-column-btn:hover, .ready-to-try-button:hover, .custom-build-btn-container button:hover, .services-link-container button:hover, .pricing-list-btn-container .pricing-list-btn:hover, .clear-posts-container .clear-posts-clear:hover, .join-our-team-btn-container button:hover, .job-gradient-info-btn-container button:hover, .jobApplyForm .apply-button:hover, .profile-submit-btn-container .profile-submit-btn:hover, .payment-product-info-container .payment-type-container .payment-product-remove:hover, .payment-sidebar-total-cost-container .payment-sidebar-checkout-btn-container .payment-sidebar-checkout-btn:hover, .success-payment-feedback-container button:hover {
   background: none;
   color: var(--text-purple);
 }
@@ -6687,7 +6821,7 @@ strong {
 .gray-button-purple-1rem-2rem, .gradient-artice-btn-container .gradient-artice-btn-no-border, .task-content-column .task-button-a .task-button, .choices-column .abilities .abilities-btn, .choices-column:has(.recommended) .price-column .abilities-btn,
 .choices-column:has(.recommended) .abilities .abilities-btn, .partners-empty-container .partners-empty-clear, .pricing-abilities-btn, .pricing-popular-column:has(.recommended) .price-column .pricing-abilities-btn,
 .pricing-popular-column:has(.recommended) .pricing-popular-abilities .pricing-abilities-btn, .pricing-categories-column:has(.recommended) .categorie-column .categories-abilities-btn,
-.pricing-categories-column:has(.recommended) .pricing-categories-abilities .categories-abilities-btn, .categories-abilities-btn, .posts-tags-column .post-tags-element, .projects-category-section .projects-category-text, .projects-empty .projects-empty-clear {
+.pricing-categories-column:has(.recommended) .pricing-categories-abilities .categories-abilities-btn, .categories-abilities-btn, .posts-tags-column .post-tags-element, .job-info-btn-container .toggle-button, .projects-category-section .projects-category-text, .projects-empty .projects-empty-clear {
   color: var(--text-purple);
   text-align: center;
   font-size: 1.125rem;
@@ -6702,7 +6836,7 @@ strong {
 }
 .gray-button-purple-1rem-2rem:hover, .gradient-artice-btn-container .gradient-artice-btn-no-border:hover, .task-content-column .task-button-a .task-button:hover, .choices-column .abilities .abilities-btn:hover, .choices-column:has(.recommended) .price-column .abilities-btn:hover, .partners-empty-container .partners-empty-clear:hover, .pricing-abilities-btn:hover, .pricing-popular-column:has(.recommended) .price-column .pricing-abilities-btn:hover,
 .pricing-popular-column:has(.recommended) .pricing-popular-abilities .pricing-abilities-btn:hover, .pricing-categories-column:has(.recommended) .categorie-column .categories-abilities-btn:hover,
-.pricing-categories-column:has(.recommended) .pricing-categories-abilities .categories-abilities-btn:hover, .categories-abilities-btn:hover, .posts-tags-column .post-tags-element:hover, .projects-category-section .projects-category-text:hover, .projects-empty .projects-empty-clear:hover {
+.pricing-categories-column:has(.recommended) .pricing-categories-abilities .categories-abilities-btn:hover, .categories-abilities-btn:hover, .posts-tags-column .post-tags-element:hover, .job-info-btn-container .toggle-button:hover, .projects-category-section .projects-category-text:hover, .projects-empty .projects-empty-clear:hover {
   background: var(--background-purple);
   color: var(--gray-button);
 }
@@ -6758,12 +6892,12 @@ select:-webkit-autofill:focus {
 .messenger-others-message-user-profile .messenger-others-message-username, .profile-edit-column label, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text, .sign-info-btn-container .sign-info-check-account, .payment-products-container .payment-product-detail-container .payment-detail, .payment-product-info-container .payment-image-container .payment-image-type, .payment-product-info-container .payment-type-container .payment-product-type, .payment-product-info-container .payment-type-container .payment-product-category, .payment-price-container .payment-price, .payment-total-price-container .payment-total-price, .payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items,
 .payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items-price, .payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost-title,
 .payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost, .success-payment-feedback-container label, .projects-wrapper .projects-column-link, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .feedback-empty-container .feedback-empty-title, .website-technologies-column .website-technologies-title,
-.job-column .website-technologies-title, .no-job-container .no-job-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .featured-posts-column .featured-post-column-title, .similar-popular-posts-column .similar-popular-post-column-title, .job-gradient-info-container .job-gradient-info-category, .job-content h1,
+.job-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .featured-posts-column .featured-post-column-title, .similar-popular-posts-column .similar-popular-post-column-title, .job-openings-list-type-container .job-openings-list-title, .job-gradient-info-container .job-gradient-info-category, .job-content h1,
 .job-content h2,
 .job-content h3,
 .job-content h4,
 .job-content h5,
-.job-content h6, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-info-container .sign-info-title, .payment-info-title-container .payment-info-title, .payment-info-title-container .payment-info-count, .payment-sidebar-container .payment-sidebar-title-container .payment-sidebar-title, .paymentEmpty-container .payment-empty-title, .success-payment-container .success-payment-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .post-text-container .post-title, .detail-gradient-container .detail-gradient-username, .sign-image-container .sign-image-title, .project-detail-article .project-detail-title, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .partners-container .partners-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .projects-article .projects-article-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
+.job-content h6, .job-detail-text-column .job-content-title, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-info-container .sign-info-title, .payment-info-title-container .payment-info-title, .payment-info-title-container .payment-info-count, .payment-sidebar-container .payment-sidebar-title-container .payment-sidebar-title, .success-payment-container .success-payment-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .post-text-container .post-title, .detail-gradient-container .detail-gradient-username, .sign-image-container .sign-image-title, .project-detail-article .project-detail-title, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .partners-container .partners-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .job-openings-list-title-container .job-openings-list-main-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .projects-article .projects-article-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
 .featured-posts-category-title, .posts-tags-title, .detail-gradient-container .detail-gradient-title, .detail-content-wrapper .detail-content-title,
 .project-detail-description-container .detail-content-title, .detail-link-text-container .detail-link-title {
   color: var(--text-dark-blue);
@@ -6775,7 +6909,7 @@ select:-webkit-autofill:focus {
   text-transform: capitalize;
 }
 
-.dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .partners-container .partners-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .projects-article .projects-article-title {
+.dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .partners-container .partners-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .job-openings-list-title-container .job-openings-list-main-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .projects-article .projects-article-title {
   font-size: 3rem;
 }
 
@@ -6784,12 +6918,12 @@ select:-webkit-autofill:focus {
 }
 
 .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .feedback-empty-container .feedback-empty-title, .website-technologies-column .website-technologies-title,
-.job-column .website-technologies-title, .no-job-container .no-job-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .featured-posts-column .featured-post-column-title, .similar-popular-posts-column .similar-popular-post-column-title, .job-gradient-info-container .job-gradient-info-category, .job-content h1,
+.job-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .featured-posts-column .featured-post-column-title, .similar-popular-posts-column .similar-popular-post-column-title, .job-openings-list-type-container .job-openings-list-title, .job-gradient-info-container .job-gradient-info-category, .job-content h1,
 .job-content h2,
 .job-content h3,
 .job-content h4,
 .job-content h5,
-.job-content h6, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-info-container .sign-info-title, .payment-info-title-container .payment-info-title, .payment-info-title-container .payment-info-count, .payment-sidebar-container .payment-sidebar-title-container .payment-sidebar-title, .paymentEmpty-container .payment-empty-title, .success-payment-container .success-payment-title {
+.job-content h6, .job-detail-text-column .job-content-title, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-info-container .sign-info-title, .payment-info-title-container .payment-info-title, .payment-info-title-container .payment-info-count, .payment-sidebar-container .payment-sidebar-title-container .payment-sidebar-title, .success-payment-container .success-payment-title {
   font-size: 1.5rem;
 }
 
@@ -6802,7 +6936,7 @@ select:-webkit-autofill:focus {
   font-size: 1rem;
 }
 
-.info-text-gray-1-125rem, .info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content .feedback-content-text, .modal-close-container .modalCreatedAt, .modal-content-container .modalContent, .faq-text, .faq-text > * > p, .price-column .pricing-popular-date, .pricing-list-text-container .pricing-list-text, .categorie-column .pricing-popular-date, .modal-close-container .modalTitle, .job-content p,
+.info-text-gray-1-125rem, .info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content .feedback-content-text, .modal-close-container .modalCreatedAt, .modal-content-container .modalContent, .faq-text, .faq-text > * > p, .price-column .pricing-popular-date, .pricing-list-text-container .pricing-list-text, .categorie-column .pricing-popular-date, .job-openings-list-text, .modal-close-container .modalTitle, .job-content p,
 .job-content pre,
 .job-content li,
 .job-content ul,
@@ -6812,7 +6946,7 @@ select:-webkit-autofill:focus {
 .job-content div,
 .job-content strong, .messenger-header-user-info-container .messenger-header-user, .static-info .static-info-text, .choices-column .abilities ul li, .choices-column:has(.recommended) .price-column ul li,
 .choices-column:has(.recommended) .abilities ul li, .carousel-title-container .carousel-text, .feedback-user .feedback-username, .modal-user-container .modalUser, .feedback-empty-container .feedback-empty-text, .website-technologies-main-text, .website-technologies-column .website-technologies-type,
-.job-column .website-technologies-type, .no-job-container .no-job-text, .clients-column .client-text, .team-members-info-column .team-members-info-text, .system-info-container .system-info-text, .system-column .system-text, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-info, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info, .ready-to-try-info, .pricing-popular-abilities ul li, .pricing-popular-column:has(.recommended) .price-column ul li,
+.job-column .website-technologies-type, .clients-column .client-text, .team-members-info-column .team-members-info-text, .system-info-container .system-info-text, .system-column .system-text, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-info, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info, .ready-to-try-info, .pricing-popular-abilities ul li, .pricing-popular-column:has(.recommended) .price-column ul li,
 .pricing-popular-column:has(.recommended) .pricing-popular-abilities ul li, .custom-build-column .custom-build-text, .services-text-container .services-text-text, .pricing-categories-column:has(.recommended) .categorie-column ul li,
 .pricing-categories-column:has(.recommended) .pricing-categories-abilities ul li, .pricing-categories-abilities ul li, .post-text-container .post-text, .featured-posts-column .featured-post-column-text, .detail-content-wrapper pre,
 .detail-content-wrapper li,
@@ -6823,17 +6957,17 @@ select:-webkit-autofill:focus {
 .project-detail-description-container li,
 .project-detail-description-container span,
 .project-detail-description-container p,
-.project-detail-description-container div, .detail-link-text-container .detail-link-text, .detail-share-user-info-container .detail-share-posted, .detail-share-social-container .detail-share-social-text, .job-gradient-info-container .job-gradient-info-text, .job-info-container .job-info-text, .messenger-your-message .messenger-your-message-text,
+.project-detail-description-container div, .detail-link-text-container .detail-link-text, .detail-share-user-info-container .detail-share-posted, .detail-share-social-container .detail-share-social-text, .job-openings-list-title-container .job-openings-list-main-text, .job-gradient-info-container .job-gradient-info-text, .job-info-container .job-info-text, .messenger-your-message .messenger-your-message-text,
 .messenger-your-message .messenger-others-message-text,
 .messenger-others-message .messenger-your-message-text,
-.messenger-others-message .messenger-others-message-text, .paymentEmpty-container .payment-empty-text {
+.messenger-others-message .messenger-others-message-text {
   color: #666;
   font-size: 1.125rem;
   font-family: var(--grotext-sans);
   line-height: 160%;
 }
 
-.info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content .feedback-content-text, .modal-close-container .modalCreatedAt, .modal-content-container .modalContent, .faq-text, .faq-text > * > p, .price-column .pricing-popular-date, .pricing-list-text-container .pricing-list-text, .categorie-column .pricing-popular-date, .modal-close-container .modalTitle, .job-content p,
+.info-text-gray-1rem, .choices-column .price-column .date, .feedback-slide .feedback-content .feedback-content-text, .modal-close-container .modalCreatedAt, .modal-content-container .modalContent, .faq-text, .faq-text > * > p, .price-column .pricing-popular-date, .pricing-list-text-container .pricing-list-text, .categorie-column .pricing-popular-date, .job-openings-list-text, .modal-close-container .modalTitle, .job-content p,
 .job-content pre,
 .job-content li,
 .job-content ul,
@@ -6878,12 +7012,12 @@ select:-webkit-autofill:focus {
 
 .text-align-start, .task-content-column .task-title, .static-info .static-info-title, .carousel-title-container .carousel-title, .carousel-text-container .carousel-slide-title, .about-page-gradient-text-container .about-page-gradient-title, .about-page-gradient-image-column-task-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .faq-card-title, .ready-to-try-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .blog-gradient-title, .post-text-container .post-title, .featured-search-title,
 .featured-posts-category-title, .featured-posts-column .featured-post-column-title, .posts-tags-title, .detail-content-wrapper .detail-content-title,
-.project-detail-description-container .detail-content-title, .detail-link-text-container .detail-link-title, .similar-popular-posts-column .similar-popular-post-column-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-gradient-info-container .job-gradient-info-category, .jobApplyForm .jobApply-group label, .job-content h1,
+.project-detail-description-container .detail-content-title, .detail-link-text-container .detail-link-title, .similar-popular-posts-column .similar-popular-post-column-title, .job-openings-list-type-container .job-openings-list-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-gradient-info-container .job-gradient-info-category, .jobApplyForm .jobApply-group label, .job-content h1,
 .job-content h2,
 .job-content h3,
 .job-content h4,
 .job-content h5,
-.job-content h6, .messenger-header-user-info-container .messenger-header-username, .messenger-your-message-user-profile .messenger-your-message-username,
+.job-content h6, .job-detail-text-column .job-content-title, .messenger-header-user-info-container .messenger-header-username, .messenger-your-message-user-profile .messenger-your-message-username,
 .messenger-your-message-user-profile .messenger-others-message-username,
 .messenger-others-message-user-profile .messenger-your-message-username,
 .messenger-others-message-user-profile .messenger-others-message-username, .profile-main-edit-container .profile-edit-title, .profile-edit-column label, .profile-contact-edit-container .profile-edit-title, .sign-image-container .sign-image-title, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text, .payment-info-title-container .payment-info-title, .payment-info-title-container .payment-info-count, .payment-products-container .payment-product-detail-container .payment-detail, .payment-product-info-container .payment-type-container .payment-product-type, .payment-product-info-container .payment-type-container .payment-product-category, .payment-price-container .payment-price, .payment-total-price-container .payment-total-price, .payment-sidebar-container .payment-sidebar-title-container .payment-sidebar-title, .payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items,

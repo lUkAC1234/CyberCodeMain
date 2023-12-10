@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import UserModel, PricingModel, PostModel, FeedbackModel, ContactusModel, \
 FaqModel, JobModel, JobCategoryModel, ProjectModel, ProjectCategory, PostTagModel, PostCategoryModel, PartnersModel, \
-JobApplyModel, CheckOut
+JobApplyModel, CheckOut, JobKnowledgesModel
 from django.utils.translation import gettext_lazy as _
 # For saving html code
 from django.utils.safestring import mark_safe
@@ -84,6 +84,12 @@ class JobCategoryAdmin(admin.ModelAdmin):
     list_display = ['id', 'category']
     list_display_links = ['id', 'category']
     search_fields = ['category']
+
+@admin.register(JobKnowledgesModel)
+class JobKnowledgesAdmin(admin.ModelAdmin):
+    list_display = ['id', 'knowledge']
+    list_display_links = ['id', 'knowledge']
+    search_fields = ['knowledge']
 
 @admin.register(JobApplyModel)
 class JobApplyyAdmin(admin.ModelAdmin):
