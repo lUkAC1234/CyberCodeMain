@@ -251,4 +251,14 @@
     }
 }
 
+.change-password-container {
+    display: flex;
+    justify-content: center;
+}
+
+.change-password-user {
+    @extend .onerem-tworem-purple-button;
+    z-index: 10000;
+}
+
 // END PROFILE SECTION

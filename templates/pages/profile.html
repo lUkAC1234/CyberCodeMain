@@ -30,6 +30,11 @@
                             {{ request.user.email|default_if_none:'cybercodesp@gmail.com'|default:'cybercodesp@gmail.com' }}
                         </p>
                     </div>
+                    <div class="change-password-container">
+                        <a href="" class="change-password-user">
+                            Change Password
+                        </a>
+                    </div>
                 </article>
                 <article class="profile-edit-container">
                     <div class="profile-main-edit-container">
@@ -78,8 +83,10 @@
                             </div>
                         </div>
                         <div class="profile-submit-btn-container">
-                            <button type="submit" class="profile-submit-btn"><i class="fa-solid fa-circle-check"></i>
-                                Submit</button>
+                            <button type="submit" class="profile-submit-btn">
+                                <i class="fa-solid fa-circle-check"></i>
+                                Submit
+                            </button>
                         </div>
                     </div>
                 </article>

@@ -5051,6 +5051,15 @@
     font-size: 0.8rem;
   }
 }
+.change-password-container {
+  display: flex;
+  justify-content: center;
+}
+
+.change-password-user {
+  z-index: 10000;
+}
+
 .sign-body {
   background: var(--background-white) !important;
 }
@@ -6828,7 +6837,7 @@ strong {
     max-width: 4000px;
   }
 }
-.onerem-tworem-purple-button, .gradient-artice-btn-container .gradient-artice-btn, .carousel-title-container .carousel-link-container .carousel-link, .about-page-gradient-btn-container a .about-page-gradient-btn, .team-members-btn-container a .team-members-btn, .system-info-btn-container a .system-info-btn, .contact-form-column-btn-container .contact-form-column-btn, .ready-to-try-button, .custom-build-btn-container button, .services-link-container button, .pricing-list-btn-container .pricing-list-btn, .clear-posts-container .clear-posts-clear, .join-our-team-btn-container button, .job-gradient-info-btn-container button, .jobApplyForm .apply-button, .profile-submit-btn-container .profile-submit-btn, .payment-product-info-container .payment-type-container .payment-product-remove, .payment-sidebar-total-cost-container .payment-sidebar-checkout-btn-container .payment-sidebar-checkout-btn, .success-payment-feedback-container button {
+.onerem-tworem-purple-button, .gradient-artice-btn-container .gradient-artice-btn, .carousel-title-container .carousel-link-container .carousel-link, .about-page-gradient-btn-container a .about-page-gradient-btn, .team-members-btn-container a .team-members-btn, .system-info-btn-container a .system-info-btn, .contact-form-column-btn-container .contact-form-column-btn, .ready-to-try-button, .custom-build-btn-container button, .services-link-container button, .pricing-list-btn-container .pricing-list-btn, .clear-posts-container .clear-posts-clear, .join-our-team-btn-container button, .job-gradient-info-btn-container button, .jobApplyForm .apply-button, .profile-submit-btn-container .profile-submit-btn, .change-password-user, .payment-product-info-container .payment-type-container .payment-product-remove, .payment-sidebar-total-cost-container .payment-sidebar-checkout-btn-container .payment-sidebar-checkout-btn, .success-payment-feedback-container button {
   padding: 1rem 2rem;
   color: var(--text-white);
   text-align: center;
@@ -6841,7 +6850,7 @@ strong {
   transition: all 0.5s;
   cursor: pointer;
 }
-.onerem-tworem-purple-button:hover, .gradient-artice-btn-container .gradient-artice-btn:hover, .carousel-title-container .carousel-link-container .carousel-link:hover, .about-page-gradient-btn-container a .about-page-gradient-btn:hover, .team-members-btn-container a .team-members-btn:hover, .system-info-btn-container a .system-info-btn:hover, .contact-form-column-btn-container .contact-form-column-btn:hover, .ready-to-try-button:hover, .custom-build-btn-container button:hover, .services-link-container button:hover, .pricing-list-btn-container .pricing-list-btn:hover, .clear-posts-container .clear-posts-clear:hover, .join-our-team-btn-container button:hover, .job-gradient-info-btn-container button:hover, .jobApplyForm .apply-button:hover, .profile-submit-btn-container .profile-submit-btn:hover, .payment-product-info-container .payment-type-container .payment-product-remove:hover, .payment-sidebar-total-cost-container .payment-sidebar-checkout-btn-container .payment-sidebar-checkout-btn:hover, .success-payment-feedback-container button:hover {
+.onerem-tworem-purple-button:hover, .gradient-artice-btn-container .gradient-artice-btn:hover, .carousel-title-container .carousel-link-container .carousel-link:hover, .about-page-gradient-btn-container a .about-page-gradient-btn:hover, .team-members-btn-container a .team-members-btn:hover, .system-info-btn-container a .system-info-btn:hover, .contact-form-column-btn-container .contact-form-column-btn:hover, .ready-to-try-button:hover, .custom-build-btn-container button:hover, .services-link-container button:hover, .pricing-list-btn-container .pricing-list-btn:hover, .clear-posts-container .clear-posts-clear:hover, .join-our-team-btn-container button:hover, .job-gradient-info-btn-container button:hover, .jobApplyForm .apply-button:hover, .profile-submit-btn-container .profile-submit-btn:hover, .change-password-user:hover, .payment-product-info-container .payment-type-container .payment-product-remove:hover, .payment-sidebar-total-cost-container .payment-sidebar-checkout-btn-container .payment-sidebar-checkout-btn:hover, .success-payment-feedback-container button:hover {
   background: none;
   color: var(--text-purple);
 }
