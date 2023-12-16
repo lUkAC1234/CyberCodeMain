@@ -95,7 +95,7 @@
 }
 
 .profile-user-info-container {
-    margin: 1rem 0;
+    margin: 1rem 0 0;
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--messenger-gray-background);
 
@@ -188,8 +188,11 @@
 
 @media screen and (max-width: 600px) {
     .profile-container {
-        width: 96%;
-        margin-inline: 2%;
+        width: 100%;
+
+        .profile-main-form {
+            padding-inline: 0.5rem;
+        }
     }
 
     .profile-user-info-container {
@@ -257,8 +260,95 @@
 }
 
 .change-password-user {
-    @extend .onerem-tworem-purple-button;
-    z-index: 10000;
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-purple);
+    font-family: var(--grotext-sans);
+    width: 100%;
+    gap: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.4s;
+    z-index: 1;
+    padding-block: 0.5rem;
+    &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: all 0.4s;
+        transform-origin: top;
+        transform: scaleY(0);
+        background: var(--background-purple);
+        z-index: -1;
+        border-radius: 0 0 1rem 1rem;
+    }
+
+    &:hover {
+        color: var(--text-white);
+        &::after {
+            transform: scaleY(1);
+        }
+
+        i {
+            color: var(--text-light-purple);
+        }
+    }
+
+    i {
+        font-size: 0.9rem;
+    }
+}
+
+
+.success-password-message {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    background: var(--background-white);
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 2rem;
+    border-left: 1.5rem solid var(--background-purple);
+    width: 100%;
+
+    @media screen and (max-width: 500px) {
+        padding-inline: 0.5rem;
+        border-left-width: 0.5rem;
+    }
+    li {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+        color: var(--text-purple);
+        font-size: 1rem;
+        font-family: var(--grotext-sans);
+        text-align: center;
+
+        @media screen and (max-width: 500px) {
+            font-size: 0.9rem;
+            text-align: start;
+        }
+    }
+
+    i {
+        font-size: 0.8rem;
+    }
+
+    .close-message {
+        padding: 0.25rem;
+        cursor: pointer;
+        background: none;
+        border: none;
+        width: fit-content;
+
+        i {
+            font-size: 1rem;
+            color: var(--text-purple);
+        }
+    }
 }
 
 // END PROFILE SECTION

@@ -70,28 +70,30 @@
 
     <section class="similar-popular-posts">
         <div class="similar-popular-container">
-            <article class="similar-popular-posts-wrapper">
-                <div class="similar-popular-posts-column-container">
-                    {% for object in similarPosts %}
-                    <div class="similar-popular-posts-column" data-context="Popular Similar Posts">
-                        <a href="{% url 'main:blogdetail' pk=object.pk %}" class="similar-popular-post-column-title">
-                            {{ object.title }}</a>
-                        <p class="similar-popular-post-column-text">{{ object.short_description }}</p>
-                        <span class="similar-popular-post-column-posted">Posted on</span>
-                        <p class="similar-popular-post-column-date">{{ object.posted_on|date:"F d, Y" }}</p>
-                    </div>
-                    {% empty %}
-                    <article class="partners-empty-container" style="margin-top: 0;">
-                        <div class="partners-empty-icon-container">
-                            <img src="{% static 'main/images/errors/error.svg' %}" alt="">
+            {% if similarPosts %}
+                <article class="similar-popular-posts-wrapper">
+                    <div class="similar-popular-posts-column-container">
+                        {% for object in similarPosts %}
+                        <div class="similar-popular-posts-column" data-context="Popular Similar Posts">
+                            <a href="{% url 'main:blogdetail' pk=object.pk %}" class="similar-popular-post-column-title">
+                                {{ object.title }}</a>
+                            <p class="similar-popular-post-column-text">{{ object.short_description }}</p>
+                            <span class="similar-popular-post-column-posted">Posted on</span>
+                            <p class="similar-popular-post-column-date">{{ object.posted_on|date:"F d, Y" }}</p>
                         </div>
-                        <h1 class="partners-empty-title">No matching results</h1>
-                        <p class="partners-empty-text">There is no any similar blogs yet</p>
-                        <a href="{% url 'main:blog' %}" class="partners-empty-clear">Go to blog <i class="fa-solid fa-rotate"></i></a>
-                    </article>
-                    {% endfor %}
-                </div>
-            </article>
+                        {% endfor %}
+                    </div>
+                </article>
+            {% else %}
+                <article class="partners-empty-container" style="margin-top: 0;">
+                    <div class="partners-empty-icon-container">
+                        <img src="{% static 'main/images/errors/error.svg' %}" alt="">
+                    </div>
+                    <h1 class="partners-empty-title">No matching results</h1>
+                    <p class="partners-empty-text">There is no any similar blogs yet</p>
+                    <a href="{% url 'main:blog' %}" class="partners-empty-clear">Go to blog <i class="fa-solid fa-rotate"></i></a>
+                </article>
+            {% endif %}
         </div>
     </section>
 

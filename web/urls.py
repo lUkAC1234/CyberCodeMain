@@ -3,7 +3,7 @@ from .views import index, about, contact, Pricing, pricinglist, \
 BlogListView, blogdetail, job, JobDetailView, \
 loginView, RegistrationView, MyProfileEdit, logoutView, FAQListView, \
 payment_list, AddToCart, RemoveFromCart, SuccessPayment, PageNotFound, \
-ProjectsView, ProjectDetailView
+ProjectsView, ProjectDetailView, UserPasswordChangeView
 
 
 app_name = "main"
@@ -25,6 +25,7 @@ urlpatterns = [
     path('our/projects/list', ProjectsView.as_view(), name="projects"),
     path('project/detail/<int:pk>', ProjectDetailView.as_view(), name="projectdetail"),
     path('user/profile/', MyProfileEdit.as_view(), name="profile"),
+    path('user/password/change', UserPasswordChangeView.as_view(), name="changeuserpassword"),
     path('login/', loginView, name="login"),
     path('registration/', RegistrationView.as_view(), name="registration"),
     path('logout/account', logoutView, name="logout"),

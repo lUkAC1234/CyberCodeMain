@@ -7,13 +7,15 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView,
 from .models import PostModel, PricingModel, FeedbackModel, FaqModel, JobModel, \
 PostCategoryModel, PostTagModel, UserModel, PartnersModel, CheckOut, ProjectModel, ProjectCategory
 from .forms import ContactusModelForm, AccountForm, LoginForm, RegistrationForm, JobApplyForm, \
-CheckOutForm, FeedbackForm
+CheckOutForm, FeedbackForm, UserPasswordChangeForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.hashers import make_password
 from django.template.loader import render_to_string
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseNotFound
 from django.db.models import Count
+from django.contrib.auth.views import PasswordChangeView
+from django.contrib import messages
 
 class index(TemplateView):
     template_name = "pages/index.html"
@@ -68,7 +70,7 @@ class FAQListView(ListView):
     template_name = "pages/faqlist.html"
 
 class Pricing(TemplateView):
-    template_name = "pages/pricing.html"
+    template_name = "pages/pricing/pricing.html"
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
@@ -77,7 +79,7 @@ class Pricing(TemplateView):
     
 class pricinglist(ListView):
     model = PricingModel
-    template_name = "pages/pricinglist.html"
+    template_name = "pages/pricing/pricinglist.html"
     def get_queryset(self):
         queryset = super().get_queryset()
         recommended_items = queryset.filter(recommended=True).order_by('-id')
@@ -110,7 +112,7 @@ def RemoveFromCart(request, id):
     return redirect('main:payment')
 
 class payment_list(CreateView):
-    template_name = 'pages/paymentlist.html'
+    template_name = 'pages/pricing/paymentlist.html'
     form_class = CheckOutForm
 
     def get_success_url(self):
@@ -139,7 +141,7 @@ class payment_list(CreateView):
     
 class SuccessPayment(CreateView):
     form_class = FeedbackForm
-    template_name = "pages/thankyou.html"
+    template_name = "pages/pricing/thankyou.html"
 
     def get_success_url(self):
         return reverse('main:pricing')
@@ -164,7 +166,7 @@ class SuccessPayment(CreateView):
         return data  
 
 class BlogListView(ListView):
-    template_name = "pages/blog.html"
+    template_name = "pages/blog/blog.html"
     paginate_by = 5
     model = PostModel
 
@@ -197,14 +199,14 @@ class BlogListView(ListView):
 
     def render_to_response(self, context, **response_kwargs):
         if self.request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
-            html = render_to_string('pages/blog_result.html', {'object_list': context['object_list']}, request=self.request)
+            html = render_to_string('pages/blog/blog_result.html', {'object_list': context['object_list']}, request=self.request)
             return JsonResponse({'success': True, 'html': html, 'paginator': context['paginator'].num_pages, 'page': context['page_obj'].number})
         return super().render_to_response(context, **response_kwargs)
 
 
 class blogdetail(DetailView):
     model = PostModel
-    template_name = "pages/blogdetail.html"  
+    template_name = "pages/blog/blogdetail.html"  
     
     def get_queryset(self):
         return PostModel.objects.select_related('category') 
@@ -222,14 +224,14 @@ class blogdetail(DetailView):
 
 class job(ListView):
     model = JobModel
-    template_name = "pages/job.html"    
+    template_name = "pages/job/job.html"    
 
     def get_queryset(self):
         return JobModel.objects.select_related('category')
 
 class JobDetailView(DetailView):
     model = JobModel
-    template_name = "pages/jobdetail.html"
+    template_name = "pages/job/jobdetail.html"
 
     def get_queryset(self):
         return JobModel.objects.select_related('category')
@@ -265,7 +267,7 @@ class JobDetailView(DetailView):
 
 
 class ProjectsView(TemplateView):
-    template_name = 'pages/projects.html'
+    template_name = 'pages/projects/projects.html'
 
     def get_queryset(self):
         category = self.request.GET.get("category", '')
@@ -286,26 +288,26 @@ class ProjectsView(TemplateView):
     def render_to_response(self, context, **response_kwargs):
         if self.request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
             projects = self.get_queryset()
-            html = render_to_string('pages/projects_result.html', {'projects': projects})
+            html = render_to_string('pages/projects/projects_result.html', {'projects': projects})
             return JsonResponse({'success': True, 'html': html})
 
         return super().render_to_response(context, **response_kwargs)     
     
 class ProjectDetailView(DetailView):
     model = ProjectModel
-    template_name = 'pages/projectdetail.html'
+    template_name = 'pages/projects/projectdetail.html'
 
 class MyProfileEdit(LoginRequiredMixin, UpdateView):
     model = UserModel
     form_class = AccountForm 
-    template_name = "pages/profile.html"
+    template_name = "pages/user/profile.html"
     success_url = reverse_lazy('main:profile')
 
     def get_object(self, queryset=None):
         return self.request.user
     
 def loginView(request):
-    template_name = 'pages/login.html'
+    template_name = 'pages/user/login.html'
     if request.user.is_authenticated:
         logout(request)
         return redirect('main:index')
@@ -331,7 +333,7 @@ def loginView(request):
 class RegistrationView(CreateView):
     model = UserModel
     form_class = RegistrationForm
-    template_name = 'pages/registration.html'
+    template_name = 'pages/user/registration.html'
     success_url = reverse_lazy('main:profile')
 
     def form_valid(self, form):
@@ -345,12 +347,26 @@ class RegistrationView(CreateView):
     def form_invalid(self, form):
         errors = {field: [error for error in form[field].errors] for field in form.fields}
         return JsonResponse({'success': False, 'errors': errors})
-    
+
+class UserPasswordChangeView(PasswordChangeView):
+    form_class = UserPasswordChangeForm
+    success_url = reverse_lazy("main:profile")
+    template_name = "pages/user/changepassword.html"
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        messages.success(self.request, "Your password was successfully updated")
+        return response
+
 def logoutView(request):
     logout(request)
     return redirect('main:index')
 
+
+
+
+
 def PageNotFound(request, *args, **kwargs):
-    text = render_to_string('pages/error404.html')
+    text = render_to_string('pages/error/error404.html')
     return HttpResponseNotFound(text)
 

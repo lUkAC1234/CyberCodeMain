@@ -1,6 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from django.contrib.auth import authenticate
+from django.contrib.auth.forms import PasswordChangeForm
 from .models import UserModel, PostModel, ContactusModel, JobApplyModel, \
 CheckOut, FeedbackModel
 from django.utils.translation import gettext_lazy as _
@@ -97,3 +98,7 @@ class CheckOutForm(forms.ModelForm):
         exclude = ('item', 'total_price', 'user')
         
 
+class UserPasswordChangeForm(PasswordChangeForm):
+    old_password = forms.CharField(widget=forms.PasswordInput)
+    new_password1 = forms.CharField(widget=forms.PasswordInput)
+    new_password2 = forms.CharField(widget=forms.PasswordInput)

@@ -8,7 +8,16 @@
 {% block content %}
 <main class="main profile-main">
     <!-- START PROFILE SECTION -->
-    <div class="profile-gradient-container"></div>
+    <div class="profile-gradient-container">
+        {% if messages %}
+        <ul class="success-password-message">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}><i class="fa-solid fa-circle-check"></i> {{ message }}</li>
+            {% endfor %}
+            <button class="close-message" onclick="closeMessage(this)"><i class="fa-solid fa-xmark"></i></button>
+        </ul>
+        {% endif %}
+    </div>
     <section class="profile-section">
         <div class="profile-container">
             <form enctype="multipart/form-data" method="POST" id="profile-form" class="profile-main-form">
@@ -31,8 +40,8 @@
                         </p>
                     </div>
                     <div class="change-password-container">
-                        <a href="" class="change-password-user">
-                            Change Password
+                        <a href="{% url 'main:changeuserpassword' %}" class="change-password-user">
+                            <i class="fa-solid fa-key"></i> Change Password
                         </a>
                     </div>
                 </article>
@@ -100,4 +109,9 @@
 
 {% block js_block %}
 <script src="{% static 'main/scripts/js/profile.js' %}"></script>
+<script>
+    function closeMessage(button) {
+        button.parentNode.style.display = 'none';
+    }
+</script>
 {% endblock %}
