@@ -3,18 +3,24 @@ from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
 from ckeditor.fields import RichTextField
 from django.core.validators import RegexValidator
+from django.contrib.auth.hashers import make_password
+from django.utils import timezone
 
 class EnglishLettersUsernameValidator(RegexValidator):
-    regex = r'^[a-z0-9]{8,16}$'
+    regex = r'^[a-zA-Z0-9]{8,16}$'
     message = _(
         'Username can only contain lowercase English letters (a-z) and numbers (0-9), and must be between 8 and 16 characters long.'
     )
     flags = 0
 
+    def __call__(self, value):
+        super().__call__(value)
+        return value.lower()
+
 class PasswordValidator(RegexValidator):
-    regex = r'^[a-zA-Z0-9]{8,128}$'
+    regex = r'^[a-zA-Z0-9!$@%]{8,128}$'
     message = _(
-        'Password must be at least 8 characters and at most 128 characters long, and can only contain English letters and numbers.'
+        'Password must be at least 8 characters and at most 128 characters long, and can only contain English letters, numbers and !$@%.'
     )
     flags = 0
 
@@ -33,7 +39,7 @@ class UserModel(AbstractUser):
     position = models.CharField(max_length=50, blank=True, null=True)
     mobileNumber = models.CharField(max_length=13, blank=True, null=True, validators=[PhoneValidator()])
     socialMedia = models.URLField(blank=True, null=True)
-
+    updated_at = models.DateTimeField(auto_now_add=True, editable=False, null=True, blank=True)
     username = models.CharField(
         _('username'),
         max_length=16,
@@ -49,8 +55,15 @@ class UserModel(AbstractUser):
         _('password'),
         max_length=128, 
         validators=[PasswordValidator()],
-        help_text=_("Password must be at least 8 characters and at most 32 characters long, and can only contain English letters and numbers."),
+        help_text=_("Password must be at least 8 characters and at most 32 characters long, and can only contain English letters, numbers and !$@%."),
     )
+
+    def save(self, *args, **kwargs):
+        if self._state.adding or not self.updated_at:
+            self.updated_at = timezone.now()
+
+        self.username = self.username.lower()
+        super().save(*args, **kwargs)
     
 # --------------------------------------------------------------------------- #
 

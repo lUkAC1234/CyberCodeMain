@@ -21,7 +21,8 @@ strong {
 }
 
 @media screen and (min-width: 2000px) {
-  .main {
+  .main,
+  .footer {
     max-width: 2000px;
     margin: 0 auto;
     width: 100vw;
@@ -29,25 +30,29 @@ strong {
 }
 
 @media screen and (min-width: 2500px) {
-  .main {
+  .main,
+  .footer {
     max-width: 2500px;
   }
 }
 
 @media screen and (min-width: 3000px) {
-  .main {
+  .main,
+  .footer {
     max-width: 3000px;
   }
 }
 
 @media screen and (min-width: 3500px) {
-  .main {
+  .main,
+  .footer {
     max-width: 3500px;
   }
 }
 
 @media screen and (min-width: 4000px) {
-  .main {
+  .main,
+  .footer {
     max-width: 4000px;
   }
 }

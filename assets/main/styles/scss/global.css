@@ -3489,7 +3489,7 @@
   height: 4rem;
   object-fit: cover;
   border-radius: 50%;
-  border: 0.5rem solid var(--text-light-white);
+  border: 0.35rem solid var(--text-light-white);
   background-color: var(--background-white);
 }
 
@@ -5927,6 +5927,124 @@
     flex-wrap: wrap;
   }
 }
+.change-password-form-section {
+  padding: 8rem 1rem;
+  background: radial-gradient(circle farthest-corner at 10% 20%, rgb(242, 235, 243) 0%, rgb(234, 241, 249) 90.1%);
+}
+
+.change-password-form-container {
+  display: flex;
+  flex-flow: column;
+  width: min(100%, 32rem);
+  margin-inline: auto;
+  border-radius: 1rem;
+  padding: 1rem 1rem 2rem;
+  background: var(--background-white);
+}
+.change-password-form-container .forgot-password-link {
+  color: var(--text-purple);
+  font-family: var(--grotext-sans);
+  font-size: 0.9rem;
+  margin: 0.5rem 0.2rem 0;
+}
+
+.change-password-back-link {
+  color: var(--text-purple);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.change-password-back-link i {
+  font-size: 1.125rem;
+}
+
+.change-password-form-user {
+  text-transform: none !important;
+  font-weight: 400 !important;
+}
+.change-password-form-user span {
+  color: var(--text-purple);
+}
+
+.change-password-form-title {
+  margin-block: 1rem 0.5rem;
+  font-size: 1.25rem !important;
+}
+
+.change-password-form-text {
+  margin-top: 0.5rem;
+}
+
+.change-password-form {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 2rem;
+}
+.change-password-form:has(.change-password-error.currentpassword) .change-password-input.currentpassword, .change-password-form:has(.change-password-error.newpassword1) .change-password-input.newpassword1, .change-password-form:has(.change-password-error.newpassword2) .change-password-input.newpassword2 {
+  border-color: var(--error);
+}
+
+.change-password-form-input-container {
+  position: relative;
+}
+.change-password-form-input-container .placeholder {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  translate: 0 -50%;
+  font-size: 0.8rem !important;
+  padding-inline: 0.5rem;
+  transition: 0.3s;
+  pointer-events: none;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+.change-password-form-input-container .change-password-input:focus + .placeholder,
+.change-password-form-input-container .change-password-input:not(:placeholder-shown) + .placeholder {
+  top: 0.6rem;
+  font-size: 0.7rem !important;
+  color: var(--text-purple) !important;
+}
+.change-password-form-input-container .change-password-input {
+  border: 1px solid var(--profile-input-border);
+  padding: 1rem 0.5rem 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--text-dark-blue);
+  font-size: 0.8rem;
+  font-family: var(--grotext-sans);
+  transition: 0.4s all;
+  width: 100%;
+  caret-color: var(--text-purple);
+}
+.change-password-form-input-container .change-password-input:focus {
+  border-color: var(--background-purple);
+}
+
+.change-password-form-btn {
+  padding: 0.5rem 1rem !important;
+  font-size: 0.9rem !important;
+  margin-top: 0.5rem;
+}
+
+.change-password-error {
+  color: var(--error);
+  font-family: var(--grotext-sans);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width: 450px) {
+  .change-password-form-container .change-password-form-user {
+    font-size: 0.9rem;
+  }
+  .change-password-form-container .change-password-form-title {
+    font-size: 1.125rem !important;
+  }
+  .change-password-form-container .change-password-form-text {
+    font-size: 0.9rem;
+  }
+  .change-password-form-input-container .change-password-input {
+    font-size: 1rem;
+  }
+}
 .header {
   width: 100%;
   position: fixed;
@@ -6896,33 +7014,38 @@ strong {
 }
 
 @media screen and (min-width: 2000px) {
-  .main {
+  .main,
+  .footer {
     max-width: 2000px;
     margin: 0 auto;
     width: 100vw;
   }
 }
 @media screen and (min-width: 2500px) {
-  .main {
+  .main,
+  .footer {
     max-width: 2500px;
   }
 }
 @media screen and (min-width: 3000px) {
-  .main {
+  .main,
+  .footer {
     max-width: 3000px;
   }
 }
 @media screen and (min-width: 3500px) {
-  .main {
+  .main,
+  .footer {
     max-width: 3500px;
   }
 }
 @media screen and (min-width: 4000px) {
-  .main {
+  .main,
+  .footer {
     max-width: 4000px;
   }
 }
-.onerem-tworem-purple-button, .gradient-artice-btn-container .gradient-artice-btn, .carousel-title-container .carousel-link-container .carousel-link, .about-page-gradient-btn-container a .about-page-gradient-btn, .team-members-btn-container a .team-members-btn, .system-info-btn-container a .system-info-btn, .contact-form-column-btn-container .contact-form-column-btn, .ready-to-try-button, .custom-build-btn-container button, .services-link-container button, .pricing-list-btn-container .pricing-list-btn, .clear-posts-container .clear-posts-clear, .join-our-team-btn-container button, .job-gradient-info-btn-container button, .jobApplyForm .apply-button, .profile-submit-btn-container .profile-submit-btn, .payment-product-info-container .payment-type-container .payment-product-remove, .payment-sidebar-total-cost-container .payment-sidebar-checkout-btn-container .payment-sidebar-checkout-btn, .success-payment-feedback-container button {
+.onerem-tworem-purple-button, .gradient-artice-btn-container .gradient-artice-btn, .carousel-title-container .carousel-link-container .carousel-link, .about-page-gradient-btn-container a .about-page-gradient-btn, .team-members-btn-container a .team-members-btn, .system-info-btn-container a .system-info-btn, .contact-form-column-btn-container .contact-form-column-btn, .ready-to-try-button, .custom-build-btn-container button, .services-link-container button, .pricing-list-btn-container .pricing-list-btn, .clear-posts-container .clear-posts-clear, .join-our-team-btn-container button, .job-gradient-info-btn-container button, .jobApplyForm .apply-button, .profile-submit-btn-container .profile-submit-btn, .payment-product-info-container .payment-type-container .payment-product-remove, .payment-sidebar-total-cost-container .payment-sidebar-checkout-btn-container .payment-sidebar-checkout-btn, .success-payment-feedback-container button, .change-password-form-btn {
   padding: 1rem 2rem;
   color: var(--text-white);
   text-align: center;
@@ -6935,7 +7058,7 @@ strong {
   transition: all 0.5s;
   cursor: pointer;
 }
-.onerem-tworem-purple-button:hover, .gradient-artice-btn-container .gradient-artice-btn:hover, .carousel-title-container .carousel-link-container .carousel-link:hover, .about-page-gradient-btn-container a .about-page-gradient-btn:hover, .team-members-btn-container a .team-members-btn:hover, .system-info-btn-container a .system-info-btn:hover, .contact-form-column-btn-container .contact-form-column-btn:hover, .ready-to-try-button:hover, .custom-build-btn-container button:hover, .services-link-container button:hover, .pricing-list-btn-container .pricing-list-btn:hover, .clear-posts-container .clear-posts-clear:hover, .join-our-team-btn-container button:hover, .job-gradient-info-btn-container button:hover, .jobApplyForm .apply-button:hover, .profile-submit-btn-container .profile-submit-btn:hover, .payment-product-info-container .payment-type-container .payment-product-remove:hover, .payment-sidebar-total-cost-container .payment-sidebar-checkout-btn-container .payment-sidebar-checkout-btn:hover, .success-payment-feedback-container button:hover {
+.onerem-tworem-purple-button:hover, .gradient-artice-btn-container .gradient-artice-btn:hover, .carousel-title-container .carousel-link-container .carousel-link:hover, .about-page-gradient-btn-container a .about-page-gradient-btn:hover, .team-members-btn-container a .team-members-btn:hover, .system-info-btn-container a .system-info-btn:hover, .contact-form-column-btn-container .contact-form-column-btn:hover, .ready-to-try-button:hover, .custom-build-btn-container button:hover, .services-link-container button:hover, .pricing-list-btn-container .pricing-list-btn:hover, .clear-posts-container .clear-posts-clear:hover, .join-our-team-btn-container button:hover, .job-gradient-info-btn-container button:hover, .jobApplyForm .apply-button:hover, .profile-submit-btn-container .profile-submit-btn:hover, .payment-product-info-container .payment-type-container .payment-product-remove:hover, .payment-sidebar-total-cost-container .payment-sidebar-checkout-btn-container .payment-sidebar-checkout-btn:hover, .success-payment-feedback-container button:hover, .change-password-form-btn:hover {
   background: none;
   color: var(--text-purple);
 }
@@ -7030,13 +7153,13 @@ select:-webkit-autofill:focus {
 .messenger-others-message-user-profile .messenger-your-message-username,
 .messenger-others-message-user-profile .messenger-others-message-username, .profile-edit-column label, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text, .sign-info-btn-container .sign-info-check-account, .payment-products-container .payment-product-detail-container .payment-detail, .payment-product-info-container .payment-image-container .payment-image-type, .payment-product-info-container .payment-type-container .payment-product-type, .payment-product-info-container .payment-type-container .payment-product-category, .payment-price-container .payment-price, .payment-total-price-container .payment-total-price, .payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items,
 .payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items-price, .payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost-title,
-.payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost, .success-payment-feedback-container label, .projects-wrapper .projects-column-link, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .feedback-empty-container .feedback-empty-title, .website-technologies-column .website-technologies-title,
+.payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost, .success-payment-feedback-container label, .projects-wrapper .projects-column-link, .change-password-form-user, .dark-blue-text-center-grotext-family-1-5rem, .carousel-text-container .carousel-slide-title, .feedback-empty-container .feedback-empty-title, .website-technologies-column .website-technologies-title,
 .job-column .website-technologies-title, .clients-column .client-title, .system-column .system-title, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-title, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-title, .services-info-column .services-info-title, .featured-posts-column .featured-post-column-title, .similar-popular-posts-column .similar-popular-post-column-title, .job-openings-list-type-container .job-openings-list-title, .job-gradient-info-container .job-gradient-info-category, .job-content h1,
 .job-content h2,
 .job-content h3,
 .job-content h4,
 .job-content h5,
-.job-content h6, .job-detail-text-column .job-content-title, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-info-container .sign-info-title, .payment-info-title-container .payment-info-title, .payment-info-title-container .payment-info-count, .payment-sidebar-container .payment-sidebar-title-container .payment-sidebar-title, .success-payment-container .success-payment-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .post-text-container .post-title, .detail-gradient-container .detail-gradient-username, .sign-image-container .sign-image-title, .project-detail-article .project-detail-title, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .partners-container .partners-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .job-openings-list-title-container .job-openings-list-main-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .projects-article .projects-article-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
+.job-content h6, .job-detail-text-column .job-content-title, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-info-container .sign-info-title, .payment-info-title-container .payment-info-title, .payment-info-title-container .payment-info-count, .payment-sidebar-container .payment-sidebar-title-container .payment-sidebar-title, .success-payment-container .success-payment-title, .change-password-form-title, .dark-blue-text-center-grotext-family-2rem, .choices-column .price-column .price, .price-column .pricing-popular-price, .custom-build-column .custom-build-title, .categorie-column .pricing-popular-price, .post-text-container .post-title, .detail-gradient-container .detail-gradient-username, .sign-image-container .sign-image-title, .project-detail-article .project-detail-title, .dark-blue-text-center-grotext-family-3rem, .task-content-column .task-title, .static-info .static-info-title, .package .package-title, .carousel-title-container .carousel-title, .partners-container .partners-title, .website-technologies-main-title, .team-members-info-column .team-members-title, .system-info-container .system-info-title, .faq-main-title, .services-text-container .services-text-title, .pricing-list-text-container .pricing-list-title, .job-openings-list-title-container .job-openings-list-main-title, .join-our-team-title, .job-gradient-info-container .job-gradient-info-title, .job-info-container .job-info-title, .projects-article .projects-article-title, .about-page-gradient-text-container .about-page-gradient-title, .contact-page-gradient-text-container .contact-page-gradient-title, .contact-us-hero-text-container .contact-us-hero-column-title, .ready-to-try-title, .pricing-popular-package-title, .blog-gradient-title, .featured-search-title,
 .featured-posts-category-title, .posts-tags-title, .detail-gradient-container .detail-gradient-title, .detail-content-wrapper .detail-content-title,
 .project-detail-description-container .detail-content-title, .detail-link-text-container .detail-link-title {
   color: var(--text-dark-blue);
@@ -7062,7 +7185,7 @@ select:-webkit-autofill:focus {
 .job-content h3,
 .job-content h4,
 .job-content h5,
-.job-content h6, .job-detail-text-column .job-content-title, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-info-container .sign-info-title, .payment-info-title-container .payment-info-title, .payment-info-title-container .payment-info-count, .payment-sidebar-container .payment-sidebar-title-container .payment-sidebar-title, .success-payment-container .success-payment-title {
+.job-content h6, .job-detail-text-column .job-content-title, .messenger-header-user-info-container .messenger-header-username, .profile-user-info-container .profile-username, .profile-main-edit-container .profile-edit-title, .profile-contact-edit-container .profile-edit-title, .sign-info-container .sign-info-title, .payment-info-title-container .payment-info-title, .payment-info-title-container .payment-info-count, .payment-sidebar-container .payment-sidebar-title-container .payment-sidebar-title, .success-payment-container .success-payment-title, .change-password-form-title {
   font-size: 1.5rem;
 }
 
@@ -7071,7 +7194,7 @@ select:-webkit-autofill:focus {
 .messenger-others-message-user-profile .messenger-your-message-username,
 .messenger-others-message-user-profile .messenger-others-message-username, .profile-edit-column label, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text, .sign-info-btn-container .sign-info-check-account, .payment-products-container .payment-product-detail-container .payment-detail, .payment-product-info-container .payment-image-container .payment-image-type, .payment-product-info-container .payment-type-container .payment-product-type, .payment-product-info-container .payment-type-container .payment-product-category, .payment-price-container .payment-price, .payment-total-price-container .payment-total-price, .payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items,
 .payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items-price, .payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost-title,
-.payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost, .success-payment-feedback-container label, .projects-wrapper .projects-column-link {
+.payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost, .success-payment-feedback-container label, .projects-wrapper .projects-column-link, .change-password-form-user {
   font-size: 1rem;
 }
 
@@ -7083,7 +7206,7 @@ select:-webkit-autofill:focus {
 .job-content address,
 .job-content i,
 .job-content div,
-.job-content strong, .messenger-header-user-info-container .messenger-header-user, .static-info .static-info-text, .choices-column .abilities ul li, .choices-column:has(.recommended) .price-column ul li,
+.job-content strong, .messenger-header-user-info-container .messenger-header-user, .change-password-form-text, .change-password-form-input-container .placeholder, .static-info .static-info-text, .choices-column .abilities ul li, .choices-column:has(.recommended) .price-column ul li,
 .choices-column:has(.recommended) .abilities ul li, .carousel-title-container .carousel-text, .feedback-user .feedback-username, .modal-user-container .modalUser, .feedback-empty-container .feedback-empty-text, .website-technologies-main-text, .website-technologies-column .website-technologies-type,
 .job-column .website-technologies-type, .clients-column .client-text, .team-members-info-column .team-members-info-text, .system-info-container .system-info-text, .system-column .system-text, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-info, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info, .ready-to-try-info, .pricing-popular-abilities ul li, .pricing-popular-column:has(.recommended) .price-column ul li,
 .pricing-popular-column:has(.recommended) .pricing-popular-abilities ul li, .custom-build-column .custom-build-text, .services-text-container .services-text-text, .pricing-categories-column:has(.recommended) .categorie-column ul li,
@@ -7114,7 +7237,7 @@ select:-webkit-autofill:focus {
 .job-content address,
 .job-content i,
 .job-content div,
-.job-content strong, .messenger-header-user-info-container .messenger-header-user {
+.job-content strong, .messenger-header-user-info-container .messenger-header-user, .change-password-form-text, .change-password-form-input-container .placeholder {
   font-size: 1rem;
 }
 
@@ -7161,7 +7284,7 @@ select:-webkit-autofill:focus {
 .messenger-others-message-user-profile .messenger-your-message-username,
 .messenger-others-message-user-profile .messenger-others-message-username, .profile-main-edit-container .profile-edit-title, .profile-edit-column label, .profile-contact-edit-container .profile-edit-title, .sign-image-container .sign-image-title, .sign-info-input-container .sign-info-input-column .sign-info-label, .sign-info-extra-container .sign-info-extra-remember-container .sign-info-extra-remember-text, .sign-info-extra-password-container .sign-info-extra-password-text, .payment-info-title-container .payment-info-title, .payment-info-title-container .payment-info-count, .payment-products-container .payment-product-detail-container .payment-detail, .payment-product-info-container .payment-type-container .payment-product-type, .payment-product-info-container .payment-type-container .payment-product-category, .payment-price-container .payment-price, .payment-total-price-container .payment-total-price, .payment-sidebar-container .payment-sidebar-title-container .payment-sidebar-title, .payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items,
 .payment-sidebar-container .payment-sidebar-items-count-container .payment-sidebar-items-price, .payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost-title,
-.payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost, .success-payment-feedback-container label, .project-detail-article .project-detail-title {
+.payment-sidebar-total-cost-container .payment-sidebar-total-cost-info-container .payment-sidebar-total-cost, .success-payment-feedback-container label, .project-detail-article .project-detail-title, .change-password-form-user, .change-password-form-title {
   text-align: start;
 }
 
@@ -7334,7 +7457,7 @@ body {
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
   margin: 0 auto;
-  background: var(--body-background);
+  background: var(--background-white);
 }
 
 .header {

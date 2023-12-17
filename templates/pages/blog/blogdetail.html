@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-<title>Blog Detail - CyberCode</title>
+<title>Blog - {{ object.title }} - CyberCode</title>
 {% endblock %}
 
 {% block content %}
@@ -45,7 +45,7 @@
             </div>
             <div class="detail-share-container">
                 <div class="detail-share-user-info-container">
-                    <p class="detail-share-posted">Posted on {{ object.posted_on|date:"F d, Y" }}</p>
+                    <p class="detail-share-posted">Posted on {{ object.posted_on|date:"F d, Y" }}, by</p>
                     <p class="detail-share-username">{{ object.user }}</p>
                 </div>
                 <div class="detail-share-social-container">

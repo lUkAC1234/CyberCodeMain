@@ -39,6 +39,7 @@
                     <h1 class="sign-info-title">Sign up to Website</h1>
                     <form id="registration-form">
                         {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ next }}">
                         <div class="sign-info-input-container">
                             <div class="sign-info-input-column">
                                 <label class="sign-info-label">Username</label>

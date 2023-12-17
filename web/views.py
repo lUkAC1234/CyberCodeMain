@@ -16,6 +16,7 @@ from django.http import HttpResponseNotFound
 from django.db.models import Count
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib import messages
+from django.utils import timezone
 
 class index(TemplateView):
     template_name = "pages/index.html"
@@ -320,7 +321,7 @@ def loginView(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return JsonResponse({'success': True, 'redirect': reverse('main:index')})
+                return JsonResponse({'success': True, 'redirect': reverse('main:profile')})
             form.add_error('password', f'Username or password is incorrect')
         errors = {field: [error for error in form[field].errors] for field in form.fields}
         return JsonResponse({'success': False, 'errors': errors})
@@ -341,6 +342,7 @@ class RegistrationView(CreateView):
         del form.cleaned_data['confirm_password']
 
         response = super().form_valid(form)
+        messages.success(self.request, "You have successfully created an account")
         login(self.request, self.object) 
         return JsonResponse({'success': True})
 
@@ -349,12 +351,16 @@ class RegistrationView(CreateView):
         return JsonResponse({'success': False, 'errors': errors})
 
 class UserPasswordChangeView(PasswordChangeView):
+    model = UserModel
     form_class = UserPasswordChangeForm
     success_url = reverse_lazy("main:profile")
     template_name = "pages/user/changepassword.html"
 
     def form_valid(self, form):
         response = super().form_valid(form)
+        self.request.user.refresh_from_db() 
+        self.request.user.updated_at = timezone.now()
+        self.request.user.save(update_fields=['updated_at'])
         messages.success(self.request, "Your password was successfully updated")
         return response
 
@@ -363,8 +369,7 @@ def logoutView(request):
     return redirect('main:index')
 
 
-
-
+# --ERRORS VIEWS-- # 
 
 def PageNotFound(request, *args, **kwargs):
     text = render_to_string('pages/error/error404.html')
