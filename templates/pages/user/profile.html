@@ -82,6 +82,7 @@
                             </div>
                             <div class="profile-edit-column">
                                 <label for="">Email</label>
+                                <p class="profile-edit-text"><i class="fa-solid fa-circle-info"></i> The email you entered can help you recover your account if you forget your password.</p>
                                 <input class="profile-edit-input" type="email" placeholder="cybercodesp@gmail.com"
                                     name="email" value="{{ request.user.email|default_if_none:'' }}">
                             </div>

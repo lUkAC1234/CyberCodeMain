@@ -1,9 +1,12 @@
-from django.urls import path,include
+from django.urls import path,include, reverse_lazy
 from .views import index, about, contact, Pricing, pricinglist, \
 BlogListView, blogdetail, job, JobDetailView, \
 loginView, RegistrationView, MyProfileEdit, logoutView, FAQListView, \
 payment_list, AddToCart, RemoveFromCart, SuccessPayment, PageNotFound, \
 ProjectsView, ProjectDetailView, UserPasswordChangeView
+
+from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, \
+PasswordResetCompleteView, PasswordResetConfirmView
 
 
 app_name = "main"
@@ -43,10 +46,24 @@ urlpatterns = [
 
     # User
     path('user/profile/', MyProfileEdit.as_view(), name="profile"),
-    path('user/password/change', UserPasswordChangeView.as_view(), name="changeuserpassword"),
     path('login/', loginView, name="login"),
     path('registration/', RegistrationView.as_view(), name="registration"),
     path('logout/account', logoutView, name="logout"),
+
+    path('user/password/change', UserPasswordChangeView.as_view(), name="changeuserpassword"),
+    path('user/password/reset', PasswordResetView.as_view(
+        template_name="pages/user/password_reset.html",
+        email_template_name="pages/user/password_reset_email.html",
+        success_url=reverse_lazy("main:password_reset_done")
+    ), 
+        name="password_reset"),
+    path('user/password/reset/done', PasswordResetDoneView.as_view(template_name="pages/user/password_reset_done.html"), name="password_reset_done"),
+    path('user/password/reset/<uidb64>/<token>/', PasswordResetConfirmView.as_view(
+        template_name="pages/user/password_reset_confirm.html",
+        success_url=reverse_lazy("main:password_reset_complete")
+    ), 
+    name="password_reset_confirm"),
+    path('user/password/reset/complete', PasswordResetCompleteView.as_view(template_name="pages/user/password_reset_complete.html"), name="password_reset_complete"),
 
     # Errors
     path('page/not/found/404/error', PageNotFound, name="page404"),

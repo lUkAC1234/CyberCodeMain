@@ -25,7 +25,7 @@ class index(TemplateView):
         data = super().get_context_data(**kwargs)
         data['pricing'] = PricingModel.objects.filter(popular=True).order_by('-popular', '-id')[:3]
         data['posts'] = PostModel.objects.only('title', 'image', 'posted_on', 'short_description').all()
-        data['feedbacks'] = FeedbackModel.objects.select_related('user').all()
+        data['feedbacks'] = FeedbackModel.objects.select_related('user').filter(is_allowed=True)
         data['partners'] = PartnersModel.objects.all()
         return data
     
@@ -374,4 +374,3 @@ def logoutView(request):
 def PageNotFound(request, *args, **kwargs):
     text = render_to_string('pages/error/error404.html')
     return HttpResponseNotFound(text)
-

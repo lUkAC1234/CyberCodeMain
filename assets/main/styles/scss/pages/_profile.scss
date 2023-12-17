@@ -134,6 +134,16 @@
         margin: 0.5rem 0;
     }
 
+    .profile-edit-text {
+        @extend .info-text-gray-1rem;
+        font-size: 0.9rem !important;
+        margin-bottom: 0.5rem;
+
+        i {
+            color: var(--text-dark-blue);
+        }
+    }
+
     .profile-edit-input {
         border: 1px solid var(--profile-input-border);
         padding: 0.5rem;

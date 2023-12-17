@@ -135,6 +135,7 @@ class FeedbackModel(models.Model):
     text = models.TextField(max_length=2500)
     user = models.ForeignKey(UserModel, on_delete=models.RESTRICT, related_name='feedbackUser')
     created_at = models.DateTimeField(auto_now_add=True)
+    is_allowed = models.BooleanField(default=0)
 
     class Meta:
         verbose_name = 'Feedback'

@@ -4964,6 +4964,13 @@
 .profile-edit-column label {
   margin: 0.5rem 0;
 }
+.profile-edit-column .profile-edit-text {
+  font-size: 0.9rem !important;
+  margin-bottom: 0.5rem;
+}
+.profile-edit-column .profile-edit-text i {
+  color: var(--text-dark-blue);
+}
 .profile-edit-column .profile-edit-input {
   border: 1px solid var(--profile-input-border);
   padding: 0.5rem;
@@ -5973,14 +5980,23 @@
 .change-password-form-text {
   margin-top: 0.5rem;
 }
+.change-password-form-text a {
+  color: var(--text-purple);
+}
 
 .change-password-form {
   display: grid;
   gap: 0.7rem;
   margin-top: 2rem;
 }
-.change-password-form:has(.change-password-error.currentpassword) .change-password-input.currentpassword, .change-password-form:has(.change-password-error.newpassword1) .change-password-input.newpassword1, .change-password-form:has(.change-password-error.newpassword2) .change-password-input.newpassword2 {
+.change-password-form:has(.change-password-error.currentpassword) .change-password-form-input-container.currentpassword .change-password-input, .change-password-form:has(.change-password-error.newpassword1) .change-password-form-input-container.newpassword1 .change-password-input, .change-password-form:has(.change-password-error.newpassword2) .change-password-form-input-container.newpassword2 .change-password-input {
   border-color: var(--error);
+}
+.change-password-form:has(.change-password-error.currentpassword) .change-password-form-input-container.currentpassword .change-password-input:focus + .placeholder,
+.change-password-form:has(.change-password-error.currentpassword) .change-password-form-input-container.currentpassword .change-password-input:not(:placeholder-shown) + .placeholder, .change-password-form:has(.change-password-error.newpassword1) .change-password-form-input-container.newpassword1 .change-password-input:focus + .placeholder,
+.change-password-form:has(.change-password-error.newpassword1) .change-password-form-input-container.newpassword1 .change-password-input:not(:placeholder-shown) + .placeholder, .change-password-form:has(.change-password-error.newpassword2) .change-password-form-input-container.newpassword2 .change-password-input:focus + .placeholder,
+.change-password-form:has(.change-password-error.newpassword2) .change-password-form-input-container.newpassword2 .change-password-input:not(:placeholder-shown) + .placeholder {
+  color: var(--error);
 }
 
 .change-password-form-input-container {
@@ -6001,7 +6017,7 @@
 .change-password-form-input-container .change-password-input:not(:placeholder-shown) + .placeholder {
   top: 0.6rem;
   font-size: 0.7rem !important;
-  color: var(--text-purple) !important;
+  color: var(--text-purple);
 }
 .change-password-form-input-container .change-password-input {
   border: 1px solid var(--profile-input-border);
@@ -7206,7 +7222,7 @@ select:-webkit-autofill:focus {
 .job-content address,
 .job-content i,
 .job-content div,
-.job-content strong, .messenger-header-user-info-container .messenger-header-user, .change-password-form-text, .change-password-form-input-container .placeholder, .static-info .static-info-text, .choices-column .abilities ul li, .choices-column:has(.recommended) .price-column ul li,
+.job-content strong, .messenger-header-user-info-container .messenger-header-user, .profile-edit-column .profile-edit-text, .change-password-form-text, .change-password-form-input-container .placeholder, .static-info .static-info-text, .choices-column .abilities ul li, .choices-column:has(.recommended) .price-column ul li,
 .choices-column:has(.recommended) .abilities ul li, .carousel-title-container .carousel-text, .feedback-user .feedback-username, .modal-user-container .modalUser, .feedback-empty-container .feedback-empty-text, .website-technologies-main-text, .website-technologies-column .website-technologies-type,
 .job-column .website-technologies-type, .clients-column .client-text, .team-members-info-column .team-members-info-text, .system-info-container .system-info-text, .system-column .system-text, .about-get-in-touch-email-phone-container .about-get-in-touch-email-phone-info, .contact-us-hero-get-in-touch-container .contact-us-hero-info-container .contact-us-hero-info-detail, .faq-main-info, .ready-to-try-info, .pricing-popular-abilities ul li, .pricing-popular-column:has(.recommended) .price-column ul li,
 .pricing-popular-column:has(.recommended) .pricing-popular-abilities ul li, .custom-build-column .custom-build-text, .services-text-container .services-text-text, .pricing-categories-column:has(.recommended) .categorie-column ul li,
@@ -7237,7 +7253,7 @@ select:-webkit-autofill:focus {
 .job-content address,
 .job-content i,
 .job-content div,
-.job-content strong, .messenger-header-user-info-container .messenger-header-user, .change-password-form-text, .change-password-form-input-container .placeholder {
+.job-content strong, .messenger-header-user-info-container .messenger-header-user, .profile-edit-column .profile-edit-text, .change-password-form-text, .change-password-form-input-container .placeholder {
   font-size: 1rem;
 }
 
