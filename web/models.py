@@ -5,6 +5,8 @@ from ckeditor.fields import RichTextField
 from django.core.validators import RegexValidator
 from django.contrib.auth.hashers import make_password
 from django.utils import timezone
+from django.core.validators import EmailValidator
+from django.core.exceptions import ValidationError
 
 class EnglishLettersUsernameValidator(RegexValidator):
     regex = r'^[a-zA-Z0-9]{8,16}$'
@@ -33,13 +35,22 @@ class PhoneValidator(RegexValidator):
 # --------------------------------------------------------------------------- #
 # Users
 class UserModel(AbstractUser):
-    user_image = models.ImageField(upload_to=' users/profile/profile-image/%Y/%m/%d/', default='default-user.jpg')
+    user_image = models.ImageField(upload_to='users/profile/profile-image/%Y/%m/%d/', default='default-user.jpg')
     company = models.CharField(max_length=30, blank=True, null=True)
     location = models.CharField(max_length=50, blank=True, null=True)
     position = models.CharField(max_length=50, blank=True, null=True)
-    mobileNumber = models.CharField(max_length=13, blank=True, null=True, validators=[PhoneValidator()])
+    mobileNumber = models.CharField(max_length=13, blank=True, null=True)  # Assuming you have a PhoneValidator
     socialMedia = models.URLField(blank=True, null=True)
     updated_at = models.DateTimeField(auto_now_add=True, editable=False, null=True, blank=True)
+    
+    email = models.EmailField(
+        _('email address'),
+        unique=True,
+        blank=False,
+        help_text=_('Required. Must be a valid email address.'),
+        validators=[EmailValidator(message=_('Enter a valid email address.'))],
+    )
+
     username = models.CharField(
         _('username'),
         max_length=16,
@@ -59,6 +70,11 @@ class UserModel(AbstractUser):
     )
 
     def save(self, *args, **kwargs):
+        # Ensure the email is unique before saving
+        if UserModel.objects.filter(email=self.email).exclude(id=self.id).exists():
+            raise ValidationError({'email': _('A user with that email already exists.')})
+
+        # Your existing save logic here
         if self._state.adding or not self.updated_at:
             self.updated_at = timezone.now()
 
