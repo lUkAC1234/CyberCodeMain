@@ -1,17 +1,12 @@
-# ------------------------------------------------------------------------------------------------------- #
+## Here we will be writing every changes that we made for today.
 
-# Here we will be writing every changes that we made for today.
+### Start...
 
-# Start...
 
-# ------------------------------------------------------------------------------------------------------ #
+### 20.12.2023
 
-# 22.06.2023 
+## Shaxobiddin:
+    Fixed problems with email, now email will be inserted automatically if the user has an email and also fixed a problem in the blog details, now you can share the blog and other small changes.
 
-# Shaxobiddin:
-    I changed for almost everything, I rewrote the code for everything, I made new "header" and "footer",
-    not copy pass, I did it by my own.
-
-# Ended at 4:17AM
-# ------------------------------------------------------------------------------------------------------ #
-
+### Ended at 4:17AM
+## --------------------------

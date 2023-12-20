@@ -1,19 +1,19 @@
 {
-  "name": "codecraft",
+  "name": "CyberCode",
   "version": "1.0.0",
-  "description": "<div>\r   <img src=\"https://mikond.com/media/logos/2023/07/17/mikond.jpg\" alt=\"Логотип CyberCode\" width=\"200\">\r </div>",
+  "description": "<div>\r   <img src=\"https://devcybercode.com/static/main/images/layout/codecraftheader.svg\" alt=\"Логотип CyberCode\" width=\"200\">\r </div>",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lUkAC1234/CodeCraftMain.git"
+    "url": "git+https://github.com/lUkAC1234/CyberCodeMain.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/lUkAC1234/CodeCraftMain/issues"
+    "url": "https://github.com/lUkAC1234/CyberCodeMain/issues"
   },
-  "homepage": "https://github.com/lUkAC1234/CodeCraftMain#readme"
+  "homepage": "https://github.com/lUkAC1234/CyberCodeMain#readme"
 }
