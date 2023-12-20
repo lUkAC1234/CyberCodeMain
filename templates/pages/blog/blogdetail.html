@@ -52,9 +52,9 @@
                     <p class="detail-share-social-text">Share this article</p>
                     <button class="shareBtn" id="shareBtn"><i
                             class="fa-sharp fa-solid fa-link detail-share-link-icon"></i></button>
-                    <a href="https://t.me/CyberCodeOwner"><i class="fab fa-telegram detail-share-social-icon"></i></a>
+                    <a href="https://t.me/share/url?url={{ request.build_absolute_uri|urlencode }}"><i class="fab fa-telegram detail-share-social-icon"></i></a>
                     <a href="https://www.instagram.com/i.really_miss.you_/"><i class="fab fa-instagram detail-share-social-icon"></i></a>
-                    <a href="https://www.linkedin.com/in/shaxobiddin-zuxriddinov-473110294/"><i class="fa-brands fa-linkedin detail-share-social-icon"></i></a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.build_absolute_uri|urlencode }}"><i class="fa-brands fa-linkedin detail-share-social-icon"></i></a>
 
                     <div class="shareAfterText" id="shareAfterText">
                         <p>You have successfully copied the URL <i class="fa-sharp fa-solid fa-circle-check"></i></p>
