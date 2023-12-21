@@ -61,7 +61,7 @@
   </div>
 </div>
 
-Если у вас есть вопросы или вы хотите сотрудничать с нами, свяжитесь с нами по адресу [supportcybercode@gmail.com](mailto:supportcybercode@gmail.com).
+Если у вас есть вопросы или вы хотите сотрудничать с нами, свяжитесь с нами по адресу [cybercodesp@gmail.com](mailto:cybercodesp@gmail.com).
 
 Спасибо, что посетили наш репозиторий!
 
