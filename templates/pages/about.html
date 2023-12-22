@@ -10,7 +10,7 @@
     <!-- START GRADIENT CONTENT -->
     <section class="about-page-gradient-section">
         <div class="about-page-gradient-main-container">
-            <article class="about-page-gradient-text-container">
+            <article class="about-page-gradient-text-container fade slideInLeft">
                 <h1 class="about-page-gradient-title">Our mission is to make people happy and productive</h1>
                 <p class="about-page-gradient-text">We are on a mission to give you more control. Start your business,
                     organizing and reacting. Spend more time doing the things that matter.</p>
@@ -20,7 +20,7 @@
                     </a>
                 </div>
             </article>
-            <article class="about-page-gradient-image-container">
+            <article class="about-page-gradient-image-container fade slideInRight">
                 <div class="about-page-gradient-image-column">
                     <img class="about-page-gradient-image"
                         src="{% static 'main/images/about-us/gradientmainimage.webp' %}" alt="">
@@ -52,12 +52,12 @@
 
     <section class="website-technologies-section">
         <div class="website-technologies-title-container">
-            <h1 class="website-technologies-main-title">The Technlogies that we used to make this website</h1>
-            <p class="website-technologies-main-text">
+            <h1 class="website-technologies-main-title fade fadeInUp">The Technlogies that we used to make this website</h1>
+            <p class="website-technologies-main-text fade fadeInUp">
                 We used these technologies because they are convenient intuitive and also provide many features as with frontend and backend
             </p>
             <article class="website-technologies-container">
-                <div class="website-technologies-column">
+                <div class="website-technologies-column fade slideInLeft">
                     <div class="website-technologies-image-container">
                         <img src="{% static 'main/images/technologies/djangoicon.svg' %}" alt="">
                     </div>
@@ -67,7 +67,7 @@
                     </div>
                     <p class="website-technologies-text">Django is our backend framework, powering the core functionality of our project.</p>
                 </div>
-                <div class="website-technologies-column">
+                <div class="website-technologies-column fade fadeInUp">
                     <div class="website-technologies-image-container">
                         <img src="{% static 'main/images/technologies/python.webp' %}" alt="">
                     </div>
@@ -77,7 +77,7 @@
                     </div>
                     <p class="website-technologies-text">Python, our primary programming language, drives the logic and functionality of our web application.</p>
                 </div>
-                <div class="website-technologies-column">
+                <div class="website-technologies-column fade slideInRight">
                     <div class="website-technologies-image-container">
                         <img src="{% static 'main/images/technologies/postgresql.svg' %}" alt="">
                     </div>
@@ -87,7 +87,7 @@
                     </div>
                     <p class="website-technologies-text">PostgreSQL, a powerful database, ensures data integrity and efficient storage for our project.</p>
                 </div>
-                <div class="website-technologies-column">
+                <div class="website-technologies-column fade fadeInDown">
                     <div class="website-technologies-image-container">
                         <img src="{% static 'main/images/technologies/react.svg' %}" alt="">
                     </div>
@@ -97,7 +97,7 @@
                     </div>
                     <p class="website-technologies-text"> React, a JavaScript library, enables dynamic and responsive user interfaces, enhancing user engagement.</p>
                 </div>
-                <div class="website-technologies-column">
+                <div class="website-technologies-column fade fadeInDown">
                     <div class="website-technologies-image-container">
                         <img src="{% static 'main/images/technologies/html.svg' %}" alt="">
                     </div>
@@ -107,7 +107,7 @@
                     </div>
                     <p class="website-technologies-text">HTML is essential for structuring web content and creating the foundation of our project's frontend.</p>
                 </div>
-                <div class="website-technologies-column">
+                <div class="website-technologies-column fade fadeInDown">
                     <div class="website-technologies-image-container">
                         <img src="{% static 'main/images/technologies/css.svg' %}" alt="">
                     </div>
@@ -117,7 +117,7 @@
                     </div>
                     <p class="website-technologies-text">CSS, Cascading Style Sheets, enhances our project's visual appeal and ensures a polished user interface.</p>
                 </div>
-                <div class="website-technologies-column">
+                <div class="website-technologies-column fade fadeInDown">
                     <div class="website-technologies-image-container">
                         <img src="{% static 'main/images/technologies/javascript.svg' %}" alt="">
                     </div>
@@ -127,7 +127,7 @@
                     </div>
                     <p class="website-technologies-text">JavaScript, a versatile scripting language, brings interactivity and functionality to our web application.</p>
                 </div>
-                <div class="website-technologies-column">
+                <div class="website-technologies-column fade fadeInDown">
                     <div class="website-technologies-image-container">
                         <img src="{% static 'main/images/technologies/rest.svg' %}" alt="">
                     </div>
@@ -137,7 +137,7 @@
                     </div>
                     <p class="website-technologies-text">DRF, a Django extension, simplifies API development, facilitating data exchange and integration.</p>
                 </div>
-                <div class="website-technologies-column">
+                <div class="website-technologies-column fade fadeInDown">
                     <div class="website-technologies-image-container">
                         <img src="{% static 'main/images/technologies/sass.svg' %}" alt="">
                     </div>
@@ -157,28 +157,28 @@
 
     <section class="clienst-section">
         <div class="clients-container">
-            <div class="clients-column first">
+            <div class="clients-column first fade fadeInDown">
                 <div class="client-sphere">
                     <h1 class="client-sphere-info">{% if 50 >= users.count %}50{% else %} {{ users.count }} {% endif %}</h1>
                 </div>
                 <h1 class="client-title">Tracked users</h1>
                 <p class="client-text">All our clients are satisfied with our work!</p>
             </div>
-            <div class="clients-column second">
+            <div class="clients-column second fade fadeInUp">
                 <div class="client-sphere">
                     <h1 class="client-sphere-info">+10</h1>
                 </div>
                 <h1 class="client-title">Events per month</h1>
                 <p class="client-text">Every month we get about this much work from clients</p>
             </div>
-            <div class="clients-column third">
+            <div class="clients-column third fade fadeInDown">
                 <div class="client-sphere">
                     <h1 class="client-sphere-info">$110K</h1>
                 </div>
                 <h1 class="client-title">Capital raised</h1>
                 <p class="client-text">Until today we have earned exactly this amount, and this is just the beginning!</p>
             </div>
-            <div class="clients-column fourth">
+            <div class="clients-column fourth fade fadeInUp">
                 <div class="client-sphere">
                     <h1 class="client-sphere-info">25</h1>
                 </div>
@@ -194,7 +194,7 @@
     
     <section class="team-members-section">
         <div class="team-members-container">
-            <div class="team-members-image-column">
+            <div class="team-members-image-column fade slideInLeft">
                 <img src="{% static 'main/images/about-us/team-members.webp' %}" alt="">
                 <div class="team-members-info-container">
                     <i class="team-members-icon"><i class="fa-solid fa-users"></i></i>
@@ -202,7 +202,7 @@
                     <h2 class="team-members-count-text">Team <br> members</h2>
                 </div>
             </div>
-            <div class="team-members-info-column">
+            <div class="team-members-info-column fade slideInRight">
                 <h1 class="team-members-title">A great story always starts with a great team Work</h1>
                 <p class="team-members-info-text">We are a small, but growing team. Our expertise includes growth marketing, design, software development, and product management.</p>
                 <div class="team-members-btn-container">
@@ -218,7 +218,7 @@
 
     <!-- START OUR SYSTEM SECTION  -->
 
-    <section class="system-section">
+    <section class="system-section fade fadeInDown">
         <div class="system-container">
             <div class="system-info-container">
                 <h1 class="system-info-title">The values that drive everything we do</h1>
@@ -268,11 +268,11 @@
 
     <section class="about-get-in-touch-section">
         <div class="about-get-in-touch-container">
-            <div class="about-get-in-touch-text-column">
+            <div class="about-get-in-touch-text-column fade slideInLeft">
                 <h1 class="about-get-in-touch-title">Stay get in touch with us</h1>
                 <p class="about-get-in-touch-text">Questions? Comments? Want to schedule a demo? We’d love to chat!</p>
             </div>
-            <div class="about-get-in-touch-info-container">
+            <div class="about-get-in-touch-info-container fade slideInRight">
                 <div class="about-get-in-touch-info-column">
                     <div class="about-get-in-touch-icon-container">
                         <i class="fa-solid fa-envelope"></i>

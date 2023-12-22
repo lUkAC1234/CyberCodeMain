@@ -19,7 +19,11 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'main/styles/scss/global.css' %}">
 
-    <link rel="shortcut icon" href="{% static 'main/images/layout/codecraftheader.svg' %}" type="image/svg+xml" />
+    <!-- Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
+    <!-- Animation End -->
+
+    <link rel="shortcut icon" href="{% static 'main/images/layout/websiteicon.svg' %}" type="image/svg+xml" />
     <title>Payment List - CyberCode</title>
 </head>
 
@@ -29,11 +33,11 @@
         <section class="payment-section">
             <div class="payment-container">
                 <article class="payment-info-container">
-                    <div class="payment-info-title-container">
+                    <div class="payment-info-title-container fade fadeInDown">
                         <h1 class="payment-info-title">Order cart</h1>
                         <p class="payment-info-count">
-                            {{ cart_items.count }}
-                            {% if cart_items.count > 1 %}
+                            {{ cart_items|length }}
+                            {% if cart_items|length > 1 %}
                             items
                             {% else %}
                             item
@@ -43,13 +47,13 @@
                     <div class="payment-products-container">
                         {% if cart_items %}
                         <div class="payment-product-detail-container">
-                            <p class="payment-detail">product Details</p>
-                            <p class="payment-detail">Price</p>
-                            <p class="payment-detail">Total</p>
+                            <p class="payment-detail fade fadeInDown">product Details</p>
+                            <p class="payment-detail fade fadeInDown">Price</p>
+                            <p class="payment-detail fade fadeInDown">Total</p>
                         </div>
                         <div class="payment-product-wrapper-column">
                             {% for item in cart_items %}
-                            <div class="payment-product-column">
+                            <div class="payment-product-column fade fadeInUp">
                                 <div class="payment-product-info-container">
                                     <div class="payment-image-container">
                                         <span class="payment-image-type">{{ item.type }}</span>
@@ -85,7 +89,7 @@
                             {% endfor %}
                         </div>
                         {% else %}
-                        <div class="projects-empty">
+                        <div class="projects-empty fade fadeInUp">
                             <div class="projects-empty-icon-container">
                                 <img src="{% static 'main/images/errors/noresult.svg' %}" alt="">
                             </div>
@@ -94,7 +98,7 @@
                         </div>
                         {% endif %}
                     </div>
-                    <div class="payment-return-back-container">
+                    <div class="payment-return-back-container fade fadeInUp">
                         <a href="{% url 'main:pricing' %}" class="payment-return-back-link">
                             <i class="fa-solid fa-arrow-left-long"></i>
                             Continue Ordering
@@ -103,14 +107,14 @@
                 </article>
                 {% if cart_items %}
                 {% load my_tags %}
-                <article class="payment-sidebar-container" id="paymentSidebar">
+                <article class="payment-sidebar-container fade slideInUp" id="paymentSidebar">
                     <div class="payment-sidebar-title-container">
                         <h1 class="payment-sidebar-title">Order Summary</h1>
                     </div>
                     <div class="payment-sidebar-items-count-container">
                         <h1 class="payment-sidebar-items">
-                            {{ cart_items.count }}
-                            {% if cart_items.count > 1 %}
+                            {{ cart_items|length }}
+                            {% if cart_items|length > 1 %}
                             items
                             {% else %}
                             item
@@ -218,6 +222,19 @@
         </section>
 
         <!-- END SECTION PAYMENT LIST -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+                wow = new WOW({
+                    boxClass: 'fade',
+                    animateClass: 'animated',
+                    offset: 0,
+                    mobile: true,
+                    live: true
+                });
+                wow.init();
+            });
+        </script>
         <script>
             let applyModal = document.getElementById("applyModal");
             let applyNowBtn = document.getElementById("applyNowBtn");

@@ -19,8 +19,12 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'main/styles/scss/global.css' %}">
 
-    <link rel="shortcut icon" href="{% static 'main/images/layout/codecraftheader.svg' %}" type="image/svg+xml" />
+    <link rel="shortcut icon" href="{% static 'main/images/layout/websiteicon.svg' %}" type="image/svg+xml" />
     <title>404 Page Not Found - CyberCode</title>
+
+    <!-- Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
+    <!-- Animation End -->
 
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap");
@@ -130,7 +134,7 @@
             font-weight: 700;
             line-height: 120%;
             text-transform: capitalize;
-            margin-block: 0.5rem;
+            margin-block: 0.5rem 1rem;
         }
 
         .text-404 {
@@ -138,7 +142,7 @@
             font-size: 1.25rem;
             font-family: var(--grotext-sans);
             line-height: 160%;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
             width: min(100%, 35rem);
         }
 
@@ -149,14 +153,14 @@
             color: #fff;
             text-align: center;
             font-size: 1.25rem;
-            font-family: var(--nunito);
+            font-family: var(--grotext-sans);
             font-weight: 400;
             background: #8828FF;
             border-radius: 40px;
             border: 1px solid #8828FF;
             transition: all 0.5s;
             cursor: pointer;
-            padding: 0.5rem 2rem;
+            padding: 1rem 2rem;
         }
 
         .link-404 button i {
@@ -189,7 +193,7 @@
     <main class="main main-404">
         <section class="section-404">
             <div class="container-404">
-                <div>
+                <div class="fade fadeInLeft">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                         viewBox="0 0 800 600">
                         <g>
@@ -463,7 +467,7 @@
                         </g>
                     </svg>
                 </div>
-                <div class="content-container-404">
+                <div class="content-container-404 fade fadeInRight">
                     <h1 class="title-404">404</h1>
                     <h2 class="title-second-404">UH OH! You're lost.</h2>
                     <p class="text-404">The page you are looking for does not exist.
@@ -477,6 +481,19 @@
             </div>
         </section>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+            wow = new WOW({
+                boxClass: 'fade',
+                animateClass: 'animated',
+                offset: 0,
+                mobile: true,
+                live: true
+            });
+            wow.init();
+        });
+    </script>
 </body>
 
 </html>.

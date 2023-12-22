@@ -11,7 +11,7 @@
 
     <section class="pricing-list-section">
         <div class="pricing-list-container">
-            <div class="pricing-list-text-container">
+            <div class="pricing-list-text-container fade slideInLeft">
                 <h1 class="pricing-list-title">Join one of the World fastest growing Company</h1>
                 <p class="pricing-list-text">We want to find the best specialists from all over the world. Here you can
                     see job vacancies, and we will be glad if you want to join us</p>
@@ -21,7 +21,7 @@
                     </a>
                 </div>
             </div>
-            <div class="pricing-list-image-container">
+            <div class="pricing-list-image-container fade slideInRight">
                 <img class="pricing-list-first-image" src="{% static 'main/images/pricinglist/people.png' %}" alt="">
                 <img class="pricing-list-second-image" src="{% static 'main/images/pricinglist/people2.png' %}" alt="">
             </div>
@@ -34,7 +34,7 @@
 
     <section class="services-section" style="margin-top: 0rem;">
         <div class="services-container">
-            <div class="services-text-container">
+            <div class="services-text-container fade slideInLeft">
                 <h1 class="services-text-title" style="font-size: 2.5rem;">Great perks of working with CyberCode Team
                 </h1>
                 <p class="services-text-text">We are a small, but growing team. Our expertise includes growth marketing,
@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class="services-info-container">
-                <div class="services-info-column">
+                <div class="services-info-column fade fadeInDown">
                     <div class="services-icon">
                         <i class="fas fa-wrench fa-rotate-270"></i>
                     </div>
@@ -54,7 +54,7 @@
                     <p class="services-info-text">After we transfer the site to you, you will be able to manage your
                         site yourself</p>
                 </div>
-                <div class="services-info-column">
+                <div class="services-info-column fade fadeInDown">
                     <div class="services-icon">
                         <i class="fas fa-question-circle"></i>
                     </div>
@@ -62,7 +62,7 @@
                     <p class="services-info-text">Free support for a month after transfer of the site, as well as fixing
                         it only 1 time</p>
                 </div>
-                <div class="services-info-column">
+                <div class="services-info-column fade fadeInDown">
                     <div class="services-icon">
                         <i class="fa-solid fa-users-gear"></i>
                     </div>
@@ -70,7 +70,7 @@
                     <p class="services-info-text">You will receive your website on time or even earlier, we guarantee
                         it!</p>
                 </div>
-                <div class="services-info-column">
+                <div class="services-info-column fade fadeInDown">
                     <div class="services-icon">
                         <i class="fas fa-trophy"></i>
                     </div>
@@ -87,14 +87,14 @@
 
     <section class="job-openings-list-section" id="jobList">
         <div class="job-openings-list-title-container">
-            <h1 class="job-openings-list-main-title">What job profiles are we currently looking for?</h1>
-            <p class="job-openings-list-main-text">
+            <h1 class="job-openings-list-main-title fade fadeInUp">What job profiles are we currently looking for?</h1>
+            <p class="job-openings-list-main-text fade fadeInUp">
                 We are looking for the most professional specialists in their field who will help us develop together,
                 if you are one of them, join us!
             </p>
             <article class="job-openings-list-container">
                 {% for object in object_list %}
-                <div class="job-openings-list-column">
+                <div class="job-openings-list-column fade fadeInDown">
                     <a href="{% url 'main:jobdetail' pk=object.pk %}">
                         <div class="job-openings-list-type-container">
                             <h1 class="job-openings-list-title">{{ object.title }}</h1>
@@ -142,11 +142,11 @@
 
     <section class="join-our-team-section">
         <div class="join-our-team-container">
-            <h1 class="join-our-team-title">Join Our Team and growth your carrer with us</h1>
-            <p class="join-our-team-text">It's easy to let your day slip away with too many calls and meetings. Taskable
+            <h1 class="join-our-team-title fade fadeInUp">Join Our Team and growth your carrer with us</h1>
+            <p class="join-our-team-text fade fadeInUp">It's easy to let your day slip away with too many calls and meetings. Taskable
                 lets you block time for deep work by adding tasks to your calendar with one click, giving you control
                 back over your day.</p>
-            <div class="join-our-team-btn-container">
+            <div class="join-our-team-btn-container fade fadeInUp">
                 <a href="#jobList">
                     <button class="join-our-team-btn">Get started</button>
                 </a>

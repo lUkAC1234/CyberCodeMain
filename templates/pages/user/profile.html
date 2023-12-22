@@ -22,7 +22,7 @@
         <div class="profile-container">
             <form enctype="multipart/form-data" method="POST" id="profile-form" class="profile-main-form">
                 {% csrf_token %}
-                <article class="profile-general-info-container">
+                <article class="profile-general-info-container fade fadeInDown">
                     <div class="profile-image-edit-container">
                         <div class="profile-image-container">
                             <img class="profile-image" src="{{ request.user.user_image.url }}" alt="">
@@ -45,7 +45,7 @@
                         </a>
                     </div>
                 </article>
-                <article class="profile-edit-container">
+                <article class="profile-edit-container fade slideInRight">
                     <div class="profile-main-edit-container">
                         <h1 class="profile-edit-title">Main info</h1>
                         <div class="profile-main-edit-wrapper">

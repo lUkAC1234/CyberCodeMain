@@ -10,7 +10,7 @@
     <!-- START GRADIENT CONTENT -->
     <section class="blog-gradient-section">
         <div class="blog-gradient-container">
-            <h1 class="blog-gradient-title">Our best tips for building and launching creative projects.</h1>
+            <h1 class="blog-gradient-title fade slideInLeft">Our best tips for building and launching creative projects.</h1>
         </div>
     </section>
     <!-- END GRADIENT CONTENT -->
@@ -19,15 +19,15 @@
     {% if latestPost %}
     <section class="latest-posts-section">
         <div class="latest-posts-container">
-            <h1 class="latest-posts-title">Latest posts</h1>
+            <h1 class="latest-posts-title fade slideInLeft">Latest posts</h1>
             <div class="latest-post-wrapper">
                 {% for object in latestPost %}
-                <div class="post-image-container">
+                <div class="post-image-container fade slideInLeft">
                     <a href="{% url 'main:blogdetail' pk=object.pk %}">
                         <img src="{{ object.image.url }}" alt="">
                     </a>
                 </div>
-                <div class="post-text-container">
+                <div class="post-text-container fade fadeInUp">
                     <a href="{% url 'main:blogdetail' pk=object.pk %}">
                         <h1 class="post-title">{{ object.title }}</h1>
                     </a>
@@ -45,13 +45,9 @@
 
     <!-- START FEAUTURED POSTS SECTION -->
 
-    <!-- START POSTS TAGS SECTION -->
-
-    <!-- END POSTS TAGS SECTION -->
-
     <section class="featured-posts-section">
         <div class="featured-search-wrapper">
-            <label class="search-container" for="">
+            <label class="search-container fade fadeInDown" for="">
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
                 <input id="search-input" class="featured-search-input" type="search" placeholder="Search by title"
                     name="search" value="{{ request.GET.search }}">
@@ -61,10 +57,10 @@
             <form action="{% url 'main:blog' %}" method="GET" id="blog-form" class="blog-form">
                 <article class="featured-posts-search-container">
                     <div class="featured-posts-category">
-                        <h1 class="featured-posts-category-title">By category</h1>
+                        <h1 class="featured-posts-category-title fade fadeInDown">By category</h1>
                         <div class="featured-categories-wrapper">
                             {% for category in postCategories %}
-                            <div class="featured-category-column">
+                            <div class="featured-category-column fade fadeInDown">
                                 <button class="post-category-element" data-param-name="category"
                                     data-param-value="{{ category.id }}">
                                     {{category.category}}
@@ -75,10 +71,10 @@
                         </div>
                     </div>
                     <div class="featured-posts-category">
-                        <h1 class="featured-posts-category-title">By tags</h1>
+                        <h1 class="featured-posts-category-title fade fadeInDown">By tags</h1>
                         <div class="featured-categories-wrapper">
                             {% for tag in postTags %}
-                            <div class="featured-category-column posts-tags-column">
+                            <div class="featured-category-column posts-tags-column fade fadeInDown">
                                 <button class="post-tags-element" data-param-name="tag" data-param-value="{{ tag.id }}">
                                     {{ tag.tag }}
                                     <span class="tag-blog-count">{{ tag.post_count }}</span>
@@ -87,7 +83,7 @@
                             {% endfor %}
                         </div>
                     </div>
-                    <div class="clear-posts-container">
+                    <div class="clear-posts-container fade fadeInDown">
                         <button class="clear-posts-clear" id="clearUrl">Clear all filters + Start Over</button>
                     </div>
                 </article>
@@ -129,7 +125,7 @@
 
     <section class="ready-to-try-section">
         <div class="ready-to-try-container">
-            <div class="ready-to-try-column">
+            <div class="ready-to-try-column fade fadeInUp">
                 <h1 class="ready-to-try-title">Ready to try <br> Cyber Code?</h1>
                 <p class="ready-to-try-info">Try Cyber Code and take back control of your day</p>
                 <div class="ready-to-try-buttons-container">
@@ -145,7 +141,7 @@
                     </div>
                 </div>
             </div>
-            <div class="ready-to-try-image-column">
+            <div class="ready-to-try-image-column fade fadeInDown">
                 <img src="{% static 'main/images/contactus/readytotry.svg' %}" alt="">
             </div>
         </div>

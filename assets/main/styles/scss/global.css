@@ -7484,6 +7484,7 @@ body {
   min-height: 100vh;
   margin: 0 auto;
   background: var(--background-white);
+  overflow-x: hidden;
 }
 
 .header {

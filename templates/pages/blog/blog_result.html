@@ -3,7 +3,7 @@
 {% if object_list %}
 {% for object in object_list %}
 <a href="{% url 'main:blogdetail' pk=object.pk %}" class="featured-posts-column-link">
-<div class="featured-posts-column">
+<div class="featured-posts-column fade fadeInDown">
     <div class="feautered-posts-image-container">
         <img src="{{ object.image.url }}" alt="">
     </div>
@@ -19,7 +19,7 @@
 {% endfor %}
 
 {% else %}
-<article class="partners-empty-container" style="margin-top: 0;">
+<article class="partners-empty-container fade fadeInDown" style="margin-top: 0;">
     <div class="partners-empty-icon-container">
         <img src="{% static 'main/images/errors/error.svg' %}" alt="">
     </div>

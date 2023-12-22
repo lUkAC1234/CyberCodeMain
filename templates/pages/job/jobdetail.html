@@ -12,7 +12,7 @@
 
     <section class="job-gradient-section" id="jobApplySection">
         <div class="job-gradient-container">
-            <div class="job-gradient-info-container">
+            <div class="job-gradient-info-container fade slideInLeft">
                 <div class="job-gradient-info-image-container">
                     <i class="fa-solid fa-image"></i>
                 </div>
@@ -85,7 +85,7 @@
 
     <!-- START JOB INFORMATION SECTION -->
 
-    <section class="job-info-section">
+    <section class="job-info-section fade fadeInUp">
         <div class="job-info-container">
             <h1 class="job-info-title">About the job</h1>
             <p class="job-info-text">{{ object.description }}</p>
@@ -130,13 +130,13 @@
 
     <section class="job-openings-list-section" id="jobList">
         <div class="job-openings-list-title-container">
-            <h1 class="job-openings-list-main-title">More job openings</h1>
-            <p class="job-openings-list-main-text">
+            <h1 class="job-openings-list-main-title fade fadeInUp">More job openings</h1>
+            <p class="job-openings-list-main-text fade fadeInUp">
                 Find your future work and improve your skills with us
             </p>
             <article class="job-openings-list-container">
                 {% for object in other_jobs %}
-                <div class="job-openings-list-column">
+                <div class="job-openings-list-column fade fadeInDown">
                     <a href="{% url 'main:jobdetail' pk=object.pk %}">
                         <div class="job-openings-list-type-container">
                             <h1 class="job-openings-list-title">{{ object.title }}</h1>
@@ -166,7 +166,7 @@
                 </div>
 
                 {% empty %}
-                <article class="partners-empty-container" style="margin-top: 0;">
+                <article class="partners-empty-container fade fadeInDown" style="margin-top: 0;">
                     <div class="partners-empty-icon-container">
                         <img src="{% static 'main/images/errors/error.svg' %}" alt="">
                     </div>
@@ -184,11 +184,11 @@
 
     <section class="join-our-team-section">
         <div class="join-our-team-container">
-            <h1 class="join-our-team-title">Join Our Team and growth your carrer with us</h1>
-            <p class="join-our-team-text">It's easy to let your day slip away with too many calls and meetings. Taskable
+            <h1 class="join-our-team-title fade slideInLeft">Join Our Team and growth your carrer with us</h1>
+            <p class="join-our-team-text fade slideInLeft">It's easy to let your day slip away with too many calls and meetings. Taskable
                 lets you block time for deep work by adding tasks to your calendar with one click, giving you control
                 back over your day.</p>
-            <div class="join-our-team-btn-container">
+            <div class="join-our-team-btn-container fade slideInLeft">
                 <a href="#jobApplySection">
                     <button class="join-our-team-btn">Get started</button>
                 </a>

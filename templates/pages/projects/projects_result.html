@@ -2,14 +2,14 @@
 {% if projects %}
     <div class="projects-wrapper">
         {% for object in projects %}
-        <div class="projects-column">
+        <div class="projects-column fade fadeInDown">
             <a href="{% url 'main:projectdetail' pk=object.pk %}" class="projects-column-link">View <i class="fa-solid fa-arrow-right-long"></i></a>
             <img src="{{ object.image.url }}" alt="">
         </div>
         {% endfor %}
     </div>
 {% else %}
-    <div class="projects-empty">
+    <div class="projects-empty fade fadeInDown">
         <div class="projects-empty-icon-container">
             <img src="{% static 'main/images/errors/noresult.svg' %}" alt="">
         </div>

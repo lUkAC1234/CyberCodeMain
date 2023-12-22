@@ -10,9 +10,9 @@
     <section class="projects-section">
         <div class="projects-container">
             <article class="projects-article">
-                <h1 class="projects-article-title">Here the projects list that we did</h1>
+                <h1 class="projects-article-title fade fadeInDown">Here the projects list that we did</h1>
             </article>
-            <section class="projects-category-section">
+            <section class="projects-category-section fade fadeInDown">
                 {% for category in categories %}
                 <div class="projects-category">
                     <button class="projects-category-text" data-param-name="category"
@@ -31,7 +31,7 @@
     <!-- Start READY TO TRY SECTION -->
     <section class="ready-to-try-section">
         <div class="ready-to-try-container">
-            <div class="ready-to-try-column">
+            <div class="ready-to-try-column fade fadeInUp">
                 <h1 class="ready-to-try-title">Ready to try <br> Cyber Code?</h1>
                 <p class="ready-to-try-info">Try Cyber Code and take back control of your day</p>
                 <div class="ready-to-try-buttons-container">
@@ -41,13 +41,13 @@
                         </a>
                     </div>
                     <div class="ready-to-try-btn-column">
-                        <a href="#pricingListSection">
+                        <a href="{% url 'main:pricinglist' %}">
                             <button class="ready-to-try-button-without-background">Pricing</button>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="ready-to-try-image-column">
+            <div class="ready-to-try-image-column fade fadeInDown">
                 <img src="{% static 'main/images/contactus/readytotry.svg' %}" alt="">
             </div>
         </div>

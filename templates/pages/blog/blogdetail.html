@@ -11,13 +11,13 @@
 
     <section class="detail-gradient-section">
         <div class="detail-gradient-container">
-            <h1 class="detail-gradient-title">{{ object.title }}</h1>
-            <div class="detail-gradient-image-container">
+            <h1 class="detail-gradient-title fade fadeInUp">{{ object.title }}</h1>
+            <div class="detail-gradient-image-container fade fadeInUp">
                 <img src="{{ object.user.user_image.url }}" alt="">
             </div>
-            <h1 class="detail-gradient-username">{{ object.user }}</h1>
-            <h2 class="detail-gradient-posted">Posted on</h2>
-            <p class="detail-gradient-posted-date">{{ object.posted_on|date:"F d, Y" }}</p>
+            <h1 class="detail-gradient-username fade fadeInUp">{{ object.user }}</h1>
+            <h2 class="detail-gradient-posted fade fadeInUp">Posted on</h2>
+            <p class="detail-gradient-posted-date fade fadeInUp">{{ object.posted_on|date:"F d, Y" }}</p>
         </div>
     </section>
 
@@ -39,16 +39,16 @@
 
     <section class="detail-link-section">
         <div class="detail-link-container">
-            <div class="detail-link-text-container">
+            <div class="detail-link-text-container fade fadeInDown">
                 <h1 class="detail-link-title">Share this post with people</h1>
                 <p class="detail-link-text">{{ object.short_description }}</p>
             </div>
             <div class="detail-share-container">
-                <div class="detail-share-user-info-container">
+                <div class="detail-share-user-info-container fade slideInLeft">
                     <p class="detail-share-posted">Posted on {{ object.posted_on|date:"F d, Y" }}, by</p>
                     <p class="detail-share-username">{{ object.user }}</p>
                 </div>
-                <div class="detail-share-social-container">
+                <div class="detail-share-social-container fade slideInRight">
                     <p class="detail-share-social-text">Share this article</p>
                     <button class="shareBtn" id="shareBtn"><i
                             class="fa-sharp fa-solid fa-link detail-share-link-icon"></i></button>
@@ -68,7 +68,7 @@
 
     <!-- START SIMILAR POPULAR POSTS SECTION -->
 
-    <section class="similar-popular-posts">
+    <section class="similar-popular-posts fade fadeInDown">
         <div class="similar-popular-container">
             {% if similarPosts %}
                 <article class="similar-popular-posts-wrapper">
@@ -103,7 +103,7 @@
 
     <section class="ready-to-try-section">
         <div class="ready-to-try-container">
-            <div class="ready-to-try-column">
+            <div class="ready-to-try-column fade fadeInUp">
                 <h1 class="ready-to-try-title">Ready to try <br> Cyber Code?</h1>
                 <p class="ready-to-try-info">Try Cyber Code and take back control of your day</p>
                 <div class="ready-to-try-buttons-container">
@@ -119,7 +119,7 @@
                     </div>
                 </div>
             </div>
-            <div class="ready-to-try-image-column">
+            <div class="ready-to-try-image-column fade fadeInDown">
                 <img src="{% static 'main/images/contactus/readytotry.svg' %}" alt="">
             </div>
         </div>

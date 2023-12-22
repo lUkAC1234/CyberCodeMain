@@ -10,11 +10,11 @@
     <!-- Start FAQ Section -->
 
     <section class="faq-section faqList">
-        <h1 class="faq-main-title">Frequently Asked Questions</h1>
-        <p class="faq-main-info">There is the list of every FAQs.</p>
+        <h1 class="faq-main-title fade fadeInDown">Frequently Asked Questions</h1>
+        <p class="faq-main-info fade fadeInDown">There is the list of every FAQs.</p>
         <div class="faq-container">
             {% for object in object_list %}
-            <div class="faq {% if forloop.counter == 1 or forloop.counter == 3 %} active{% endif %}">
+            <div class="faq fade fadeInDown {% if forloop.counter == 1 or forloop.counter == 3 %} active{% endif %}">
                 <div class="faq-btn-container">
                     <button class="faq-card-title">
                         <i class="fa-solid fa-plus faq-icon"></i>
@@ -34,7 +34,7 @@
     <!-- Start READY TO TRY SECTION -->
     <section class="ready-to-try-section">
         <div class="ready-to-try-container">
-            <div class="ready-to-try-column">
+            <div class="ready-to-try-column fade fadeInUp">
                 <h1 class="ready-to-try-title">Ready to try <br> Cyber Code?</h1>
                 <p class="ready-to-try-info">Try Cyber Code and take back control of your day</p>
                 <div class="ready-to-try-buttons-container">
@@ -50,7 +50,7 @@
                     </div>
                 </div>
             </div>
-            <div class="ready-to-try-image-column">
+            <div class="ready-to-try-image-column fade fadeInDown">
                 <img src="{% static 'main/images/contactus/readytotry.svg' %}" alt="">
             </div>
         </div>

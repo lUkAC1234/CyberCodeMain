@@ -10,8 +10,8 @@
     <!-- START GRADIENT CONTENT -->
     <section class="gradient-container" id="gradient-container">
         <article class="gradient-artice-main">
-            <h1 class="gradient-title">Build your business with us</h1>
-            <div class="gradient-artice-btn-container">
+            <h1 class="gradient-title fade fadeInDown">Build your business with us</h1>
+            <div class="gradient-artice-btn-container fade fadeInUp">
                 <a href="{% url 'main:projects' %}">
                     <button class="gradient-artice-btn-no-border">Our Projects</button>
                 </a>
@@ -20,7 +20,7 @@
                 </a>
             </div>
 
-            <article class="gradient-website-information">
+            <article class="gradient-website-information fade fadeInDown">
                 <div class="gradient-website-information-column">
                     <div class="gradient-website-information-icon-container">
                         <i class="fa-solid fa-location-dot"></i>
@@ -64,12 +64,12 @@
 
     <!-- START TASKS CONTENT -->
     <section class="tasks">
-        <div class="task-image-column">
+        <div class="task-image-column fade slideInLeft">
             <video autoplay muted loop playsinline>
                 <source src="{% static 'main/images/main-page/tasks.mp4' %}">
             </video>
         </div>
-        <div class="task-content-column">
+        <div class="task-content-column fade slideInRight">
             <h1 class="task-title">Connect With Apps <br> You Use for Work</h1>
             <p class="task-text">
                 Cyber Code integrates with the products you use, bringing all <br>
@@ -84,7 +84,7 @@
     <!-- END TASKS CONTENT -->
 
     <!-- START CHAT -->
-    <section class="chat">
+    <section class="chat fade fadeInDown" data-wow-duration="2s">
         <div class="static-info">
             <h1 class="static-info-title">
                 Easy and familiar <br>
@@ -146,11 +146,11 @@
 
     <!-- START PACKAGE -->
     <section class="package" id="packageSection">
-        <h1 class="package-title">Your Suitable package <br> for your needs</h1>
-        <p class="package-info">Our powerful plan gives you access to core Cyber Code features.</p>
+        <h1 class="package-title fade fadeInUp">Your Suitable package <br> for your needs</h1>
+        <p class="package-info fade fadeInUp">Our powerful plan gives you access to core Cyber Code features.</p>
         <div class="package-choices-container">
             {% for object in pricing %}
-            <div class="choices-column">
+            <div class="choices-column fade fadeInUp" data-wow-duration="1.5s">
                 <div class="price-column">
                     <h1 class="choice-type">{{ object.type }}</h1>
                     <span class="price">${{ object.price }}</span>
@@ -169,7 +169,7 @@
                 </div>
             </div>
             {% empty %}
-            <article class="partners-empty-container">
+            <article class="partners-empty-container fade fadeInUp">
                 <div class="partners-empty-icon-container">
                     <img src="{% static 'main/images/errors/error.svg' %}" alt="">
                 </div>
@@ -183,7 +183,7 @@
     <!-- END PACKAGE -->
 
     <!-- START CAROUSEL SECTION -->
-    <section class="carousel-section">
+    <section class="carousel-section fade fadeInDown" data-wow-duration="2s">
         <div class="carousel-container">
             <div class="carousel-title-container">
                 <h1 class="carousel-title">Ideas to help you navigate work</h1>
@@ -237,7 +237,7 @@
 
     <!-- START USED BY SECTION -->
 
-    <section class="partners-section">
+    <section class="partners-section fade fadeInDown" data-wow-duration="2s">
         <div class="partners-container">
             <h1 class="partners-title">
                 Our Partners
@@ -269,13 +269,13 @@
 
     <section class="feedback-list-section">
         <div class="feedback-list-container">
-            <div class="feedback-list-text-column">
+            <div class="feedback-list-text-column fade slideInLeft">
                 <h1 class="feedback-list-text-column-title">Feedbacks from our clients</h1>
                 <p class="feedback-list-text-column-text">Join the thousands of other people just like you who started
                     using CyberCode and took back control of their day</p>
             </div>
             {% if feedbacks %}
-            <div class="feedback-container owl-carousel">
+            <div class="feedback-container owl-carousel fade slideInRight">
                 {% for object in feedbacks %}
                 <div class="feedback-slide" data-created-at="{{ object.created_at|date:'F d, Y' }}">
                     <div class="feedback-content">
@@ -293,7 +293,7 @@
                 {% endfor %}
             </div>
             {% else %}
-            <article class="partners-empty-container">
+            <article class="partners-empty-container fade slideInRight">
                 <div class="partners-empty-icon-container">
                     <img src="{% static 'main/images/errors/error.svg' %}" alt="">
                 </div>

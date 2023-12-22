@@ -11,7 +11,7 @@
 
     <section class="pricing-list-section" id="pricingListSection">
         <div class="pricing-list-container">
-            <div class="pricing-list-text-container">
+            <div class="pricing-list-text-container fade slideInLeft">
                 <h1 class="pricing-list-title">Here is a list of all possible categories of our services</h1>
                 <p class="pricing-list-text">We guarantee that you will receive your order without delay, which means
                     that we can place your order even earlier! At the same time, the quality will be perfect, and after
@@ -24,7 +24,7 @@
                     </a>
                 </div>
             </div>
-            <div class="pricing-list-image-container">
+            <div class="pricing-list-image-container fade slideInRight">
                 <img class="pricing-list-first-image" src="{% static 'main/images/pricinglist/people.png' %}" alt="">
                 <img class="pricing-list-second-image" src="{% static 'main/images/pricinglist/people2.png' %}" alt="">
             </div>
@@ -38,7 +38,7 @@
     <section class="pricing-categories-section">
         <div class="pricing-categories-container">
             {% for object in object_list %}
-            <div class="pricing-categories-column">
+            <div class="pricing-categories-column fade fadeInDown">
                 <div class="categorie-column">
                     <h1 class="pricing-popular-type">{{ object.type }}</h1>
                     <span class="pricing-popular-price">${{ object.price }}</span>
@@ -72,7 +72,7 @@
     <!-- Start READY TO TRY SECTION -->
     <section class="ready-to-try-section">
         <div class="ready-to-try-container">
-            <div class="ready-to-try-column">
+            <div class="ready-to-try-column fade fadeInUp">
                 <h1 class="ready-to-try-title">Ready to try <br> Cyber Code?</h1>
                 <p class="ready-to-try-info">Try Cyber Code and take back control of your day</p>
                 <div class="ready-to-try-buttons-container">
@@ -82,13 +82,13 @@
                         </a>
                     </div>
                     <div class="ready-to-try-btn-column">
-                        <a href="#pricingListSection">
+                        <a href="{% url 'main:pricinglist' %}">
                             <button class="ready-to-try-button-without-background">Pricing</button>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="ready-to-try-image-column">
+            <div class="ready-to-try-image-column fade fadeInDown">
                 <img src="{% static 'main/images/contactus/readytotry.svg' %}" alt="">
             </div>
         </div>

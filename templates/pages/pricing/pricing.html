@@ -11,12 +11,12 @@
 
     <section class="pricing-popular-packages-section" id="pricingSection">
         <div class="pricing-popular-main-container">
-            <h1 class="pricing-popular-package-title">Our 3 popular pricing models</h1>
-            <p class="pricing-popular-package-info">Save your time and order our project with our Subscription plan
+            <h1 class="pricing-popular-package-title fade fadeInUp">Our 3 popular pricing models</h1>
+            <p class="pricing-popular-package-info fade fadeInUp">Save your time and order our project with our Subscription plan
             </p>
             <div class="pricing-popular-package-container">
                 {% for object in pricing %}
-                <div class="pricing-popular-column">
+                <div class="pricing-popular-column fade fadeInDown">
                     <div class="price-column">
                         <h1 class="pricing-popular-type">{{ object.type }}</h1>
                         <span class="pricing-popular-price">${{ object.price }}</span>
@@ -65,7 +65,7 @@
 
     <section class="custom-build-section">
         <div class="custom-build-container">
-            <div class="custom-build-column">
+            <div class="custom-build-column fade slideInLeft">
                 <h1 class="custom-build-title">Need A Custom Build?</h1>
                 <p class="custom-build-text">We offer custom plans that can support your large team & big vision.</p>
                 <div class="custom-build-btn-container">
@@ -74,7 +74,7 @@
                     </a>
                 </div>
             </div>
-            <div class="custom-build-column">
+            <div class="custom-build-column fade slideInRight">
                 <h1 class="custom-build-title">You don't know how to order?</h1>
                 <p class="custom-build-text">Follow this link to find out the instruction how to order and order
                     requirements</p>
@@ -93,7 +93,7 @@
 
     <section class="services-section">
         <div class="services-container">
-            <div class="services-text-container">
+            <div class="services-text-container fade slideInLeft">
                 <h1 class="services-text-title">What do you get after payment</h1>
                 <p class="services-text-text">We are a small, but growing team. Our expertise includes growth marketing,
                     design, software development, and product management.</p>
@@ -104,28 +104,28 @@
                 </div>
             </div>
             <div class="services-info-container">
-                <div class="services-info-column">
+                <div class="services-info-column fade fadeInDown">
                     <div class="services-icon">
                         <i class="fas fa-wrench fa-rotate-270"></i>
                     </div>
                     <h1 class="services-info-title">Gain full control</h1>
                     <p class="services-info-text">After we transfer the site to you, you will be able to manage your site yourself</p>
                 </div>
-                <div class="services-info-column">
+                <div class="services-info-column fade fadeInDown">
                     <div class="services-icon">
                         <i class="fas fa-question-circle"></i>
                     </div>
                     <h1 class="services-info-title">Dedicated support</h1>
                     <p class="services-info-text">Free support for a month after transfer of the site, as well as fixing it only 1 time</p>
                 </div>
-                <div class="services-info-column">
+                <div class="services-info-column fade fadeInDown">
                     <div class="services-icon">
                         <i class="fa-solid fa-users-gear"></i>
                     </div>
                     <h1 class="services-info-title">Order is deliveres on time</h1>
                     <p class="services-info-text">You will receive your website on time or even earlier, we guarantee it!</p>
                 </div>
-                <div class="services-info-column">
+                <div class="services-info-column fade fadeInDown">
                     <div class="services-icon">
                         <i class="fas fa-trophy"></i>
                     </div>
@@ -141,12 +141,12 @@
     <!-- Start READY TO TRY SECTION -->
     <section class="ready-to-try-section">
         <div class="ready-to-try-container">
-            <div class="ready-to-try-column">
+            <div class="ready-to-try-column fade fadeInUp">
                 <h1 class="ready-to-try-title">Ready to try <br> Cyber Code?</h1>
                 <p class="ready-to-try-info">Try Cyber Code and take back control of your day</p>
                 <div class="ready-to-try-buttons-container">
                     <div class="ready-to-try-btn-column">
-                        <a href="#pricingSection">
+                        <a href="{% url 'main:pricing' %}">
                             <button class="ready-to-try-button">Get started</button>
                         </a>
                     </div>
@@ -157,7 +157,7 @@
                     </div>
                 </div>
             </div>
-            <div class="ready-to-try-image-column">
+            <div class="ready-to-try-image-column fade fadeInDown">
                 <img src="{% static 'main/images/contactus/readytotry.svg' %}" alt="">
             </div>
         </div>

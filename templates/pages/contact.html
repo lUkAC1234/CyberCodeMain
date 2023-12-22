@@ -10,12 +10,12 @@
     <!-- START CONTACT GRADIENT SECTION -->
     <section class="contact-page-gradient-section">
         <div class="contact-page-gradient-main-container">
-            <article class="contact-page-gradient-text-container">
+            <article class="contact-page-gradient-text-container fade slideInLeft">
                 <h1 class="contact-page-gradient-title">Contact us</h1>
                 <p class="contact-page-gradient-text">Questions? Comments? Want to schedule a demo? We’d love to chat!
                 </p>
             </article>
-            <article class="contact-page-gradient-image-container">
+            <article class="contact-page-gradient-image-container fade slideInRight">
                 <div class="contact-page-gradient-image-column">
                     <img class="contact-page-gradient-image"
                         src="{% static 'main/images/contactus/contactusmain.webp' %}" alt="">
@@ -29,12 +29,12 @@
     <section class="contact-us-hero-info">
         <div class="contact-us-hero-column">
             <div class="contact-us-hero-text-container">
-                <h1 class="contact-us-hero-column-title">Contact us</h1>
-                <p class="contact-us-hero-column-info">Questions? Comments? Want to schedule a demo? We’d love to chat!
+                <h1 class="contact-us-hero-column-title fade fadeInUp">Contact us</h1>
+                <p class="contact-us-hero-column-info fade fadeInUp">Questions? Comments? Want to schedule a demo? We’d love to chat!
                 </p>
             </div>
             <div class="contact-us-hero-get-in-touch-main-container">
-                <a href="mailto:cybercodesp@gmail.com" class="contact-us-hero-get-in-touch-container">
+                <a href="mailto:cybercodesp@gmail.com" class="contact-us-hero-get-in-touch-container fade slideInLeft">
                     <div class="contact-us-hero-logo-image-container">
                         <i class="fa-solid fa-envelope" style="color: var(--background-purple);"></i>
                     </div>
@@ -43,7 +43,7 @@
                         <p class="contact-us-hero-info-detail">cybercodesp@gmail.com</p>
                     </div>
                 </a>
-                <a href="tel:+998331701706" class="contact-us-hero-get-in-touch-container">
+                <a href="tel:+998331701706" class="contact-us-hero-get-in-touch-container fade slideInRight">
                     <div class="contact-us-hero-logo-image-container">
                         <i class="fa-sharp fa-solid fa-phone" style="color: var(--background-purple);"></i>
                     </div>
@@ -65,21 +65,21 @@
             <div class="contact-form-column">
                 <form class="contact-form-column-form" id="contact-form">
                     {% csrf_token %}
-                    <div class="contact-form-column-input-container">
+                    <div class="contact-form-column-input-container fade fadeInDown">
                         <input type="text" class="contact-form-column-input" placeholder=" " id="fullname"
                             value="{% if form.fullname.value %}{{ form.fullname.value }}{% else %}{{ request.user.first_name|default:'' }}{% endif %}"
                             name="fullname" required>
                         <label class="placeholder">Full Name</label>
                         <div class="error-message" id="fullname-error"></div>
                     </div>
-                    <div class="contact-form-column-input-container">
+                    <div class="contact-form-column-input-container fade fadeInDown">
                         <input type="email" class="contact-form-column-input" placeholder=" " name="email" id="email"
                             value="{% if form.email.value %}{{ form.email.value }}{% else %}{{ request.user.email|default:'' }}{% endif %}"
                             required>
                         <label class="placeholder">Email address</label>
                         <div class="error-message" id="email-error"></div>
                     </div>
-                    <div class="contact-form-column-input-container">
+                    <div class="contact-form-column-input-container fade fadeInDown">
                         <input type="text" class="contact-form-column-input" placeholder=" " name="phone" id="phone"
                             required
                             value="{% if form.phone.value %}{{ form.phone.value }}{% else %}{{ request.user.mobileNumber|default:'+998' }}{% endif %}">
@@ -87,7 +87,7 @@
                         <div class="error-message" id="phone-error"></div>
                     </div>
 
-                    <div class="contact-form-column-input-container">
+                    <div class="contact-form-column-input-container fade fadeInDown">
                         <input type="text" class="contact-form-column-input" placeholder=" " name="company" id="company"
                             value="{% if form.company.value %}{{ form.company.value }}{% else %}{{ request.user.company|default:'' }}{% endif %}"
                             required>
@@ -95,14 +95,14 @@
                         <div class="error-message" id="company-error"></div>
                     </div>
 
-                    <div class="contact-form-column-big-input-container">
+                    <div class="contact-form-column-big-input-container fade fadeInDown">
                         <input type="text" class="contact-form-column-input" id="text"
                             value="{{ form.text.value|default_if_none:'' }}" placeholder=" " name="text" required>
                         <label class="placeholder">Messages</label>
                         <div class="error-message" id="text-error"></div>
                     </div>
 
-                    <div class="contact-form-column-btn-container">
+                    <div class="contact-form-column-btn-container fade fadeInDown">
                         {% if request.user.is_authenticated %}
                         <button type="submit" class="contact-form-column-btn">Send message</button>
                         {% else %}
@@ -110,20 +110,20 @@
                         {% endif %}
                     </div>
                     {% if not request.user.is_authenticated %}
-                    <div class="contact-user-checker">
+                    <div class="contact-user-checker fade fadeInUp">
                         <p>U have to Sign in/up to send us message there u can <a href="{% url 'main:login' %}">Sign
                                 In</a> / <a href="{% url 'main:registration' %}">Sign Up</a></p>
                     </div>
                     {% endif %}
-                    <div class="contact-form-success-message" id="success-message-container">
+                    <div class="contact-form-success-message fade fadeInUp" id="success-message-container">
                         <p>Your Form has been submitted successfully !</p>
                     </div>
-                    <div class="contact-form-error-message" id="error-message-container">
+                    <div class="contact-form-error-message fade fadeInUp" id="error-message-container">
                         <p>Error submitting the form. Please try again.</p>
                     </div>
                 </form>
             </div>
-            <div class="contact-form-image-column">
+            <div class="contact-form-image-column fade slideInRight">
                 <img src="{% static 'main/images/contactus/contactus.webp' %}" alt="">
             </div>
         </div>
@@ -134,11 +134,11 @@
     <!-- Start FAQ Section -->
 
     <section class="faq-section">
-        <h1 class="faq-main-title">Frequently Asked Questions</h1>
-        <p class="faq-main-info">Fill out the form and our team will get back to you as quickly as we can.</p>
+        <h1 class="faq-main-title fade fadeInDown">Frequently Asked Questions</h1>
+        <p class="faq-main-info fade fadeInDown">Fill out the form and our team will get back to you as quickly as we can.</p>
         <div class="faq-container">
             {% for object in faqs %}
-            <div class="faq {% if forloop.counter == 1 or forloop.counter == 3 %} active{% endif %}">
+            <div class="faq fade fadeInDown {% if forloop.counter == 1 or forloop.counter == 3 %} active{% endif %}">
                 <div class="faq-btn-container">
                     <button class="faq-card-title">
                         <i class="fa-solid fa-plus faq-icon"></i>
@@ -163,7 +163,7 @@
     <!-- Start READY TO TRY SECTION -->
     <section class="ready-to-try-section">
         <div class="ready-to-try-container">
-            <div class="ready-to-try-column">
+            <div class="ready-to-try-column fade fadeInUp">
                 <h1 class="ready-to-try-title">Ready to try <br> Cyber Code?</h1>
                 <p class="ready-to-try-info">Try Cyber Code and take back control of your day</p>
                 <div class="ready-to-try-buttons-container">
@@ -179,7 +179,7 @@
                     </div>
                 </div>
             </div>
-            <div class="ready-to-try-image-column">
+            <div class="ready-to-try-image-column fade fadeInDown">
                 <img src="{% static 'main/images/contactus/readytotry.svg' %}" alt="">
             </div>
         </div>
