@@ -7337,6 +7337,43 @@ select:-webkit-autofill:focus {
   font-size: 1.125rem;
 }
 
+.image-50-50, .image-100-50-50, .image-100-50-50-with-mobile, .image-50-50-with-mobile {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  background: none !important;
+  box-shadow: none !important;
+}
+.image-50-50 img, .image-100-50-50 img, .image-100-50-50-with-mobile img, .image-50-50-with-mobile img {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+@media screen and (max-width: 550px) {
+  .image-50-50-with-mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.image-100-50-50, .image-100-50-50-with-mobile {
+  grid-template-columns: 1fr 1fr;
+}
+.image-100-50-50 img, .image-100-50-50-with-mobile img {
+  margin: 0rem !important;
+}
+.image-100-50-50 img:nth-child(1), .image-100-50-50-with-mobile img:nth-child(1) {
+  grid-column: span 2;
+}
+
+@media screen and (max-width: 550px) {
+  .image-100-50-50-with-mobile {
+    grid-template-columns: 1fr;
+  }
+  .image-100-50-50-with-mobile img:nth-child(1) {
+    grid-column: span 1;
+  }
+}
+
 .flex-row-justify-align-start, .flex-column-justify-align-start, .choices-column .abilities ul, .pricing-popular-abilities ul, .pricing-categories-abilities ul {
   display: flex;
   justify-content: flex-start;

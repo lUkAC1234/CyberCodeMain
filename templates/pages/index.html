@@ -146,11 +146,11 @@
 
     <!-- START PACKAGE -->
     <section class="package" id="packageSection">
-        <h1 class="package-title fade fadeInUp">Your Suitable package <br> for your needs</h1>
-        <p class="package-info fade fadeInUp">Our powerful plan gives you access to core Cyber Code features.</p>
+        <h1 class="package-title fade fadeInDown">Your Suitable package <br> for your needs</h1>
+        <p class="package-info fade fadeInDown">Our powerful plan gives you access to core Cyber Code features.</p>
         <div class="package-choices-container">
             {% for object in pricing %}
-            <div class="choices-column fade fadeInUp" data-wow-duration="1.5s">
+            <div class="choices-column fade fadeInDown">
                 <div class="price-column">
                     <h1 class="choice-type">{{ object.type }}</h1>
                     <span class="price">${{ object.price }}</span>
@@ -183,9 +183,9 @@
     <!-- END PACKAGE -->
 
     <!-- START CAROUSEL SECTION -->
-    <section class="carousel-section fade fadeInDown" data-wow-duration="2s">
+    <section class="carousel-section">
         <div class="carousel-container">
-            <div class="carousel-title-container">
+            <div class="carousel-title-container fade fadeInDown">
                 <h1 class="carousel-title">Ideas to help you navigate work</h1>
                 <p class="carousel-text">We regularly share resources on startups, productivity, and the future of work
                 </p>
@@ -195,7 +195,7 @@
             </div>
             {% if posts %}
             <div class="carousel__wrapper">
-                <div class="owl-carousel carousel-slide-container">
+                <div class="owl-carousel carousel-slide-container fade fadeInDown">
                     {% for object in posts %}
                     <div class="carousel-slide">
                         <div class="carousel-image-container">
@@ -237,22 +237,22 @@
 
     <!-- START USED BY SECTION -->
 
-    <section class="partners-section fade fadeInDown" data-wow-duration="2s">
+    <section class="partners-section">
         <div class="partners-container">
-            <h1 class="partners-title">
+            <h1 class="partners-title fade fadeInDown">
                 Our Partners
             </h1>
             {% if partners %}
             <article class="partners-info-container">
                 {% for object in partners %}
-                <div class="partners-column">
+                <div class="partners-column fade fadeInDown">
                     <img src="{{ object.logo.url }}" alt="">
                     <h1 class="partners-info-title">{{ object.title }}</h1>
                 </div>
                 {% endfor %}
             </article>
             {% else %}
-            <article class="partners-empty-container">
+            <article class="partners-empty-container fade fadeInDown">
                 <div class="partners-empty-icon-container">
                     <img src="{% static 'main/images/errors/error.svg' %}" alt="">
                 </div>
