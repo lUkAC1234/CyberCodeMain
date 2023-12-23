@@ -2,20 +2,25 @@
 
 {% if object_list %}
 {% for object in object_list %}
-<a href="{% url 'main:blogdetail' pk=object.pk %}" class="featured-posts-column-link">
-<div class="featured-posts-column fade fadeInDown">
-    <div class="feautered-posts-image-container">
-        <img src="{{ object.image.url }}" alt="">
-    </div>
-    <div class="feautered-posts-content">
-        <h1 class="featured-post-column-title">
-            {{object.title }}</h1>
-        <p class="featured-post-column-text">{{ object.short_description }}</p>
-        <span class="featured-post-column-posted">Posted on</span>
-        <p class="featured-post-column-date">{{ object.posted_on|date:"F d, Y" }}</p>
-    </div>
-</div>
-</a>
+    {% if object.is_private == 0 or request.user.is_staff %}
+        <a href="{% url 'main:blogdetail' pk=object.pk %}" class="featured-posts-column-link">
+            <div class="featured-posts-column fade fadeInDown">
+                <div class="feautered-posts-image-container">
+                    <img src="{{ object.image.url }}" alt="">
+                </div>
+                <div class="feautered-posts-content">
+                    <h1 class="featured-post-column-title">
+                        {{object.title }}</h1>
+                    <p class="featured-post-column-text">{{ object.short_description }}</p>
+                    <span class="featured-post-column-posted">Posted on</span>
+                    <p class="featured-post-column-date">{{ object.posted_on|date:"F d, Y" }}</p>
+                    {% if object.is_private %}
+                    <p class="detail-gradient-private">Private post</p>
+                    {% endif %}
+                </div>
+            </div>
+        </a>
+    {% endif %}
 {% endfor %}
 
 {% else %}

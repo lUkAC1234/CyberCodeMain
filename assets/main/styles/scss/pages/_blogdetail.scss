@@ -45,10 +45,12 @@
         @extend .chat-text-gray-1-125;
         color: var(--text-light-white) !important;
         margin: 1rem 0 0.5rem;
+        display: inline-flex;
+        gap: 0.5rem;
     }
 
     .detail-gradient-posted-date {
-        @extend .white-1-125rem-grotext;
+        color: var(--text-white)
     }
 
     .detail-gradient-posted,
@@ -56,6 +58,15 @@
         text-align: center;
     }
 
+}
+
+.detail-gradient-private {
+    @extend .white-1rem-grotext;
+    background: var(--background-purple);
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    margin-top: 0.5rem;
+    width: max-content;
 }
 
 .detail-gradient-image-container {

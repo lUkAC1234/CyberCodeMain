@@ -16,8 +16,14 @@
                 <img src="{{ object.user.user_image.url }}" alt="">
             </div>
             <h1 class="detail-gradient-username fade fadeInUp">{{ object.user }}</h1>
-            <h2 class="detail-gradient-posted fade fadeInUp">Posted on</h2>
-            <p class="detail-gradient-posted-date fade fadeInUp">{{ object.posted_on|date:"F d, Y" }}</p>
+            <h2 class="detail-gradient-posted fade fadeInUp">
+                Posted on 
+                <span class="detail-gradient-posted-date">{{ object.posted_on|date:"F d, Y" }}</span>
+            </h2>
+            
+            {% if object.is_private %}
+            <p class="detail-gradient-private fade fadeInUp">Private post</p>
+            {% endif %}
         </div>
     </section>
 
@@ -179,8 +185,6 @@
 
             const pathElement = document.createElementNS('http://www.w3.org/2000/svg', 'path');
             pathElement.setAttribute('d', 'M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z');
-
-            // Append the path element to the SVG element
             svgElement.appendChild(pathElement);
 
             // Append the SVG element to the clicked code element

@@ -193,7 +193,7 @@ class BlogListView(ListView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['latestPost'] = PostModel.objects.all().order_by('-id')[:1]
+        context['latestPost'] = PostModel.objects.filter(is_private=False).order_by('-id')[:1]
         context['postCategories'] = PostCategoryModel.objects.all()
         context['postTags'] = PostTagModel.objects.all()
         return context
@@ -217,7 +217,7 @@ class blogdetail(DetailView):
         current_post = self.get_object()
 
         similar_posts = PostModel.objects.filter(
-            Q(category=current_post.category) | Q(tags__in=current_post.tags.all())
+            (Q(category=current_post.category) | Q(tags__in=current_post.tags.all())) & ~Q(is_private=True)
         ).exclude(id=current_post.id).distinct()[:2].select_related('category')
         
         context['similarPosts'] = similar_posts

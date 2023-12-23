@@ -148,6 +148,7 @@ class PostModel(models.Model):
     category = models.ForeignKey(PostCategoryModel, on_delete=models.CASCADE, related_name='postCategories')
     tags = models.ManyToManyField(PostTagModel, related_name='postTags')
     user = models.ForeignKey(UserModel, on_delete=models.RESTRICT, related_name='postUser')
+    is_private = models.BooleanField(default=0)
 
     class Meta:
         verbose_name = 'Post'
