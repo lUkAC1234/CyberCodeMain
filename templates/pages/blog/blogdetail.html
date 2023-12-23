@@ -120,7 +120,7 @@
                 </div>
             </div>
             <div class="ready-to-try-image-column fade fadeInDown">
-                <img src="{% static 'main/images/contactus/readytotry.svg' %}" alt="">
+                <img src="{% static 'main/images/contactus/readytotry.png' %}" alt="">
             </div>
         </div>
     </section>
@@ -143,6 +143,51 @@
             customTextElement.style.display = 'none';
         }, 2500);
     });
+    document.addEventListener('DOMContentLoaded', function () {
+    // Select all code elements with the class 'detail-code'
+    const codeElements = document.querySelectorAll('.detail-code');
+
+    // Add a click event listener to each code element
+    codeElements.forEach(function (element) {
+        element.addEventListener('click', function () {
+            // Check if an SVG element already exists
+            const existingSvg = element.querySelector('svg.js-clipboard-check-icon');
+
+            // If an SVG element already exists, exit the function
+            if (existingSvg) {
+                return;
+            }
+
+            // Create a temporary input element
+            const inputElement = document.createElement('input');
+            // Set its value to the content of the code element
+            inputElement.value = element.innerText;
+            // Append it to the body
+            document.body.appendChild(inputElement);
+            // Select the text inside the input element
+            inputElement.select();
+            // Copy the selected text to the clipboard
+            document.execCommand('copy');
+            // Remove the temporary input element
+            document.body.removeChild(inputElement);
+
+            // Create the specific SVG element
+            const svgElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svgElement.setAttribute('aria-hidden', 'true');
+            svgElement.setAttribute('viewBox', '0 0 16 16');
+            svgElement.classList.add('octicon', 'octicon-check', 'js-clipboard-check-icon', 'color-fg-success');
+
+            const pathElement = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            pathElement.setAttribute('d', 'M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z');
+
+            // Append the path element to the SVG element
+            svgElement.appendChild(pathElement);
+
+            // Append the SVG element to the clicked code element
+            element.appendChild(svgElement);
+        });
+    });
+});
 </script>
 
 {% endblock %}

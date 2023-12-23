@@ -23,6 +23,7 @@ $messenger-gray-background: #cccccc;
 $profile-background: #efeff3;
 $profile-input-border: #D8E0F0;
 $light-gray-background: #F4F9FD;
+$error-background: #E57373;
 :root {
     --body-background: #{$body-background};
     --progress-background: #{$progress-background};
@@ -49,4 +50,5 @@ $light-gray-background: #F4F9FD;
     --profile-background: #{$profile-background};
     --profile-input-border: #{$profile-input-border};
     --light-gray-background: #{$light-gray-background};
+    --error-background: #{$error-background};
 }

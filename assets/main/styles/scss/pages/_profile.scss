@@ -343,6 +343,23 @@
         }
     }
 
+    &:has(.error) {
+        border-color: var(--error);
+
+        i,
+        button {
+            color: var(--error);
+
+            i {
+                color: var(--error);
+            }
+        }
+
+        li {
+            color: var(--text-dark-blue);
+        }
+    }
+
     i {
         font-size: 0.8rem;
     }

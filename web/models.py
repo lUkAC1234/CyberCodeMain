@@ -7,6 +7,7 @@ from django.contrib.auth.hashers import make_password
 from django.utils import timezone
 from django.core.validators import EmailValidator
 from django.core.exceptions import ValidationError
+import os
 
 class EnglishLettersUsernameValidator(RegexValidator):
     regex = r'^[a-zA-Z0-9]{8,16}$'
@@ -32,10 +33,19 @@ class PhoneValidator(RegexValidator):
 
     flags = 0
 
+def validate_image_extension(value):
+    allowed_extensions = ['.webp', '.png', '.jpg', '.jpeg', '.svg']
+    ext = os.path.splitext(value.name)[1]
+    if ext.lower() not in allowed_extensions:
+        raise ValidationError(_('User image: Unsupported file extension. Please upload a webp, png, jpg, jpeg, or svg file.'))
 # --------------------------------------------------------------------------- #
 # Users
 class UserModel(AbstractUser):
-    user_image = models.ImageField(upload_to='users/profile/profile-image/%Y/%m/%d/', default='default-user.jpg')
+    user_image = models.FileField(
+        upload_to='users/profile/profile-image/%Y/%m/%d/',
+        default='default-user.jpg',
+        validators=[validate_image_extension]
+    )
     company = models.CharField(max_length=30, blank=True, null=True)
     location = models.CharField(max_length=50, blank=True, null=True)
     position = models.CharField(max_length=50, blank=True, null=True)

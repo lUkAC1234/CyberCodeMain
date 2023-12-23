@@ -71,6 +71,7 @@
 }
 
 .sign-info-container {
+    position: relative;
     width: 50%;
     padding: 5rem;
 
@@ -78,6 +79,16 @@
         @extend .dark-blue-text-center-grotext-family-1-5rem;
         margin-bottom: 1rem;
     }
+}
+
+.sign-return-back-link {
+    position: absolute;
+    color: var(--text-purple);
+    padding: 1rem;
+    left: 0;
+    top: 0;
+    width: 100%;
+    font-size: 1.25rem;
 }
 
 .sign-info-input-container {
@@ -165,7 +176,15 @@
         font-size: 1rem;
         font-family: var(--grotext-sans);
         color: var(--text-white);
+        border: 1px solid transparent;
         cursor: pointer;
+        transition: all 0.5s;
+
+        &:hover {
+            color: var(--text-purple);
+            background: transparent;
+            border-color: var(--background-purple);
+        }
 
         i {
             font-size: 0.8rem;
@@ -201,7 +220,7 @@
 @media screen and (max-width: 550px) {
     .sign-info-container {
         width: 100%;
-        padding: 12.5rem 2rem;
+        padding: 12.5rem 1rem;
 
         .sign-info-title {
             font-size: 1.25rem !important;
@@ -215,7 +234,11 @@
             }
 
             .sign-info-input {
-                font-size: 0.7rem;
+                font-size: 1rem;
+
+                &::placeholder {
+                    font-size: 0.9rem;
+                }
             }
         }
     }

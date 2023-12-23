@@ -307,6 +307,16 @@ class MyProfileEdit(LoginRequiredMixin, UpdateView):
     def get_object(self, queryset=None):
         return self.request.user
     
+    def form_valid(self, form):
+        messages.success(self.request, 'Profile image updated successfully.')
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        for field, errors in form.errors.items():
+            for error in errors:
+                messages.error(self.request, f"{error}")
+        return super().form_invalid(form)
+    
 def loginView(request):
     template_name = 'pages/user/login.html'
     if request.user.is_authenticated:

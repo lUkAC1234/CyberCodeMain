@@ -12,7 +12,11 @@
         {% if messages %}
         <ul class="success-password-message">
             {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}><i class="fa-solid fa-circle-check"></i> {{ message }}</li>
+                {% if message.tags == 'success' %}
+                    <li class="{{ message.tags }}"><i class="fa-solid fa-circle-check"></i> {{ message }}</li>
+                {% elif message.tags == 'error' %}
+                    <li class="{{ message.tags }}"><i class="fa-solid fa-circle-exclamation"></i> {{ message }}</li>
+                {% endif %}
             {% endfor %}
             <button class="close-message" onclick="closeMessage(this)"><i class="fa-solid fa-xmark"></i></button>
         </ul>
@@ -28,8 +32,7 @@
                             <img class="profile-image" src="{{ request.user.user_image.url }}" alt="">
                             <label class="file-upload-label">
                                 <i class="fa-sharp fa-solid fa-camera profile-add-icon"></i>
-                                <input class="profile-upload-input" type="file" name="user_image" id=""
-                                    accept=".jpg, .png, .jpeg, .webp">
+                                <input class="profile-upload-input" type="file" name="user_image" accept=".jpg, .png, .webp, .jpeg, .svg">
                             </label>
                         </div>
                     </div>
