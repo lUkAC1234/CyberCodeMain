@@ -41,7 +41,7 @@
                     <p class="sign-info-text"><i class="fa-solid fa-circle-info"></i> Be careful the email address you entered may help you recover your account if you forget your password.</p>
                     <form id="registration-form">
                         {% csrf_token %}
-                        <input type="hidden" name="next" value="{{ next }}">
+                        <input type="hidden" name="next" value="{{ next }}" />
                         <div class="sign-info-input-container">
                             <div class="sign-info-input-column">
                                 <label class="sign-info-label">Username</label>

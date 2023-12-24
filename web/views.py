@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse
 from django.urls import reverse_lazy
-from django.db.models import Q
+from django.db.models import Q, Prefetch, Count
 from django.http import JsonResponse
 from django.utils.translation import gettext as _
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
@@ -12,7 +12,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.hashers import make_password
 from django.template.loader import render_to_string
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponseNotFound
+from django.http import HttpResponseNotFound, Http404
 from django.db.models import Count
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib import messages
@@ -165,7 +165,7 @@ class SuccessPayment(CreateView):
         data = super().get_context_data(**kwargs)
         CheckOut.objects.filter(user=self.request.user, success_checkout=True).update(success_checkout=True)
         return data  
-
+    
 class BlogListView(ListView):
     template_name = "pages/blog/blog.html"
     paginate_by = 5
@@ -177,7 +177,11 @@ class BlogListView(ListView):
         category = self.request.GET.get("category", '')
 
         posts = PostModel.objects.all().select_related('category')
- 
+
+        # Filter out private posts for non-staff users
+        if not self.request.user.is_staff:
+            posts = posts.exclude(is_private=True)
+
         if search:
             posts = posts.filter(title__icontains=search)
 
@@ -194,8 +198,26 @@ class BlogListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['latestPost'] = PostModel.objects.filter(is_private=False).order_by('-id')[:1]
-        context['postCategories'] = PostCategoryModel.objects.all()
-        context['postTags'] = PostTagModel.objects.all()
+        queryset = PostModel.objects.all()
+
+        if not self.request.user.is_staff:
+            queryset = queryset.exclude(is_private=True)
+
+        context['postCategories'] = PostCategoryModel.objects.annotate(
+            post_count=Count('postCategories', filter=~Q(postCategories__is_private=True)),
+            all_post_count=Count('postCategories', filter=Q(postCategories__is_private=True) | Q(postCategories__is_private=False))
+        ).prefetch_related(
+            Prefetch('postCategories', queryset=queryset, to_attr='postmodel_categories')
+        )
+
+        context['postTags'] = PostTagModel.objects.annotate(
+            post_count=Count('postTags', filter=~Q(postTags__is_private=True)),
+            all_post_count=Count('postTags', filter=Q(postTags__is_private=True) | Q(postTags__is_private=False))
+        ).prefetch_related(
+            Prefetch('postTags', queryset=queryset, to_attr='postmodel_tags')
+        )
+
+        context['is_staff'] = self.request.user.is_staff
         return context
 
     def render_to_response(self, context, **response_kwargs):
@@ -211,6 +233,16 @@ class blogdetail(DetailView):
     
     def get_queryset(self):
         return PostModel.objects.select_related('category') 
+    
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+
+        # Check if the post is private and the user is not staff
+        if self.object.is_private and not request.user.is_staff:
+            raise Http404("This post is private.")
+
+        context = self.get_context_data(object=self.object)
+        return self.render_to_response(context)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -308,7 +340,7 @@ class MyProfileEdit(LoginRequiredMixin, UpdateView):
         return self.request.user
     
     def form_valid(self, form):
-        messages.success(self.request, 'Profile image updated successfully.')
+        messages.success(self.request, 'Profile updated successfully.')
         return super().form_valid(form)
 
     def form_invalid(self, form):
@@ -319,10 +351,6 @@ class MyProfileEdit(LoginRequiredMixin, UpdateView):
     
 def loginView(request):
     template_name = 'pages/user/login.html'
-    if request.user.is_authenticated:
-        logout(request)
-        return redirect('main:index')
-    
     if request.method == 'POST':
         form = LoginForm(data=request.POST)
         if form.is_valid():
@@ -331,7 +359,8 @@ def loginView(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return JsonResponse({'success': True, 'redirect': reverse('main:profile')})
+                next_url = request.POST.get('next', reverse('main:profile'))
+                return JsonResponse({'success': True, 'redirect': next_url})
             form.add_error('password', f'Username or password is incorrect')
         errors = {field: [error for error in form[field].errors] for field in form.fields}
         return JsonResponse({'success': False, 'errors': errors})

@@ -746,6 +746,17 @@
         @extend .chat-text-gray;
         margin-top: 0.5rem;
     }
+
+    .carousel-private-status {
+        @extend .white-1rem-grotext;
+        font-size: 0.8rem !important;
+        position: absolute;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        background: var(--background-purple);
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.5rem;
+    }
 }
 
 .carousel-date-container {

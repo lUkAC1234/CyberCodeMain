@@ -156,13 +156,10 @@
     // Add a click event listener to each code element
     codeElements.forEach(function (element) {
         element.addEventListener('click', function () {
-            // Check if an SVG element already exists
-            const existingSvg = element.querySelector('svg.js-clipboard-check-icon');
-
-            // If an SVG element already exists, exit the function
-            if (existingSvg) {
-                return;
-            }
+            // Remove any existing SVG elements in all code elements
+            document.querySelectorAll('svg.js-clipboard-check-icon').forEach(function (existingSvg) {
+                existingSvg.remove();
+            });
 
             // Create a temporary input element
             const inputElement = document.createElement('input');

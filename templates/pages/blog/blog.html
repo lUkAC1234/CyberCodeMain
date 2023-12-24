@@ -64,7 +64,11 @@
                                 <button class="post-category-element" data-param-name="category"
                                     data-param-value="{{ category.id }}">
                                     {{category.category}}
-                                    <span class="category-blog-count">{{ category.post_count }}</span>
+                                    {% if is_staff %}
+                                        <span class="category-blog-count">{{ category.all_post_count }}</span>
+                                    {% else %}
+                                        <span class="category-blog-count">{{ category.post_count }}</span>
+                                    {% endif %}
                                 </button>
                             </div>
                             {% endfor %}
@@ -77,7 +81,11 @@
                             <div class="featured-category-column posts-tags-column fade fadeInDown">
                                 <button class="post-tags-element" data-param-name="tag" data-param-value="{{ tag.id }}">
                                     {{ tag.tag }}
-                                    <span class="tag-blog-count">{{ tag.post_count }}</span>
+                                    {% if is_staff %}
+                                        <span class="tag-blog-count">{{ tag.all_post_count }}</span>
+                                    {% else %}
+                                        <span class="tag-blog-count">{{ tag.post_count }}</span>
+                                    {% endif %}
                                 </button>
                             </div>
                             {% endfor %}

@@ -39,7 +39,7 @@
                     <h1 class="sign-info-title">Sign In to Website</h1>
                     <form id="login-form">
                         {% csrf_token %}
-                        <input type="hidden" name="next" value="{{ next }}">
+                        <input type="hidden" name="next" value="{{ request.GET.next|default:'main:profile' }}">
                         <div class="sign-info-input-container">
                             <div class="sign-info-input-column">
                                 <label class="sign-info-label">Username</label>
@@ -88,7 +88,9 @@
                         data: $(this).serialize(),
                         success: function (data) {
                             if (data.success) {
-                                window.location.href = "{% url 'main:profile' %}";
+                                var nextUrl = getParameterByName('next');
+                                if (nextUrl) { window.location.href = nextUrl; } 
+                                else { window.location.href = "{% url 'main:profile' %}"; }
                             } else {
                                 $(".error-message").removeClass('active').empty();
                                 for (var field in data.errors) {
@@ -101,6 +103,15 @@
                         },
                     });
                 });
+                function getParameterByName(name, url) {
+                    if (!url) url = window.location.href;
+                    name = name.replace(/[\[\]]/g, "\\$&");
+                    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                        results = regex.exec(url);
+                    if (!results) return null;
+                    if (!results[2]) return '';
+                    return decodeURIComponent(results[2].replace(/\+/g, " "));
+                }
             });
         </script>
     </main>

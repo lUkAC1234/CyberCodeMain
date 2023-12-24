@@ -553,6 +553,15 @@
 .carousel-text-container .carousel-slide-text {
   margin-top: 0.5rem;
 }
+.carousel-text-container .carousel-private-status {
+  font-size: 0.8rem !important;
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: var(--background-purple);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+}
 
 .carousel-date-container {
   position: absolute;
@@ -7371,7 +7380,7 @@ select:-webkit-autofill:focus {
   text-align: end;
 }
 
-.white-1rem-grotext, .white-1-125rem-grotext, .contact-page-gradient-text-container .contact-page-gradient-text, .pricing-popular-package-info, .btn-for-list-of-packages .click-title, .detail-share-user-info-container .detail-share-username, .join-our-team-text, .success-payment-container .success-payment-go-back-link, .choices-column .price-column .choice-type, .feedback-list-text-column .feedback-list-text-column-title, .feedback-list-text-column .feedback-list-text-column-text, .client-sphere .client-sphere-info, .about-get-in-touch-text-column .about-get-in-touch-title, .about-get-in-touch-text-column .about-get-in-touch-text, .contact-form-success-message,
+.white-1rem-grotext, .white-1-125rem-grotext, .contact-page-gradient-text-container .contact-page-gradient-text, .pricing-popular-package-info, .btn-for-list-of-packages .click-title, .detail-share-user-info-container .detail-share-username, .join-our-team-text, .success-payment-container .success-payment-go-back-link, .choices-column .price-column .choice-type, .carousel-text-container .carousel-private-status, .feedback-list-text-column .feedback-list-text-column-title, .feedback-list-text-column .feedback-list-text-column-text, .client-sphere .client-sphere-info, .about-get-in-touch-text-column .about-get-in-touch-title, .about-get-in-touch-text-column .about-get-in-touch-text, .contact-form-success-message,
 .contact-form-error-message,
 .contact-user-checker, .price-column .pricing-popular-type, .categorie-column .pricing-popular-type, .post-text-container .post-date, .featured-posts-column .featured-post-column-date, .detail-gradient-private, .similar-popular-posts-column .similar-popular-post-column-date, .apply-success-message p, .applyModelUserNotSigned-container .applyModelUserNotSigned-text, .payment-return-back-container .payment-return-back-link {
   color: var(--text-white);

@@ -197,6 +197,7 @@
             <div class="carousel__wrapper">
                 <div class="owl-carousel carousel-slide-container fade fadeInDown"> 
                     {% for object in posts %}
+                    {% if object.is_private == 0 or request.user.is_staff %}
                     <div class="carousel-slide">
                         <div class="carousel-image-container">
                             <a href="{% url 'main:blogdetail' pk=object.pk %}">
@@ -208,8 +209,10 @@
                                 <h1 class="carousel-slide-title">{{ object.title }}</h1>
                             </a>
                             <p class="carousel-slide-text">
-                                {{ object.short_description|slice:"75"|safe }}
-                                {% if object.short_description|length > 75%}...{% endif %}
+                                {{ object.short_description|truncatechars:75|safe }}
+                                {% if object.is_private %}
+                                <p class="carousel-private-status">Private post</p>
+                                {% endif %}
                             </p>
                         </div>
                         <div class="carousel-date-container">
@@ -217,6 +220,7 @@
                             <span class="carousel-date">{{ object.posted_on|date:"F d, Y" }}</span>
                         </div>
                     </div>
+                    {% endif %}
                     {% endfor %}
                 </div>
             </div>
