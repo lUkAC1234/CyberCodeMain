@@ -21,21 +21,28 @@
         <div class="latest-posts-container">
             <h1 class="latest-posts-title fade slideInLeft">Latest posts</h1>
             <div class="latest-post-wrapper">
-                {% for object in latestPost %}
                 <div class="post-image-container fade slideInLeft">
-                    <a href="{% url 'main:blogdetail' pk=object.pk %}">
-                        <img src="{{ object.image.url }}" alt="">
+                    <a href="{% url 'main:blogdetail' pk=latestPost.pk %}">
+                        <img src="{{ latestPost.image.url }}" alt="">
                     </a>
                 </div>
                 <div class="post-text-container fade fadeInUp">
-                    <a href="{% url 'main:blogdetail' pk=object.pk %}">
-                        <h1 class="post-title">{{ object.title }}</h1>
+                    <a href="{% url 'main:blogdetail' pk=latestPost.pk %}">
+                        <h1 class="post-title">{{ latestPost.title }}</h1>
                     </a>
-                    <p class="post-text">{{ object.short_description }}</p>
+                    <div class="post-creator-container">
+                        <div class="post-creator-image-container">
+                            <img src="{{ latestPost.user.user_image.url }}" alt="">
+                        </div>
+                        <div class="post-creator-content">
+                            <h1 class="post-creator-username">{{ latestPost.user }}</h1>
+                            <p class="post-creator-position">{{ latestPost.user.position|default:" "|default_if_none:" " }}</p>
+                        </div>
+                    </div>
+                    <p class="post-text">{{ latestPost.short_description }}</p>
                     <span class="post-posted">Posted on</span>
-                    <p class="post-date">{{ object.posted_on|date:"F d, Y" }}</p>
+                    <p class="post-date">{{ latestPost.posted_on|date:"F d, Y" }}</p>
                 </div>
-                {% endfor %}
             </div>
         </div>
     </section>

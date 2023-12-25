@@ -32,19 +32,14 @@
         @extend .dark-blue-text-center-grotext-family-4rem;
     }
 
-    .detail-gradient-username {
-        @extend .dark-blue-text-center-grotext-family-2rem;
-    }
-
-    .detail-gradient-title,
-    .detail-gradient-username {
+    .detail-gradient-title {
         color: var(--text-white) !important;
     }
 
     .detail-gradient-posted {
         @extend .chat-text-gray-1-125;
         color: var(--text-light-white) !important;
-        margin: 1rem 0 0.5rem;
+        margin-block: 0.5rem;
         display: inline-flex;
         gap: 0.5rem;
     }
@@ -57,7 +52,6 @@
     .detail-gradient-posted-date {
         text-align: center;
     }
-
 }
 
 .detail-gradient-private {
@@ -70,15 +64,29 @@
 }
 
 .detail-gradient-image-container {
+    display: flex;
+    align-items: center;
     margin: 2rem 0 1rem;
+    gap: 0.5rem;
 
     img {
-        width: 4rem;
-        height: 4rem;
+        width: 3rem;
+        height: 3rem;
         object-fit: cover;
         border-radius: 50%;
-        border: 0.35rem solid var(--text-light-white);
         background-color: var(--background-white);
+    }
+}
+
+.detail-gradient-image-container-user {
+    .detail-gradient-user-position,
+    .detail-gradient-username {
+        @extend .white-1rem-grotext;
+        line-height: normal !important;
+    }
+
+    .detail-gradient-username {
+        color: var(--text-purple) !important;
     }
 }
 
@@ -87,27 +95,32 @@
         .detail-gradient-title {
             font-size: 3rem !important;
         }
-
-        .detail-gradient-username {
-            font-size: 1.5rem !important;
-        }
-
     }
 }
 
 @media screen and (max-width: 600px) {
     .detail-gradient-container {
         .detail-gradient-title {
-            font-size: 2rem !important;
-        }
-
-        .detail-gradient-username {
-            font-size: 1.25rem !important;
+            font-size: 2.25rem !important;
         }
 
         .detail-gradient-posted,
         .detail-gradient-posted-date {
             font-size: 1rem !important
+        }
+    }
+
+    .detail-gradient-image-container {
+        img {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+    }
+
+    .detail-gradient-image-container-user {
+        .detail-gradient-user-position,
+        .detail-gradient-username {
+            font-size: 0.8rem !important; 
         }
     }
 }

@@ -10,7 +10,17 @@
                 </div>
                 <div class="feautered-posts-content">
                     <h1 class="featured-post-column-title">
-                        {{object.title }}</h1>
+                        {{object.title }}
+                    </h1>
+                    <div class="post-creator-container">
+                        <div class="post-creator-image-container">
+                            <img src="{{ object.user.user_image.url }}" alt="">
+                        </div>
+                        <div class="post-creator-content">
+                            <h1 class="post-creator-username">{{ object.user }}</h1>
+                            <p class="post-creator-position">{{ object.user.position|default:" "|default_if_none:" " }}</p>
+                        </div>
+                    </div>
                     <p class="featured-post-column-text">{{ object.short_description }}</p>
                     <span class="featured-post-column-posted">Posted on</span>
                     <p class="featured-post-column-date">{{ object.posted_on|date:"F d, Y" }}</p>

@@ -14,8 +14,11 @@
             <h1 class="detail-gradient-title fade fadeInUp">{{ object.title }}</h1>
             <div class="detail-gradient-image-container fade fadeInUp">
                 <img src="{{ object.user.user_image.url }}" alt="">
+                <div class="detail-gradient-image-container-user">
+                    <h1 class="detail-gradient-username">{{ object.user }}</h1>
+                    <h1 class="detail-gradient-user-position">{{ object.user.position }}</h1>
+                </div>
             </div>
-            <h1 class="detail-gradient-username fade fadeInUp">{{ object.user }}</h1>
             <h2 class="detail-gradient-posted fade fadeInUp">
                 Posted on 
                 <span class="detail-gradient-posted-date">{{ object.posted_on|date:"F d, Y" }}</span>

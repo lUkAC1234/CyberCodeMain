@@ -197,7 +197,7 @@ class BlogListView(ListView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['latestPost'] = PostModel.objects.filter(is_private=False).order_by('-id')[:1]
+        context['latestPost'] = PostModel.objects.filter(is_private=False).order_by('-id').first()
         queryset = PostModel.objects.all()
 
         if not self.request.user.is_staff:
