@@ -34,7 +34,7 @@ class PhoneValidator(RegexValidator):
     flags = 0
 
 def validate_image_extension(value):
-    allowed_extensions = ['.webp', '.png', '.jpg', '.jpeg', '.svg']
+    allowed_extensions = ['.webp', '.png', '.jpg', '.jpeg', '.svg', '.jfif']
     ext = os.path.splitext(value.name)[1]
     if ext.lower() not in allowed_extensions:
         raise ValidationError(_('User image: Unsupported file extension. Please upload a webp, png, jpg, jpeg, or svg file.'))
